@@ -19,6 +19,8 @@ var seasons_variable={
         $('#seasons-page').show();
         $('#season-grid-container').scrollTop(0);
         $($('.season-grid-item-wrapper')[0]).addClass('active');
+        if(checkForAdult(current_series,'movie',SeriesModel.categories))
+            SeriesModel.addRecentOrFavouriteMovie(current_series,'recent')
         if(settings.playlist_type==='xtreme'){
             $.getJSON(api_host_url+'/player_api.php?username='+user_name+'&password='+password+'&action=get_series_info&series_id='+current_series.series_id)
                 .then(

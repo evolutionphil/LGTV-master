@@ -17,16 +17,16 @@ var current_movie_categories=[];
 // //Define the method to get a list of available storage devices
 // service.register("getStorageList", function(message) {
 // // Get the list of storage devices
-//      console.log(message);
-//      var storageList = webOS.service.request("luna://com.webos.service.storagemanager/getStorageDevices", {
-//       subscribe: false
-//      });
+// 	console.log(message);
+// 	var storageList = webOS.service.request("luna://com.webos.service.storagemanager/getStorageDevices", {
+// 	 subscribe: false
+// 	});
 //
 // // Send the storage list to the client
-// //   message.respond({
-// //    returnValue: true,
-// //    storageList: storageList
-// //   });
+// //	message.respond({
+// //	 returnValue: true,
+// //	 storageList: storageList
+// //	});
 // });
 var current_movie_type,  current_category={},current_movie,
     current_season, current_episode, current_series;
@@ -611,62 +611,46 @@ function getAtob(text) {
     return result;
 }
 
-function getSortedMovies(movies1, key) {
-    // Handle empty arrays - ExoApp style
-    if (movies1.length == 0) return movies1;
-    
-    var movies = movies1.slice(); // Shallow copy like ExoApp
-    var new_movies = [];
-    var new_key = key;
-    
-    // Map sort keys to data properties - ExoApp style
-    if (key === "a-z" || key === "z-a") new_key = "name";
-    if (key === "number") new_key = "num";
-    
-    // Return unchanged if property doesn't exist - ExoApp style
-    if (typeof movies[0][new_key] == "undefined") {
+function getSortedMovies(movies1,key) {
+    var movies=JSON.parse(JSON.stringify(movies1));
+    var new_movies=[];
+    var new_key=key;
+    if(key==='a-z' || key==='z-a')
+        new_key='name';
+    if(key==='number')
+        new_key='num';
+    if(typeof movies[0][new_key]=='undefined'){
         return movies;
     }
-    
-    var direction = 1;
-    
+    var direction=1;
     switch (key) {
-        case "rating":
-        case "number": 
-        case "added":
-            // ExoApp numeric sorting logic
-            direction = 1;
-            if (key === "number") direction = -1;  // Numbers: high to low (ExoApp comment)
-            
-            new_movies = movies.sort(function(a, b) {
-                var a_new_key = parseFloat(a[new_key]);
-                if (isNaN(a_new_key)) a_new_key = 0;
-                var b_new_key = parseFloat(b[new_key]);
-                if (isNaN(b_new_key)) b_new_key = 0;
-                
-                return direction * (a_new_key < b_new_key ? 1 : 
-                                   a_new_key > b_new_key ? -1 : 0);
-            });
+        case 'rating':
+        case 'number':
+        case 'added':
+            direction=1;
+            if(key==='number')
+                direction=-1;
+            new_movies=movies.sort(function(a,b){
+                var a_new_key=parseFloat(a[new_key]);
+                if(isNaN(a_new_key))
+                    a_new_key=0;
+                var b_new_key=parseFloat(b[new_key])
+                if(isNaN(b_new_key))
+                    b_new_key=0;
+                return direction*(a_new_key<b_new_key ? 1
+                    :a_new_key>b_new_key ? -1 : 0);
+            })
             break;
-            
-        case "a-z":
-        case "z-a":
-        case "name":
-            // ExoApp alphabetical sorting - NO preprocessing
-            direction = key === "a-z" || key === "name" ? 1 : -1;
-            
-            new_movies = movies.sort(function(a, b) {
-                return direction * a[new_key].localeCompare(b[new_key]);
-            });
+        case 'a-z':
+        case 'z-a':
+            direction=key==='a-z' ? 1 : -1;
+            new_movies=movies.sort(function(a,b){
+                return direction*(a[new_key].localeCompare(b[new_key]));
+            })
             break;
-            
-        case "default":
-        default:
-            // No sorting - return original order
+        case 'default':
             return movies;
     }
-    
-    console.log('getSortedMovies: Sorted ' + movies.length + ' items by "' + key + '" (direction: ' + (direction === 1 ? 'asc' : 'desc') + ')');
     return new_movies;
 }
 

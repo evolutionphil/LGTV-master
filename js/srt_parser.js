@@ -4,37 +4,44 @@ var SrtParser={
     init:function () {
         this.seperator = ",";
     },
-    timestampToSeconds: function(srtTimestamp) {
-        var parts = srtTimestamp.split(",");
-        var timeString = parts[0];
-        var milliseconds = parseInt(parts[1]) || 0;
-        
-        var timeParts = timeString.split(":").map(function(x) {
-            return parseInt(x) || 0;
-        });
-        
-        var hours = timeParts[0] || 0;
-        var minutes = timeParts[1] || 0; 
-        var seconds = timeParts[2] || 0;
-        
+    timestampToSeconds (srtTimestamp){
+        var rest_millisecondsString= srtTimestamp.split(",")
+        var rest=rest_millisecondsString[0], millisecondsString=rest_millisecondsString[1];
+        var milliseconds = parseInt(millisecondsString);
+        var h_m_s= rest.split(":").map(function (x) {
+            return parseInt(x)
+        })
+        var hours=h_m_s[0], minutes=h_m_s[1], seconds=h_m_s[2];
         return milliseconds * 0.001 + seconds + 60 * minutes + 3600 * hours;
     },
-    correctFormat: function(time) {
-        // Enhanced format correction from exo app
-        // Fix format inconsistencies and handle various input formats
+    correctFormat(time) {
+        // Fix the format if the format is wrong
+        // 00:00:28.9670 Become 00:00:28,967
+        // 00:00:28.967  Become 00:00:28,967
+        // 00:00:28.96   Become 00:00:28,960
+        // 00:00:28.9    Become 00:00:28,900
+        // 00:00:28,96   Become 00:00:28,960
+        // 00:00:28,9    Become 00:00:28,900
+        // 00:00:28,0    Become 00:00:28,000
+        // 00:00:28,01   Become 00:00:28,010
+        // 0:00:10,500   Become 00:00:10,500
         var str = time.replace(".", ",");
-        var parts = str.split(",");
-        var timePart = parts[0] || "00:00:00";
-        var milliseconds = parts[1] || "000";
-        
-        // Ensure proper formatting
-        var timeComponents = timePart.split(":");
-        var hours = this.fixed_str_digit(2, timeComponents[0] || "0", false);
-        var minutes = this.fixed_str_digit(2, timeComponents[1] || "0", false);
-        var seconds = this.fixed_str_digit(2, timeComponents[2] || "0", false);
-        var ms = this.fixed_str_digit(3, milliseconds);
-        
-        return hours + ':' + minutes + ':' + seconds + ',' + ms;
+        var hour = null;
+        var minute = null;
+        var second = null;
+        var millisecond = null;
+
+        // Handle millisecond
+        var front_ms=str.split(",");
+        var front=front_ms[0], ms=front_ms[1];
+        millisecond = this.fixed_str_digit(3, ms);
+        // Handle hour
+        var h_m_s=front.split(":");
+        var a_hour=h_m_s[0], a_minute=h_m_s[1], a_second=h_m_s[2]
+        hour = this.fixed_str_digit(2, a_hour, false);
+        minute = this.fixed_str_digit(2, a_minute, false);
+        second = this.fixed_str_digit(2, a_second, false);
+        return hour+':'+minute+':'+second+','+millisecond;
     },
     /*
     // make sure string is 'how_many_digit' long

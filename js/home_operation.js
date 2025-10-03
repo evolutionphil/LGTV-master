@@ -837,48 +837,25 @@ var home_page={
         var current_sort_key=current_movie_type==='movies' ? 'vod_sort' : 'series_sort';
         $('#sort-modal-container').hide();
         var category=current_movie_categories[keys.submenu_selection];
-        
-        console.log('🎯 changeSortKey called with key:', key, 'current_sort_key:', current_sort_key, 'category:', category.category_id);
-        
-        // Always save the new sort preference
-        settings.saveSettings(current_sort_key, key, '');
-        
-        // Get movies to sort based on category
-        var movies = [];
-        if(category.category_id === 'all'){
-            // "All" category: get all movies from non-adult categories
-            current_movie_categories.map(function(item) {
-                if(item.category_id !== 'all' && !checkForAdult(item, 'category', [])) {
-                    movies = movies.concat(item.movies);
-                }
-            });
-        } else {
-            // Regular category: use category movies
-            movies = current_category.movies;
-        }
-        
-        // Apply sorting
-        this.movies = getSortedMovies(movies, key);
-        console.log('✅ Applied sort "' + key + '" to ' + this.movies.length + ' movies');
-        
-        // Refresh the content display
-        $('#movie-grids-container').html('');
-        this.current_render_count = 0;
-        this.renderCategoryContent();
-        
-        // Update UI state
-        if(this.movies.length > 0){
-            keys.focused_part = "grid_selection";
-            keys.grid_selection = 0;
-            $('#sort-button-container').removeClass('active');
-        }
-        
-        // Update sort button text
-        $('#sort-button').text($(this.sort_selection_doms[keys.sort_selection]).text());
-        $('#movie-grids-container').scrollTop(0);
-        
-        // Focus on first movie if available
-        if(this.movie_grid_doms && this.movie_grid_doms.length > 0) {
+        if(settings[current_sort_key]!=key && category.category_id!='all'){
+            settings.saveSettings(current_sort_key,key,'');
+            this.movies=getSortedMovies(current_category.movies,key)
+            $('#movie-grids-container').html('');
+            this.current_render_count=0;
+            this.renderCategoryContent();
+            if(current_category.movies.length>0){
+                keys.focused_part="grid_selection";
+                keys.grid_selection=0;
+                $('#sort-button-container').removeClass('active');
+            }
+            $('#sort-button').text($(this.sort_selection_doms[keys.sort_selection]).text());
+            $('#movie-grids-container').scrollTop(0);
+        }else{
+            // keys.focused_part="grid_selection";
+            // keys.grid_selection=0;
+            // $('#sort-button-container').removeClass('active');
+            // $('#movie-grids-container .movie-item-wrapper').removeClass('active');
+            // $($('#movie-grids-container .movie-item-wrapper')[0]).addClass('active');
             this.hoverMovieGridItem(this.movie_grid_doms[0]);
         }
     },

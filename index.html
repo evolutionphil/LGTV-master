@@ -1050,9 +1050,6 @@
             <img class="vod-series-background-img" onerror="this.src=''">
             <div class="vod-series-background-img-overlay"></div>
             <div class="vod-series-summary-page-contents-container">
-                <!-- DEBUG: Temporary back button - will be removed later -->
-                <button id="debug-series-back-btn" style="position: absolute; top: 20px; left: 20px; z-index: 1000; background: #333; color: white; border: 2px solid #fff; padding: 10px 20px; font-size: 16px; cursor: pointer;" onclick="series_summary_page.goBack()">← BACK (DEBUG)</button>
-                
                 <div class="" id="series-summary-content-container">
                     <div style="display: inline-block;height: 100vh; vertical-align: top;width: 500px;position: relative;">
                         <div id="series-summary-image-wrapper">
@@ -1223,7 +1220,7 @@
                                  onmouseenter="vod_series_player.hoverVideoInfoBtn(0)"
                                  onclick="vod_series_player.showVideoInfo()"
                             >
-                                <i class="fa fa-info-circle"></i>
+                                <i class="fa fa-info"></i>
                             </div>
                         </div>
                         <div class="video-info-btn">
@@ -1231,7 +1228,7 @@
                                  onmouseenter="vod_series_player.hoverVideoInfoBtn(1)"
                                  onclick="vod_series_player.showSubtitleAudioModal('TEXT')"
                             >
-                                <i class="fa fa-closed-captioning"></i>
+                                <i class="fa fa-credit-card"></i>
                             </div>
                         </div>
                         <div class="video-info-btn">
@@ -1239,7 +1236,7 @@
                                  onmouseenter="vod_series_player.hoverVideoInfoBtn(2)"
                                  onclick="vod_series_player.showSubtitleAudioModal('AUDIO')"
                             >
-                                <i class="fa fa-headphones"></i>
+                                <i class="fa fa-music"></i>
                             </div>
                         </div>
                         <div class="video-info-btn">
@@ -1247,7 +1244,7 @@
                                  onmouseenter="vod_series_player.hoverVideoInfoBtn(3)"
                                  onclick="vod_series_player.changeScreenRatio()"
                             >
-                                <i class="fa fa-expand-arrows-alt"></i>
+                                <i class="fa fa-window-restore"></i>
                             </div>
                         </div>
                         <div class="video-info-btn">
@@ -1338,7 +1335,7 @@
                                         Cancel
                                     </button>
                                 </div>
-                                <div class="btn-wrapper-1 text-right" style="margin-left: 8px;">
+                                <div class="btn-wrapper-1 text-right">
                                     <button type="button" class="btn modal-btn-1 subtitle-option" data-word_code="ok"
                                             onmouseenter="vod_series_player.hoverSubtitleAudioModal(-1)"
                                             onclick="vod_series_player.confirmSubtitle()"
@@ -1622,8 +1619,6 @@
     <script src="js/episode_variable.js"></script>
     <script src="js/language_codes.js"></script>
     <script src="js/search_page.js"></script>
-    <script src="js/subtitle_fetcher.js"></script>
-    <script src="js/enhanced_subtitle_workflow.js"></script>
     <script src="js/srt_parser.js"></script>
     <script src="js/srt_operation.js"></script>
     <script src="js/youtube_page.js"></script>

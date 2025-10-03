@@ -130,6 +130,7 @@ var login_page={
     fetchPlaylistInformation:function(){
         var that=this;
         $('.mac-address').text(mac_address);
+        $('#bottom-right-mac-address').text(mac_address);
         var keys=this.keys;
         var version=platform==='samsung' ? samsung_version : lg_version;
         var data={

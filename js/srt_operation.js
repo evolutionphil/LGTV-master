@@ -5,35 +5,31 @@ var SrtOperation={
     srt:[],
     stopped:false,
     subtitle_shown:false,
-    init: function (subtitle, current_time) {
-        // Enhanced initialization from exo app
-        // Clear existing subtitles
-        $('#' + media_player.parent_id).find('.subtitle-container').html('');
-        this.subtitle_shown = false;
-        
-        // Parse SRT content
-        var srt = [];
-        if(subtitle && subtitle.content) {
-            try {
+    init: function (subtitle, current_time) {  // will set initial time and initial index from parsed subtitle text array
+        // we will save always the index and time for current time subtitle text
+        $('#'+media_player.parent_id).find('.subtitle-container').html('');
+        this.subtitle_shown=false;
+        var srt=[];
+        if(subtitle.content) {
+            try{
                 SrtParser.init();
-                srt = SrtParser.fromSrt(subtitle.content);
-            } catch(e) {
-                console.error('SRT parsing error:', e);
+                srt=SrtParser.fromSrt(subtitle.content)
+            }catch (e) {
             }
         }
-        
-        this.srt = srt;
-        if(srt.length > 0) {
-            this.stopped = false;
-            // Find starting subtitle index using binary search - exact timing
-            this.current_srt_index = this.findIndex(current_time, 0, srt.length - 1);
-            if(this.current_srt_index < 0) this.current_srt_index = 0;
-            console.log("SRT initialized - found index:", this.current_srt_index, "for time:", current_time);
-        } else {
-            this.stopped = true;
-            console.log("No subtitles available or parsing failed");
+        this.srt=srt;
+        if(srt.length>0)
+            this.stopped=false;
+        else{
+            this.stopped=true;
+            return;
         }
-        this.next_srt_time = 0;
+
+        this.current_srt_index=this.findIndex(current_time,0,srt.length-1);
+        console.log("here found srt index",this.current_srt_index,current_time, srt);
+        if(this.current_srt_index<0)
+            this.current_srt_index=0;
+        this.next_srt_time=0;
     },
     findIndex: function (time,start, end) {  // we will use binary search algorithm here
         if(time==0)
@@ -47,7 +43,7 @@ var SrtOperation={
         let mid=Math.floor((start + end)/2);
 
         // Compare mid with given key x
-        if (arr[mid].startSeconds<=time && time<arr[mid].endSeconds)
+        if (arr[mid].startSeconds<=time && time<arr[mid].endTime)
             return mid;
 
 
@@ -60,96 +56,55 @@ var SrtOperation={
             // search in the right half of mid
             return this.findIndex(time, mid+1, end);
     },
-    timeChange: function(current_time) {
-        // 🔧 TIMING DEBUG: Add comprehensive subtitle timing logs
-        console.log("⏰ SUBTITLE TIMING DEBUG:", {
-            current_time: current_time,
-            current_time_formatted: this.formatTimeForDebug(current_time),
-            stopped: this.stopped,
-            srt_length: this.srt ? this.srt.length : 0,
-            current_srt_index: this.current_srt_index,
-            subtitle_shown: this.subtitle_shown
-        });
-
-        // Exact timing logic from exoapp - no compensation offsets
-        if(this.stopped || !this.srt || this.srt.length === 0) {
-            console.log("🚫 SUBTITLE TIMING: Stopped or no subtitles available");
+    timeChange:function (current_time) {
+        if(this.stopped)
             return;
+        var srt_index=this.current_srt_index;
+        var srt_item=this.srt[srt_index];
+        if(current_time>=srt_item.startSeconds && current_time<srt_item.endSeconds){
+            if(!this.subtitle_shown)
+                $('#'+media_player.parent_id).find('.subtitle-container').html(srt_item.text)
         }
-        
-        var srtIndex = this.current_srt_index;
-        if(srtIndex >= this.srt.length || srtIndex < 0) {
-            console.log("🔍 SUBTITLE TIMING: Finding new index for time", current_time);
-            srtIndex = this.findIndex(current_time, 0, this.srt.length - 1);
-            this.current_srt_index = Math.max(0, srtIndex);
-            console.log("📍 SUBTITLE TIMING: New index found:", this.current_srt_index);
-            return;
+        else if(current_time>srt_item.endSeconds) {
+            var next_srt_item=this.srt[srt_index+1];
+            try{
+                if(current_time<next_srt_item.startSeconds){
+                    if(this.subtitle_shown){
+                        $('#'+media_player.parent_id).find('.subtitle-container').html('');
+                        this.subtitle_shown=false;
+                    }
+                }else if(next_srt_item.endSeconds>current_time){
+                    $('#'+media_player.parent_id).find('.subtitle-container').html(next_srt_item.text);
+                    this.subtitle_shown=true;
+                    this.current_srt_index+=1;
+                }else   // in this case, have to find the next index;
+                {
+                    console.log("here finding new srt index");
+                    this.current_srt_index=this.findIndex(current_time,0,this.srt.length-1);
+                    if(this.current_srt_index<0)
+                        this.current_srt_index=0;
+                }
+            }catch (e) {
+                console.log("subtitle timer issue",e);
+            }
         }
-        
-        var srtItem = this.srt[srtIndex];
-        console.log("📝 SUBTITLE TIMING: Current item check:", {
-            index: srtIndex,
-            startSeconds: srtItem.startSeconds,
-            endSeconds: srtItem.endSeconds,
-            text_preview: srtItem.text ? srtItem.text.substring(0, 50) + "..." : "No text",
-            should_show: current_time >= srtItem.startSeconds && current_time < srtItem.endSeconds
-        });
-        
-        // Check if current subtitle should be displayed - exact timing
-        if(current_time >= srtItem.startSeconds && current_time < srtItem.endSeconds) {
-            if(!this.subtitle_shown) {
-                console.log("✅ SUBTITLE TIMING: Showing subtitle at", current_time, ":", srtItem.text.substring(0, 100));
-                this.showSubtitle(srtItem.text);
-                this.subtitle_shown = true;
-            }
-        } else {
-            // Hide subtitle when out of time range
-            if(this.subtitle_shown) {
-                console.log("❌ SUBTITLE TIMING: Hiding subtitle at", current_time);
-                this.hideSubtitle();
-                this.subtitle_shown = false;
-            }
-            
-            // Find next subtitle
-            var newIndex = this.findIndex(current_time, 0, this.srt.length - 1);
-            if(newIndex >= 0 && newIndex !== this.current_srt_index) {
-                console.log("🔄 SUBTITLE TIMING: Moving to index", newIndex, "from", this.current_srt_index);
-                this.current_srt_index = newIndex;
+        else if(current_time<srt_item.startSeconds) {
+            try{
+                this.current_srt_index=this.findIndex(current_time,0,this.srt.length-1);
+                if(this.current_srt_index<0)
+                    this.current_srt_index=0;
+            }catch (e) {
             }
         }
     },
-    
-    formatTimeForDebug: function(seconds) {
-        var min = Math.floor(seconds / 60);
-        var sec = Math.floor(seconds % 60);
-        var ms = Math.floor((seconds % 1) * 1000);
-        return min + ":" + (sec < 10 ? "0" : "") + sec + "." + (ms < 100 ? "0" : "") + (ms < 10 ? "0" : "") + ms;
-    },
-    showSubtitle: function(text) {
-        // Enhanced subtitle display with better formatting
-        var subtitleHtml = '<div class="subtitle-text">' + text.replace(/\n/g, '<br>') + '</div>';
-        var subtitleContainer = $('#' + media_player.parent_id).find('.subtitle-container');
-        subtitleContainer.html(subtitleHtml);
-        subtitleContainer.show(); // Ensure container is visible when showing subtitles
-    },
-    
-    hideSubtitle: function() {
-        var subtitleContainer = $('#' + media_player.parent_id).find('.subtitle-container');
-        subtitleContainer.html('');
-        // Keep container visible but empty - don't hide it as it may be needed again
-    },
-    
     stopOperation: function () {
-        this.stopped = true;
-        this.hideSubtitle();
-        this.subtitle_shown = false;
+        this.stopped=true;
+        $('#'+media_player.parent_id).find('.subtitle-container').html('');
+        this.subtitle_shown=false
     },
-    
-    deStruct: function () {
-        this.srt = [];
-        this.stopped = true;
-        this.hideSubtitle();
-        this.current_srt_index = 0;
-        this.subtitle_shown = false;
+    deStruct:function () {
+        this.srt=[];
+        this.stopped=true;
+        $('#'+media_player.parent_id).find('.subtitle-container').html('');
     }
 }

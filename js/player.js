@@ -246,21 +246,8 @@ function initPlayer() {
                     },
                     oncurrentplaytime: function(currentTime) {
                         that.current_time=currentTime;
-                        if(current_route==='vod-series-player-video') {
+                        if(current_route==='vod-series-player-video')
                             vod_series_player.current_time=currentTime/1000;
-                            // 🔧 SAMSUNG TIMING DEBUG: Samsung gives time in milliseconds
-                            var currentTimeSeconds = currentTime/1000;
-                            console.log("📱 SAMSUNG TIMING:", {
-                                platform: "Samsung/Tizen",
-                                currentTime_ms: currentTime,
-                                currentTime_seconds: currentTimeSeconds,
-                                route: current_route
-                            });
-                            
-                            if(typeof SrtOperation !== 'undefined') {
-                                SrtOperation.timeChange(currentTimeSeconds);
-                            }
-                        }
                         $('#'+that.parent_id).find('.video-error').hide();
                         var duration =  webapis.avplay.getDuration();
                         if (duration > 0) {
@@ -352,41 +339,18 @@ function initPlayer() {
                 return result;
             },
             setSubtitleOrAudioTrack:function(kind, index){
-                // Enhanced Samsung subtitle control from exo app
                 try{
-                    if(kind === "TEXT") {
-                        if(index === -1) {
-                            // Disable native subtitles - check if webapis is available
-                            if(typeof webapis !== 'undefined' && webapis.avplay && webapis.avplay.setSubtitle) {
-                                webapis.avplay.setSubtitle(-1);
-                            }
-                        } else {
-                            // Enable native subtitle track - check if webapis is available
-                            if(typeof webapis !== 'undefined' && webapis.avplay) {
-                                if(webapis.avplay.setSilentSubtitle) {
-                                    webapis.avplay.setSilentSubtitle(true);
-                                }
-                                if(webapis.avplay.setSelectTrack) {
-                                    webapis.avplay.setSelectTrack(kind, index);
-                                }
-                                if(webapis.avplay.setSilentSubtitle) {
-                                    webapis.avplay.setSilentSubtitle(false);
-                                }
-                            }
-                        }
-                        
-                        if(index > -1) {
-                            $('#'+this.parent_id).find('.subtitle-container').show();
-                        }
-                    } else {
-                        // Audio track handling - check if webapis is available
-                        if(typeof webapis !== 'undefined' && webapis.avplay && webapis.avplay.setSelectTrack) {
-                            webapis.avplay.setSelectTrack(kind, index);
-                        }
+                    if(index>-1){
+                        webapis.avplay.setSilentSubtitle(true);
+                        webapis.avplay.setSelectTrack(kind,index);
+                        webapis.avplay.setSilentSubtitle(false);
+                    }else{
+                        webapis.avplay.setSilentSubtitle(false);
                     }
                 }catch (e) {
-                    console.error('Samsung subtitle/audio track error:', e.message || e);
-                    console.error('Error details:', e);
+                }
+                if(kind==='TEXT' && index>-1){
+                    $('#'+this.parent_id).find('.subtitle-container').show();
                 }
             },
             seekTo:function(step){
@@ -477,16 +441,7 @@ function initPlayer() {
                     var currentTime=videoObj.currentTime;
                     if(current_route==='vod-series-player-video') {
                         vod_series_player.current_time=currentTime;
-                        
-                        // 🔧 BROWSER TIMING DEBUG: Browser gives time in seconds directly
-                        console.log("🌐 BROWSER TIMING:", {
-                            platform: "Browser/HTML5",
-                            currentTime_seconds: currentTime,
-                            duration: duration,
-                            route: current_route
-                        });
-                        
-                        SrtOperation.timeChange(currentTime);
+                        SrtOperation.timeChange(videoObj.currentTime);
                     }
                     if (duration > 0) {
                         $('#'+that.parent_id).find('.video-progress-bar-slider').val(currentTime).change();
@@ -620,34 +575,14 @@ function initPlayer() {
                 return totalTrackInfo;
             },
             setSubtitleOrAudioTrack:function(kind, index){
-                // Enhanced LG subtitle control from exo app
-                try {
-                    if(kind === "TEXT" && this.videoObj.textTracks) {
-                        // Disable all text tracks first
-                        for(var i = 0; i < this.videoObj.textTracks.length; i++) {
-                            this.videoObj.textTracks[i].mode = 'hidden';
-                        }
-                        
-                        // Enable selected track
-                        if(index >= 0 && index < this.videoObj.textTracks.length) {
-                            this.videoObj.textTracks[index].mode = 'showing';
-                        }
-                        
-                        // Handle API subtitles
-                        if(this.subtitles[index]) {
-                            SrtOperation.init(this.subtitles[index], this.videoObj.currentTime);
-                        }
-                    } else if(kind === "AUDIO") {
-                        // Audio track handling
-                        for (var i = 0; i < this.videoObj.audioTracks.length; i++) {
-                            this.videoObj.audioTracks[i].enabled = false;
-                        }
-                        if(index >= 0 && index < this.videoObj.audioTracks.length) {
-                            this.videoObj.audioTracks[index].enabled = true;
-                        }
+                if(kind==='TEXT'){
+                    if(this.subtitles[index])
+                        SrtOperation.init(this.subtitles[index],media_player.videoObj.currentTime);
+                }else{
+                    for (var i = 0; i < this.videoObj.audioTracks.length; i++) {
+                        this.videoObj.audioTracks[i].enabled = false;
                     }
-                } catch(e) {
-                    console.error('LG subtitle/audio track error:', e);
+                    this.videoObj.audioTracks[index].enabled = true;
                 }
             }
         }
