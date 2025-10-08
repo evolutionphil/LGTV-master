@@ -54,7 +54,7 @@ var youtube_playlists=[
     // }
 ]
 var youtube_api_key;
-var video_file_exts=["webm", "mpg", "mp2", "mpeg", "mpe", "mpv", "ogg", "mp4", "m4p", "m4v", "avi", "wmv", "mov", "qt", "flv", "swf", "avchd"]
+var video_file_exts=["webm", "mpg", "mp2", "mpeg", "mpe", "mpv", "ogg", "mp4", "m4p", "m4v", "avi", "wmv", "mov", "qt", "flv", "swf", "avchd","mkv"]
 var image_file_exts=["apng","avif","gif","jpg", "jpeg", "jfif", "pjpeg", "pjp","png","svg","webp","bmp","ico","cur","tif", "tiff"];
 var test_images=[
     {
