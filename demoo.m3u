@@ -1,11 +1,5 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="" tvg-name="FLIX APP English" tvg-logo="" group-title="Flix Demo Category 1",FLIX APP English
-http://flixdemo.com:25461/flixdemo/Eers9i2xGp/40
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Portugal" tvg-logo="" group-title="Flix Demo Category 1",FLIX APP Portugal
-http://flixdemo.com:25461/flixdemo/Eers9i2xGp/39
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP English" tvg-logo="" group-title="Flix Demo Category 2",FLIX APP English
-http://flixdemo.com:25461/flixdemo/Eers9i2xGp/41
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP English" tvg-logo="" group-title="Flix Demo Category 1",FLIX APP English
 http://flixdemo.com:25461/movie/flixdemo/Eers9i2xGp/35.mp4
 #EXTINF:-1 tvg-id="" tvg-name="FLIX APP German" tvg-logo="" group-title="Flix Demo Category 2",FLIX APP German
 http://flixdemo.com:25461/movie/flixdemo/Eers9i2xGp/4.mp4
@@ -27,83 +21,97 @@ http://flixdemo.com:25461/movie/flixdemo/Eers9i2xGp/37.mp4
 http://flixdemo.com:25461/movie/flixdemo/Eers9i2xGp/38.mp4
 #EXTINF:-1 tvg-id="" tvg-name="FLIX APP French" tvg-logo="" group-title="Flix Demo Category 1",FLIX APP French
 http://flixdemo.com:25461/movie/flixdemo/Eers9i2xGp/3.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E01" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E01
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP English" tvg-logo="" group-title="Demo Category 2",FLIX APP English
+http://flixdemo.com:25461/flixdemo/Eers9i2xGp/113
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Portugal" tvg-logo="" group-title="Demo Category 1",FLIX APP Portugal
+http://flixdemo.com:25461/flixdemo/Eers9i2xGp/114
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP German" tvg-logo="" group-title="Demo Category 1",FLIX APP German
+http://flixdemo.com:25461/flixdemo/Eers9i2xGp/115
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Russia" tvg-logo="" group-title="Demo Category 1",FLIX APP Russia
+http://flixdemo.com:25461/flixdemo/Eers9i2xGp/116
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP French" tvg-logo="" group-title="Demo Category 1",FLIX APP French
+http://flixdemo.com:25461/flixdemo/Eers9i2xGp/117
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Turkish" tvg-logo="" group-title="Demo Category 2",FLIX APP Turkish
+http://flixdemo.com:25461/flixdemo/Eers9i2xGp/118
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Brasil" tvg-logo="" group-title="Demo Category 2",FLIX APP Brasil
+http://flixdemo.com:25461/flixdemo/Eers9i2xGp/119
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E01" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E01
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/42.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E02" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E02
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E02" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E02
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/74.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E03" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E03
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E03" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E03
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/75.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E04" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E04
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E04" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E04
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/43.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E05" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E05
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E05" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E05
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/76.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E06" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E06
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E06" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E06
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/44.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E07" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E07
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E07" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E07
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/77.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E08" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E08
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E08" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E08
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/45.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E09" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E09
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E09" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E09
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/46.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E10" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E10
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E10" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E10
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/78.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E11" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E11
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E11" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E11
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/79.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E12" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E12
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E12" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E12
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/47.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E13" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E13
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E13" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E13
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/80.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E14" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E14
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E14" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E14
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/48.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E15" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E15
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E15" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E15
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/49.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E16" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S01 E16
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S01 E16" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S01 E16
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/81.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E01" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S02 E01
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E01" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S02 E01
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/50.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E02" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S02 E02
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E02" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S02 E02
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/51.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E03" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S02 E03
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E03" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S02 E03
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/52.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E04" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S02 E04
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E04" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S02 E04
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/53.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E05" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S02 E05
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E05" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S02 E05
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/54.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E06" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S02 E06
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E06" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S02 E06
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/55.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E07" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S02 E07
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E07" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S02 E07
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/56.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E08" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 1 S02 E08
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 1 S02 E08" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 1 S02 E08
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/57.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E01" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S01 E01
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E01" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S01 E01
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/58.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E02" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S01 E02
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E02" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S01 E02
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/59.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E03" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S01 E03
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E03" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S01 E03
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/60.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E04" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S01 E04
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E04" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S01 E04
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/61.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E05" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S01 E05
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E05" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S01 E05
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/62.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E06" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S01 E06
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E06" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S01 E06
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/63.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E07" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S01 E07
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E07" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S01 E07
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/64.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E08" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S01 E08
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S01 E08" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S01 E08
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/65.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E01" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S02 E01
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E01" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S02 E01
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/66.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E02" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S02 E02
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E02" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S02 E02
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/67.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E03" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S02 E03
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E03" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S02 E03
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/68.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E04" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S02 E04
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E04" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S02 E04
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/69.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E05" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S02 E05
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E05" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S02 E05
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/70.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E06" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S02 E06
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E06" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S02 E06
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/71.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E07" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S02 E07
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E07" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S02 E07
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/72.mp4
-#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E08" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Flix Demo Category 1",FLIX APP Serie 2 S02 E08
+#EXTINF:-1 tvg-id="" tvg-name="FLIX APP Serie 2 S02 E08" tvg-logo="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/39/0a/f6/390af649-3838-78ba-d618-5771bed59424/App_Icon-marketing.lsr/1024x1024bb.jpg" group-title="Demo Category 1",FLIX APP Serie 2 S02 E08
 http://flixdemo.com:25461/series/flixdemo/Eers9i2xGp/73.mp4
