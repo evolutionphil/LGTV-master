@@ -137,17 +137,19 @@ function initPlayer() {
                             if(current_route==='vod-series-player-video')
                                 vod_series_player.showResumeBar();
                             if(current_route==='channel-page'){
-                                try{
-                                    var stream_info=webapis.avplay.getCurrentStreamInfo();
-                                    if(typeof stream_info[0]!='undefined'){
-                                        var extra_info=JSON.parse(stream_info[0].extra_info);
-                                        if(extra_info && extra_info.Width && extra_info.Height){
-                                            var stream_summary=extra_info.Width+' * '+extra_info.Height;
-                                            $('.video-resolution').text(stream_summary);
+                                setTimeout(function(){
+                                    try{
+                                        var stream_info=webapis.avplay.getCurrentStreamInfo();
+                                        if(typeof stream_info[0]!='undefined'){
+                                            var extra_info=JSON.parse(stream_info[0].extra_info);
+                                            if(extra_info && extra_info.Width && extra_info.Height){
+                                                var stream_summary=extra_info.Width+' * '+extra_info.Height;
+                                                $('.video-resolution').text(stream_summary);
+                                            }
                                         }
+                                    }catch (e) {
                                     }
-                                }catch (e) {
-                                }
+                                }, 1000);
                             }
                         },
                         function(e){
@@ -524,6 +526,13 @@ function initPlayer() {
                     $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(duration));
                     $('#'+that.parent_id).find('.video-progress-bar-slider').attr(attributes)
                     $('#'+that.parent_id).find('.video-progress-bar-slider').rangeslider('update', true);
+                    
+                    if(current_route==='channel-page'){
+                        if(videoObj.videoWidth && videoObj.videoHeight){
+                            var resolution = videoObj.videoWidth + ' * ' + videoObj.videoHeight;
+                            $('.video-resolution').text(resolution);
+                        }
+                    }
                 });
                 this.videoObj.addEventListener('waiting', function(event){
                     // console.log('Video is waiting for more data.',event);
