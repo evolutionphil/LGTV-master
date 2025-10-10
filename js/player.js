@@ -19,6 +19,19 @@ function initPlayer() {
             url:'',
             id:'',
             tv_capabilities: null,
+            aspect_ratio_modes: {
+                samsung: [
+                    'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO',
+                    'PLAYER_DISPLAY_MODE_LETTER_BOX',
+                    'PLAYER_DISPLAY_MODE_FULL_SCREEN'
+                ],
+                lg: [
+                    'contain',
+                    'cover',
+                    'fill'
+                ]
+            },
+            current_aspect_ratio_index: 0,
             detectTVCapabilities: function() {
                 if (this.tv_capabilities) {
                     return this.tv_capabilities;
@@ -274,12 +287,18 @@ function initPlayer() {
                 });
             },
             toggleScreenRatio:function(){
-                if(this.full_screen_state==1){
-                    this.full_screen_state=0;
-                    this.setDisplayArea();
-                }else{
-                    this.full_screen_state=1;
-                    this.setDisplayArea();
+                try{
+                    // Cycle through Samsung display modes
+                    var modes = this.aspect_ratio_modes.samsung;
+                    this.current_aspect_ratio_index = (this.current_aspect_ratio_index + 1) % modes.length;
+                    var selectedMode = modes[this.current_aspect_ratio_index];
+                    
+                    webapis.avplay.setDisplayMethod(selectedMode);
+                    
+                    // Show user feedback
+                    var modeNames = ['Auto', 'Fit Screen', 'Fill Screen'];
+                    showToast('Aspect Ratio', modeNames[this.current_aspect_ratio_index]);
+                }catch (e) {
                 }
             },
             formatTime:function(seconds) {
@@ -463,6 +482,10 @@ function initPlayer() {
             next_video_showing:false,
             subtitles:[],
             tracks:[],
+            aspect_ratio_modes: {
+                lg: ['contain', 'cover', 'fill']
+            },
+            current_aspect_ratio_index: 0,
             init:function(id, parent_id) {
                 id+='-lg';
                 this.next_video_showing=false;
@@ -616,7 +639,20 @@ function initPlayer() {
                 this.subtitles=[];
             },
             toggleScreenRatio:function(){
-
+                try{
+                    // Cycle through LG CSS object-fit modes
+                    var modes = this.aspect_ratio_modes.lg;
+                    this.current_aspect_ratio_index = (this.current_aspect_ratio_index + 1) % modes.length;
+                    var selectedMode = modes[this.current_aspect_ratio_index];
+                    
+                    // Apply CSS object-fit to video element
+                    $(this.videoObj).css('object-fit', selectedMode);
+                    
+                    // Show user feedback
+                    var modeNames = ['Letterbox', 'Zoom', 'Stretch'];
+                    showToast('Aspect Ratio', modeNames[this.current_aspect_ratio_index]);
+                }catch (e) {
+                }
             },
             setDisplayArea:function(){
                 channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
