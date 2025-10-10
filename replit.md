@@ -8,6 +8,14 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+- **2025-10-10: Extended Auto-Reconnect to Movies and Series**
+  - **Enhancement**: Auto-reconnect functionality now works for movies and series, not just live TV
+  - **Previous Behavior**: Auto-reconnect only worked for live TV channels (full screen and preview mode)
+  - **New Behavior**: When network errors occur during movie/series playback, the player automatically attempts to reconnect (up to 3 tries, 4 seconds apart)
+  - **Benefits**: Handles temporary network hiccups, server restarts, and WiFi drops during VOD playback
+  - **Implementation**: Added `vod-series-player-video` route to the reconnect logic in `tryReconnect()` function
+  - **Modified Files**: `js/player.js` (updated tryReconnect condition to include VOD/Series player)
+
 - **2025-10-07: Fixed Resolution Display Showing "undefined" on Player Bar**
   - **Root Cause**: Samsung's `getCurrentStreamInfo()` API was returning Width/Height as undefined, and the code was displaying "undefined * undefined" without validation
   - **Fix Implemented**: Added proper validation to check if `extra_info.Width` and `extra_info.Height` exist before displaying resolution
