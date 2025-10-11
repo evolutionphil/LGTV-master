@@ -503,6 +503,9 @@ function initPlayer() {
                 this.videoObj = document.getElementById(id);
                 var videoObj=this.videoObj;
                 var that=this;
+                
+                // Set default aspect ratio to Letterbox (contain)
+                $(this.videoObj).css('object-fit', 'contain');
                 this.videoObj.addEventListener("error", function(e) {
                     $('#'+that.parent_id).find('.video-loader').show();
                     $('#'+that.parent_id).find('.video-error').show();
