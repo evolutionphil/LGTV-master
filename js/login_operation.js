@@ -147,6 +147,18 @@ var login_page={
             success: function (data1) {
                 var data=decryptResponse(data1);
                 console.log(data);
+                
+                // Check for blocked channels from backend
+                if(data.blocked_channels) {
+                    console.log('✅ BLOCKED CHANNELS RECEIVED FROM API:', data.blocked_channels);
+                } else if(data.blocklist) {
+                    console.log('✅ BLOCKLIST RECEIVED FROM API:', data.blocklist);
+                } else if(data.blocked_keywords) {
+                    console.log('✅ BLOCKED KEYWORDS RECEIVED FROM API:', data.blocked_keywords);
+                } else {
+                    console.log('⚠️ NO BLOCKLIST FOUND IN API RESPONSE');
+                }
+                
                 localStorage.setItem(storage_id+'api_data',JSON.stringify(data));
                 that.startApp(data);
             },
