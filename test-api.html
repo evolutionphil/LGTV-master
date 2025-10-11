@@ -283,6 +283,20 @@
                             logResult(`Is Trial: ${decrypted.is_trial}`, 'success');
                         }
                         
+                        // Check for blocked channels
+                        if (decrypted.blocked_channels) {
+                            logResult('✅ BLOCKED CHANNELS FOUND:', 'success');
+                            logResult(JSON.stringify(decrypted.blocked_channels, null, 2), 'success');
+                        } else if (decrypted.blocklist) {
+                            logResult('✅ BLOCKLIST FOUND:', 'success');
+                            logResult(JSON.stringify(decrypted.blocklist, null, 2), 'success');
+                        } else if (decrypted.blocked_keywords) {
+                            logResult('✅ BLOCKED KEYWORDS FOUND:', 'success');
+                            logResult(JSON.stringify(decrypted.blocked_keywords, null, 2), 'success');
+                        } else {
+                            logResult('⚠️ No blocklist field found in response', 'info');
+                        }
+                        
                     } catch (decryptError) {
                         logResult('❌ Failed to decrypt response: ' + decryptError.message, 'error');
                     }
