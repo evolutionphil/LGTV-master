@@ -1,0 +1,75 @@
+FLIX IPTV - TERMS OF USE
+
+Last Updated: October 12, 2025 | Version 1.0
+
+IMPORTANT LEGAL NOTICE
+
+By clicking "Accept", you acknowledge and agree to these Terms of Use.
+
+1. SERVICE DESCRIPTION
+FLIX IPTV is a media player application that uses platform-specific native players (Samsung AVPlay, LG WebOS Player, HTML5, ExoPlayer, Apple Player). The App DOES NOT provide, host, distribute, or offer any IPTV channels, streams, or content. It is a neutral playback tool for user-provided sources.
+
+2. USER RESPONSIBILITY
+YOU ARE SOLELY RESPONSIBLE FOR:
+• Ensuring all content complies with copyright laws in your jurisdiction
+• Obtaining proper licenses for any IPTV services you use
+• Verifying that playlist URLs are legally authorized
+• All legal consequences from accessing unlicensed content
+
+YOU MUST NOT:
+• Stream copyrighted content without authorization
+• Use the App to facilitate copyright infringement
+• Access geo-restricted content illegally
+• Violate intellectual property or telecommunications laws
+
+3. LEGAL COMPLIANCE
+Unauthorized streaming is ILLEGAL and may result in:
+• Civil lawsuits and damages from copyright holders
+• Criminal prosecution (up to 10 years imprisonment in some jurisdictions)
+• ISP warnings, throttling, or service termination
+• Fines and legal fees
+
+By using this App, you confirm you will ONLY stream legally authorized content.
+
+4. NO WARRANTIES
+The App is provided "AS IS" without warranties. We do not verify, endorse, or validate third-party content. External IPTV services are not controlled by us.
+
+5. LIMITATION OF LIABILITY
+WE ARE NOT LIABLE FOR:
+• Your violation of copyright or intellectual property laws
+• Legal actions, fines, or prosecution against you
+• Third-party IPTV services or content legality
+• Any direct, indirect, or consequential damages
+• ISP actions or network restrictions
+
+You agree to indemnify and hold us harmless from any claims arising from your use of the App.
+
+6. JURISDICTIONAL COMPLIANCE
+IPTV laws vary by region. You are responsible for understanding local laws. This App may not be legal in all jurisdictions. Users in high-enforcement regions (UK, US, EU, Australia, Canada) should consult legal counsel.
+
+7. AGE RESTRICTION
+This App is for users 18+ only. You confirm you have legal capacity to accept these terms.
+
+8. INTELLECTUAL PROPERTY
+We respect IP rights. Illegal streaming violates copyright laws globally. Users found violating IP laws may face account termination and legal action from rights holders.
+
+9. TERMINATION
+We may terminate access for Terms violations, suspected illegal activity, or any harmful conduct without notice.
+
+10. GOVERNING LAW
+These Terms are governed by applicable laws in your jurisdiction. Disputes shall be resolved through binding arbitration where permitted.
+
+11. ACCEPTANCE
+BY CLICKING "ACCEPT":
+✓ You accept sole responsibility for your content choices
+✓ You will only use legally licensed IPTV services
+✓ You understand illegal streaming may result in prosecution
+✓ You waive all claims against us for your actions
+✓ You comply with all applicable laws
+
+IF YOU DECLINE: You must immediately cease using this App.
+
+For full Terms of Use, visit: https://flixapp.net/terms
+Contact: https://flixapp.net/activation
+
+© 2025 FLIX IPTV. All rights reserved.
