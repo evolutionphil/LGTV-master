@@ -1819,6 +1819,37 @@
         </div>
     </div>
 
+    <!-- Terms of Use Modal -->
+    <div class="modal fade" id="terms-modal" data-backdrop="static" data-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title modal-title-text-2 text-center w-100" data-word_code="terms_title">Terms of Use</h5>
+                </div>
+                <div class="modal-body" style="max-height: 60vh; overflow-y: auto; padding: 20px;">
+                    <div id="terms-content" style="white-space: pre-line; line-height: 1.6;"></div>
+                    <div id="terms-version" style="margin-top: 15px; font-size: 0.9em; color: #888;"></div>
+                </div>
+                <div class="modal-footer" style="justify-content: center;">
+                    <div class="modal-button-wrapper" style="display: flex; gap: 20px;">
+                        <div class="btn-wrapper-1">
+                            <button type="button" class="btn modal-btn-1 terms-action-btn" id="terms-accept-btn"
+                                data-word_code="accept" onclick="login_page.acceptTerms()" onmouseenter="login_page.hoverTermsButton(0)">
+                                Accept
+                            </button>
+                        </div>
+                        <div class="btn-wrapper-1">
+                            <button type="button" class="btn modal-btn-1 terms-action-btn" id="terms-decline-btn"
+                                data-word_code="decline" onclick="login_page.declineTerms()" onmouseenter="login_page.hoverTermsButton(1)">
+                                Decline
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Conditionally load WebOS APIs only if available
         if (window.navigator.userAgent.toLowerCase().includes('web0s') && window.PalmSystem) {
