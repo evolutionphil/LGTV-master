@@ -860,6 +860,14 @@ var login_page={
             // Set active state only on the selected item
             $(playlistItems[keys.playlist_modal_selection]).addClass('active');
         }
+        else if(keys.focused_part==="terms_buttons"){
+            // Scroll the terms content with UP/DOWN arrows
+            var termsContent = $('#terms-modal .modal-body');
+            var scrollAmount = 100; // Pixels to scroll per key press
+            var currentScroll = termsContent.scrollTop();
+            var newScroll = currentScroll + (increment * scrollAmount);
+            termsContent.scrollTop(newScroll);
+        }
     },
     handleMenuLeftRight:function(increment){
         var keys=this.keys;

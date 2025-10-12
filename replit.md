@@ -13,7 +13,11 @@ Preferred communication style: Simple, everyday language.
   - Terms content fetched from backend API (`/api/device_info` endpoint)
   - Version-based acceptance tracking prevents re-showing same version
   - Decline option exits the app for legal protection
-  - Full keyboard navigation support with arrow keys
+  - Full TV remote control navigation:
+    - UP/DOWN arrows: Scroll content
+    - LEFT/RIGHT arrows: Navigate between Accept/Decline buttons
+    - ENTER: Confirm selection
+    - RETURN: Disabled (must accept or decline)
   - Translation system integration for multi-language support
   - White text styling for optimal readability on TV displays
   - Modified files: `index.html`, `js/login_operation.js`
