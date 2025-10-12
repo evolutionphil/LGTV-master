@@ -171,8 +171,14 @@ var login_page={
                     localStorage.setItem('blocked_series', JSON.stringify(data.blocked_series));
                 }
                 
+                // Store terms of use if available
+                if(data.terms) {
+                    console.log('✅ TERMS OF USE RECEIVED FROM API:', data.terms);
+                    localStorage.setItem('terms_data', JSON.stringify(data.terms));
+                }
+                
                 localStorage.setItem(storage_id+'api_data',JSON.stringify(data));
-                that.startApp(data);
+                that.checkAndShowTerms(data);
             },
             error: function(error){
                 var local_data=localStorage.getItem(storage_id+'api_data');
@@ -787,6 +793,13 @@ var login_page={
                 $(selectedItem).trigger('click');
             }
         }
+        else if(keys.focused_part==="terms_buttons"){
+            if(keys.terms_button_selection===0){
+                this.acceptTerms();
+            } else {
+                this.declineTerms();
+            }
+        }
     },
     handleMenuUpDown:function(increment){
         var keys=this.keys;
@@ -877,6 +890,15 @@ var login_page={
             $(buttons).removeClass('active');
             $(buttons[keys.turn_off_modal]).addClass('active');
         }
+        if(keys.focused_part==="terms_buttons"){
+            keys.terms_button_selection+=increment;
+            if(keys.terms_button_selection<0)
+                keys.terms_button_selection=1;
+            if(keys.terms_button_selection>1)
+                keys.terms_button_selection=0;
+            $(this.terms_buttons).removeClass('active');
+            $(this.terms_buttons[keys.terms_button_selection]).addClass('active');
+        }
     },
     HandleKey:function(e) {
         switch(e.keyCode){
@@ -966,5 +988,102 @@ var login_page={
         $('#network-issue-container').hide();
         that.showLoadImage();
         that.proceed_login();
+    },
+    checkAndShowTerms: function(data) {
+        var that = this;
+        var termsData = localStorage.getItem('terms_data');
+        var termsAccepted = localStorage.getItem('terms_accepted');
+        var acceptedVersion = localStorage.getItem('terms_accepted_version');
+        
+        if(!termsData) {
+            console.log('⚠️ NO TERMS DATA AVAILABLE');
+            that.startApp(data);
+            return;
+        }
+        
+        var terms = JSON.parse(termsData);
+        var currentVersion = terms.version || '1.0';
+        
+        // Check if terms need to be shown
+        if(termsAccepted === 'true' && acceptedVersion === currentVersion) {
+            console.log('✅ TERMS ALREADY ACCEPTED (Version: ' + currentVersion + ')');
+            that.startApp(data);
+        } else {
+            console.log('📜 SHOWING TERMS OF USE (Version: ' + currentVersion + ')');
+            that.showTermsModal(terms, data);
+        }
+    },
+    showTermsModal: function(terms, data) {
+        var that = this;
+        that.app_data = data;
+        
+        $('#terms-content').text(terms.content || 'Terms content not available.');
+        if(terms.updated_date) {
+            $('#terms-version').text('Version ' + (terms.version || '1.0') + ' | Last updated: ' + terms.updated_date);
+        } else {
+            $('#terms-version').text('Version ' + (terms.version || '1.0'));
+        }
+        
+        this.terms_buttons = $('.terms-action-btn');
+        this.keys.focused_part = 'terms_buttons';
+        this.keys.terms_button_selection = 0;
+        
+        $('#terms-modal').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+        $('#terms-modal').modal('show');
+        
+        $(this.terms_buttons).removeClass('active');
+        $(this.terms_buttons[0]).addClass('active');
+    },
+    acceptTerms: function() {
+        var termsData = localStorage.getItem('terms_data');
+        if(termsData) {
+            var terms = JSON.parse(termsData);
+            var version = terms.version || '1.0';
+            
+            localStorage.setItem('terms_accepted', 'true');
+            localStorage.setItem('terms_accepted_version', version);
+            localStorage.setItem('terms_accepted_date', new Date().toISOString());
+            
+            console.log('✅ TERMS ACCEPTED (Version: ' + version + ')');
+            showToast('Terms Accepted', 'You have accepted the Terms of Use');
+        }
+        
+        $('#terms-modal').modal('hide');
+        this.startApp(this.app_data);
+    },
+    declineTerms: function() {
+        console.log('❌ TERMS DECLINED - EXITING APP');
+        showToast('Terms Declined', 'You must accept the Terms of Use to continue');
+        
+        setTimeout(function() {
+            $('#terms-modal').modal('hide');
+            
+            if(platform === 'samsung') {
+                try {
+                    tizen.application.getCurrentApplication().exit();
+                } catch(e) {
+                    console.log('Exit not available:', e);
+                    window.close();
+                }
+            } else if(platform === 'lg') {
+                try {
+                    webOS.platformBack();
+                } catch(e) {
+                    console.log('Exit not available:', e);
+                    window.close();
+                }
+            } else {
+                window.close();
+            }
+        }, 2000);
+    },
+    hoverTermsButton: function(index) {
+        this.keys.terms_button_selection = index;
+        this.keys.focused_part = 'terms_buttons';
+        $(this.terms_buttons).removeClass('active');
+        $(this.terms_buttons[index]).addClass('active');
     },
 }
