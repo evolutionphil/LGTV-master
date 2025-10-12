@@ -427,6 +427,31 @@ var home_page={
     showSetting:function () {
         $('#settings-modal').modal('show');
         this.hoverSettingModal(0);
+        // Update hide blocked content indicator
+        this.updateHideBlockedIndicator();
+    },
+    toggleHideBlockedContent: function() {
+        var currentSetting = localStorage.getItem('hide_blocked_content');
+        var newSetting = currentSetting === 'true' ? 'false' : 'true';
+        localStorage.setItem('hide_blocked_content', newSetting);
+        
+        // Update indicator
+        this.updateHideBlockedIndicator();
+        
+        // Show feedback
+        var message = newSetting === 'true' ? 'Blocked content will be hidden' : 'Blocked content will be shown';
+        showToast('Hide Blocked Content', message);
+        
+        console.log('Hide blocked content:', newSetting === 'true' ? 'ON' : 'OFF');
+    },
+    updateHideBlockedIndicator: function() {
+        var isEnabled = localStorage.getItem('hide_blocked_content') === 'true';
+        var indicator = $('#hide-blocked-toggle-indicator');
+        if(isEnabled) {
+            indicator.css('color', '#4CAF50').text('ON');
+        } else {
+            indicator.css('color', '#f44336').text('OFF');
+        }
     },
     showRefreshModal:function(){
         $('#refresh-modal').modal('show');
