@@ -101,6 +101,14 @@ var channel_page={
         else
             this.movies=getSortedMovies(category.movies,settings.live_sort);
 
+        // Filter blocked channels if hide_blocked_content is enabled
+        var hideBlocked = localStorage.getItem('hide_blocked_content') === 'true';
+        if(hideBlocked) {
+            this.movies = this.movies.filter(function(movie) {
+                return !isContentBlocked(movie.name, 'channel');
+            });
+            console.log('🔒 Filtered blocked channels, remaining:', this.movies.length);
+        }
 
         this.removed_favourite_ids=[];
         current_movie=this.movies[0];
@@ -913,6 +921,14 @@ var channel_page={
             filtered_movies = current_movies.filter(function(movie){
                 return movie.name.toLowerCase().includes(search_value.toLowerCase());
             })
+        }
+        
+        // Filter out blocked channels if hide_blocked_content is enabled
+        var hideBlocked = localStorage.getItem('hide_blocked_content') === 'true';
+        if(hideBlocked) {
+            filtered_movies = filtered_movies.filter(function(movie) {
+                return !isContentBlocked(movie.name, 'channel');
+            });
         }
         var htmlContent='';
         var movie_id_key='stream_id';
