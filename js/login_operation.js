@@ -151,12 +151,24 @@ var login_page={
                 // Check for blocked channels from backend
                 if(data.blocked_channels) {
                     console.log('✅ BLOCKED CHANNELS RECEIVED FROM API:', data.blocked_channels);
+                    localStorage.setItem('blocked_channels', JSON.stringify(data.blocked_channels));
                 } else if(data.blocklist) {
                     console.log('✅ BLOCKLIST RECEIVED FROM API:', data.blocklist);
+                    localStorage.setItem('blocked_channels', JSON.stringify(data.blocklist));
                 } else if(data.blocked_keywords) {
                     console.log('✅ BLOCKED KEYWORDS RECEIVED FROM API:', data.blocked_keywords);
+                    localStorage.setItem('blocked_channels', JSON.stringify(data.blocked_keywords));
                 } else {
                     console.log('⚠️ NO BLOCKLIST FOUND IN API RESPONSE');
+                    localStorage.setItem('blocked_channels', JSON.stringify([]));
+                }
+                
+                // Store blocked movies and series if available
+                if(data.blocked_movies) {
+                    localStorage.setItem('blocked_movies', JSON.stringify(data.blocked_movies));
+                }
+                if(data.blocked_series) {
+                    localStorage.setItem('blocked_series', JSON.stringify(data.blocked_series));
                 }
                 
                 localStorage.setItem(storage_id+'api_data',JSON.stringify(data));

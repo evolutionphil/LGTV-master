@@ -50,6 +50,16 @@ var vod_series_player={
         var keys=this.keys;
         this.current_movie=movie;
         this.current_movie_type=movie_type;
+        
+        // Check if content is blocked
+        var contentName = movie.name || movie.title || '';
+        var contentType = movie_type === 'movies' ? 'movie' : (movie_type === 'series' ? 'series' : '');
+        if(contentType && isContentBlocked(contentName, contentType)) {
+            showToast("Access Denied", "This content is restricted");
+            console.log('🚫 Content blocked:', contentName);
+            this.goBack();
+            return;
+        }
         this.current_time=0;
         this.fw_timer=null;
         this.subtitle_loaded=false;

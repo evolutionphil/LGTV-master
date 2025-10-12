@@ -5,6 +5,44 @@ var mac_address, user_name, password, server_info, user_info,
 
     panel_url='https://flixapp.net/api'
     // panel_url='http://dev.bai.com:4000/api'
+
+// Check if content is blocked based on backend blocklist
+function isContentBlocked(name, type) {
+    try {
+        var blockedList = [];
+        
+        if(type === 'channel' || type === 'live') {
+            var stored = localStorage.getItem('blocked_channels');
+            if(stored) blockedList = JSON.parse(stored);
+        } else if(type === 'movie' || type === 'vod') {
+            var stored = localStorage.getItem('blocked_movies');
+            if(stored) blockedList = JSON.parse(stored);
+        } else if(type === 'series') {
+            var stored = localStorage.getItem('blocked_series');
+            if(stored) blockedList = JSON.parse(stored);
+        }
+        
+        if(!blockedList || blockedList.length === 0) {
+            return false;
+        }
+        
+        var lowerName = name.toLowerCase();
+        
+        for(var i = 0; i < blockedList.length; i++) {
+            var keyword = blockedList[i].toLowerCase();
+            if(lowerName.includes(keyword)) {
+                console.log('🚫 BLOCKED CONTENT:', name, '(matched keyword:', keyword + ')');
+                return true;
+            }
+        }
+        
+        return false;
+    } catch(e) {
+        console.error('Error checking blocked content:', e);
+        return false;
+    }
+}
+
 var adverts=[], expire_date;
 var current_route='login';
 var default_movie_icon="images/default_icon.jpeg";

@@ -644,6 +644,13 @@ var channel_page={
         console.log('  media_player.full_screen_state:', media_player.full_screen_state);
         console.log('╚════════════════════════════════════════════════════════════╝');
         
+        // Check if channel is blocked
+        if(current_movie && isContentBlocked(current_movie.name, 'channel')) {
+            showToast("Access Denied", "This channel is restricted");
+            console.log('🚫 Channel blocked:', current_movie.name);
+            return;
+        }
+        
         var url
         if(settings.playlist_type==="xtreme")
             url=getMovieUrl(movie_id,'live','ts');
