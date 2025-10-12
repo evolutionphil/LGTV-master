@@ -45,6 +45,7 @@ Preferred communication style: Simple, everyday language.
 
 - **2025-10-12: Implemented "Hide Blocked Content" Toggle Feature**
   - Added user-controlled toggle in Settings to completely hide blocked content from all lists
+  - Positioned after "Hide Series Categories" in settings menu for logical grouping
   - Comprehensive filtering across live channels, movies, series, and search results
   - Smart empty state handling shows appropriate messages when categories are fully blocked
   - Safe navigation with key handler guards to prevent crashes with empty lists
