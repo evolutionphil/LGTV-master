@@ -111,6 +111,39 @@ var channel_page={
         }
 
         this.removed_favourite_ids=[];
+        
+        var that=this;
+        var htmlContents='';
+        
+        // Check if all channels are blocked - show empty state
+        if(this.movies.length === 0) {
+            console.log('⚠️ No channels available after filtering');
+            htmlContents='<div class="empty-movie-text">No channels available in this category</div>';
+            $('#channel-menu-wrapper').html(htmlContents);
+            this.menu_items=[];
+            
+            // Reset all channel state to prevent stale references
+            this.current_channel_id=null;
+            this.hover_channel_id=null;
+            this.keys.channel_selection=-1;
+            
+            // Still need to set up basic state even when empty
+            $('#live_channels_home .player-container').css({
+                position:'relative',
+                height:'58.3vh',
+                width:'58.3vw'
+            });
+            media_player.full_screen_state=0;
+            this.full_screen_video=false;
+            this.keys.focused_part="channel_selection";
+            $('#live-channel-button-container').show();
+            $('#live_channels_home').find('.channel-information-container').show();
+            $('#live_channels_home').find('.video-skin').show();
+            $('#live-channel-category-name').html(category.category_name)
+            current_route="channel-page";
+            return;
+        }
+        
         current_movie=this.movies[0];
         var stream_channel_index=0;
         if(channel_id!=0){
@@ -120,8 +153,6 @@ var channel_page={
                     stream_channel_index=index;
             })
         }
-        var that=this;
-        var htmlContents='';
         this.movies.map(function(movie, index){
             htmlContents+=
                 '<div class="channel-menu-item" data-channel_id="'+movie.stream_id+'"\
@@ -837,6 +868,11 @@ var channel_page={
         localStorage.setItem(storage_id+settings.playlist_url+'_channel_orders',JSON.stringify(channel_orders));
     },
     hoverMenuItem:function (index1) {
+        // Guard: Don't process if no menu items (all blocked)
+        if(!this.menu_items || this.menu_items.length === 0) {
+            return;
+        }
+        
         var index;
         if(typeof index1=='number')
             index=index1;
@@ -1036,6 +1072,12 @@ var channel_page={
     handleMenusUpDown:function(increment) {
         var keys=this.keys;
         var menus=this.menu_items;
+        
+        // Guard: Don't process if no menu items (all blocked)
+        if(!menus || menus.length === 0) {
+            return;
+        }
+        
         if(keys.focused_part==="channel_selection"){  // if menus wrapper is active now
             var prev_selection=keys.channel_selection;
             keys.channel_selection+=increment;

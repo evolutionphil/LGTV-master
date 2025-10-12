@@ -893,11 +893,18 @@ var home_page={
             
             $('#movie-grids-container').html('');
             this.current_render_count=0;
-            this.renderCategoryContent();
+            
             if(this.movies.length>0){
+                this.renderCategoryContent();
                 keys.focused_part="grid_selection";
                 keys.grid_selection=0;
                 $('#sort-button-container').removeClass('active');
+            } else {
+                // Show empty state when all content is blocked
+                var contentType = current_movie_type === 'movies' ? 'movies' : 'series';
+                var emptyMessage = 'No ' + contentType + ' available in this category';
+                $('#movie-grids-container').html('<div class="empty-movie-text">' + emptyMessage + '</div>');
+                console.log('⚠️ No ' + contentType + ' available after filtering');
             }
             $('#sort-button').text($(this.sort_selection_doms[keys.sort_selection]).text());
             $('#movie-grids-container').scrollTop(0);
@@ -965,6 +972,12 @@ var home_page={
                 // keys.grid_selection=0;
                 // var movie_grids=$('#movie-grids-container .movie-item-wrapper');
                 // $(movie_grids[0]).addClass('active');
+            } else {
+                // Show empty state when all content is blocked
+                var contentType = current_movie_type === 'movies' ? 'movies' : 'series';
+                var emptyMessage = 'No ' + contentType + ' available in this category';
+                $('#movie-grids-container').html('<div class="empty-movie-text">' + emptyMessage + '</div>');
+                console.log('⚠️ No ' + contentType + ' available after filtering');
             }
             this.sort_selection_doms.map(function (index, item) {
                 var sort_key=$(item).data('sort_key');
