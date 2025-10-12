@@ -15,7 +15,9 @@ Preferred communication style: Simple, everyday language.
   - Decline option exits the app for legal protection
   - Full keyboard navigation support with arrow keys
   - Translation system integration for multi-language support
+  - White text styling for optimal readability on TV displays
   - Modified files: `index.html`, `js/login_operation.js`
+  - Comprehensive legal Terms document created (`TERMS_OF_USE.md`, `TERMS_OF_USE_API_VERSION.txt`)
   - **Backend Required**: Add `terms` object to `/api/device_info` response with structure:
     ```json
     {
