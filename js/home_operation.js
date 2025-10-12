@@ -386,15 +386,28 @@ var home_page={
         }
 
         var htmlContents='';
+        var hideBlocked = localStorage.getItem('hide_blocked_content') === 'true';
+        
         if(movie_type!='youtube') {
             current_movie_categories.map(function(category, index){
+                var displayCount = category.movies.length;
+                
+                // Calculate filtered count if hide_blocked_content is enabled
+                if(hideBlocked) {
+                    var contentType = movie_type === 'movies' ? 'movie' : (movie_type === 'series' ? 'series' : 'channel');
+                    var filteredMovies = category.movies.filter(function(movie) {
+                        return !isContentBlocked(movie.name, contentType);
+                    });
+                    displayCount = filteredMovies.length;
+                }
+                
                 htmlContents+=
                     '<div class="menu-item home-category-menu-item" data-category_id="'+category.category_id+'"\
                         onclick="home_page.submenuClick('+index+')"\
                         onmouseenter="home_page.hoverToSubMenu('+index+')"\
                     >\
                         <span class="menu-item-category-name">'+category.category_name+'</span>\
-                        <span class="menu-item-movies-count">'+category.movies.length+'</span>\
+                        <span class="menu-item-movies-count">'+displayCount+'</span>\
                     </div>'
             });
         }
@@ -1112,17 +1125,39 @@ var home_page={
         storage_page.init();
     },
     updateRecentFavouriteMoviesCount: function () {
+        var hideBlocked = localStorage.getItem('hide_blocked_content') === 'true';
+        var contentType = current_movie_type === 'movies' ? 'movie' : (current_movie_type === 'series' ? 'series' : 'channel');
+        
         var favourite_category_index=1, recent_category_index=current_movie_categories.length-1;
         if(current_movie_type==='live-tv')
             favourite_category_index=0;
+        
         var favourite_count=current_movie_categories[favourite_category_index].movies.length;
         var recent_count=current_movie_categories[recent_category_index].movies.length;
+        
+        // Apply filtering if hide_blocked_content is enabled
+        if(hideBlocked) {
+            favourite_count = current_movie_categories[favourite_category_index].movies.filter(function(movie) {
+                return !isContentBlocked(movie.name, contentType);
+            }).length;
+            recent_count = current_movie_categories[recent_category_index].movies.filter(function(movie) {
+                return !isContentBlocked(movie.name, contentType);
+            }).length;
+        }
+        
         $(this.submenu_items[favourite_category_index]).find('.menu-item-movies-count').text(favourite_count);
         $(this.submenu_items[recent_category_index]).find('.menu-item-movies-count').text(recent_count);
+        
         if(current_movie_type==='movies' || current_movie_type==='series') {
             for(var i=0;i<2;i++) {
                 if(current_movie_categories[i].category_id==='resume') {
-                    $(this.submenu_items[i]).find('.menu-item-movies-count').text(current_movie_categories[i].movies.length);
+                    var resume_count = current_movie_categories[i].movies.length;
+                    if(hideBlocked) {
+                        resume_count = current_movie_categories[i].movies.filter(function(movie) {
+                            return !isContentBlocked(movie.name, contentType);
+                        }).length;
+                    }
+                    $(this.submenu_items[i]).find('.menu-item-movies-count').text(resume_count);
                     break;
                 }
             }
