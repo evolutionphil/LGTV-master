@@ -5,7 +5,8 @@ var login_page={
         playlist_selection:0,
         turn_off_modal:0,
         network_issue_btn:0,
-        playlist_modal_selection:0
+        playlist_modal_selection:0,
+        terms_button_selection:0
     },
     network_btn_doms:$('.network-issue-btn'),
     showLoadImage:function(){

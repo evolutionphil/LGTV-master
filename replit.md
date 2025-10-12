@@ -8,6 +8,35 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+- **2025-10-12: Implemented Terms of Use Popup on First Launch**
+  - Added first-launch Terms of Use popup with Accept/Decline functionality
+  - Terms content fetched from backend API (`/api/device_info` endpoint)
+  - Version-based acceptance tracking prevents re-showing same version
+  - Decline option exits the app for legal protection
+  - Full keyboard navigation support with arrow keys
+  - Translation system integration for multi-language support
+  - Modified files: `index.html`, `js/login_operation.js`
+  - **Backend Required**: Add `terms` object to `/api/device_info` response with structure:
+    ```json
+    {
+      "terms": {
+        "version": "1.0",
+        "content": "Your terms text here...",
+        "updated_date": "2025-10-12"  // optional
+      }
+    }
+    ```
+  - **Translation Keys Needed** (add to backend languages array):
+    - `terms_title`: "Terms of Use"
+    - `accept`: "Accept"
+    - `decline`: "Decline"
+
+- **2025-10-12: Fixed Category Count Display with Hide Blocked Content**
+  - Category counts now accurately reflect filtered content when "Hide Blocked Content" is enabled
+  - Dynamic count calculation for Live TV, Movies, and Series categories
+  - Updates both initial display and dynamic count updates (favorites, recent)
+  - Modified files: `js/home_operation.js`
+
 - **2025-10-12: Implemented "Hide Blocked Content" Toggle Feature**
   - Added user-controlled toggle in Settings to completely hide blocked content from all lists
   - Comprehensive filtering across live channels, movies, series, and search results
