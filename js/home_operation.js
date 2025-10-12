@@ -881,6 +881,16 @@ var home_page={
             
             // Sort the already loaded movies array (don't rebuild from categories)
             this.movies=getSortedMovies(this.movies,key)
+            
+            // Re-apply blocked content filter if hide_blocked_content is enabled
+            var hideBlocked = localStorage.getItem('hide_blocked_content') === 'true';
+            if(hideBlocked) {
+                var contentType = current_movie_type === 'movies' ? 'movie' : 'series';
+                this.movies = this.movies.filter(function(movie) {
+                    return !isContentBlocked(movie.name, contentType);
+                });
+            }
+            
             $('#movie-grids-container').html('');
             this.current_render_count=0;
             this.renderCategoryContent();
@@ -936,6 +946,17 @@ var home_page={
                 $(this.submenu_items[0]).find('.menu-item-movies-count').text(movies.length);
             }
             this.movies=getSortedMovies(movies, current_sort_key);
+            
+            // Filter blocked content if hide_blocked_content is enabled
+            var hideBlocked = localStorage.getItem('hide_blocked_content') === 'true';
+            if(hideBlocked) {
+                var contentType = current_movie_type === 'movies' ? 'movie' : 'series';
+                this.movies = this.movies.filter(function(movie) {
+                    return !isContentBlocked(movie.name, contentType);
+                });
+                console.log('🔒 Filtered blocked ' + contentType + ', remaining:', this.movies.length);
+            }
+            
             if(this.movies.length>0){
                 this.renderCategoryContent();
                 $('#movie-grids-container').scrollTop(0);

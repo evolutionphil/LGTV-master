@@ -89,6 +89,8 @@ var search_page={
     },
     getFilteredMovies:function(categories, keyword){
         var result=[];
+        var hideBlocked = localStorage.getItem('hide_blocked_content') === 'true';
+        
         categories.map(function (item) {
             if(!checkForAdult(item,'category',[])){
                 var movies=item.movies.filter(function (movie) {
@@ -97,8 +99,23 @@ var search_page={
                 result=result.concat(movies);
             }
         })
+        
+        // Filter out blocked content if hide_blocked_content is enabled
+        if(hideBlocked && result.length > 0) {
+            // Determine content type based on the first item's properties
+            var contentType = 'channel'; // default
+            if(result[0].hasOwnProperty('container_extension')) {
+                contentType = 'movie';
+            } else if(result[0].hasOwnProperty('cover')) {
+                contentType = 'series';
+            }
+            
+            result = result.filter(function(movie) {
+                return !isContentBlocked(movie.name, contentType);
+            });
+        }
+        
         return result;
-        console.log(result);
     },
     renderFilteredMovies:function(index, hide_loader){
         var parent_element=this.parent_elements[index];
