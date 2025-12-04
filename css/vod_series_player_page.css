@@ -79,9 +79,11 @@
     border-color: #f77b05;
 }
 
-.video-control-icon i:hover:not(.active){
-    color: #fff;
+.video-control-icon i:hover{
     cursor: pointer;
+}
+.video-control-icon i:not(.active):hover{
+    color: #fff;
 }
 #vod-series-player-page .video-time{
     font-size:22px;
