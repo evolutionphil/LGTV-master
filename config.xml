@@ -4,6 +4,8 @@
     <tizen:application id="qDXvQBVmtf.FLIXIPTV" package="qDXvQBVmtf" required_version="2.3"/>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
+    <feature name="http://tizen.org/feature/network.wifi"/>
+    <feature name="http://tizen.org/feature/network.ethernet"/>
     <icon src="images/app_launcher.png"/>
     <name>FLIX IPTV</name>
     <tizen:privilege name="http://developer.samsung.com/privilege/network.public"/>
@@ -11,7 +13,6 @@
     <tizen:privilege name="http://tizen.org/privilege/tv.inputdevice"/>
     <tizen:privilege name="http://developer.samsung.com/privilege/widgetdata"/>
     <tizen:privilege name="http://tizen.org/privilege/system"/>
-    <tizen:privilege name="http://tizen.org/feature/network.ethernet"/>
     <tizen:privilege name="http://tizen.org/privilege/filesystem.read"/>
     <tizen:privilege name="http://tizen.org/privilege/filesystem.write"/>
     <tizen:profile name="tv-samsung"/>

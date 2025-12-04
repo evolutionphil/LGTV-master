@@ -264,7 +264,7 @@ var login_page={
         return true;
     },
 
-    // Samsung fallback system: Ethernet -> DUID -> Tizen ID -> webapis.network.getMac -> Hardcoded
+    // Samsung fallback system: Ethernet -> DUID -> Tizen ID -> webapis.network.getMac -> Wi-Fi -> Hardcoded
     getSamsungMacAddress: function() {
         var that = this;
         
@@ -361,15 +361,39 @@ var login_page={
                     mac_address = networkMac;
                     that.fetchPlaylistInformation();
                 } else {
-                    console.log('Samsung: webapis.network.getMac() returned invalid MAC, using hardcoded');
-                    that.getSamsungHardcodedMac();
+                    console.log('Samsung: webapis.network.getMac() returned invalid MAC, trying Wi-Fi');
+                    that.getSamsungWifiMac();
                 }
             } else {
-                console.log('Samsung: webapis.network.getMac() not available, using hardcoded MAC');
-                that.getSamsungHardcodedMac();
+                console.log('Samsung: webapis.network.getMac() not available, trying Wi-Fi');
+                that.getSamsungWifiMac();
             }
         } catch (e) {
-            console.log('Samsung: webapis.network.getMac() exception: ' + e.message + ', using hardcoded MAC');
+            console.log('Samsung: webapis.network.getMac() exception: ' + e.message + ', trying Wi-Fi');
+            that.getSamsungWifiMac();
+        }
+    },
+
+    // Try Wi-Fi MAC address (for Wi-Fi connected TVs) - last resort before hardcoded
+    getSamsungWifiMac: function() {
+        var that = this;
+        
+        try {
+            tizen.systeminfo.getPropertyValue('WIFI_NETWORK', function (data) {
+                if (data !== undefined && typeof data.macAddress !== 'undefined' && data.macAddress && that.isValidMacAddress(data.macAddress)) {
+                    console.log('Samsung: Using Wi-Fi MAC address: ' + data.macAddress);
+                    mac_address = data.macAddress;
+                    that.fetchPlaylistInformation();
+                } else {
+                    console.log('Samsung: Wi-Fi MAC not valid, using hardcoded');
+                    that.getSamsungHardcodedMac();
+                }
+            }, function(error) {
+                console.log('Samsung: Wi-Fi failed, using hardcoded');
+                that.getSamsungHardcodedMac();
+            });
+        } catch (e) {
+            console.log('Samsung: Wi-Fi exception, using hardcoded');
             that.getSamsungHardcodedMac();
         }
     },

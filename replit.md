@@ -8,9 +8,9 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
-- **2025-12-04: Added webapis.network.getMac() Fallback for Tizen 9.0+ MAC Detection**
+- **2025-12-04: Added webapis.network.getMac() and Wi-Fi Fallback for Tizen 9.0+ MAC Detection**
   - Fixed issue where Samsung Tizen 9.0 TVs (e.g., 25TV_BASIC2) were falling back to hardcoded MAC address
-  - Added new fallback step `getSamsungNetworkApiMac()` using Samsung's `webapis.network.getMac()` API
+  - Added new fallback steps for better MAC address detection on newer Tizen versions
   - Added MAC address validation helper `isValidMacAddress()` to reject:
     - Empty/null MAC addresses
     - Privacy placeholders (02:00:00:00:00:00, 00:00:00:00:00:00)
@@ -19,10 +19,12 @@ Preferred communication style: Simple, everyday language.
     1. ETHERNET_NETWORK (with validation)
     2. DUID (Base64 encoded)
     3. TizenID (Base64 encoded)
-    4. **NEW: webapis.network.getMac()** ← Added for Tizen 9.0+ support
-    5. Hardcoded fallback (last resort)
+    4. **NEW: webapis.network.getMac()** ← Samsung's network API
+    5. **NEW: WIFI_NETWORK** ← For Wi-Fi connected TVs
+    6. Hardcoded fallback (last resort)
+  - Added Wi-Fi feature permission to `config.xml`
   - Enhanced console logging to track which method provided the MAC address
-  - Modified files: `js/login_operation.js`
+  - Modified files: `js/login_operation.js`, `config.xml`
 
 - **2025-10-12: Implemented Terms of Use Popup on First Launch**
   - Added first-launch Terms of Use popup with Accept/Decline functionality
