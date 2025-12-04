@@ -8,6 +8,16 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+- **2025-12-04: Bug Fixes and Performance Improvements (v1.1 Update)**
+  - **DEBUG_MODE flag**: Added `DEBUG_MODE = false` in `js/common.js` for production logging control
+  - **URL Caching**: Added `urlCache` object with 5-minute expiry for faster channel switching
+  - **Fixed Black Screen on STOP**: Enhanced Samsung player's close() function to properly stop and clear display
+  - **Fixed Favorites Empty Slot Bug**: When removing favorites from the favorites view, now properly updates both DOM and movies array
+  - **Fixed USB Storage Play**: Restored the `checkCorruptedRemovableDrives` callback function that was commented out
+  - **Config.xml Updates**: API version 2.4, mediastorage privilege, productinfo privilege, mouse support
+  - Modified files: `js/common.js`, `js/player.js`, `js/home_operation.js`, `js/storage_operation.js`, `config.xml`
+  - See UPDATE.md for complete task list and testing instructions
+
 - **2025-12-04: Added webapis.network.getMac() and Wi-Fi Fallback for Tizen 9.0+ MAC Detection**
   - Fixed issue where Samsung Tizen 9.0 TVs (e.g., 25TV_BASIC2) were falling back to hardcoded MAC address
   - Added new fallback steps for better MAC address detection on newer Tizen versions

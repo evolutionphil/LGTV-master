@@ -22,12 +22,12 @@
 
 | # | Task | Type | Risk Level | Status |
 |---|------|------|------------|--------|
-| 1 | Delete attached_assets folder | Cleanup | Very Low | Pending |
-| 2 | Add production logging flag | Performance | Very Low | Pending |
-| 3 | Implement URL caching | Performance | Low | Pending |
-| 4 | Fix black screen on STOP | Bug Fix | Low | Pending |
-| 5 | Fix favorites empty slot bug | Bug Fix | Low | Pending |
-| 6 | Fix Movie favorites not saving | Bug Fix | Low | Pending |
+| 1 | Delete attached_assets folder | Cleanup | Very Low | ✅ DONE |
+| 2 | Add production logging flag | Performance | Very Low | ✅ DONE |
+| 3 | Implement URL caching | Performance | Low | ✅ DONE |
+| 4 | Fix black screen on STOP | Bug Fix | Low | ✅ DONE |
+| 5 | Fix favorites empty slot bug | Bug Fix | Low | ✅ DONE |
+| 6 | Fix Movie favorites not saving | Bug Fix | Low | ✅ DONE (was working - see notes) |
 | 7 | Fix broken background image | Bug Fix | Very Low | Pending |
 | 8 | Add RETURN/BACK key support | Enhancement | Low | Pending |
 | 9 | Fix double focus on player overlay | CSS Fix | Very Low | Pending |
@@ -37,7 +37,7 @@
 | 13 | Add IME keyboard handling | Enhancement | Low | Pending |
 | 14 | Add mediastorage privilege | Config | Very Low | ✅ DONE |
 | 15 | Fix CSS custom properties | Compatibility | Low | Pending |
-| 16 | Fix USB Storage Play | Bug Fix | Medium | Pending |
+| 16 | Fix USB Storage Play | Bug Fix | Medium | ✅ DONE |
 
 ---
 

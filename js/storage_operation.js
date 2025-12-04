@@ -74,23 +74,24 @@ var storage_page={
             }
             else {
                 var that=this;
-                // function checkCorruptedRemovableDrives(storages1) {
-                //     var storages=[];
-                //     for (var i = 0; i < storages1.length; i++) {
-                //         if (storages1[i].type == 'UNMOUNTABLE'){
-                //             storages.push(storages1[i]);
-                //         }
-                //         // if (storages1[i].state == 'UNMOUNTABLE')
-                //         //     console.log('External drive ' + storages1[i].label + ' is corrupted.');
-                //     }
-                //     that.storages=storages;
-                //     that.initPage();
-                //     console.log(storages);
-                // }
+                function checkCorruptedRemovableDrives(storageList) {
+                    var validStorages = [];
+                    for (var i = 0; i < storageList.length; i++) {
+                        var storage = storageList[i];
+                        if (storage.state === 'MOUNTED') {
+                            validStorages.push(storage);
+                        }
+                    }
+                    that.storages = validStorages;
+                    that.initPage();
+                    debugLog('USB Storage: Found', validStorages.length, 'mounted storage(s)');
+                }
                 try {
                     tizen.filesystem.listStorages(checkCorruptedRemovableDrives);
                 }catch (e) {
-                    console.log("storage operation issue",e);
+                    debugLog("USB Storage: Error listing storages", e);
+                    that.storages = [];
+                    that.initPage();
                 }
             }
         }

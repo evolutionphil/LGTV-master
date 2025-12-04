@@ -210,12 +210,21 @@ function initPlayer() {
             close:function(){
                 this.state = this.STATES.STOPPED;
                 try{
+                    webapis.avplay.stop();
+                }catch (e) {
+                }
+                try{
                     webapis.avplay.close();
+                }catch (e) {
+                }
+                try{
+                    webapis.avplay.setDisplayRect(0, 0, 0, 0);
                 }catch (e) {
                 }
                 SrtOperation.deStruct();
                 this.subtitles=[];
-                $(this.parent_id).find('.video-error').hide();
+                $('#' + this.parent_id).find('.video-error').hide();
+                $('#' + this.parent_id).find('.video-loader').hide();
                 this.reconnect_count = 0;
                 clearTimeout(this.reconnect_timer);
                 $('#' + this.parent_id).find('.video-reconnect-message').hide();

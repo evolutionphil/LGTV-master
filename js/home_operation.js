@@ -1510,10 +1510,16 @@ var home_page={
                 current_model.removeRecentOrFavouriteMovie(movie[movie_key], 'favourite');
                 if(current_category.category_id==='favourite'){
                     $(domElement).remove();
+                    this.movies.splice(keys.grid_selection, 1);
                     var grid_doms=$('#movie-grids-container .movie-item-wrapper');
+                    grid_doms.each(function(index, item) {
+                        $(item).data('index', index);
+                    });
+                    this.movie_grid_doms = grid_doms;
                     if(grid_doms.length==0){
                         keys.focused_part="search_back_selection";
                         keys.search_back_selection=1;
+                        keys.grid_selection = -1;
                         $('#search-button-wrapper').addClass('active');
                     }else{
                         if(keys.grid_selection>=grid_doms.length)

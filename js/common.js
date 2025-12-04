@@ -1,4 +1,57 @@
 "use strict";
+
+// ============================================================
+// DEBUG AND PRODUCTION SETTINGS
+// ============================================================
+var DEBUG_MODE = false; // Set to true for development, false for production
+
+// Debug logging function - only logs when DEBUG_MODE is true
+function debugLog() {
+    if (DEBUG_MODE && console && console.log) {
+        console.log.apply(console, arguments);
+    }
+}
+
+// ============================================================
+// URL CACHE - Caches stream URLs to speed up channel switching
+// ============================================================
+var urlCache = {
+    cache: {},
+    maxAge: 5 * 60 * 1000, // 5 minutes in milliseconds
+    
+    set: function(key, url) {
+        this.cache[key] = {
+            url: url,
+            timestamp: Date.now()
+        };
+        debugLog('URL Cache: Stored', key);
+    },
+    
+    get: function(key) {
+        var entry = this.cache[key];
+        if (!entry) return null;
+        
+        // Check if expired
+        if (Date.now() - entry.timestamp > this.maxAge) {
+            delete this.cache[key];
+            debugLog('URL Cache: Expired', key);
+            return null;
+        }
+        
+        debugLog('URL Cache: Hit', key);
+        return entry.url;
+    },
+    
+    remove: function(key) {
+        delete this.cache[key];
+    },
+    
+    clear: function() {
+        this.cache = {};
+        debugLog('URL Cache: Cleared');
+    }
+};
+
 var mac_address, user_name, password, server_info, user_info,
     api_host_url, panel_url="https://flixapp.net/api",
     time_difference_with_server=0;  // time difference between user time and server time, measured by mins
