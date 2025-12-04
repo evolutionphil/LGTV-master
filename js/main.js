@@ -65,6 +65,14 @@ $(document).ready(function () {
     else if(platform==='lg')
         document.addEventListener('keyboardStateChange', keyboardVisibilityChange, false);
     document.addEventListener('keydown', function(e) {
+        // Map keyboard Backspace to RETURN for browser/Windows testing
+        var keyCode = e.keyCode;
+        if(keyCode === 8) { // Backspace key
+            keyCode = tvKey.RETURN;
+            // Create a modified event-like object for handlers
+            e = {keyCode: keyCode, preventDefault: function(){}, stopPropagation: function(){}};
+        }
+        
         if(platform==='samsung'){
             if(e.keyCode==tvKey.EXIT){
                 if(current_route==='vod-series-player-video'){
