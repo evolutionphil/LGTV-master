@@ -146,6 +146,8 @@ var vod_summary_page={
                 // Check if favorites need refresh
                 if(favourites_dirty) {
                     favourites_dirty = false;
+                    // Refresh current_movie_categories to get updated favorites data
+                    current_movie_categories = VodModel.getCategories(false, true);
                     // Update the favorites count in submenu
                     if(typeof home_page.updateRecentFavouriteMoviesCount === 'function') {
                         home_page.updateRecentFavouriteMoviesCount();
