@@ -5,7 +5,7 @@ var SeriesModel={
     favourite_category_index:'top-1',
     favourite_insert_position:'before', // or after
     favourite_movie_count:200,
-    movie_key:"stream_id",
+    movie_key:"series_id",
     categories:[],
     saved_video_times:{},
     favourite_ids:[],
