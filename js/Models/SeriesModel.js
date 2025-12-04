@@ -274,16 +274,17 @@ var SeriesModel={
         if(is_deleted && kind==="favourite"){
             this.favourite_ids=movie_ids;
             
-            // Check if we're currently viewing the favorites category
-            if(typeof current_category !== 'undefined' && current_category.category_id === 'favourite' && 
-               typeof current_route !== 'undefined' && current_route === 'home-page') {
-                // Refresh the entire category to fill the empty space
-                home_page.showCategoryContent();
-            } else {
-                // If not in favorites view, just remove the DOM element (legacy behavior)
-                var domElement=home_page.movie_grid_doms[home_page.keys.grid_selection];
-                $(domElement).find('.favourite-badge').remove();
-                $(domElement).remove();
+            // Only manipulate DOM if we're on the home page viewing favorites
+            if(typeof current_route !== 'undefined' && current_route === 'home-page') {
+                if(typeof current_category !== 'undefined' && current_category.category_id === 'favourite') {
+                    // Viewing favorites - let goBack handle the refresh
+                } else {
+                    // Not viewing favorites - just remove the badge
+                    var domElement=home_page.movie_grid_doms[home_page.keys.grid_selection];
+                    if(domElement) {
+                        $(domElement).find('.favourite-badge').remove();
+                    }
+                }
             }
         }
     },
