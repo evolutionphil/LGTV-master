@@ -232,7 +232,39 @@ var login_page={
         return macAddress;
     },
 
-    // Samsung fallback system: Ethernet -> DUID -> Tizen ID -> Hardcoded
+    // Helper function to validate MAC address (reject empty, null, or privacy placeholders)
+    isValidMacAddress: function(mac) {
+        if (!mac || mac === '' || mac === null || mac === undefined) {
+            return false;
+        }
+        
+        // List of invalid/privacy placeholder MAC addresses
+        var invalidMacs = [
+            '00:00:00:00:00:00',
+            '02:00:00:00:00:00',  // Common privacy placeholder
+            'FF:FF:FF:FF:FF:FF',
+            '52:54:00:12:34:59',  // Our hardcoded fallback - don't accept as "real"
+            '52:54:00:12:34:58'   // Our hardcoded fallback - don't accept as "real"
+        ];
+        
+        var upperMac = mac.toUpperCase().trim();
+        
+        if (invalidMacs.indexOf(upperMac) !== -1) {
+            console.log('Samsung: Rejected invalid/placeholder MAC: ' + mac);
+            return false;
+        }
+        
+        // Check if it looks like a valid MAC format (XX:XX:XX:XX:XX:XX)
+        var macRegex = /^([0-9A-F]{2}:){5}[0-9A-F]{2}$/i;
+        if (!macRegex.test(mac)) {
+            console.log('Samsung: Rejected malformed MAC: ' + mac);
+            return false;
+        }
+        
+        return true;
+    },
+
+    // Samsung fallback system: Ethernet -> DUID -> Tizen ID -> webapis.network.getMac -> Hardcoded
     getSamsungMacAddress: function() {
         var that = this;
         
@@ -246,11 +278,12 @@ var login_page={
         // Try Ethernet first (primary method)
         try {
             tizen.systeminfo.getPropertyValue('ETHERNET_NETWORK', function (data) {
-                if (data !== undefined && typeof data.macAddress !== 'undefined' && data.macAddress) {
-                    console.log('Samsung: Using Ethernet MAC address');
+                if (data !== undefined && typeof data.macAddress !== 'undefined' && data.macAddress && that.isValidMacAddress(data.macAddress)) {
+                    console.log('Samsung: Using Ethernet MAC address: ' + data.macAddress);
                     mac_address = data.macAddress;
                     that.fetchPlaylistInformation();
                 } else {
+                    console.log('Samsung: Ethernet MAC not valid, trying DUID');
                     // Fallback to DUID
                     that.getSamsungDuidMac();
                 }
@@ -299,21 +332,50 @@ var login_page={
                     mac_address = that.stringToMacAddress(encodedTizenId);
                     that.fetchPlaylistInformation();
                 } else {
-                    // Final fallback - hardcoded MAC
-                    that.getSamsungHardcodedMac();
+                    // Fallback to webapis.network.getMac()
+                    console.log('Samsung: Tizen ID not available, trying webapis.network.getMac()');
+                    that.getSamsungNetworkApiMac();
                 }
             }, function(error) {
-                console.log('Samsung: Tizen ID failed, using hardcoded MAC');
-                that.getSamsungHardcodedMac();
+                console.log('Samsung: Tizen ID failed, trying webapis.network.getMac()');
+                that.getSamsungNetworkApiMac();
             });
         } catch (e) {
-            console.log('Samsung: Tizen ID exception, using hardcoded MAC');
+            console.log('Samsung: Tizen ID exception, trying webapis.network.getMac()');
+            that.getSamsungNetworkApiMac();
+        }
+    },
+
+    // NEW: Try Samsung's webapis.network.getMac() API - works on Tizen 9.0+
+    getSamsungNetworkApiMac: function() {
+        var that = this;
+        
+        try {
+            // Check if webapis.network is available
+            if (typeof webapis !== 'undefined' && webapis.network && typeof webapis.network.getMac === 'function') {
+                var networkMac = webapis.network.getMac();
+                console.log('Samsung: webapis.network.getMac() returned: ' + networkMac);
+                
+                if (networkMac && that.isValidMacAddress(networkMac)) {
+                    console.log('Samsung: Using webapis.network.getMac() MAC address: ' + networkMac);
+                    mac_address = networkMac;
+                    that.fetchPlaylistInformation();
+                } else {
+                    console.log('Samsung: webapis.network.getMac() returned invalid MAC, using hardcoded');
+                    that.getSamsungHardcodedMac();
+                }
+            } else {
+                console.log('Samsung: webapis.network.getMac() not available, using hardcoded MAC');
+                that.getSamsungHardcodedMac();
+            }
+        } catch (e) {
+            console.log('Samsung: webapis.network.getMac() exception: ' + e.message + ', using hardcoded MAC');
             that.getSamsungHardcodedMac();
         }
     },
 
     getSamsungHardcodedMac: function() {
-        console.log('Samsung: Using hardcoded MAC address');
+        console.log('Samsung: Using hardcoded MAC address (all fallbacks failed)');
         mac_address = '52:54:00:12:34:59'; // Hardcoded fallback
         this.fetchPlaylistInformation();
     },
