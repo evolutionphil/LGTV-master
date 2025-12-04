@@ -14,8 +14,10 @@ Preferred communication style: Simple, everyday language.
   - **Fixed Black Screen on STOP**: Enhanced Samsung player's close() function to properly stop and clear display
   - **Fixed Favorites Empty Slot Bug**: When removing favorites from the favorites view, now properly updates both DOM and movies array
   - **Fixed USB Storage Play**: Restored the `checkCorruptedRemovableDrives` callback function that was commented out
+  - **Fixed Broken Background Image**: Background images now hide properly when no backdrop is available, with error handler for failed loads
+  - **Fixed Double Focus on Player Overlay**: Changed CSS hover selector to `:hover:not(.active)` to prevent visual conflicts
   - **Config.xml Updates**: API version 2.4, mediastorage privilege, productinfo privilege, mouse support
-  - Modified files: `js/common.js`, `js/player.js`, `js/home_operation.js`, `js/storage_operation.js`, `config.xml`
+  - Modified files: `js/common.js`, `js/player.js`, `js/home_operation.js`, `js/storage_operation.js`, `js/vod_summary.js`, `js/series_summary.js`, `css/vod_series_player_page.css`, `config.xml`
   - See UPDATE.md for complete task list and testing instructions
 
 - **2025-12-04: Added webapis.network.getMac() and Wi-Fi Fallback for Tizen 9.0+ MAC Detection**

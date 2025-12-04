@@ -79,7 +79,7 @@
     border-color: #f77b05;
 }
 
-.video-control-icon i.active, .video-control-icon i:hover{
+.video-control-icon i:hover:not(.active){
     color: #fff;
     cursor: pointer;
 }

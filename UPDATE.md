@@ -28,9 +28,9 @@
 | 4 | Fix black screen on STOP | Bug Fix | Low | ✅ DONE |
 | 5 | Fix favorites empty slot bug | Bug Fix | Low | ✅ DONE |
 | 6 | Fix Movie favorites not saving | Bug Fix | Low | ✅ DONE (was working - see notes) |
-| 7 | Fix broken background image | Bug Fix | Very Low | Pending |
-| 8 | Add RETURN/BACK key support | Enhancement | Low | Pending |
-| 9 | Fix double focus on player overlay | CSS Fix | Very Low | Pending |
+| 7 | Fix broken background image | Bug Fix | Very Low | ✅ DONE |
+| 8 | Add RETURN/BACK key support | Enhancement | Low | ✅ DONE (was already implemented) |
+| 9 | Fix double focus on player overlay | CSS Fix | Very Low | ✅ DONE |
 | 10 | Fix config.xml API version | Config | Very Low | ✅ DONE |
 | 11 | Add 4K/8K detection privileges | Config | Very Low | ✅ DONE |
 | 12 | Add mouse support | Config | Very Low | ✅ DONE |

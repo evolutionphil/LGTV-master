@@ -18,7 +18,7 @@ var vod_summary_page={
         $('#vod-summary-release-genre').text("");
         $('#vod-summary-release-length').text("");
         $('#vod-summary-release-country').text("");
-        $('.vod-series-background-img').attr('src','');
+        $('.vod-series-background-img').attr('src','').hide();
         $('#vod-summary-release-director').text("");
         $('#vod-summary-release-cast').text("");
         $('#vod-summary-image-wrapper img').attr('src',current_movie.stream_icon);
@@ -106,9 +106,15 @@ var vod_summary_page={
                         
                         // Use backdrop if available, otherwise use poster as fallback
                         if(backdrop_image) {
-                            $('.vod-series-background-img').attr('src',backdrop_image);
+                            $('.vod-series-background-img').attr('src', backdrop_image).show().on('error', function() {
+                                $(this).hide();
+                            });
                         } else if(current_movie.stream_icon) {
-                            $('.vod-series-background-img').attr('src',current_movie.stream_icon);
+                            $('.vod-series-background-img').attr('src', current_movie.stream_icon).show().on('error', function() {
+                                $(this).hide();
+                            });
+                        } else {
+                            $('.vod-series-background-img').hide();
                         }
 
                         if(typeof info.youtube_trailer!='undefined' && info.youtube_trailer!=null && info.youtube_trailer.trim()!==''){

@@ -13,7 +13,7 @@ var series_summary_page={
         showLoader(true);
         this.is_loading=true;
         $('#series-summary-image-wrapper img').attr('src','');
-        $('.vod-series-background-img').attr('src','');
+        $('.vod-series-background-img').attr('src','').hide();
         $('#series-summary-name').text(current_series.name);
         $('#series-summary-release-date').text(current_series.releasedate);
         $('#series-summary-release-genre').text(current_series.genre);
@@ -31,9 +31,15 @@ var series_summary_page={
         
         // Use backdrop if available, otherwise use poster as fallback
         if(backdrop_image) {
-            $('.vod-series-background-img').attr('src',backdrop_image);
+            $('.vod-series-background-img').attr('src', backdrop_image).show().on('error', function() {
+                $(this).hide();
+            });
         } else if(current_series.cover) {
-            $('.vod-series-background-img').attr('src',current_series.cover);
+            $('.vod-series-background-img').attr('src', current_series.cover).show().on('error', function() {
+                $(this).hide();
+            });
+        } else {
+            $('.vod-series-background-img').hide();
         }
         this.hoverButtons(1);
         if(current_series.is_favourite){
