@@ -230,15 +230,22 @@ var series_summary_page={
         $('#series-summary-page').hide();
         switch (this.prev_route) {
             case "home-page":
-                // Check if we need to refresh favorites category after removal
-                if(typeof current_category !== 'undefined' && current_category.category_id === 'favourite') {
-                    // Refresh the favorites category to fill empty spaces
-                    home_page.reEnter();
-                    setTimeout(function() {
-                        home_page.showCategoryContent();
-                    }, 100);
-                } else {
-                    home_page.reEnter();
+                home_page.reEnter();
+                // Check if favorites need refresh
+                if(favourites_dirty) {
+                    favourites_dirty = false;
+                    // Update the favorites count in submenu
+                    if(typeof home_page.updateRecentFavouriteMoviesCount === 'function') {
+                        home_page.updateRecentFavouriteMoviesCount();
+                    }
+                    // If currently viewing favorites category, refresh the content
+                    if(typeof current_category !== 'undefined' && current_category.category_id === 'favourite') {
+                        // Refresh current_category from model to get updated movies array
+                        current_category = SeriesModel.getRecentOrFavouriteCategory('favourite');
+                        setTimeout(function() {
+                            home_page.showCategoryContent();
+                        }, 100);
+                    }
                 }
                 break;
             case "search-page":
@@ -293,6 +300,7 @@ var series_summary_page={
             $(targetElement).data('action','add');
             $(targetElement).find('.vod-series-action-btn-txt').text('Add Favourite');
         }
+        favourites_dirty = true;
     },
     HandleKey:function (e) {
         if(this.is_loading){
@@ -322,6 +330,7 @@ var series_summary_page={
                     SeriesModel.removeRecentOrFavouriteMovie(current_series.series_id,"favourite");
                     current_series.is_favourite=false;
                 }
+                favourites_dirty = true;
                 break;
             case tvKey.ENTER:
                 this.handleMenuClick();

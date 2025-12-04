@@ -13,6 +13,11 @@ function debugLog() {
 }
 
 // ============================================================
+// FAVORITES DIRTY FLAG - Tracks when favorites need UI refresh
+// ============================================================
+var favourites_dirty = false;
+
+// ============================================================
 // URL CACHE - Caches stream URLs to speed up channel switching
 // ============================================================
 var urlCache = {
