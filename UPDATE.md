@@ -1,6 +1,7 @@
 # FLIX IPTV - Update Plan v1.1
 
 **Created:** December 4, 2025  
+**Last Updated:** December 4, 2025  
 **Target:** Samsung Tizen 2.4+ (2016+) and LG WebOS 3.0+ (2016+)  
 **Priority:** Bug fixes and compatibility improvements  
 **Rule:** No existing functionality will be broken
@@ -19,24 +20,59 @@
 
 ## Task List Summary
 
-| # | Task | Type | Risk Level |
-|---|------|------|------------|
-| 1 | Delete attached_assets folder | Cleanup | Very Low |
-| 2 | Add production logging flag | Performance | Very Low |
-| 3 | Implement URL caching | Performance | Low |
-| 4 | Fix black screen on STOP | Bug Fix | Low |
-| 5 | Fix favorites empty slot bug | Bug Fix | Low |
-| 6 | Fix Movie favorites not saving | Bug Fix | Low |
-| 7 | Fix broken background image | Bug Fix | Very Low |
-| 8 | Add RETURN/BACK key support | Enhancement | Low |
-| 9 | Fix double focus on player overlay | CSS Fix | Very Low |
-| 10 | Fix config.xml API version | Config | Very Low |
-| 11 | Add 4K/8K detection privileges | Config | Very Low |
-| 12 | Add mouse support | Config | Very Low |
-| 13 | Add IME keyboard handling | Enhancement | Low |
-| 14 | Add mediastorage privilege | Config | Very Low |
-| 15 | Fix CSS custom properties | Compatibility | Low |
-| 16 | Fix USB Storage Play | Bug Fix | Medium |
+| # | Task | Type | Risk Level | Status |
+|---|------|------|------------|--------|
+| 1 | Delete attached_assets folder | Cleanup | Very Low | Pending |
+| 2 | Add production logging flag | Performance | Very Low | Pending |
+| 3 | Implement URL caching | Performance | Low | Pending |
+| 4 | Fix black screen on STOP | Bug Fix | Low | Pending |
+| 5 | Fix favorites empty slot bug | Bug Fix | Low | Pending |
+| 6 | Fix Movie favorites not saving | Bug Fix | Low | Pending |
+| 7 | Fix broken background image | Bug Fix | Very Low | Pending |
+| 8 | Add RETURN/BACK key support | Enhancement | Low | Pending |
+| 9 | Fix double focus on player overlay | CSS Fix | Very Low | Pending |
+| 10 | Fix config.xml API version | Config | Very Low | ✅ DONE |
+| 11 | Add 4K/8K detection privileges | Config | Very Low | ✅ DONE |
+| 12 | Add mouse support | Config | Very Low | ✅ DONE |
+| 13 | Add IME keyboard handling | Enhancement | Low | Pending |
+| 14 | Add mediastorage privilege | Config | Very Low | ✅ DONE |
+| 15 | Fix CSS custom properties | Compatibility | Low | Pending |
+| 16 | Fix USB Storage Play | Bug Fix | Medium | Pending |
+
+---
+
+## How To Test on Real TV
+
+### Build and Deploy Steps:
+
+1. **Build the .wgt package:**
+   ```bash
+   # Using Tizen Studio CLI
+   tizen build-web -e ".*" -e "node_modules/*" -e "*.wgt"
+   tizen package -t wgt -o . -- .buildResult
+   ```
+
+2. **Install on TV:**
+   ```bash
+   # Make sure TV is in Developer Mode and connected
+   tizen install -n FLIXIPTV.wgt -t <TV_IP_ADDRESS>
+   ```
+
+3. **Or use Tizen Studio IDE:**
+   - Right-click project → Build Signed Package
+   - Right-click .wgt file → Run As → Tizen Web Application
+
+### Quick Verification After Config Changes:
+
+After Tasks 10, 11, 12, 14 (config.xml changes), verify:
+
+1. **App launches normally** - No privilege errors or crashes
+2. **All existing features work:**
+   - Login works
+   - Live TV plays
+   - Movies/Series load
+   - Settings open
+3. **No error popups** about missing privileges
 
 ---
 
@@ -659,110 +695,107 @@ Revert CSS hover selectors.
 
 ---
 
-# TASK 10: Fix config.xml API Version
+# TASK 10: Fix config.xml API Version ✅ COMPLETED
 
-## What
-Change `required_version` from "2.3" to "2.4" in config.xml.
+**Status:** ✅ DONE (December 4, 2025)  
+**Verified by:** Architect Review - PASSED
 
-## Why
-- Tizen 2.3 is for 2015 TVs (not supported)
-- Tizen 2.4 is for 2016 TVs (minimum supported)
-- This ensures the app only installs on supported TVs
+## What Was Done
+Changed `required_version` from "2.3" to "2.4" in config.xml.
 
-## How
-
-### Step 1: Open `config.xml`
-
-### Step 2: Find the tizen:application tag:
+## Change Made
 ```xml
-<!-- CURRENT -->
-<tizen:application id="..." required_version="2.3"/>
+<!-- BEFORE -->
+<tizen:application id="qDXvQBVmtf.FLIXIPTV" package="qDXvQBVmtf" required_version="2.3"/>
 
-<!-- FIXED -->
-<tizen:application id="..." required_version="2.4"/>
+<!-- AFTER -->
+<tizen:application id="qDXvQBVmtf.FLIXIPTV" package="qDXvQBVmtf" required_version="2.4"/>
 ```
 
 ## Files Changed
-- `config.xml` - Update required_version
+- `config.xml` - Line 4
 
-## Testing
-1. Build the app
-2. Install on Tizen 2.4 (2016) TV - should work
-3. Verify app launches and all features work
+## How To Test on Real TV
+1. Build the .wgt package
+2. Install on Samsung TV (2016 or newer)
+3. App should launch normally
+4. All features should work exactly as before
+5. If you try to install on 2015 TV, it will correctly reject (not supported)
 
-## Rollback
-Change required_version back to "2.3".
+## Rollback (if needed)
+Change required_version back to "2.3" in config.xml line 4.
 
 ---
 
-# TASK 11: Add 4K/8K Detection Privileges
+# TASK 11: Add 4K/8K Detection Privileges ✅ COMPLETED
 
-## What
-Add `productinfo` privilege to enable panel resolution detection.
+**Status:** ✅ DONE (December 4, 2025)  
+**Verified by:** Architect Review - PASSED
 
-## Why
-This allows the app to detect if the TV supports 4K/8K and optimize playback accordingly.
+## What Was Done
+Added `productinfo` privilege to enable panel resolution detection.
 
-## How
-
-### Step 1: Open `config.xml`
-
-### Step 2: Add privilege after existing privileges:
+## Change Made
 ```xml
-<tizen:privilege name="http://tizen.org/privilege/tv.inputdevice"/>
-<!-- Add this line: -->
+<!-- ADDED to config.xml -->
 <tizen:privilege name="http://tizen.org/privilege/productinfo"/>
 ```
 
-### Step 3 (Optional): Add metadata for resolution detection:
-```xml
-<tizen:metadata key="http://samsung.com/tv/metadata/use.screen.size" value="true"/>
-```
-
 ## Files Changed
-- `config.xml` - Add productinfo privilege
+- `config.xml` - Line 18
 
-## Testing
-1. Build and install app
-2. App should launch without privilege errors
-3. (Future) Resolution detection API will work
+## How To Test on Real TV
+1. Build the .wgt package
+2. Install on Samsung TV
+3. App should launch normally without any privilege errors
+4. All existing features should work exactly as before
+5. (Future benefit: 4K/8K detection API is now available)
 
-## Rollback
-Remove the productinfo privilege line.
+## Rollback (if needed)
+Remove line 18 from config.xml:
+```xml
+<tizen:privilege name="http://tizen.org/privilege/productinfo"/>
+```
 
 ---
 
-# TASK 12: Add Mouse Support
+# TASK 12: Add Mouse Support ✅ COMPLETED
 
-## What
-Enable mouse/pointer support for 2021+ Samsung TVs with Magic Remote-like features.
+**Status:** ✅ DONE (December 4, 2025)  
+**Verified by:** Architect Review - PASSED
 
-## Why
-Newer Samsung TVs (2021+) have pointer support. Without this setting, mouse events won't work.
+## What Was Done
+Added `pointing-device-support="enable"` to the tizen:setting element.
 
-## How
-
-### Step 1: Open `config.xml`
-
-### Step 2: Find or add the tizen:setting element:
+## Change Made
 ```xml
-<widget ... >
-    <!-- Find tizen:setting or add it -->
-    <tizen:setting pointing-device-support="enable"/>
-</widget>
+<!-- BEFORE -->
+<tizen:setting screen-orientation="auto-rotation" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+
+<!-- AFTER -->
+<tizen:setting screen-orientation="auto-rotation" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable" pointing-device-support="enable"/>
 ```
 
 ## Files Changed
-- `config.xml` - Add pointing-device-support setting
+- `config.xml` - Line 20 (added attribute to tizen:setting)
 
-## Testing
-1. Build and install on 2021+ Samsung TV
-2. If TV has pointer support, verify mouse cursor appears
-3. Verify clicking works on buttons and menus
-4. Verify app still works normally on 2016-2020 TVs (D-pad only)
+## How To Test on Real TV
 
-## Rollback
-Remove or set pointing-device-support="disable".
+### On 2021+ Samsung TV (with pointer support):
+1. Build and install the .wgt package
+2. Launch the app
+3. Mouse cursor should appear when you move the remote
+4. Clicking on buttons and menus should work
+5. All D-pad navigation still works
+
+### On 2016-2020 Samsung TV (D-pad only):
+1. Build and install the .wgt package
+2. Launch the app
+3. D-pad navigation works normally
+4. No changes in behavior (pointer not available on these TVs)
+
+## Rollback (if needed)
+Remove `pointing-device-support="enable"` from the tizen:setting line in config.xml.
 
 ---
 
@@ -823,39 +856,38 @@ Remove IME key handlers.
 
 ---
 
-# TASK 14: Add mediastorage Privilege
+# TASK 14: Add mediastorage Privilege ✅ COMPLETED
 
-## What
-Add the `mediastorage` privilege required for USB storage access.
+**Status:** ✅ DONE (December 4, 2025)  
+**Verified by:** Architect Review - PASSED
 
-## Why
-Without this privilege:
-- USB storage detection will fail
-- App will fail Samsung certification
-- Storage Play feature won't work
+## What Was Done
+Added the `mediastorage` privilege required for USB storage access.
 
-## How
-
-### Step 1: Open `config.xml`
-
-### Step 2: Add privilege after existing filesystem privileges:
+## Change Made
 ```xml
-<tizen:privilege name="http://tizen.org/privilege/filesystem.read"/>
-<tizen:privilege name="http://tizen.org/privilege/filesystem.write"/>
-<!-- Add this line: -->
+<!-- ADDED to config.xml -->
 <tizen:privilege name="http://tizen.org/privilege/mediastorage"/>
 ```
 
 ## Files Changed
-- `config.xml` - Add mediastorage privilege
+- `config.xml` - Line 17
 
-## Testing
-1. Build and install app
-2. App should launch without privilege errors
-3. (After Task 16) USB detection will work
+## How To Test on Real TV
+1. Build the .wgt package
+2. Install on Samsung TV
+3. App should launch normally without any privilege errors
+4. All existing features should work exactly as before
+5. Storage Play menu should still appear (USB detection will work after Task 16 is done)
+6. **Important for Certification:** This privilege is required - without it, Samsung certification would FAIL
 
-## Rollback
-Remove the mediastorage privilege line.
+## Rollback (if needed)
+Remove line 17 from config.xml:
+```xml
+<tizen:privilege name="http://tizen.org/privilege/mediastorage"/>
+```
+
+**Note:** If you remove this, USB storage won't work and Samsung certification will fail!
 
 ---
 
