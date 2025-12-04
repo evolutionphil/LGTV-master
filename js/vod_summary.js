@@ -146,16 +146,21 @@ var vod_summary_page={
                 // Check if favorites need refresh
                 if(favourites_dirty) {
                     favourites_dirty = false;
-                    // Refresh current_movie_categories to get updated favorites data
-                    current_movie_categories = VodModel.getCategories(false, true);
                     // Update the favorites count in submenu
                     if(typeof home_page.updateRecentFavouriteMoviesCount === 'function') {
                         home_page.updateRecentFavouriteMoviesCount();
                     }
-                    // If currently viewing favorites category, refresh the content
+                    // If currently viewing favorites category, refresh the grid
                     if(typeof current_category !== 'undefined' && current_category.category_id === 'favourite') {
-                        // Refresh current_category from model to get updated movies array
-                        current_category = VodModel.getRecentOrFavouriteCategory('favourite');
+                        // Find the favorite category directly from the model's categories array
+                        var categories = VodModel.categories;
+                        for(var i = 0; i < categories.length; i++) {
+                            if(categories[i].category_id === 'favourite') {
+                                current_category = categories[i];
+                                break;
+                            }
+                        }
+                        // Rebuild the grid with updated favorites
                         setTimeout(function() {
                             home_page.showCategoryContent();
                         }, 100);

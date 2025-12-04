@@ -2,7 +2,7 @@
 var VodModel ={
     movies:[],
     category_name:'vod',
-    favourite_category_index:'top-2',
+    favourite_category_index:'top-1',
     favourite_insert_position:'before', // or after
     favourite_movie_count:200,
     movie_key:"stream_id",
