@@ -221,6 +221,10 @@ var home_page={
                 $('#language-select-modal').modal('hide');
                 keys.focused_part="menu_selection";
                 break;
+            case "focus_color_selection":
+                $('#focus-color-modal').modal('hide');
+                keys.focused_part="menu_selection";
+                break;
             default:
                 this.goToMainPage();
         }
@@ -694,6 +698,58 @@ var home_page={
         $('#settings-modal').modal('hide');
         $('#theme-modal').modal('show');
         this.hoverThemeModal(0);
+    },
+    showFocusColorModal:function(){
+        var that = this;
+        var keys = this.keys;
+        keys.focused_part = "focus_color_selection";
+        keys.focus_color_selection = 0;
+        
+        // Render color palette
+        var html = '';
+        var currentColor = settings.focus_color || '#01d7fb';
+        focusColorPalette.forEach(function(item, index) {
+            var isActive = item.color.toLowerCase() === currentColor.toLowerCase();
+            if(isActive) keys.focus_color_selection = index;
+            html += '<div class="focus-color-item ' + (isActive ? 'active' : '') + '" ' +
+                'style="width: 80px; height: 80px; background-color: ' + item.color + '; border-radius: 10px; cursor: pointer; border: 4px solid transparent; display: flex; align-items: center; justify-content: center;" ' +
+                'data-color="' + item.color + '" ' +
+                'data-index="' + index + '" ' +
+                'onclick="home_page.pickFocusColor(\'' + item.color + '\')" ' +
+                'onmouseenter="home_page.hoverFocusColorItem(' + index + ')">' +
+                (isActive ? '<i class="fas fa-check" style="color: #fff; font-size: 24px;"></i>' : '') +
+                '</div>';
+        });
+        $('#focus-color-body').html(html);
+        this.focus_color_items = $('.focus-color-item');
+        
+        $('#settings-modal').modal('hide');
+        $('#focus-color-modal').modal('show');
+    },
+    hoverFocusColorItem:function(index){
+        var keys = this.keys;
+        keys.focused_part = "focus_color_selection";
+        keys.focus_color_selection = index;
+        $(this.focus_color_items).removeClass('active');
+        $(this.focus_color_items[index]).addClass('active').css('border-color', '#ffffff');
+    },
+    pickFocusColor:function(color){
+        settings.saveSettings('focus_color', color, '');
+        applyFocusColor(color);
+        
+        // Update checkmarks
+        $(this.focus_color_items).each(function(){
+            var itemColor = $(this).data('color');
+            if(itemColor.toLowerCase() === color.toLowerCase()) {
+                $(this).html('<i class="fas fa-check" style="color: #fff; font-size: 24px;"></i>');
+            } else {
+                $(this).html('');
+            }
+        });
+        
+        showToast('Success', 'Focus color changed');
+        this.keys.focused_part = "menu_selection";
+        $('#focus-color-modal').modal('hide');
     },
     pickTheme:function(index){
         settings.saveSettings('bg_img_index',index,'');
@@ -1955,6 +2011,15 @@ var home_page={
                 keys.clear_cache_selection=increment>0 ? 1 : 0;
                 this.hoverCacheConfirmModal(keys.clear_cache_selection);
                 break;
+            case "focus_color_selection":
+                var focus_color_items = this.focus_color_items;
+                keys.focus_color_selection += increment;
+                if(keys.focus_color_selection < 0)
+                    keys.focus_color_selection = focus_color_items.length - 1;
+                if(keys.focus_color_selection >= focus_color_items.length)
+                    keys.focus_color_selection = 0;
+                this.hoverFocusColorItem(keys.focus_color_selection);
+                break;
         }
     },
     handleMenuClick:function(){
@@ -2040,6 +2105,9 @@ var home_page={
                 break;
             case "language_selection":
                 $(this.language_doms[keys.language_selection]).trigger('click');
+                break;
+            case "focus_color_selection":
+                $(this.focus_color_items[keys.focus_color_selection]).trigger('click');
                 break;
             case "lock_account_selection":
                 this.saveLockState();

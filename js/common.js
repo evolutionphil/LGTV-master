@@ -804,6 +804,11 @@ function parseSeries(data) {
 
 settings.initFromLocal();
 
+// Apply saved focus color on app startup
+if(typeof applyFocusColor === 'function') {
+    applyFocusColor(settings.focus_color || '#01d7fb');
+}
+
 function splitStrings(string, keys) {
     var result_array=[];
     for(var i=0; i<keys.length; i++){
