@@ -189,8 +189,10 @@ var SeriesModel={
         };
         
         // Insert standard categories at the beginning in correct order
-        categories.unshift(favourite_category);
+        // Order: resume first, then favourite, then all
+        // This results in: Index 0=All, Index 1=Favourites, Index 2=Resume
         categories.unshift(resume_category);
+        categories.unshift(favourite_category);
         categories.unshift(all_category);
 
 
