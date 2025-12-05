@@ -1,2 +1,2 @@
 # LGTV
-FLIX Iptv LGTV
+
