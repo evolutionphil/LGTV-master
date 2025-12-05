@@ -98,7 +98,7 @@ function applyFocusColor(color) {
     
     // Homepage menu and slider
     css += '#home-page .menu-item.active { background-color: ' + color + ' !important; }\n';
-    css += '#home-page .movie-slider-wrapper .movie-item-wrapper.active { border-color: ' + color + ' !important; }\n';
+    css += '#home-page .movie-slider-wrapper .movie-item-wrapper.active { border-color: ' + color + ' !important; background-color: ' + color + ' !important; }\n';
     css += '.search-back-button.active span { background-color: ' + color + ' !important; }\n';
     
     // Hide category buttons
@@ -120,6 +120,7 @@ function applyFocusColor(color) {
     
     // Movie grid
     css += '#home-page-movies-grid-container .movie-item-wrapper.active { border-color: ' + color + ' !important; }\n';
+    css += '#home-page-movies-grid-container .movie-item-wrapper.active .movie-grid-item-title-wrapper { background-color: ' + color + ' !important; }\n';
     
     // Search page
     css += '.search-page-top-menu.back-icon.active { background-color: ' + color + ' !important; }\n';
