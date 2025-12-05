@@ -59,11 +59,11 @@
     background: none !important;
 }
 #home-page-movies-grid-container .movie-item-wrapper.active .movie-thumbernail-title {
-    background: yellow !important;
-    color: #333 !important;
+    background: none !important;
+    color: #fff !important;
 }
 #home-page-movies-grid-container .movie-item-wrapper.active .movie-grid-item-title-wrapper{
-    background: yellow !important;
+    /* Background color now controlled by Focus Color setting via applyFocusColor() */
     border: none !important;
 }
 
