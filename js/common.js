@@ -57,6 +57,114 @@ var urlCache = {
     }
 };
 
+// ============================================================
+// FOCUS COLOR - Dynamic focus/selection color customization
+// ============================================================
+var focusColorPalette = [
+    { name: 'Turquoise', color: '#01d7fb' },
+    { name: 'Yellow', color: '#ffcc00' },
+    { name: 'Red', color: '#ff4d4f' },
+    { name: 'Burgundy', color: '#7f2a2a' },
+    { name: 'Teal', color: '#0f6674' },
+    { name: 'Green', color: '#32c671' }
+];
+
+function applyFocusColor(color) {
+    var styleEl = document.getElementById('focus-color-style');
+    if (!styleEl) {
+        styleEl = document.createElement('style');
+        styleEl.id = 'focus-color-style';
+        document.head.appendChild(styleEl);
+    }
+    
+    // Build CSS override rules for all active/focus elements
+    var css = '';
+    
+    // Search items
+    css += '.search-item-wrapper.active, .search-item-wrapper:hover { background-color: ' + color + ' !important; border-left-color: ' + color + ' !important; }\n';
+    
+    // Modal buttons
+    css += '.modal-btn-1.active, .modal-btn-2.active { background-color: ' + color + ' !important; }\n';
+    
+    // Season/Episode cards
+    css += '.season-grid-item-wrapper.active, .episode-grid-item-wrapper.active { border-color: ' + color + ' !important; }\n';
+    css += '#season-page-back-button.active, #episode-page-back-button.active { background-color: ' + color + ' !important; }\n';
+    
+    // Modal operation menus
+    css += '.modal-operation-menu-type-1.active { background-color: ' + color + ' !important; }\n';
+    css += '.modal-operation-menu-type-2.active { background-color: ' + color + ' !important; }\n';
+    css += '.modal-operation-menu-type-3.active { background-color: ' + color + ' !important; }\n';
+    css += '.modal-operation-menu-type-4.active { background-color: ' + color + ' !important; }\n';
+    
+    // Homepage menu and slider
+    css += '#home-page .menu-item.active { background-color: ' + color + ' !important; }\n';
+    css += '#home-page .movie-slider-wrapper .movie-item-wrapper.active { border-color: ' + color + ' !important; }\n';
+    css += '.search-back-button.active span { background-color: ' + color + ' !important; }\n';
+    
+    // Hide category buttons
+    css += '.hide-category-btn-wrapper.active .hide-category-btn { background-color: ' + color + ' !important; }\n';
+    css += '.hide-category-modal-option.active { background-color: ' + color + ' !important; }\n';
+    
+    // Sort button
+    css += '#sort-button-container.active { background-color: ' + color + ' !important; }\n';
+    css += '.sort-modal-item.active { background-color: ' + color + ' !important; }\n';
+    css += '.sort-modal-item.active::before { background-color: ' + color + ' !important; }\n';
+    
+    // Settings option buttons
+    css += '.setting-option-btn.active { background-color: ' + color + ' !important; }\n';
+    
+    // Channel page
+    css += '#live_channels_home .channel-menu-item.active { background-color: ' + color + ' !important; }\n';
+    css += '#live_channels_home .search-back-button.active span { background-color: ' + color + ' !important; }\n';
+    css += '.channel-action-btn.active { background-color: ' + color + ' !important; }\n';
+    
+    // Movie grid
+    css += '#home-page-movies-grid-container .movie-item-wrapper.active { border-color: ' + color + ' !important; }\n';
+    
+    // Search page
+    css += '.search-page-top-menu.back-icon.active { background-color: ' + color + ' !important; }\n';
+    css += '.filtered-movie-wrapper.active { border-color: ' + color + ' !important; }\n';
+    
+    // VOD/Series summary
+    css += '.vod-series-action-btn.active { background-color: ' + color + ' !important; }\n';
+    
+    // Catchup
+    css += '.program-date-wrapper.active { background-color: ' + color + ' !important; }\n';
+    css += '#catchup .program-menu-item.active { background-color: ' + color + ' !important; }\n';
+    
+    // Guide
+    css += '#guide-back-button.active { background-color: ' + color + ' !important; }\n';
+    css += '#guide-categories-container .guide-category-item.active { background-color: ' + color + ' !important; }\n';
+    css += '.guide-channel-item-wrapper.active { border-left-color: ' + color + ' !important; }\n';
+    css += '.guide-programme-item-wrapper.active { border-color: ' + color + ' !important; }\n';
+    
+    // Storage page
+    css += '.menu-item-wrapper.active { background-color: ' + color + ' !important; }\n';
+    
+    // YouTube page
+    css += '.youtube-video-item-wrapper.active { border-color: ' + color + ' !important; }\n';
+    
+    // Position, preset, size buttons
+    css += '.position-button.active, .preset-button.active, .size-button.active { background-color: ' + color + ' !important; }\n';
+    css += '.position-action-btn.active { background-color: ' + color + ' !important; }\n';
+    css += '.bg-color-button.active { border-color: ' + color + ' !important; }\n';
+    
+    // Video info button
+    css += '.video-info-btn .video-info-icon.active { background-color: ' + color + ' !important; }\n';
+    
+    // Parent modal inputs
+    css += '.parent-modal-input-item-container.active input, .parent-modal-input-wrapper.active input { border-color: ' + color + ' !important; }\n';
+    
+    // Live sort selection
+    css += '.live-sort-item.active { background-color: ' + color + ' !important; }\n';
+    
+    // Focus color palette items (show selected state)
+    css += '.focus-color-item.active { border-color: #ffffff !important; box-shadow: 0 0 10px ' + color + ' !important; }\n';
+    
+    styleEl.textContent = css;
+    console.log('Focus color applied: ' + color);
+}
+
 var mac_address, user_name, password, server_info, user_info,
     api_host_url, panel_url="https://flixapp.net/api",
     time_difference_with_server=0;  // time difference between user time and server time, measured by mins
