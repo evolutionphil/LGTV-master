@@ -412,10 +412,8 @@
 /* ==========================================================================
    4K / Ultra HD TV Support (3840x2160)
    Scale up by ~2x from 1080p base values
-   TEMPORARILY DISABLED FOR TESTING
-   To re-enable: Change "DISABLED-min-height" back to "min-height"
    ========================================================================== */
-@media screen and (DISABLED-min-height: 2000px) {
+@media screen and (min-height: 2000px) {
     /* Home Page */
     #home-page .menu-item {
         padding: 20px;
