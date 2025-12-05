@@ -1030,6 +1030,14 @@ var channel_page={
         }
         if(keys.focused_part==="channel_selection"){  // if channel item clicked
             console.log('handleMenuClick: Branch → channel_selection');
+            
+            // If in rearrange mode, just exit rearrange mode without triggering channel click
+            if(this.rearrange_mode){
+                console.log('handleMenuClick: Rearrange mode active - exiting rearrange mode only');
+                this.toggleRearrangeMode(false);
+                return;
+            }
+            
             console.log('  Triggering click on menu_items[' + keys.channel_selection + ']');
             $(this.menu_items[keys.channel_selection]).trigger('click');
             return;
