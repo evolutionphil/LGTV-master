@@ -8,16 +8,6 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
-- **2025-12-05: Added Customizable Focus Color Setting**
-  - New "Focus Color" option in Settings modal allows users to customize selection/highlight color app-wide
-  - 6 predefined color palette: Turquoise (default), Yellow, Red, Burgundy, Teal, Green
-  - Dynamic CSS injection via `applyFocusColor()` function - no CSS variables used for 2016+ TV compatibility
-  - Settings persisted in localStorage via existing settings system
-  - Full keyboard navigation support for TV remote control
-  - Applies to: menus, buttons, grids, modals, search items, catchup, guide, and all active states
-  - ES5 compatible for Samsung Tizen 2.4+ and LG webOS 3.0+ support
-  - Modified files: `js/settings.js`, `js/common.js`, `js/home_operation.js`, `index.html`
-
 - **2025-12-04: Bug Fixes and Performance Improvements (v1.1 Update)**
   - **DEBUG_MODE flag**: Added `DEBUG_MODE = false` in `js/common.js` for production logging control
   - **URL Caching**: Added `urlCache` object with 5-minute expiry for faster channel switching

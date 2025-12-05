@@ -9,7 +9,6 @@ var settings={
     vod_sort:"added", // or a-z, z-a, rating, number
     series_sort:"added",
     live_sort:"default",
-    focus_color:"#01d7fb", // customizable focus/selection color
     sort_keys:{
         'added':'order_by_added',
         'number':'order_by_number',
@@ -35,7 +34,7 @@ var settings={
         if(temp!=null && temp!=='null')
             this.epg_time_difference=parseFloat(temp);
 
-        var keys=['vod_sort','series_sort','live_sort','show_featured_movies','subtitle_size','subtitle_bg_color','subtitle_text_color','focus_color'];
+        var keys=['vod_sort','series_sort','live_sort','show_featured_movies','subtitle_size','subtitle_bg_color','subtitle_text_color'];
         keys.map(function (key) {
             temp=localStorage.getItem(storage_id+key);
             if(temp!=null && temp!=='null')
@@ -93,7 +92,5 @@ var settings={
         this.subtitle_size='medium';
         this.subtitle_bg_color='black';
         this.subtitle_text_color='white';
-        // Focus color with default
-        this.focus_color='#01d7fb';
     }
 }
