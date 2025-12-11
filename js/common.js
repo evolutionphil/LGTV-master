@@ -142,7 +142,7 @@ var samsung_version='1.1.8', lg_version='1.1.8';
 var youtube_playlists=[
     {
         playlist_name:'Best of Deep House',
-        playlist_id:'RDWhqEGF5LoDk'
+        playlist_id:'PLWUuMxUJvnuIIjVXzJELWBPMTg9dnhFV-'
     }
 ]
 var youtube_api_key;
