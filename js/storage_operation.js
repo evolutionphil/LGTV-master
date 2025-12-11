@@ -24,7 +24,6 @@ var storage_page={
 
         this.video_files=[];
         this.image_files=[];
-        current_route='storage-page';
         this.current_path='root/';
         this.parent_dir=null;
         if(platform==='samsung') {
@@ -83,15 +82,21 @@ var storage_page={
                         }
                     }
                     that.storages = validStorages;
-                    that.initPage();
                     debugLog('USB Storage: Found', validStorages.length, 'mounted storage(s)');
+                    if (validStorages.length === 0) {
+                        showToast("Storage", getTranslatedWord("no_usb_connected") || "No USB storage connected");
+                        home_page.reEnter();
+                        return;
+                    }
+                    that.initPage();
                 }
                 try {
                     tizen.filesystem.listStorages(checkCorruptedRemovableDrives);
                 }catch (e) {
                     debugLog("USB Storage: Error listing storages", e);
                     that.storages = [];
-                    that.initPage();
+                    showToast("Storage", getTranslatedWord("no_usb_connected") || "No USB storage connected");
+                    home_page.reEnter();
                 }
             }
         }
@@ -111,6 +116,7 @@ var storage_page={
         }
     },
     initPage: function () {
+        current_route='storage-page';
         this.renderDirectories();
         home_page.Exit();
         $('#storage-page').show();
