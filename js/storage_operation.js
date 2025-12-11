@@ -27,7 +27,7 @@ var storage_page={
         this.current_path='root/';
         this.parent_dir=null;
         if(platform==='samsung') {
-            if(storage_environment==='develop') {
+            if(typeof storage_environment !== 'undefined' && storage_environment==='develop') {
                 storages=[
                     {
                         label:"internal0",
