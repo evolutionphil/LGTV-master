@@ -84,7 +84,8 @@ var storage_page={
                     that.storages = validStorages;
                     debugLog('USB Storage: Found', validStorages.length, 'mounted storage(s)');
                     if (validStorages.length === 0) {
-                        showToast("Storage", "No USB storage connected");
+                        var msg = current_words['no_usb_connected'] || "No USB storage connected";
+                        showToast("Storage", msg);
                         home_page.reEnter();
                         return;
                     }
@@ -95,7 +96,8 @@ var storage_page={
                 }catch (e) {
                     debugLog("USB Storage: Error listing storages", e);
                     that.storages = [];
-                    showToast("Storage", "No USB storage connected");
+                    var msg = current_words['no_usb_connected'] || "No USB storage connected";
+                    showToast("Storage", msg);
                     home_page.reEnter();
                 }
             }
