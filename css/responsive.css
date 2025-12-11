@@ -435,18 +435,6 @@
     .advertise-information-container {
         padding: 100px;
     }
-    #home-page-slider-container .slick-slide > div > div {
-        position: relative;
-    }
-    .home-slick-image-container {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: auto;
-    }
-    .home-slick-image-container img {
-        max-height: 280px;
-    }
     #home-page .movie-slider-title {
         font-size: 80px;
         margin-bottom: -20px;

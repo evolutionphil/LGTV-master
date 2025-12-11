@@ -435,10 +435,19 @@ li.slick-active {
     display: inline-block;
     width: 70%;
 }
+#home-page-slider-container .slick-slide > div > div.row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+#home-page-slider-container .slick-slide > div > div.row > div:first-child {
+    flex: 1 1 0;
+    min-width: 0;
+}
 .home-slick-image-container{
-    display: inline-block;
-    width: 41.7%;
-    vertical-align: top;
+    flex: 0 0 auto;
+    margin-left: auto;
+    align-self: flex-start;
 }
 
 .loc_account_title{
