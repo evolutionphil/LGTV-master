@@ -140,14 +140,10 @@ var playlist_succeed=true;
 var samsung_version='1.1.8', lg_version='1.1.8';
 
 var youtube_playlists=[
-    // {
-    //     playlist_name:'Test1',
-    //     playlist_id:'PLQMVnqe4XbifORmvspB_Oun47H0tkbW-C'
-    // },
-    // {
-    //     playlist_name:'Chinese Concert',
-    //     playlist_id: 'PLXhXTWjp4UrG1cK2uylPUakViPCjMTSHd'
-    // }
+    {
+        playlist_name:'Best of Deep House',
+        playlist_id:'RDZ1k-lKa8Z9E'
+    }
 ]
 var youtube_api_key;
 var video_file_exts=["webm", "mpg", "mp2", "mpeg", "mpe", "mpv", "ogg", "mp4", "m4p", "m4v", "avi", "wmv", "mov", "qt", "flv", "swf", "avchd","mkv"]
