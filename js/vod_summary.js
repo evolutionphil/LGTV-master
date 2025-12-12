@@ -370,9 +370,13 @@ var vod_summary_page={
         var that = this;
         var currentGenres = this.parseGenres(currentGenre);
         
+        console.log('=== SIMILAR MOVIES DEBUG ===');
+        console.log('Current movie genre string:', currentGenre);
+        console.log('Parsed current genres:', currentGenres);
+        
         if (currentGenres.length === 0) {
-            $('#similar-movies-section').hide();
-            this.similar_movies = [];
+            console.log('No genres found, showing same category movies only');
+            this.findSameCategoryMovies(currentMovieId);
             return;
         }
         
@@ -389,37 +393,62 @@ var vod_summary_page={
             }
         }
         
-        console.log('Similar movies search - Total movies available:', allMovies.length);
+        console.log('Total movies to search:', allMovies.length);
         
         var scored = [];
+        var moviesWithGenre = 0;
+        var moviesWithoutGenre = 0;
+        
         for (var i = 0; i < allMovies.length; i++) {
             var movie = allMovies[i];
             if (movie.stream_id === currentMovieId) {
                 continue;
             }
             
-            var movieGenres = [];
-            if (movie.genre) {
-                movieGenres = this.parseGenres(movie.genre);
-            } else if (movie.info && movie.info.genre) {
-                movieGenres = this.parseGenres(movie.info.genre);
+            var movieGenreString = movie.genre || (movie.info && movie.info.genre) || '';
+            var movieGenres = this.parseGenres(movieGenreString);
+            
+            if (movieGenres.length > 0) {
+                moviesWithGenre++;
+            } else {
+                moviesWithoutGenre++;
             }
             
-            var score = 0;
+            var genreScore = 0;
             for (var g = 0; g < currentGenres.length; g++) {
                 for (var mg = 0; mg < movieGenres.length; mg++) {
                     if (currentGenres[g] === movieGenres[mg]) {
-                        score++;
+                        genreScore++;
                     }
                 }
             }
             
-            if (movie.category_id === current_movie.category_id) {
-                score += 0.5;
+            if (genreScore > 0) {
+                scored.push({ movie: movie, score: genreScore, reason: 'genre' });
             }
-            
-            if (score > 0) {
-                scored.push({ movie: movie, score: score });
+        }
+        
+        console.log('Movies with genre data:', moviesWithGenre);
+        console.log('Movies without genre data:', moviesWithoutGenre);
+        console.log('Genre matches found:', scored.length);
+        
+        if (scored.length < 5) {
+            console.log('Not enough genre matches, adding same category movies');
+            for (var i = 0; i < allMovies.length; i++) {
+                var movie = allMovies[i];
+                if (movie.stream_id === currentMovieId) continue;
+                
+                var alreadyAdded = false;
+                for (var s = 0; s < scored.length; s++) {
+                    if (scored[s].movie.stream_id === movie.stream_id) {
+                        alreadyAdded = true;
+                        break;
+                    }
+                }
+                
+                if (!alreadyAdded && movie.category_id === current_movie.category_id) {
+                    scored.push({ movie: movie, score: 0.5, reason: 'category' });
+                }
             }
         }
         
@@ -431,6 +460,40 @@ var vod_summary_page={
             return item.movie;
         });
         
+        this.renderSimilarMovies();
+    },
+    findSameCategoryMovies: function(currentMovieId) {
+        var allMovies = VodModel.movies || [];
+        if (allMovies.length === 0) {
+            var categories = VodModel.categories || [];
+            for (var c = 0; c < categories.length; c++) {
+                var cat = categories[c];
+                if (cat.movies && cat.movies.length > 0) {
+                    for (var m = 0; m < cat.movies.length; m++) {
+                        allMovies.push(cat.movies[m]);
+                    }
+                }
+            }
+        }
+        
+        var sameCategoryMovies = [];
+        for (var i = 0; i < allMovies.length; i++) {
+            var movie = allMovies[i];
+            if (movie.stream_id === currentMovieId) continue;
+            if (movie.category_id === current_movie.category_id) {
+                sameCategoryMovies.push(movie);
+            }
+        }
+        
+        for (var i = sameCategoryMovies.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = sameCategoryMovies[i];
+            sameCategoryMovies[i] = sameCategoryMovies[j];
+            sameCategoryMovies[j] = temp;
+        }
+        
+        this.similar_movies = sameCategoryMovies.slice(0, 15);
+        console.log('Same category movies found:', this.similar_movies.length);
         this.renderSimilarMovies();
     },
     renderSimilarMovies: function() {
