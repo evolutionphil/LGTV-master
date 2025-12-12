@@ -52,13 +52,63 @@ $(document).ready(function () {
     var saved_parent_password=localStorage.getItem(storage_id+'parent_account_password');
     parent_account_password=saved_parent_password!=null ? saved_parent_password : parent_account_password;
     if(platform==='samsung'){
+        var playerStateBeforeSuspend = null;
+        var playerRouteBeforeSuspend = null;
+        
         document.addEventListener("visibilitychange", function(){
             // Only call webapis methods if they're available (TV environment)
             if(typeof webapis !== 'undefined' && webapis.avplay) {
-                if(document.hidden)
-                    webapis.avplay.suspend();
-                else
-                    webapis.avplay.restore();
+                if(document.hidden) {
+                    // Save player state and route before suspending
+                    try {
+                        playerStateBeforeSuspend = media_player ? media_player.state : null;
+                        playerRouteBeforeSuspend = current_route;
+                        webapis.avplay.suspend();
+                    } catch(e) {
+                        console.log('Error suspending player:', e);
+                    }
+                } else {
+                    // TV woke up - check if we should restore or close player
+                    try {
+                        var isPlayerRoute = (playerRouteBeforeSuspend === 'vod-series-player-video' || 
+                                           playerRouteBeforeSuspend === 'channel-page' ||
+                                           playerRouteBeforeSuspend === 'catch-up');
+                        var wasPlaying = playerStateBeforeSuspend === 1; // STATES.PLAYING = 1
+                        
+                        if (isPlayerRoute && wasPlaying) {
+                            // Video was actually playing, safe to restore
+                            webapis.avplay.restore();
+                        } else if (isPlayerRoute && !wasPlaying) {
+                            // Was on player page but not playing (buffering/preparing)
+                            // Close the player and go back to previous page
+                            console.log('Power resumed during buffering - closing player');
+                            media_player.close();
+                            
+                            // Navigate back based on route
+                            if (playerRouteBeforeSuspend === 'vod-series-player-video') {
+                                vod_series_player.Exit();
+                                if (typeof vod_summary_page !== 'undefined' && vod_summary_page.movie) {
+                                    vod_summary_page.reEnter();
+                                } else if (typeof series_summary_page !== 'undefined' && series_summary_page.serie) {
+                                    series_summary_page.reEnter();
+                                } else {
+                                    home_page.reEnter();
+                                }
+                            } else if (playerRouteBeforeSuspend === 'channel-page') {
+                                channel_page.goBack();
+                            } else if (playerRouteBeforeSuspend === 'catch-up') {
+                                catchup_page.goBack();
+                            }
+                        }
+                        // If not on player route, do nothing
+                    } catch(e) {
+                        console.log('Error handling visibility restore:', e);
+                    }
+                    
+                    // Clear saved state
+                    playerStateBeforeSuspend = null;
+                    playerRouteBeforeSuspend = null;
+                }
             }
         });
     }
