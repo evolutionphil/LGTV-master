@@ -72,7 +72,7 @@ var vod_summary_page={
             showLoader(true);
             this.is_loading=true;
             // Hide duration during loading for Xtreme playlist
-            $('#vod-summary-release-length').closest('p').hide();
+            $('#vod-summary-release-length').hide();
             $.getJSON(api_host_url+'/player_api.php?username='+user_name+'&password='+password+'&action=get_vod_info&vod_id='+current_movie.stream_id)
                 .then(
                     function(response){
@@ -110,17 +110,35 @@ var vod_summary_page={
                         
                         // Hide duration field if empty/null/0
                         if(info.duration && info.duration !== '' && info.duration !== '0') {
-                            $('#vod-summary-release-length').text(info.duration);
-                            $('#vod-summary-release-length').closest('p').show();
+                            $('#vod-summary-release-length').text(info.duration).show();
                         } else {
-                            $('#vod-summary-release-length').text('');
-                            $('#vod-summary-release-length').closest('p').hide();
+                            $('#vod-summary-release-length').text('').hide();
                         }
                         
-                        $('#vod-summary-release-country').text(info.country ? info.country : '');
-                        $('#vod-summary-release-director').text(info.director);
-                        $('#vod-summary-release-cast').text(info.cast);
-                        $('#vod-summary-description').text(info.description);
+                        // Show/hide detail items based on content
+                        if(info.country && info.country.trim() !== '') {
+                            $('#vod-summary-release-country').text(info.country).closest('.vod-detail-item').show();
+                        } else {
+                            $('#vod-summary-release-country').closest('.vod-detail-item').hide();
+                        }
+                        
+                        if(info.director && info.director.trim() !== '') {
+                            $('#vod-summary-release-director').text(info.director).closest('.vod-detail-item').show();
+                        } else {
+                            $('#vod-summary-release-director').closest('.vod-detail-item').hide();
+                        }
+                        
+                        if(info.cast && info.cast.trim() !== '') {
+                            $('#vod-summary-release-cast').text(info.cast).closest('.vod-detail-item').show();
+                        } else {
+                            $('#vod-summary-release-cast').closest('.vod-detail-item').hide();
+                        }
+                        
+                        if(info.description && info.description.trim() !== '') {
+                            $('#vod-summary-description').text(info.description).show();
+                        } else {
+                            $('#vod-summary-description').hide();
+                        }
                         
                         that.findSimilarMovies(info.genre, current_movie.stream_id);
 
@@ -165,11 +183,9 @@ var vod_summary_page={
         } else {
             // Non-Xtreme playlist: check current_movie.duration
             if(current_movie.duration && current_movie.duration !== '' && current_movie.duration !== '0') {
-                $('#vod-summary-release-length').text(current_movie.duration);
-                $('#vod-summary-release-length').closest('p').show();
+                $('#vod-summary-release-length').text(current_movie.duration).show();
             } else {
-                $('#vod-summary-release-length').text('');
-                $('#vod-summary-release-length').closest('p').hide();
+                $('#vod-summary-release-length').text('').hide();
             }
             
             // For non-Xtreme, try to find similar movies using category
