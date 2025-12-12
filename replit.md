@@ -8,6 +8,13 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+- **2025-12-12: Hide Movie Duration When Empty/Demo Content**
+  - Fixed: Movie details page no longer shows empty duration field when data is unavailable
+  - Xtreme playlists: Duration row hidden during loading, shown only if API returns valid duration
+  - Non-Xtreme playlists: Checks current_movie.duration and hides row if empty/null/0
+  - Both playlist types now have consistent behavior
+  - Modified files: `js/vod_summary.js`
+
 - **2025-12-12: Fixed Pause During Rewind/Fast-Forward**
   - Fixed: Pressing pause during rewind or fast-forward now properly pauses the video
   - Clear `seek_timer` in `playPauseVideo` to prevent auto-resume overriding pause
