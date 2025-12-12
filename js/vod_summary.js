@@ -2,14 +2,21 @@
 var vod_summary_page={
     keys:{
         index:0,
+        section: 'buttons',
+        similar_index: 0
     },
     buttons:$('.vod-action-btn'),
     min_btn_index:0,
     is_loading:false,
     prev_route:'',
+    similar_movies: [],
     init:function(prev_route){
         this.prev_route=prev_route;
         this.min_btn_index=0;
+        this.keys.section = 'buttons';
+        this.keys.similar_index = 0;
+        this.similar_movies = [];
+        $('#similar-movies-section').hide();
         var that=this;
         $('#vod-summary-image-wrapper img').attr('src','');
         $('#vod-summary-name').text(current_movie.name);
@@ -108,6 +115,8 @@ var vod_summary_page={
                         $('#vod-summary-release-director').text(info.director);
                         $('#vod-summary-release-cast').text(info.cast);
                         $('#vod-summary-description').text(info.description);
+                        
+                        that.findSimilarMovies(info.genre, current_movie.stream_id);
 
                         var backdrop_image='';
                         try{
@@ -156,6 +165,19 @@ var vod_summary_page={
                 $('#vod-summary-release-length').text('');
                 $('#vod-summary-release-length').closest('p').hide();
             }
+            
+            // For non-Xtreme, try to find similar movies using category
+            var genreForSimilar = current_movie.genre || '';
+            if (!genreForSimilar) {
+                var categories = VodModel.categories || [];
+                for (var i = 0; i < categories.length; i++) {
+                    if (categories[i].category_id == current_movie.category_id) {
+                        genreForSimilar = categories[i].category_name;
+                        break;
+                    }
+                }
+            }
+            that.findSimilarMovies(genreForSimilar, current_movie.stream_id);
         }
     },
     goBack:function(){
@@ -257,13 +279,25 @@ var vod_summary_page={
                 this.goBack();
                 break;
             case tvKey.LEFT:
-                this.keyMove(-1);
+                if (this.keys.section === 'similar') {
+                    this.handleSimilarKeyMove(-1);
+                } else {
+                    this.keyMove(-1);
+                }
                 break;
             case tvKey.RIGHT:
-                this.keyMove(1);
+                if (this.keys.section === 'similar') {
+                    this.handleSimilarKeyMove(1);
+                } else {
+                    this.keyMove(1);
+                }
                 break;
             case tvKey.ENTER:
-                this.handleMenuClick();
+                if (this.keys.section === 'similar') {
+                    this.selectSimilarMovie(this.keys.similar_index);
+                } else {
+                    this.handleMenuClick();
+                }
                 break;
             case tvKey.YELLOW:
                 if(!current_movie.is_favourite){
@@ -280,6 +314,150 @@ var vod_summary_page={
                 this.Exit();
                 goHomePageWithMovieType('series');
                 break;
+            case tvKey.DOWN:
+                if (this.keys.section === 'buttons' && this.similar_movies.length > 0) {
+                    this.keys.section = 'similar';
+                    $(this.buttons).removeClass('active');
+                    this.hoverSimilarMovie(this.keys.similar_index);
+                }
+                break;
+            case tvKey.UP:
+                if (this.keys.section === 'similar') {
+                    this.keys.section = 'buttons';
+                    $('.similar-movie-item').removeClass('active');
+                    this.hoverButtons(this.keys.index);
+                }
+                break;
         }
+    },
+    parseGenres: function(genreString) {
+        if (!genreString || genreString === '') {
+            return [];
+        }
+        var genres = genreString.split(/[,\/]/);
+        var result = [];
+        for (var i = 0; i < genres.length; i++) {
+            var genre = genres[i].trim().toLowerCase();
+            if (genre !== '') {
+                result.push(genre);
+            }
+        }
+        return result;
+    },
+    findSimilarMovies: function(currentGenre, currentMovieId) {
+        var that = this;
+        var currentGenres = this.parseGenres(currentGenre);
+        
+        if (currentGenres.length === 0) {
+            $('#similar-movies-section').hide();
+            this.similar_movies = [];
+            return;
+        }
+        
+        var allMovies = VodModel.getMoviesList ? VodModel.getMoviesList() : [];
+        if (!allMovies || allMovies.length === 0) {
+            allMovies = [];
+            var categories = VodModel.categories || [];
+            for (var c = 0; c < categories.length; c++) {
+                var cat = categories[c];
+                if (cat.movies && cat.movies.length > 0) {
+                    for (var m = 0; m < cat.movies.length; m++) {
+                        allMovies.push(cat.movies[m]);
+                    }
+                }
+            }
+        }
+        
+        var scored = [];
+        for (var i = 0; i < allMovies.length; i++) {
+            var movie = allMovies[i];
+            if (movie.stream_id === currentMovieId) {
+                continue;
+            }
+            
+            var movieGenres = [];
+            if (movie.genre) {
+                movieGenres = this.parseGenres(movie.genre);
+            } else if (movie.info && movie.info.genre) {
+                movieGenres = this.parseGenres(movie.info.genre);
+            }
+            
+            var score = 0;
+            for (var g = 0; g < currentGenres.length; g++) {
+                for (var mg = 0; mg < movieGenres.length; mg++) {
+                    if (currentGenres[g] === movieGenres[mg]) {
+                        score++;
+                    }
+                }
+            }
+            
+            if (movie.category_id === current_movie.category_id) {
+                score += 0.5;
+            }
+            
+            if (score > 0) {
+                scored.push({ movie: movie, score: score });
+            }
+        }
+        
+        scored.sort(function(a, b) {
+            return b.score - a.score;
+        });
+        
+        this.similar_movies = scored.slice(0, 10).map(function(item) {
+            return item.movie;
+        });
+        
+        this.renderSimilarMovies();
+    },
+    renderSimilarMovies: function() {
+        var container = $('#similar-movies-container');
+        container.empty();
+        
+        if (this.similar_movies.length === 0) {
+            $('#similar-movies-section').hide();
+            return;
+        }
+        
+        for (var i = 0; i < this.similar_movies.length; i++) {
+            var movie = this.similar_movies[i];
+            var poster = movie.stream_icon || movie.cover || 'images/movie.png';
+            var name = movie.name || 'Unknown';
+            
+            var html = '<div class="similar-movie-item" data-index="' + i + '" ' +
+                       'onclick="vod_summary_page.selectSimilarMovie(' + i + ')" ' +
+                       'onmouseenter="vod_summary_page.hoverSimilarMovie(' + i + ')">' +
+                       '<img src="' + poster + '" onerror="this.src=\'images/movie.png\'">' +
+                       '<div class="similar-movie-name">' + name + '</div>' +
+                       '</div>';
+            container.append(html);
+        }
+        
+        $('#similar-movies-section').show();
+        this.keys.similar_index = 0;
+    },
+    hoverSimilarMovie: function(index) {
+        if (index < 0) index = 0;
+        if (index >= this.similar_movies.length) index = this.similar_movies.length - 1;
+        
+        this.keys.similar_index = index;
+        $('.similar-movie-item').removeClass('active');
+        $('.similar-movie-item[data-index="' + index + '"]').addClass('active');
+    },
+    selectSimilarMovie: function(index) {
+        var movie = this.similar_movies[index];
+        if (movie) {
+            current_movie = movie;
+            this.keys.section = 'buttons';
+            this.keys.similar_index = 0;
+            this.similar_movies = [];
+            this.init(this.prev_route);
+        }
+    },
+    handleSimilarKeyMove: function(increment) {
+        var newIndex = this.keys.similar_index + increment;
+        if (newIndex < 0) newIndex = 0;
+        if (newIndex >= this.similar_movies.length) newIndex = this.similar_movies.length - 1;
+        this.hoverSimilarMovie(newIndex);
     }
 }
