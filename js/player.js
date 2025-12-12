@@ -16,6 +16,7 @@ function initPlayer() {
             reconnect_timer: null,
             reconnect_count: 0,
             reconnect_max_count: 20,
+            reconnect_position: 0,
             url:'',
             id:'',
             tv_capabilities: null,
@@ -88,6 +89,7 @@ function initPlayer() {
                 this.state = this.STATES.STOPPED;
                 this.parent_id=parent_id;
                 this.current_time=0;
+                this.reconnect_position=0;
                 this.videoObj = document.getElementById(id);
                 $('#'+parent_id).find('.subtitle-container').hide();
                 $('#' + parent_id).find('.video-reconnect-message').hide();
@@ -147,8 +149,20 @@ function initPlayer() {
                             $('#'+that.parent_id).find('.video-progress-bar-slider').attr(attributes)
                             $('#'+that.parent_id).find('.video-progress-bar-slider').rangeslider('update', true);
                             $('#'+that.parent_id).find('.video-current-time').text("00:00");
-                            if(current_route==='vod-series-player-video')
-                                vod_series_player.showResumeBar();
+                            if(current_route==='vod-series-player-video') {
+                                // Check if we need to resume from reconnect position
+                                if (that.reconnect_position > 0) {
+                                    try {
+                                        console.log('Reconnect: Seeking to position', that.reconnect_position);
+                                        webapis.avplay.seekTo(that.reconnect_position);
+                                        that.reconnect_position = 0; // Reset after seeking
+                                    } catch(e) {
+                                        console.log('Reconnect: Seek failed', e);
+                                    }
+                                } else {
+                                    vod_series_player.showResumeBar();
+                                }
+                            }
                             if(current_route==='channel-page'){
                                 setTimeout(function(){
                                     try{
@@ -226,6 +240,7 @@ function initPlayer() {
                 $('#' + this.parent_id).find('.video-error').hide();
                 $('#' + this.parent_id).find('.video-loader').hide();
                 this.reconnect_count = 0;
+                this.reconnect_position = 0;
                 clearTimeout(this.reconnect_timer);
                 $('#' + this.parent_id).find('.video-reconnect-message').hide();
             },
@@ -242,6 +257,19 @@ function initPlayer() {
                 }
                 $('#' + this.parent_id).find('.video-reconnect-message').show();
                 var that = this;
+                
+                // Save current position for VOD/Series before closing
+                if (current_route === 'vod-series-player-video') {
+                    try {
+                        this.reconnect_position = this.current_time;
+                        console.log('Reconnect: Saved position', this.reconnect_position);
+                    } catch(e) {
+                        this.reconnect_position = 0;
+                    }
+                } else {
+                    this.reconnect_position = 0;
+                }
+                
                 try{
                     media_player.close();
                 }catch (e) {
