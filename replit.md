@@ -8,6 +8,20 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+- **2025-12-12: Fixed Power Off/On During Buffering Issue**
+  - Fixed: TV power off/on during video buffering no longer auto-resumes content
+  - Enhanced `visibilitychange` handler in `js/main.js` to track player state
+  - Now saves `media_player.state` and `current_route` before suspend
+  - On resume: only restores if video was actually PLAYING (state === 1)
+  - If buffering/preparing, closes player and navigates to previous page (vod_summary, series_summary, or home)
+  - Applies to all player routes: VOD, Live TV, Catch-up
+  - Modified files: `js/main.js`
+
+- **2025-12-12: USB Storage Toast Translation Support**
+  - Added translation key `no_usb_connected` for multi-language support
+  - Toast message now uses `current_words['no_usb_connected']` with fallback
+  - **Backend Required**: Add translation key `no_usb_connected` for all languages
+
 - **2025-12-04: Bug Fixes and Performance Improvements (v1.1 Update)**
   - **DEBUG_MODE flag**: Added `DEBUG_MODE = false` in `js/common.js` for production logging control
   - **URL Caching**: Added `urlCache` object with 5-minute expiry for faster channel switching
