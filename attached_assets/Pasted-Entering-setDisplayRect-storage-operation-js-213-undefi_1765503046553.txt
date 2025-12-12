@@ -1,0 +1,43 @@
+Entering setDisplayRect
+storage_operation.js:213 undefined 4 0 FileSystemStorage {label: 'downloads', type: 'INTERNAL', state: 'MOUNTED'} 1
+storage_operation.js:219 Uncaught ReferenceError: storage_environment is not defined
+    at Object.showSubDirectories (storage_operation.js:219:13)
+    at Object.handleMenuClick (storage_operation.js:332:22)
+    at Object.HandleKey (storage_operation.js:353:26)
+    at HTMLDocument.<anonymous> (main.js:183:30)
+showSubDirectories @ storage_operation.js:219
+handleMenuClick @ storage_operation.js:332
+HandleKey @ storage_operation.js:353
+(anonymous) @ main.js:183
+storage_operation.js:204 Storage: current_dir is undefined, storageIndex: -1
+storage_operation.js:213 undefined 1 1 FileSystemStorage {label: 'internal0', type: 'INTERNAL', state: 'MOUNTED'} 2
+storage_operation.js:219 Uncaught ReferenceError: storage_environment is not defined
+    at Object.showSubDirectories (storage_operation.js:219:13)
+    at Object.handleMenuClick (storage_operation.js:332:22)
+    at Object.HandleKey (storage_operation.js:353:26)
+    at HTMLDocument.<anonymous> (main.js:183:30)
+showSubDirectories @ storage_operation.js:219
+handleMenuClick @ storage_operation.js:332
+HandleKey @ storage_operation.js:353
+(anonymous) @ main.js:183
+storage_operation.js:213 undefined 2 1 FileSystemStorage {label: 'images', type: 'INTERNAL', state: 'MOUNTED'} 3
+storage_operation.js:219 Uncaught ReferenceError: storage_environment is not defined
+    at Object.showSubDirectories (storage_operation.js:219:13)
+    at Object.handleMenuClick (storage_operation.js:332:22)
+    at Object.HandleKey (storage_operation.js:353:26)
+    at HTMLDocument.<anonymous> (main.js:183:30)
+showSubDirectories @ storage_operation.js:219
+handleMenuClick @ storage_operation.js:332
+HandleKey @ storage_operation.js:353
+(anonymous) @ main.js:183
+storage_operation.js:213 undefined 7 1 FileSystemStorage {label: 'documents', type: 'INTERNAL', state: 'MOUNTED'} 4
+storage_operation.js:219 Uncaught ReferenceError: storage_environment is not defined
+    at Object.showSubDirectories (storage_operation.js:219:13)
+    at Object.handleMenuClick (storage_operation.js:332:22)
+    at Object.HandleKey (storage_operation.js:353:26)
+    at HTMLDocument.<anonymous> (main.js:183:30)
+showSubDirectories @ storage_operation.js:219
+handleMenuClick @ storage_operation.js:332
+HandleKey @ storage_operation.js:353
+(anonymous) @ main.js:183
+3storage_operation.js:204 Storage: current_dir is undefined, storageIndex: -1

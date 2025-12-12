@@ -216,7 +216,7 @@ var storage_page={
         if(this.current_level==1 && current_dir)
             current_path=current_dir.label;
         if(back==1 || (current_dir && !current_dir.isFile)) {
-            if (storage_environment === 'develop') {
+            if (typeof storage_environment !== 'undefined' && storage_environment === 'develop') {
                 var files = [
                     {
                         created: "Mon Feb 20 2023 02:41:03 GMT+0100 (CET)",

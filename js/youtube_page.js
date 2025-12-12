@@ -124,7 +124,10 @@ var youtube_page={
                         },
                         playerVars: {
                             controls: 0,
-                            loop:1
+                            loop: 1,
+                            rel: 0,
+                            enablejsapi: 1,
+                            origin: window.location.origin || 'https://flixapp.net'
                         }
                     });
                 },200)
@@ -184,8 +187,26 @@ var youtube_page={
     },
     onPlayerError: function (event) {
         showLoader(false);
-        this.is_loading=false;
-        console.log(event);
+        youtube_page.is_loading = false;
+        console.log('YouTube Player Error:', event);
+        var errorCode = event.data;
+        var errorMessages = {
+            2: 'Invalid video ID',
+            5: 'HTML5 player error',
+            100: 'Video not found or removed',
+            101: 'Video not allowed for embedded playback',
+            150: 'Video not allowed for embedded playback'
+        };
+        var message = errorMessages[errorCode] || 'Error ' + errorCode;
+        showToast('YouTube Error', message);
+        try {
+            if (youtube_page.player) {
+                youtube_page.player.destroy();
+                youtube_page.player = null;
+            }
+        } catch (e) {}
+        youtube_page.current_video_id = null;
+        youtube_page.hoverMenuItem(youtube_page.keys.menu_selection);
     },
     onPlaybackQualityChange: function (data) {
         console.log("playback quality changed", data);
