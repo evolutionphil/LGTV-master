@@ -8,6 +8,11 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+- **2025-12-12: Fixed Pause During Rewind/Fast-Forward**
+  - Fixed: Pressing pause during rewind or fast-forward now properly pauses the video
+  - Clear `seek_timer` in `playPauseVideo` to prevent auto-resume overriding pause
+  - Modified files: `js/vod_series_player.js`
+
 - **2025-12-12: Fixed Network Disconnect Resume for VOD/Series**
   - Fixed: When network disconnects during movie/series playback and reconnects, video now resumes from same position
   - Added `reconnect_position` property to track playback position before close
