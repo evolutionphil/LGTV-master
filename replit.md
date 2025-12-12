@@ -8,6 +8,21 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+- **2025-12-12: Fixed Network Disconnect Resume for VOD/Series**
+  - Fixed: When network disconnects during movie/series playback and reconnects, video now resumes from same position
+  - Added `reconnect_position` property to track playback position before close
+  - In `tryReconnect`: saves current time for VOD/series routes only
+  - After successful reconnect: seeks to saved position instead of starting from beginning
+  - Reset `reconnect_position` in `init()` and `close()` to prevent stale values
+  - Live TV not affected (no position to save for live streams)
+  - Modified files: `js/player.js`
+
+- **2025-12-12: Fixed Homepage Video Preview Zoom Issue**
+  - Fixed: Homepage live preview was zoomed/cropped on some TVs
+  - Added `PLAYER_DISPLAY_MODE_LETTER_BOX` for preview mode to preserve aspect ratio
+  - Fullscreen player modes remain unchanged (FULL_SCREEN)
+  - Modified files: `js/player.js`
+
 - **2025-12-12: Fixed Power Off/On During Buffering Issue**
   - Fixed: TV power off/on during video buffering no longer auto-resumes content
   - Enhanced `visibilitychange` handler in `js/main.js` to track player state
