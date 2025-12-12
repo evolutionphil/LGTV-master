@@ -359,6 +359,11 @@ var vod_series_player={
             action_type=$(element).data('action_type');
         if(action_type==="pause")
         {
+            // Clear seek timer to prevent auto-resume during rewind/fast-forward
+            if(this.seek_timer) {
+                clearTimeout(this.seek_timer);
+                this.seek_timer = null;
+            }
             try{
                 media_player.pause();
                 $(element).removeClass('fa-pause')
