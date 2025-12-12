@@ -8,6 +8,20 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+- **2025-12-12: Fixed Storage Page Navigation Error**
+  - Fixed: Storage page no longer crashes when navigating back or entering items
+  - Root cause: Index calculation resulted in -1 when back button clicked, causing undefined array access
+  - Added bounds checking for storage array index
+  - Added null guard before accessing current_dir.isFile property
+  - Modified files: `js/storage_operation.js`
+
+- **2025-12-12: Fixed Advertise Image Position**
+  - Fixed: Advertise/banner image now appears in top-right corner instead of center
+  - Root cause: Flex-based positioning was centering the image
+  - Changed to absolute positioning with top:0, right:0
+  - Added position:relative to parent row element for proper context
+  - Modified files: `css/homepage.css`
+
 - **2025-12-12: Fixed Mouse Click on Add Favorite Button**
   - Fixed: Mouse can now click all action buttons in VOD/Series details page
   - Root cause: Rating container and action button container had same position, causing overlap
