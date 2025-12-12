@@ -581,7 +581,22 @@ var vod_summary_page={
         
         this.keys.similar_index = index;
         $('.similar-movie-item').removeClass('active');
-        $('.similar-movie-item[data-index="' + index + '"]').addClass('active');
+        var activeItem = $('.similar-movie-item[data-index="' + index + '"]');
+        activeItem.addClass('active');
+        
+        // Scroll into view
+        var container = document.getElementById('similar-movies-container');
+        var item = activeItem[0];
+        if (container && item) {
+            var containerRect = container.getBoundingClientRect();
+            var itemRect = item.getBoundingClientRect();
+            
+            if (itemRect.left < containerRect.left) {
+                container.scrollLeft -= (containerRect.left - itemRect.left + 20);
+            } else if (itemRect.right > containerRect.right) {
+                container.scrollLeft += (itemRect.right - containerRect.right + 20);
+            }
+        }
     },
     selectSimilarMovie: function(index) {
         var movie = this.similar_movies[index];

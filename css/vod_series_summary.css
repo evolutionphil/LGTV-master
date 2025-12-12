@@ -258,10 +258,17 @@
 
 #similar-movies-container {
     display: flex;
-    gap: 1vw;
-    overflow: visible;
-    padding: 0.8vh;
-    margin: -0.8vh;
+    gap: 1.2vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1vh 0.5vw;
+    margin: -1vh -0.5vw;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+#similar-movies-container::-webkit-scrollbar {
+    display: none;
 }
 
 .similar-movie-item {
