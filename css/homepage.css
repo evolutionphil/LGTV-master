@@ -439,15 +439,17 @@ li.slick-active {
     display: flex;
     flex-wrap: nowrap;
     align-items: flex-start;
+    position: relative;
 }
 #home-page-slider-container .slick-slide > div > div.row > div:first-child {
     flex: 1 1 0;
     min-width: 0;
 }
 .home-slick-image-container{
-    flex: 0 0 auto;
-    margin-left: auto;
-    align-self: flex-start;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
 }
 
 .loc_account_title{

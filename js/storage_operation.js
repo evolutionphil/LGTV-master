@@ -191,7 +191,8 @@ var storage_page={
         var back=$(this.menu_items[keys.menu_selection]).data('back');
         var current_level=this.current_level;
         var diff_index=current_level==0 ? 0 : 1;
-        var current_dir=this.storages[keys.menu_selection-diff_index];
+        var storageIndex = keys.menu_selection - diff_index;
+        var current_dir = (storageIndex >= 0 && storageIndex < this.storages.length) ? this.storages[storageIndex] : null;
 
         var current_path;
         if(back==1) { // if back directory icon clicked
@@ -199,6 +200,10 @@ var storage_page={
             this.current_path=this.current_level>0 ? this.parent_dir.path : this.parent_dir.label;
         }
         else {
+            if (!current_dir) {
+                console.log('Storage: current_dir is undefined, storageIndex:', storageIndex);
+                return;
+            }
             if (!current_dir.isFile) {
                 this.current_level += 1;
                 this.parent_dir = current_dir;
@@ -208,9 +213,9 @@ var storage_page={
         console.log(back,keys.menu_selection, diff_index,current_dir, this.current_level);
 
         current_path=this.current_path;
-        if(this.current_level==1)
+        if(this.current_level==1 && current_dir)
             current_path=current_dir.label;
-        if(back==1 || !current_dir.isFile) {
+        if(back==1 || (current_dir && !current_dir.isFile)) {
             if (storage_environment === 'develop') {
                 var files = [
                     {
