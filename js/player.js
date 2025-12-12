@@ -93,9 +93,8 @@ function initPlayer() {
                 this.videoObj = document.getElementById(id);
                 $('#'+parent_id).find('.subtitle-container').hide();
                 $('#' + parent_id).find('.video-reconnect-message').hide();
-                if(typeof this.full_screen_state === 'undefined'){
-                    this.full_screen_state=0;
-                }
+                this.full_screen_state=0;
+                debugLog('player.init() - Reset full_screen_state to 0, parent_id:', parent_id);
                 
                 this.detectTVCapabilities();
                 
@@ -138,6 +137,7 @@ function initPlayer() {
                             
                             if(current_route==='vod-series-player-video'){
                                 that.full_screen_state=1;
+                                debugLog('playAsync: Set full_screen_state to 1 for VOD');
                             }
                             $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(webapis.avplay.getDuration()/1000));
                             $('#'+that.parent_id).find('.video-error').hide();
@@ -223,6 +223,8 @@ function initPlayer() {
             },
             close:function(){
                 this.state = this.STATES.STOPPED;
+                this.full_screen_state = 0;
+                debugLog('player.close() - Reset full_screen_state to 0');
                 try{
                     webapis.avplay.stop();
                 }catch (e) {
@@ -285,9 +287,12 @@ function initPlayer() {
                 var avplayBaseWidth = capabilities.resolution.width;
                 var avplayBaseHeight = capabilities.resolution.height;
                 
+                debugLog('setDisplayArea() called - full_screen_state:', this.full_screen_state, 'parent_id:', this.parent_id, 'route:', current_route);
+                
                 // Use requestAnimationFrame to wait for CSS to apply
                 requestAnimationFrame(function() {
                     if (that.full_screen_state === 1) {
+                        debugLog('setDisplayArea: FULLSCREEN mode - rect:', 0, 0, avplayBaseWidth, avplayBaseHeight);
                         try {
                             // CRITICAL: Force fullscreen display mode
                             webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
@@ -301,11 +306,6 @@ function initPlayer() {
                         }
                     } else {
                         // PREVIEW MODE: Use LETTER_BOX to prevent zoom/cropping
-                        try {
-                            webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_LETTER_BOX');
-                        } catch (e) {
-                        }
-                        
                         var top_position=$(that.videoObj).offset().top;
                         var left_position=$(that.videoObj).offset().left;
                         var width=parseInt($(that.videoObj).width())
@@ -319,6 +319,11 @@ function initPlayer() {
                     var scaledWidth = Math.round(width * ratioX);
                     var scaledHeight = Math.round(height * ratioY);
                     
+                        debugLog('setDisplayArea: LETTERBOX mode - rect:', scaledLeft, scaledTop, scaledWidth, scaledHeight);
+                        try {
+                            webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_LETTER_BOX');
+                        } catch (e) {
+                        }
                         try {
                             webapis.avplay.setDisplayRect(scaledLeft, scaledTop, scaledWidth, scaledHeight);
                         } catch (e) {

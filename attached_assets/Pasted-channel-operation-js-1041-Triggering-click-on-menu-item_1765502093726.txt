@@ -1,0 +1,118 @@
+channel_operation.js:1041   Triggering click on menu_items[2]
+channel_operation.js:342 ┌─────────────────────────────────────────────────────────┐
+channel_operation.js:343 │ channelItemClick
+channel_operation.js:344 ├─────────────────────────────────────────────────────────┤
+channel_operation.js:345   Selected Channel: FLIX APP Brasil
+channel_operation.js:346   stream_id: 119
+channel_operation.js:347   current_channel_id: 119
+channel_operation.js:348   full_screen_video: false
+channel_operation.js:349 └─────────────────────────────────────────────────────────┘
+channel_operation.js:352 channelItemClick: SAME CHANNEL - checking if should zoom
+channel_operation.js:354 channelItemClick: Not fullscreen - ZOOMING IN
+channel_operation.js:46 🔒 UI LOCKED for 800ms until: 1765502027717
+channel_operation.js:613 ========================================
+channel_operation.js:614 zoomInOut() ZOOM IN START
+channel_operation.js:615   transitioning_to_fullscreen: true
+channel_operation.js:616   full_screen_video (before): true
+channel_operation.js:617   focused_part (before): full_screen
+channel_operation.js:618 ========================================
+channel_operation.js:624 zoomInOut() ZOOM IN: Updated flags IMMEDIATELY
+channel_operation.js:625   focused_part (after): full_screen
+channel_operation.js:626   full_screen_video (after): true
+channel_operation.js:627   full_screen_state: 1
+channel_operation.js:645 🔥 ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state: 1
+channel_operation.js:660 ╔════════════════════════════════════════════════════════╗
+channel_operation.js:661 ║ Showing fullscreen info bar
+channel_operation.js:662 ╠════════════════════════════════════════════════════════╣
+channel_operation.js:663   #full-screen-information will show with .visible class
+channel_operation.js:664   Channel name is in #full-screen-channel-name-compact
+channel_operation.js:665 ╚════════════════════════════════════════════════════════╝
+VM64:1 Entering setDisplayRect
+channel_operation.js:650 🔥 ZOOM IN: Cleared transitioning flag
+channel_operation.js:1248 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+channel_operation.js:1249 ┃ KEY PRESS: BACK
+channel_operation.js:1250 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+channel_operation.js:1251   State Snapshot:
+channel_operation.js:1252     focused_part: full_screen
+channel_operation.js:1253     full_screen_video: true
+channel_operation.js:1254     transitioning_to_fullscreen: false
+channel_operation.js:1255     media_player.full_screen_state: 1
+channel_operation.js:1256     current_channel_id: 119
+channel_operation.js:1257 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+channel_operation.js:598 ========================================
+channel_operation.js:599 zoomInOut() ZOOM OUT - set full_screen_state to 0
+channel_operation.js:600 full_screen_video: false
+channel_operation.js:601 focused_part: channel_selection
+channel_operation.js:602 ========================================
+channel_operation.js:46 🔒 UI LOCKED for 400ms until: 1765502031278
+channel_operation.js:59 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+channel_operation.js:66 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+VM64:1 Entering setDisplayRect
+channel_operation.js:1248 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+channel_operation.js:1249 ┃ KEY PRESS: BACK
+channel_operation.js:1250 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+channel_operation.js:1251   State Snapshot:
+channel_operation.js:1252     focused_part: channel_selection
+channel_operation.js:1253     full_screen_video: false
+channel_operation.js:1254     transitioning_to_fullscreen: false
+channel_operation.js:1255     media_player.full_screen_state: 0
+channel_operation.js:1256     current_channel_id: 119
+channel_operation.js:1257 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+channel_operation.js:598 ========================================
+channel_operation.js:599 zoomInOut() ZOOM OUT - set full_screen_state to 0
+channel_operation.js:600 full_screen_video: false
+channel_operation.js:601 focused_part: channel_selection
+channel_operation.js:602 ========================================
+channel_operation.js:46 🔒 UI LOCKED for 400ms until: 1765502032389
+channel_operation.js:59 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+channel_operation.js:851 []
+channel_operation.js:66 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+VM64:1 Entering setDisplayRect
+VM64:1 avplay_api.js adding listener for ID: [5]
+VM64:1 Entered AVPlayManager.prepareAsync()
+3VM64:1 Entering setDisplayRect
+VM64:1 Entering setDisplayRect
+common.js:787 getSortedMovies: Sorted 11 items by "added" (direction: asc)
+VM64:1 Entering setDisplayRect
+vod_summary.js:66 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:67 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:68 Info object: {kinopoisk_url: '', tmdb_id: '', name: 'FLIX APP English', o_name: 'FLIX APP English', cover_big: '', …}
+vod_summary.js:69 TMDB ID check: 
+vod_summary.js:83 ⚠️ NO TMDB ID in API response - subtitle matching will be less accurate
+vod_summary.js:140 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:141 Current movie enhanced data - Name: FLIX APP English TMDB: undefined Year: undefined
+VM64:1 Entering setDisplayRect
+vod_summary.js:66 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:67 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:68 Info object: {kinopoisk_url: '', tmdb_id: '', name: 'FLIX APP Russia', o_name: 'FLIX APP Russia', cover_big: '', …}
+vod_summary.js:69 TMDB ID check: 
+vod_summary.js:83 ⚠️ NO TMDB ID in API response - subtitle matching will be less accurate
+vod_summary.js:140 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:141 Current movie enhanced data - Name: FLIX APP Russia TMDB: undefined Year: undefined
+VM64:1 Entering setDisplayRect
+vod_summary.js:66 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:67 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:68 Info object: {kinopoisk_url: '', tmdb_id: '', name: 'FLIX APP English', o_name: 'FLIX APP English', cover_big: '', …}
+vod_summary.js:69 TMDB ID check: 
+vod_summary.js:83 ⚠️ NO TMDB ID in API response - subtitle matching will be less accurate
+vod_summary.js:140 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:141 Current movie enhanced data - Name: FLIX APP English TMDB: undefined Year: undefined
+VM64:1 Entering setDisplayRect
+vod_summary.js:66 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:67 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:68 Info object: {kinopoisk_url: '', tmdb_id: '', name: 'FLIX APP Brasil', o_name: 'FLIX APP Brasil', cover_big: '', …}
+vod_summary.js:69 TMDB ID check: 
+vod_summary.js:83 ⚠️ NO TMDB ID in API response - subtitle matching will be less accurate
+vod_summary.js:140 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:141 Current movie enhanced data - Name: FLIX APP Brasil TMDB: undefined Year: undefined
+VM64:1 Entering setDisplayRect
+VM64:1 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+VM64:1 avplay_api.js adding listener for ID: [6]
+VM64:1 Entered AVPlayManager.prepareAsync()
+2VM64:1 Entering setDisplayRect
+VM64:1 Entering setDisplayRect
+VM64:1 Entering setDisplayRect
+VM64:1 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+VM64:1 avplay_api.js adding listener for ID: [7]
+VM64:1 Entered AVPlayManager.prepareAsync()
+3VM64:1 Entering setDisplayRect
