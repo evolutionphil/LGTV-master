@@ -8,6 +8,20 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+- **2025-12-12: Fixed Storage Page Variable Error**
+  - Fixed: Storage page no longer crashes when clicking on files/folders
+  - Root cause: `storage_environment` variable used without typeof check
+  - Added safe guard: `typeof storage_environment !== 'undefined' && storage_environment === 'develop'`
+  - Modified files: `js/storage_operation.js`
+
+- **2025-12-12: Fixed YouTube Player Error 153**
+  - Fixed: YouTube videos now play correctly with proper IFrame API configuration
+  - Added required playerVars: `rel:0`, `enablejsapi:1`, `origin`
+  - Enhanced error handling with user-friendly toast messages
+  - App no longer freezes on YouTube errors - focus returns to playlist
+  - Error codes mapped: 2, 5, 100, 101, 150
+  - Modified files: `js/youtube_page.js`
+
 - **2025-12-12: Fixed Home Preview Zoom After VOD Playback**
   - Fixed: Home screen video preview no longer appears zoomed after watching VOD content
   - Root cause: `full_screen_state` remained at 1 after VOD closed, causing home preview to use fullscreen rect
