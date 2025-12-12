@@ -32,12 +32,12 @@ var vod_summary_page={
         $('#vod-summary-description').text("");
         that.hoverButtons(1);
         if(current_movie.is_favourite){
-            $(this.buttons[2]).data('action','remove')
-            $(this.buttons[2]).find('.vod-series-action-btn-txt').text('Remove Favourite')
+            $(this.buttons[2]).data('action','remove');
+            $(this.buttons[2]).find('span[data-word_code]').text('Remove');
         }
         else{
-            $(this.buttons[2]).data('action','add')
-            $(this.buttons[2]).find('.vod-series-action-btn-txt').text('Add Favourite')
+            $(this.buttons[2]).data('action','add');
+            $(this.buttons[2]).find('span[data-word_code]').text('Favorite');
         }
         var rating=0;
         if(typeof current_movie.rating==="undefined" || current_movie.rating==="")
@@ -46,8 +46,12 @@ var vod_summary_page={
             rating=parseFloat(current_movie.rating);
         if(isNaN(rating))
             rating=0;
-        $('#vod-rating-container').find('.rating-upper').css({width:rating*10+"%"});
         $('#vod-rating-mark').text(rating.toFixed(1));
+        if(rating > 0) {
+            $('#vod-rating-container').show();
+        } else {
+            $('#vod-rating-container').hide();
+        }
         current_movie.youtube_trailer="";
         current_route="vod-summary-page";
 
@@ -236,13 +240,13 @@ var vod_summary_page={
             current_movie.is_favourite=true;
             VodModel.addRecentOrFavouriteMovie(current_movie,'favourite');
             $(targetElement).data('action','remove');
-            $(targetElement).find('.vod-series-action-btn-txt').text('Remove Favourite');
+            $(targetElement).find('span[data-word_code]').text('Remove');
         }
         else{
             current_movie.is_favourite=false;
             VodModel.removeRecentOrFavouriteMovie(current_movie.stream_id,'favourite');
             $(targetElement).data('action','add');
-            $(targetElement).find('.vod-series-action-btn-txt').text('Add Favourite');
+            $(targetElement).find('span[data-word_code]').text('Favorite');
         }
         favourites_dirty = true;
     },
