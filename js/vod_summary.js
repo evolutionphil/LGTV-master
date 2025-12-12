@@ -16,7 +16,7 @@ var vod_summary_page={
         $('#vod-watch-trailer-button').hide();
         $('#vod-summary-release-date').text("");
         $('#vod-summary-release-genre').text("");
-        $('#vod-summary-release-length').text("").closest('p').hide();
+        $('#vod-summary-release-length').text("");
         $('#vod-summary-release-country').text("");
         $('.vod-series-background-img').attr('src','').hide();
         $('#vod-summary-release-director').text("");
@@ -58,6 +58,8 @@ var vod_summary_page={
         if(settings.playlist_type==="xtreme"){
             showLoader(true);
             this.is_loading=true;
+            // Hide duration during loading for Xtreme playlist
+            $('#vod-summary-release-length').closest('p').hide();
             $.getJSON(api_host_url+'/player_api.php?username='+user_name+'&password='+password+'&action=get_vod_info&vod_id='+current_movie.stream_id)
                 .then(
                     function(response){
@@ -145,6 +147,15 @@ var vod_summary_page={
                         that.is_loading=false;
                     }
                 )
+        } else {
+            // Non-Xtreme playlist: check current_movie.duration
+            if(current_movie.duration && current_movie.duration !== '' && current_movie.duration !== '0') {
+                $('#vod-summary-release-length').text(current_movie.duration);
+                $('#vod-summary-release-length').closest('p').show();
+            } else {
+                $('#vod-summary-release-length').text('');
+                $('#vod-summary-release-length').closest('p').hide();
+            }
         }
     },
     goBack:function(){
