@@ -8,6 +8,14 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+- **2025-12-12: Fixed Home Preview Zoom After VOD Playback**
+  - Fixed: Home screen video preview no longer appears zoomed after watching VOD content
+  - Root cause: `full_screen_state` remained at 1 after VOD closed, causing home preview to use fullscreen rect
+  - Added `full_screen_state = 0` reset in `close()` function
+  - Changed `init()` to always reset `full_screen_state = 0` (was conditional on undefined)
+  - Added debug logs to track display mode changes: close(), init(), setDisplayArea(), playAsync()
+  - Modified files: `js/player.js`
+
 - **2025-12-12: Fixed Storage Page Navigation Error**
   - Fixed: Storage page no longer crashes when navigating back or entering items
   - Root cause: Index calculation resulted in -1 when back button clicked, causing undefined array access
