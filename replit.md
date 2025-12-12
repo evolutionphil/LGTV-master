@@ -108,19 +108,21 @@ Preferred communication style: Simple, everyday language.
   - Modified files: `js/common.js`, `js/player.js`, `js/home_operation.js`, `js/storage_operation.js`, `js/vod_summary.js`, `js/series_summary.js`, `css/vod_series_player_page.css`, `config.xml`
   - See UPDATE.md for complete task list and testing instructions
 
+- **2025-12-12: Reverted MAC Validation to Preserve Existing User MAC Addresses**
+  - Removed `isValidMacAddress()` check from Ethernet and Wi-Fi MAC detection
+  - Root cause: Validation was rejecting privacy MACs (02:00:00:00:00:00), causing fallback to DUID
+  - This gave existing users different MAC addresses, breaking their registrations
+  - MAC detection order remains: Ethernet → DUID → TizenID → getMac() → WiFi → Hardcoded
+  - Modified files: `js/login_operation.js`
+
 - **2025-12-04: Added webapis.network.getMac() and Wi-Fi Fallback for Tizen 9.0+ MAC Detection**
-  - Fixed issue where Samsung Tizen 9.0 TVs (e.g., 25TV_BASIC2) were falling back to hardcoded MAC address
   - Added new fallback steps for better MAC address detection on newer Tizen versions
-  - Added MAC address validation helper `isValidMacAddress()` to reject:
-    - Empty/null MAC addresses
-    - Privacy placeholders (02:00:00:00:00:00, 00:00:00:00:00:00)
-    - Malformed MAC formats
   - Updated Samsung MAC detection flow:
-    1. ETHERNET_NETWORK (with validation)
+    1. ETHERNET_NETWORK
     2. DUID (Base64 encoded)
     3. TizenID (Base64 encoded)
-    4. **NEW: webapis.network.getMac()** ← Samsung's network API
-    5. **NEW: WIFI_NETWORK** ← For Wi-Fi connected TVs
+    4. webapis.network.getMac() ← Samsung's network API
+    5. WIFI_NETWORK ← For Wi-Fi connected TVs
     6. Hardcoded fallback (last resort)
   - Added Wi-Fi feature permission to `config.xml`
   - Enhanced console logging to track which method provided the MAC address

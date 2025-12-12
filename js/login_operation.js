@@ -278,7 +278,7 @@ var login_page={
         // Try Ethernet first (primary method)
         try {
             tizen.systeminfo.getPropertyValue('ETHERNET_NETWORK', function (data) {
-                if (data !== undefined && typeof data.macAddress !== 'undefined' && data.macAddress && that.isValidMacAddress(data.macAddress)) {
+                if (data !== undefined && typeof data.macAddress !== 'undefined' && data.macAddress) {
                     console.log('Samsung: Using Ethernet MAC address: ' + data.macAddress);
                     mac_address = data.macAddress;
                     that.fetchPlaylistInformation();
@@ -380,7 +380,7 @@ var login_page={
         
         try {
             tizen.systeminfo.getPropertyValue('WIFI_NETWORK', function (data) {
-                if (data !== undefined && typeof data.macAddress !== 'undefined' && data.macAddress && that.isValidMacAddress(data.macAddress)) {
+                if (data !== undefined && typeof data.macAddress !== 'undefined' && data.macAddress) {
                     console.log('Samsung: Using Wi-Fi MAC address: ' + data.macAddress);
                     mac_address = data.macAddress;
                     that.fetchPlaylistInformation();
