@@ -1,4 +1,7 @@
 "use strict";
+var TMDB_API_KEY = 'b5ab31cb478049712548766da824a625';
+var TMDB_BASE_URL = 'https://api.themoviedb.org/3';
+
 var vod_summary_page={
     keys:{
         index:0,
@@ -368,18 +371,110 @@ var vod_summary_page={
     },
     findSimilarMovies: function(currentGenre, currentMovieId) {
         var that = this;
-        var currentGenres = this.parseGenres(currentGenre);
+        var tmdbId = current_movie.tmdb_id;
         
         console.log('=== SIMILAR MOVIES DEBUG ===');
+        console.log('Current movie TMDB ID:', tmdbId);
         console.log('Current movie genre string:', currentGenre);
-        console.log('Parsed current genres:', currentGenres);
         
-        if (currentGenres.length === 0) {
-            console.log('No genres found, showing same category movies only');
+        if (tmdbId) {
+            console.log('Fetching similar movies from TMDB API...');
+            this.fetchTMDBSimilarMovies(tmdbId, currentMovieId, currentGenre);
+        } else {
+            console.log('No TMDB ID, falling back to category matching');
             this.findSameCategoryMovies(currentMovieId);
-            return;
+        }
+    },
+    fetchTMDBSimilarMovies: function(tmdbId, currentMovieId, fallbackGenre) {
+        var that = this;
+        var url = TMDB_BASE_URL + '/movie/' + tmdbId + '/similar?api_key=' + TMDB_API_KEY + '&language=en-US&page=1';
+        
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            timeout: 10000,
+            success: function(response) {
+                console.log('TMDB Similar Movies API Response:', response);
+                
+                if (response.results && response.results.length > 0) {
+                    var tmdbIds = [];
+                    for (var i = 0; i < response.results.length; i++) {
+                        tmdbIds.push(response.results[i].id);
+                    }
+                    console.log('TMDB similar movie IDs:', tmdbIds);
+                    
+                    that.matchTMDBWithLibrary(tmdbIds, currentMovieId, fallbackGenre);
+                } else {
+                    console.log('No similar movies from TMDB, using category fallback');
+                    that.findSameCategoryMovies(currentMovieId);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log('TMDB API error:', error, '- using category fallback');
+                that.findSameCategoryMovies(currentMovieId);
+            }
+        });
+    },
+    matchTMDBWithLibrary: function(tmdbIds, currentMovieId, fallbackGenre) {
+        var that = this;
+        var allMovies = VodModel.movies || [];
+        
+        if (allMovies.length === 0) {
+            var categories = VodModel.categories || [];
+            for (var c = 0; c < categories.length; c++) {
+                var cat = categories[c];
+                if (cat.movies && cat.movies.length > 0) {
+                    for (var m = 0; m < cat.movies.length; m++) {
+                        allMovies.push(cat.movies[m]);
+                    }
+                }
+            }
         }
         
+        console.log('Matching TMDB IDs with library of', allMovies.length, 'movies');
+        
+        var matched = [];
+        var tmdbIdMap = {};
+        for (var t = 0; t < tmdbIds.length; t++) {
+            tmdbIdMap[tmdbIds[t]] = t;
+        }
+        
+        for (var i = 0; i < allMovies.length; i++) {
+            var movie = allMovies[i];
+            if (movie.stream_id === currentMovieId) continue;
+            
+            var movieTmdbId = movie.tmdb_id || (movie.info && movie.info.tmdb_id);
+            if (movieTmdbId && typeof tmdbIdMap[movieTmdbId] !== 'undefined') {
+                matched.push({
+                    movie: movie,
+                    order: tmdbIdMap[movieTmdbId]
+                });
+            }
+        }
+        
+        matched.sort(function(a, b) {
+            return a.order - b.order;
+        });
+        
+        console.log('TMDB matches in library:', matched.length);
+        
+        if (matched.length >= 5) {
+            this.similar_movies = [];
+            for (var m = 0; m < Math.min(matched.length, 15); m++) {
+                this.similar_movies.push(matched[m].movie);
+            }
+            this.renderSimilarMovies();
+        } else {
+            console.log('Not enough TMDB matches, adding category movies');
+            var tmdbMatched = [];
+            for (var m = 0; m < matched.length; m++) {
+                tmdbMatched.push(matched[m].movie);
+            }
+            this.addCategoryFallback(tmdbMatched, currentMovieId);
+        }
+    },
+    addCategoryFallback: function(existingMatches, currentMovieId) {
         var allMovies = VodModel.movies || [];
         if (allMovies.length === 0) {
             var categories = VodModel.categories || [];
@@ -393,73 +488,30 @@ var vod_summary_page={
             }
         }
         
-        console.log('Total movies to search:', allMovies.length);
+        var existingIds = {};
+        for (var e = 0; e < existingMatches.length; e++) {
+            existingIds[existingMatches[e].stream_id] = true;
+        }
         
-        var scored = [];
-        var moviesWithGenre = 0;
-        var moviesWithoutGenre = 0;
-        
+        var categoryMovies = [];
         for (var i = 0; i < allMovies.length; i++) {
             var movie = allMovies[i];
-            if (movie.stream_id === currentMovieId) {
-                continue;
-            }
-            
-            var movieGenreString = movie.genre || (movie.info && movie.info.genre) || '';
-            var movieGenres = this.parseGenres(movieGenreString);
-            
-            if (movieGenres.length > 0) {
-                moviesWithGenre++;
-            } else {
-                moviesWithoutGenre++;
-            }
-            
-            var genreScore = 0;
-            for (var g = 0; g < currentGenres.length; g++) {
-                for (var mg = 0; mg < movieGenres.length; mg++) {
-                    if (currentGenres[g] === movieGenres[mg]) {
-                        genreScore++;
-                    }
-                }
-            }
-            
-            if (genreScore > 0) {
-                scored.push({ movie: movie, score: genreScore, reason: 'genre' });
+            if (movie.stream_id === currentMovieId) continue;
+            if (existingIds[movie.stream_id]) continue;
+            if (movie.category_id === current_movie.category_id) {
+                categoryMovies.push(movie);
             }
         }
         
-        console.log('Movies with genre data:', moviesWithGenre);
-        console.log('Movies without genre data:', moviesWithoutGenre);
-        console.log('Genre matches found:', scored.length);
-        
-        if (scored.length < 5) {
-            console.log('Not enough genre matches, adding same category movies');
-            for (var i = 0; i < allMovies.length; i++) {
-                var movie = allMovies[i];
-                if (movie.stream_id === currentMovieId) continue;
-                
-                var alreadyAdded = false;
-                for (var s = 0; s < scored.length; s++) {
-                    if (scored[s].movie.stream_id === movie.stream_id) {
-                        alreadyAdded = true;
-                        break;
-                    }
-                }
-                
-                if (!alreadyAdded && movie.category_id === current_movie.category_id) {
-                    scored.push({ movie: movie, score: 0.5, reason: 'category' });
-                }
-            }
+        for (var j = categoryMovies.length - 1; j > 0; j--) {
+            var k = Math.floor(Math.random() * (j + 1));
+            var temp = categoryMovies[j];
+            categoryMovies[j] = categoryMovies[k];
+            categoryMovies[k] = temp;
         }
         
-        scored.sort(function(a, b) {
-            return b.score - a.score;
-        });
-        
-        this.similar_movies = scored.slice(0, 15).map(function(item) {
-            return item.movie;
-        });
-        
+        this.similar_movies = existingMatches.concat(categoryMovies.slice(0, 15 - existingMatches.length));
+        console.log('Final similar movies (TMDB + category):', this.similar_movies.length);
         this.renderSimilarMovies();
     },
     findSameCategoryMovies: function(currentMovieId) {
