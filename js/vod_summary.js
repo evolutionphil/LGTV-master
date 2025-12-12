@@ -358,9 +358,8 @@ var vod_summary_page={
             return;
         }
         
-        var allMovies = VodModel.getMoviesList ? VodModel.getMoviesList() : [];
-        if (!allMovies || allMovies.length === 0) {
-            allMovies = [];
+        var allMovies = VodModel.movies || [];
+        if (allMovies.length === 0) {
             var categories = VodModel.categories || [];
             for (var c = 0; c < categories.length; c++) {
                 var cat = categories[c];
@@ -371,6 +370,8 @@ var vod_summary_page={
                 }
             }
         }
+        
+        console.log('Similar movies search - Total movies available:', allMovies.length);
         
         var scored = [];
         for (var i = 0; i < allMovies.length; i++) {
@@ -425,13 +426,14 @@ var vod_summary_page={
         
         for (var i = 0; i < this.similar_movies.length; i++) {
             var movie = this.similar_movies[i];
-            var poster = movie.stream_icon || movie.cover || 'images/movie.png';
+            var poster = movie.stream_icon || movie.cover || movie.cover_big || 'images/404.png';
             var name = movie.name || 'Unknown';
+            console.log('Similar movie ' + i + ':', name, 'poster:', poster);
             
             var html = '<div class="similar-movie-item" data-index="' + i + '" ' +
                        'onclick="vod_summary_page.selectSimilarMovie(' + i + ')" ' +
                        'onmouseenter="vod_summary_page.hoverSimilarMovie(' + i + ')">' +
-                       '<img src="' + poster + '" onerror="this.src=\'images/movie.png\'">' +
+                       '<img src="' + poster + '" onerror="this.src=\'images/404.png\'">' +
                        '<div class="similar-movie-name">' + name + '</div>' +
                        '</div>';
             container.append(html);
