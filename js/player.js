@@ -272,7 +272,12 @@ function initPlayer() {
                         } catch (e) {
                         }
                     } else {
-                        // PREVIEW MODE: Just set coordinates, don't change display mode
+                        // PREVIEW MODE: Use LETTER_BOX to prevent zoom/cropping
+                        try {
+                            webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_LETTER_BOX');
+                        } catch (e) {
+                        }
+                        
                         var top_position=$(that.videoObj).offset().top;
                         var left_position=$(that.videoObj).offset().left;
                         var width=parseInt($(that.videoObj).width())
