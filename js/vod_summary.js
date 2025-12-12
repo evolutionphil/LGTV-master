@@ -427,7 +427,7 @@ var vod_summary_page={
             return b.score - a.score;
         });
         
-        this.similar_movies = scored.slice(0, 10).map(function(item) {
+        this.similar_movies = scored.slice(0, 15).map(function(item) {
             return item.movie;
         });
         

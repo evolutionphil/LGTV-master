@@ -24,34 +24,34 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 40px 60px;
+    padding: 3vh 4vw;
     box-sizing: border-box;
 }
 
 .vod-summary-hero {
     display: flex;
     flex: 1;
-    gap: 40px;
+    gap: 3vw;
     min-height: 0;
 }
 
 .vod-summary-poster {
     flex-shrink: 0;
-    width: 280px;
+    width: 18vw;
     display: flex;
     align-items: flex-start;
-    padding-top: 20px;
+    padding-top: 2vh;
 }
 
 #vod-summary-page #vod-summary-image-wrapper {
     position: relative;
-    width: 280px;
+    width: 18vw;
     height: auto;
 }
 
 #vod-summary-page #vod-summary-image-wrapper img {
-    width: 280px;
-    height: 420px;
+    width: 18vw;
+    height: 50vh;
     object-fit: cover;
     border-radius: 12px;
     border: none;
@@ -65,19 +65,19 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    padding-top: 20px;
-    max-width: 900px;
+    padding-top: 2vh;
+    max-width: 60vw;
 }
 
 .vod-summary-header {
-    margin-bottom: 12px;
+    margin-bottom: 1.5vh;
 }
 
 #vod-summary-page #vod-summary-name {
-    font-size: 42px;
+    font-size: 2.8vw;
     font-weight: 700;
     color: #fff;
-    margin: 0 0 10px 0;
+    margin: 0 0 1vh 0;
     line-height: 1.3;
     white-space: nowrap;
     overflow: visible;
@@ -88,12 +88,12 @@
 .vod-summary-meta-row {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 1vw;
     flex-wrap: wrap;
 }
 
 #vod-summary-page #current-vod-category {
-    font-size: 18px;
+    font-size: 1.2vw;
     color: #00d9a5;
     font-weight: 600;
     text-transform: uppercase;
@@ -102,9 +102,9 @@
 }
 
 .vod-meta-chip {
-    font-size: 16px;
+    font-size: 1.1vw;
     color: #bbb;
-    padding: 4px 12px;
+    padding: 0.5vh 1vw;
     background: rgba(255,255,255,0.1);
     border-radius: 20px;
 }
@@ -116,27 +116,27 @@
 .vod-rating-inline {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
+    gap: 0.4vw;
+    padding: 0.5vh 1vw;
     background: rgba(255,200,0,0.15);
     border-radius: 20px;
 }
 
 .vod-rating-star {
     color: #ffc800;
-    font-size: 18px;
+    font-size: 1.1vw;
 }
 
 .vod-rating-inline .rating-mark {
     color: #ffc800;
-    font-size: 16px;
+    font-size: 1vw;
     font-weight: 600;
 }
 
 .vod-summary-genre {
-    font-size: 16px;
+    font-size: 1.1vw;
     color: #888;
-    margin-bottom: 16px;
+    margin-bottom: 1.5vh;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -147,10 +147,10 @@
 }
 
 #vod-summary-page .vod-summary-description {
-    font-size: 20px;
+    font-size: 1.3vw;
     line-height: 1.5;
     color: #ccc;
-    margin: 0 0 20px 0;
+    margin: 0 0 2vh 0;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -161,26 +161,26 @@
 .vod-summary-details {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px 40px;
-    margin-bottom: 24px;
+    gap: 1.5vh 3vw;
+    margin-bottom: 2vh;
 }
 
 .vod-detail-item {
     display: flex;
     flex-direction: column;
-    max-width: 250px;
+    max-width: 20vw;
 }
 
 .vod-detail-label {
-    font-size: 13px;
+    font-size: 0.9vw;
     color: #666;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 4px;
+    margin-bottom: 0.5vh;
 }
 
 .vod-detail-value {
-    font-size: 16px;
+    font-size: 1.1vw;
     color: #aaa;
     white-space: nowrap;
     overflow: hidden;
@@ -197,29 +197,30 @@
 
 .vod-summary-actions {
     display: flex;
-    gap: 12px;
+    gap: 1vw;
     margin-top: auto;
-    padding-bottom: 10px;
+    padding-bottom: 1.5vh;
+    justify-content: flex-start;
 }
 
 .vod-action-btn-new {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 14px 28px;
-    font-size: 18px;
+    gap: 0.6vw;
+    padding: 1.5vh 2vw;
+    font-size: 1.2vw;
     font-weight: 600;
     color: #fff;
     background: rgba(255,255,255,0.15);
-    border: 2px solid transparent;
-    border-radius: 8px;
+    border: 3px solid transparent;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .vod-action-btn-new i {
-    font-size: 18px;
+    font-size: 1.2vw;
 }
 
 .vod-action-btn-new:hover,
@@ -248,31 +249,31 @@
 }
 
 .similar-movies-title {
-    font-size: 18px;
+    font-size: 1.1vw;
     color: #888;
-    margin-bottom: 12px;
+    margin-bottom: 1vh;
     font-weight: 500;
 }
 
 #similar-movies-container {
     display: flex;
-    gap: 15px;
+    gap: 1vw;
     overflow: visible;
-    padding: 8px;
-    margin: -8px;
+    padding: 0.8vh;
+    margin: -0.8vh;
 }
 
 .similar-movie-item {
     flex-shrink: 0;
-    width: 100px;
+    width: 6vw;
     cursor: pointer;
 }
 
 .similar-movie-item img {
-    width: 100px;
-    height: 150px;
+    width: 6vw;
+    height: 16vh;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 3px solid transparent;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     background: #333;
