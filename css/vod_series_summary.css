@@ -114,6 +114,7 @@
     bottom: 20px;
     right:20px;
     position: fixed;
+    z-index: 100;
 }
 .vod-series-action-btn {
     width: 300px;
@@ -123,6 +124,8 @@
     margin-right: 10px;
     background: #8060FF;
     color: #ddd !important;
+    pointer-events: auto;
+    cursor: pointer;
 }
 .vod-series-action-btn i, .vod-series-action-btn span{
     vertical-align: middle;
@@ -135,6 +138,11 @@
     border: 3px solid yellow !important;
     color: #fff !important;
 }
+.vod-action-btn,
+.series-action-btn {
+    pointer-events: auto !important;
+    cursor: pointer;
+}
 .vod-line {
     width: 400px;
     border: 2px solid #f800b2;
@@ -146,6 +154,7 @@
     position: fixed;
     display: inline-block;
     vertical-align: middle;
+    z-index: 50;
 }
 
 .category-rating-wrapper{
