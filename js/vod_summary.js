@@ -16,7 +16,7 @@ var vod_summary_page={
         $('#vod-watch-trailer-button').hide();
         $('#vod-summary-release-date').text("");
         $('#vod-summary-release-genre').text("");
-        $('#vod-summary-release-length').text("");
+        $('#vod-summary-release-length').text("").closest('p').hide();
         $('#vod-summary-release-country').text("");
         $('.vod-series-background-img').attr('src','').hide();
         $('#vod-summary-release-director').text("");
@@ -92,7 +92,16 @@ var vod_summary_page={
                         // Update UI elements
                         $('#vod-summary-release-date').text(info.releasedate);
                         $('#vod-summary-release-genre').text(info.genre);
-                        $('#vod-summary-release-length').text(info.duration);
+                        
+                        // Hide duration field if empty/null/0
+                        if(info.duration && info.duration !== '' && info.duration !== '0') {
+                            $('#vod-summary-release-length').text(info.duration);
+                            $('#vod-summary-release-length').closest('p').show();
+                        } else {
+                            $('#vod-summary-release-length').text('');
+                            $('#vod-summary-release-length').closest('p').hide();
+                        }
+                        
                         $('#vod-summary-release-country').text(info.country ? info.country : '');
                         $('#vod-summary-release-director').text(info.director);
                         $('#vod-summary-release-cast').text(info.cast);
