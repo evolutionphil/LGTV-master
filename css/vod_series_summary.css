@@ -37,7 +37,7 @@
 
 .vod-summary-poster {
     flex-shrink: 0;
-    width: 18vw;
+    width: 22vw;
     display: flex;
     align-items: flex-start;
     padding-top: 2vh;
@@ -45,17 +45,17 @@
 
 #vod-summary-page #vod-summary-image-wrapper {
     position: relative;
-    width: 18vw;
+    width: 22vw;
     height: auto;
 }
 
 #vod-summary-page #vod-summary-image-wrapper img {
-    width: 18vw;
-    height: 50vh;
+    width: 22vw;
+    height: 60vh;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 14px;
     border: none;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     position: static;
     transform: none;
 }
