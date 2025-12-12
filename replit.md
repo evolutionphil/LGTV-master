@@ -8,6 +8,15 @@ Preferred communication style: Simple, everyday language.
 
 # Recent Changes
 
+- **2025-12-12: Fixed Mouse Click on Add Favorite Button**
+  - Fixed: Mouse can now click all action buttons in VOD/Series details page
+  - Root cause: Rating container and action button container had same position, causing overlap
+  - Added z-index: 100 to action button container (higher priority)
+  - Added z-index: 50 to rating container (lower priority)
+  - Added pointer-events: auto and cursor: pointer to all action buttons
+  - Remote control navigation unaffected
+  - Modified files: `css/vod_series_summary.css`
+
 - **2025-12-12: Hide Movie Duration When Empty/Demo Content**
   - Fixed: Movie details page no longer shows empty duration field when data is unavailable
   - Xtreme playlists: Duration row hidden during loading, shown only if API returns valid duration
