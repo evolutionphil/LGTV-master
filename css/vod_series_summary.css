@@ -67,6 +67,8 @@
     overflow: hidden;
     padding-top: 2vh;
     max-width: 60vw;
+    position: relative;
+    padding-bottom: 8vh;
 }
 
 .vod-summary-header {
@@ -197,10 +199,15 @@
 
 .vod-summary-actions {
     display: flex;
-    gap: 1vw;
-    margin-top: auto;
+    gap: 1.5vw;
     padding-bottom: 1.5vh;
-    justify-content: flex-start;
+    justify-content: center;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 22vh;
+    width: auto;
+    z-index: 100;
 }
 
 .vod-action-btn-new {
