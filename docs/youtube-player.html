@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLIX YouTube Player</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
+        #player { width: 100%; height: 100%; }
+        .error-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="player"></div>
+    <div id="error" class="error-message"></div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var player;
+        var parentOrigin = '*';
+        var isReady = false;
+
+        function getVideoIdFromUrl() {
+            var search = window.location.search;
+            if (!search || search.length < 2) return '';
+            var query = search.substring(1);
+            var pairs = query.split('&');
+            for (var i = 0; i < pairs.length; i++) {
+                var pair = pairs[i].split('=');
+                var key = decodeURIComponent(pair[0]);
+                var value = pair.length > 1 ? decodeURIComponent(pair[1]) : '';
+                if (key === 'v' || key === 'videoId') {
+                    return value;
+                }
+            }
+            return '';
+        }
+
+        function onYouTubeIframeAPIReady() {
+            var videoId = getVideoIdFromUrl();
+            
+            player = new YT.Player('player', {
+                height: '100%',
+                width: '100%',
+                videoId: videoId || '',
+                playerVars: {
+                    autoplay: 1,
+                    controls: 0,
+                    rel: 0,
+                    modestbranding: 1,
+                    enablejsapi: 1,
+                    origin: window.location.origin,
+                    playsinline: 1,
+                    fs: 0
+                },
+                events: {
+                    onReady: onPlayerReady,
+                    onStateChange: onPlayerStateChange,
+                    onError: onPlayerError,
+                    onPlaybackQualityChange: onPlaybackQualityChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            isReady = true;
+            sendMessage('ready', { videoId: getVideoIdFromUrl() });
+            event.target.playVideo();
+        }
+
+        function onPlayerStateChange(event) {
+            var stateNames = {
+                '-1': 'unstarted',
+                '0': 'ended',
+                '1': 'playing',
+                '2': 'paused',
+                '3': 'buffering',
+                '5': 'cued'
+            };
+            sendMessage('stateChange', { 
+                state: event.data,
+                stateName: stateNames[event.data] || 'unknown'
+            });
+        }
+
+        function onPlayerError(event) {
+            var errorMessages = {
+                2: 'Invalid video ID',
+                5: 'HTML5 player error',
+                100: 'Video not found',
+                101: 'Embed not allowed',
+                150: 'Embed not allowed'
+            };
+            var message = errorMessages[event.data] || 'Error ' + event.data;
+            sendMessage('error', { code: event.data, message: message });
+            
+            document.getElementById('error').textContent = message;
+            document.getElementById('error').style.display = 'block';
+        }
+
+        function onPlaybackQualityChange(event) {
+            sendMessage('qualityChange', { quality: event.data });
+        }
+
+        function sendMessage(type, data) {
+            var message = { type: type, data: data };
+            try {
+                window.parent.postMessage(JSON.stringify(message), parentOrigin);
+            } catch (e) {
+                console.error('postMessage error:', e);
+            }
+        }
+
+        window.addEventListener('message', function(event) {
+            try {
+                var message = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+                
+                if (!player || !isReady) return;
+
+                switch (message.command) {
+                    case 'play':
+                        player.playVideo();
+                        break;
+                    case 'pause':
+                        player.pauseVideo();
+                        break;
+                    case 'stop':
+                        player.stopVideo();
+                        break;
+                    case 'seekTo':
+                        player.seekTo(message.seconds, true);
+                        break;
+                    case 'seekBy':
+                        var currentTime = player.getCurrentTime();
+                        player.seekTo(currentTime + message.seconds, true);
+                        break;
+                    case 'setVolume':
+                        player.setVolume(message.volume);
+                        break;
+                    case 'mute':
+                        player.mute();
+                        break;
+                    case 'unmute':
+                        player.unMute();
+                        break;
+                    case 'loadVideo':
+                        document.getElementById('error').style.display = 'none';
+                        player.loadVideoById(message.videoId);
+                        break;
+                    case 'getState':
+                        sendMessage('currentState', {
+                            currentTime: player.getCurrentTime(),
+                            duration: player.getDuration(),
+                            state: player.getPlayerState(),
+                            volume: player.getVolume(),
+                            isMuted: player.isMuted()
+                        });
+                        break;
+                }
+            } catch (e) {
+                console.error('Message handling error:', e);
+            }
+        });
+
+        setInterval(function() {
+            if (player && isReady && player.getPlayerState() === 1) {
+                sendMessage('timeUpdate', {
+                    currentTime: player.getCurrentTime(),
+                    duration: player.getDuration()
+                });
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

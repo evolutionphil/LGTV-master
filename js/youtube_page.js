@@ -1,8 +1,10 @@
 "use strict";
 var youtube_page={
     player:null,
+    playerFrame:null,
+    playerUrl: 'https://flixapp.net/youtube-player.html',
     keys:{
-        focused_part:"menu_selection",//"right_screen_part", search_selection
+        focused_part:"menu_selection",
         menu_selection:0,
         player_selection:0
     },
@@ -15,6 +17,8 @@ var youtube_page={
     current_video_id:null,
     current_render_count:0,
     current_video_index:0,
+    currentTime: 0,
+    duration: 0,
 
     init:function (playlist) {
         this.current_render_count=0;
@@ -30,15 +34,82 @@ var youtube_page={
         this.is_loading=false;
         current_route="youtube-page";
         this.current_video_index=0;
+        this.setupMessageListener();
+    },
+    setupMessageListener: function() {
+        var that = this;
+        window.removeEventListener('message', this.handleMessage);
+        this.handleMessage = function(event) {
+            try {
+                var message = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+                if (!message || !message.type) return;
+                
+                switch (message.type) {
+                    case 'ready':
+                        console.log('YouTube Player Ready');
+                        showLoader(false);
+                        that.is_loading = false;
+                        break;
+                    case 'stateChange':
+                        console.log('YouTube State:', message.data.stateName);
+                        if (message.data.state === 0) {
+                            that.showNextMovie(1);
+                        }
+                        if (message.data.state === 1) {
+                            that.is_paused = false;
+                        }
+                        if (message.data.state === 2) {
+                            that.is_paused = true;
+                        }
+                        break;
+                    case 'error':
+                        console.log('YouTube Error:', message.data);
+                        showLoader(false);
+                        that.is_loading = false;
+                        showToast('YouTube Error', message.data.message);
+                        that.current_video_id = null;
+                        that.hoverMenuItem(that.keys.menu_selection);
+                        break;
+                    case 'timeUpdate':
+                        that.currentTime = message.data.currentTime;
+                        that.duration = message.data.duration;
+                        break;
+                    case 'currentState':
+                        that.currentTime = message.data.currentTime;
+                        that.duration = message.data.duration;
+                        that.is_paused = (message.data.state === 2);
+                        break;
+                }
+            } catch (e) {
+                console.log('Message parse error:', e);
+            }
+        };
+        window.addEventListener('message', this.handleMessage);
+    },
+    sendCommand: function(command, data) {
+        var message = { command: command };
+        if (data) {
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    message[key] = data[key];
+                }
+            }
+        }
+        try {
+            var iframe = document.getElementById('youtube-page-player');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage(JSON.stringify(message), '*');
+            }
+        } catch (e) {
+            console.log('sendCommand error:', e);
+        }
     },
     goBack:function(){
         var keys=this.keys;
         switch (keys.focused_part) {
             case "menu_selection":
-                try{
-                    this.player.destroy();
-                }catch (e){
-                }
+                window.removeEventListener('message', this.handleMessage);
+                $('#youtube-page-player').attr('src', 'about:blank');
                 $('#youtube-page').hide();
                 home_page.reEnter();
                 break;
@@ -76,22 +147,6 @@ var youtube_page={
         }else {
             $('#youtube-page-player-container').removeClass('full_screen');
             this.hoverMenuItem(keys.menu_selection);
-            // $(document.getElementById('youtube-page-player').contentWindow.document).keydown(function(e) {
-            //     switch (e.keyCode) {
-            //         case tvKey.RETURN:
-            //             youtube_page.goBack();
-            //             break;
-            //         case tvKey.RIGHT:
-            //             youtube_page.seekTo(5);
-            //             break;
-            //         case tvKey.LEFT:
-            //             youtube_page.seekTo(-5);
-            //             break;
-            //         case tvKey.ENTER:
-            //             youtube_page.playOrPause();
-            //             break;
-            //     }
-            // });
         }
     },
     showMovie: function () {
@@ -99,134 +154,51 @@ var youtube_page={
         var items=this.playlist.items;
         var playlist_item=items[keys.menu_selection];
         if(playlist_item.videoId===this.current_video_id) {
-            if(keys.focused_part==='menu_selection')  // will make full screen
+            if(keys.focused_part==='menu_selection')
                 this.zoomInOut(true);
         }else {
             if(playlist_item) {
                 showLoader(true);
                 this.is_loading=true;
-                // $('#youtube-page-player').remove();
-                // $('#youtube-page-player-container').html('<div id="youtube-page-player"></div>');
                 $('#youtube-video-description').html(playlist_item.description);
-                if(this.player)
-                    this.player.destroy()
-                var that=this;
-                setTimeout(function (){
-                    that.player = new YT.Player('youtube-page-player', {
-                        height: '100%',
-                        width: '100%',
-                        videoId: playlist_item.videoId,
-                        events: {
-                            'onReady': youtube_page.onPlayerReady,
-                            'onStateChange': youtube_page.onPlayerStateChange,
-                            'onError':youtube_page.onPlayerError,
-                            'onPlaybackQualityChange':youtube_page.onPlaybackQualityChange
-                        },
-                        playerVars: {
-                            controls: 0,
-                            loop: 1,
-                            rel: 0,
-                            enablejsapi: 1,
-                            origin: window.location.origin || 'https://flixapp.net'
-                        }
-                    });
-                },200)
-
-                $("#youtube-page-player").on("load",function() {
-                    if(current_route!='youtube-page')
-                        return;
-                    console.log("youtube page player loaded");
-                    $("#youtube-page-player").contents().find('.ytp-chrome-top-buttons').hide();
-                    $("#youtube-page-player").contents().find('.ytp-right-controls').hide();
-                    $("#youtube-page-player").contents().find('.ytp-chrome-top').hide();
-                    $("#youtube-page-player").contents().find('.ytp-watermark').hide();
-                    showLoader(false);
-                    youtube_page.is_loading=false;
-                    $(document.getElementById('youtube-page-player').contentWindow.document).keydown(function(e) {
-                        switch (e.keyCode) {
-                            case tvKey.RETURN:
-                                youtube_page.goBack();
-                                break;
-                            case tvKey.RIGHT:
-                                youtube_page.seekTo(5);
-                                break;
-                            case tvKey.LEFT:
-                                youtube_page.seekTo(-5);
-                                break;
-                            case tvKey.ENTER:
-                                youtube_page.playOrPause();
-                                break;
-                        }
-                    });
-                });
+                
+                var playerSrc = this.playerUrl + '?v=' + playlist_item.videoId;
+                var iframe = document.getElementById('youtube-page-player');
+                
+                if (iframe.tagName === 'IFRAME') {
+                    iframe.src = playerSrc;
+                } else {
+                    var container = document.getElementById('youtube-page-player-container');
+                    var newIframe = document.createElement('iframe');
+                    newIframe.id = 'youtube-page-player';
+                    newIframe.src = playerSrc;
+                    newIframe.style.width = '100%';
+                    newIframe.style.height = '100%';
+                    newIframe.style.border = 'none';
+                    newIframe.setAttribute('allowfullscreen', 'true');
+                    newIframe.setAttribute('allow', 'autoplay; encrypted-media');
+                    
+                    if (iframe) {
+                        container.replaceChild(newIframe, iframe);
+                    } else {
+                        container.appendChild(newIframe);
+                    }
+                }
             }
             this.current_video_id=playlist_item.videoId;
             this.current_video_index=keys.menu_selection;
         }
     },
-    onPlayerReady:function(event) {
-        showLoader(false);
-        youtube_page.is_loading=false;
-        $("#youtube-page-player").contents().find('.ytp-chrome-top-buttons').hide();
-        $("#youtube-page-player").contents().find('.ytp-right-controls').hide();
-        $("#youtube-page-player").contents().find('.ytp-chrome-top').hide();
-        setTimeout(function (){
-            $("#youtube-page-player").contents().find('.ytp-watermark').hide();
-        },200)
-
-        if(current_route==='youtube-page')
-            event.target.playVideo();
-    },
-    onPlayerStateChange:function (event) {
-        var data=event.data;
-        if(data===YT.PlayerState.ENDED){
-            youtube_page.showNextMovie(1);
-        }
-
-        console.log(event);
-    },
-    onPlayerError: function (event) {
-        showLoader(false);
-        youtube_page.is_loading = false;
-        console.log('YouTube Player Error:', event);
-        var errorCode = event.data;
-        var errorMessages = {
-            2: 'Invalid video ID',
-            5: 'HTML5 player error',
-            100: 'Video not found or removed',
-            101: 'Video not allowed for embedded playback',
-            150: 'Video not allowed for embedded playback'
-        };
-        var message = errorMessages[errorCode] || 'Error ' + errorCode;
-        showToast('YouTube Error', message);
-        try {
-            if (youtube_page.player) {
-                youtube_page.player.destroy();
-                youtube_page.player = null;
-            }
-        } catch (e) {}
-        youtube_page.current_video_id = null;
-        youtube_page.hoverMenuItem(youtube_page.keys.menu_selection);
-    },
-    onPlaybackQualityChange: function (data) {
-        console.log("playback quality changed", data);
-    },
     playOrPause:function(){
-        if(this.is_paused)
-            this.player.playVideo();
-        else
-            this.player.pauseVideo();
+        if(this.is_paused) {
+            this.sendCommand('play');
+        } else {
+            this.sendCommand('pause');
+        }
         this.is_paused=!this.is_paused;
     },
     seekTo:function(step){
-        var current_time=this.player.getCurrentTime();
-        var new_time=current_time+step;
-        var duration=this.player.getDuration();
-        if(new_time<0)
-            new_time=0;
-        if(new_time>duration)
-            new_time=duration;
-        this.player.seekTo(new_time);
+        this.sendCommand('seekBy', { seconds: step });
     },
     hoverMenuItem:function (index) {
         var keys=this.keys;
@@ -273,116 +245,59 @@ var youtube_page={
                 if(increment>0) {
                     if(keys.menu_selection>=this.menu_items.length)
                         keys.menu_selection=this.menu_items.length-1;
-                    if(keys.menu_selection>=this.menu_items.length-3 && playlist.totalResults>playlist.items.length && playlist.nextPageToken) {  // get next 50 items
-                        // var api_key="AIzaSyAW5Q2i0PgCteY6hAqIC8AQV-EYHRCTZDE";
-                        var api_key=youtube_api_key;
-                        var nextPageToken=playlist.nextPageToken ? playlist.nextPageToken : '';
-                        var url="https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails&part=id&part=snippet&maxResults=50&playlistId="+playlist.playlist_id+"&key="+api_key+"&pageToken="+nextPageToken;
-                        var that=this;
-                        showLoader(true);
-                        this.is_loading=true;
-                        $.ajax({
-                            method:'get',
-                            headers: {
-                                accepts:'application/json'
-                            },
-                            url:url,
-                            success:function (result) {
-                                showLoader(false);
-                                that.is_loading=false;
-                                try{
-                                    var items=result.items;
-                                    var video_items=[];
-                                    items.map(function (item){
-                                        var snippet=item.snippet;
-                                        if(snippet.title!='Deleted video'){
-                                            if(!snippet.thumbnails.medium)
-                                                console.log(snippet.thumbnails);
-                                            var icon
-                                            try {
-                                                icon=snippet.thumbnails.medium.url;
-                                            }catch (e) {
-                                                icon='images/404.png';
-                                            }
-                                            video_items.push({
-                                                title:snippet.title,
-                                                description:snippet.description,
-                                                icon:icon,
-                                                videoId:snippet.resourceId.videoId
-                                            })
-                                        }
-                                    })
-                                    playlist.items=playlist.items.concat(video_items);
-                                    if(result.nextPageToken)
-                                        playlist.nextPageToken=result.nextPageToken;
-                                    else
-                                        playlist.nextPageToken='';
-                                    if(result.pageInfo)
-                                        playlist.totalResults=result.pageInfo.totalResults;
-                                    that.renderItems(video_items);
-                                }catch (e) {
-                                    showLoader(false);
-                                    that.is_loading=false;
-                                    showToast('Sorry',"Error caused while fetching playlist contents");
-                                }
-                            },
-                            error:function () {
-                                showLoader(false);
-                                that.is_loading=false;
-                                showToast('Sorry',"Error caused while fetching playlist contents");
-                            }
-                        })
-                    }
+                    if(playlist.nextPageToken && keys.menu_selection>=this.menu_items.length-5)
+                        youtube_operation.addPagePlayListItems(playlist.id,playlist.nextPageToken);
                 }
                 this.hoverMenuItem(keys.menu_selection);
                 break;
         }
     },
-    handleMenuLeftRight:function(increment) {
-        var keys=this.keys;
-        switch (keys.focused_part) {
-            case "menu_selection":
-                break;
-            case "full_screen":
-                this.seekTo(5*increment);
-                break;
-        }
-    },
-    HandleKey:function(e) {
-        var keys=this.keys;
-        if(this.is_loading){
-            if(e.keyCode===tvKey.RETURN){
-                showLoader(false);
-                this.is_loading=false;
-                this.goBack();
-            }
+    HandleKey:function(e){
+        if(this.is_loading)
             return;
-        }
-
+        var keys=this.keys;
         switch (e.keyCode) {
-            case tvKey.RIGHT:
-                this.handleMenuLeftRight(1)
-                break;
-            case tvKey.LEFT:
-                this.handleMenuLeftRight(-1)
-                break;
-            case tvKey.DOWN:
-                this.handleMenusUpDown(1);
+            case tvKey.RETURN:
+                this.goBack();
                 break;
             case tvKey.UP:
                 this.handleMenusUpDown(-1);
                 break;
+            case tvKey.DOWN:
+                this.handleMenusUpDown(1);
+                break;
+            case tvKey.LEFT:
+                if(keys.focused_part === 'full_screen')
+                    this.seekTo(-10);
+                break;
+            case tvKey.RIGHT:
+                if(keys.focused_part === 'full_screen')
+                    this.seekTo(10);
+                break;
             case tvKey.ENTER:
                 this.handleMenuClick();
                 break;
-            case tvKey.CH_UP:
-                this.showNextMovie(1);
+            case tvKey.PLAYPAUSE:
+            case tvKey.PLAY:
+            case tvKey.PAUSE:
+            case tvKey.MEDIA_PLAY:
+            case tvKey.MEDIA_PAUSE:
+            case tvKey.MEDIA_PLAY_PAUSE:
+                if(keys.focused_part === 'full_screen')
+                    this.playOrPause();
                 break;
-            case tvKey.CH_DOWN:
+            case tvKey.MEDIA_REWIND:
+            case tvKey.MEDIA_FAST_FORWARD:
+                if(keys.focused_part === 'full_screen') {
+                    var step = e.keyCode === tvKey.MEDIA_REWIND ? -10 : 10;
+                    this.seekTo(step);
+                }
+                break;
+            case tvKey.MEDIA_TRACK_PREVIOUS:
                 this.showNextMovie(-1);
                 break;
-            case tvKey.RETURN:
-                this.goBack();
+            case tvKey.MEDIA_TRACK_NEXT:
+                this.showNextMovie(1);
                 break;
         }
     }
