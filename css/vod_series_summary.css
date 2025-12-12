@@ -232,14 +232,14 @@
 }
 
 #vod-watch-movie-button {
-    background: #00d9a5;
+    background: #ffc800;
     color: #000;
 }
 
 #vod-watch-movie-button:hover,
 #vod-watch-movie-button.active {
-    background: #00f5b8;
-    border-color: #ffc800;
+    background: #ffdb4d;
+    border-color: #fff;
 }
 
 .vod-summary-similar {

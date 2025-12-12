@@ -432,6 +432,62 @@ var vod_summary_page={
             .replace(/\s+/g, ' ')
             .trim();
     },
+    getSeriesBaseName: function(movieName) {
+        if (!movieName) return '';
+        var name = movieName
+            .replace(/\([^)]*\)/g, '')
+            .replace(/\[[^\]]*\]/g, '')
+            .replace(/\s*[:\-–—]\s*(part|teil|chapter|episode)?\s*\d+.*$/i, '')
+            .replace(/\s*\d+\s*$/g, '')
+            .replace(/\s*(I{1,3}|IV|V|VI{0,3}|IX|X)\s*$/i, '')
+            .trim();
+        return name.length >= 3 ? name.toLowerCase() : '';
+    },
+    findSameSeriesMovies: function(currentMovieId) {
+        var that = this;
+        var currentName = current_movie.name || '';
+        var seriesBase = this.getSeriesBaseName(currentName);
+        
+        console.log('=== SAME SERIES SEARCH ===');
+        console.log('Current movie:', currentName);
+        console.log('Series base name:', seriesBase);
+        
+        if (seriesBase.length < 3) {
+            return [];
+        }
+        
+        var allMovies = VodModel.movies || [];
+        if (allMovies.length === 0) {
+            var categories = VodModel.categories || [];
+            for (var c = 0; c < categories.length; c++) {
+                var cat = categories[c];
+                if (cat.movies && cat.movies.length > 0) {
+                    for (var m = 0; m < cat.movies.length; m++) {
+                        allMovies.push(cat.movies[m]);
+                    }
+                }
+            }
+        }
+        
+        var seriesMovies = [];
+        for (var i = 0; i < allMovies.length; i++) {
+            var movie = allMovies[i];
+            if (movie.stream_id === currentMovieId) continue;
+            
+            var movieName = movie.name || '';
+            var movieBase = this.getSeriesBaseName(movieName);
+            
+            if (movieBase === seriesBase || 
+                movieName.toLowerCase().indexOf(seriesBase) === 0 ||
+                seriesBase.indexOf(movieBase) === 0 && movieBase.length >= 5) {
+                seriesMovies.push(movie);
+                console.log('✅ SERIES MATCH: "' + movieName + '"');
+            }
+        }
+        
+        console.log('Same series movies found:', seriesMovies.length);
+        return seriesMovies;
+    },
     matchTMDBWithLibrary: function(tmdbMovies, currentMovieId, fallbackGenre) {
         var that = this;
         var allMovies = VodModel.movies || [];
@@ -448,6 +504,13 @@ var vod_summary_page={
             }
         }
         
+        var seriesMovies = this.findSameSeriesMovies(currentMovieId);
+        
+        var existingIds = {};
+        for (var s = 0; s < seriesMovies.length; s++) {
+            existingIds[seriesMovies[s].stream_id] = true;
+        }
+        
         console.log('Matching TMDB movies by NAME with library of', allMovies.length, 'movies');
         
         var matched = [];
@@ -458,9 +521,14 @@ var vod_summary_page={
             var tmdbOriginal = this.normalizeTitle(tmdbMovie.original_title);
             var tmdbYear = tmdbMovie.release_year;
             
+            if (tmdbTitle.length < 3 && tmdbOriginal.length < 3) {
+                continue;
+            }
+            
             for (var i = 0; i < allMovies.length; i++) {
                 var movie = allMovies[i];
                 if (movie.stream_id === currentMovieId) continue;
+                if (existingIds[movie.stream_id]) continue;
                 
                 var alreadyMatched = false;
                 for (var m = 0; m < matched.length; m++) {
@@ -474,6 +542,8 @@ var vod_summary_page={
                 var movieName = movie.name || '';
                 var normalizedName = this.normalizeTitle(movieName);
                 
+                if (normalizedName.length < 3) continue;
+                
                 var yearMatch = true;
                 if (tmdbYear && movieName.indexOf(tmdbYear) === -1) {
                     var movieYear = movieName.match(/\((\d{4})\)/);
@@ -483,15 +553,29 @@ var vod_summary_page={
                 }
                 
                 if (yearMatch) {
-                    if (normalizedName.indexOf(tmdbTitle) !== -1 || 
-                        tmdbTitle.indexOf(normalizedName) !== -1 ||
-                        (tmdbOriginal && (normalizedName.indexOf(tmdbOriginal) !== -1 || 
-                         tmdbOriginal.indexOf(normalizedName) !== -1))) {
+                    var titleMatch = false;
+                    if (tmdbTitle.length >= 3 && normalizedName.length >= 3) {
+                        if (normalizedName === tmdbTitle || 
+                            (normalizedName.length >= 5 && tmdbTitle.length >= 5 && 
+                             (normalizedName.indexOf(tmdbTitle) !== -1 || tmdbTitle.indexOf(normalizedName) !== -1))) {
+                            titleMatch = true;
+                        }
+                    }
+                    if (!titleMatch && tmdbOriginal && tmdbOriginal.length >= 3 && normalizedName.length >= 3) {
+                        if (normalizedName === tmdbOriginal ||
+                            (normalizedName.length >= 5 && tmdbOriginal.length >= 5 &&
+                             (normalizedName.indexOf(tmdbOriginal) !== -1 || tmdbOriginal.indexOf(normalizedName) !== -1))) {
+                            titleMatch = true;
+                        }
+                    }
+                    
+                    if (titleMatch) {
                         matched.push({
                             movie: movie,
                             order: t,
                             matchedWith: tmdbMovie.title
                         });
+                        existingIds[movie.stream_id] = true;
                         console.log('✅ NAME MATCH: "' + movieName + '" ↔ "' + tmdbMovie.title + '"');
                         break;
                     }
@@ -505,23 +589,23 @@ var vod_summary_page={
         
         console.log('TMDB name matches in library:', matched.length);
         
-        if (matched.length >= 3) {
-            this.similar_movies = [];
-            for (var m = 0; m < Math.min(matched.length, 15); m++) {
-                this.similar_movies.push(matched[m].movie);
-            }
-            if (matched.length < 15) {
+        var allMatched = seriesMovies.slice(0, 5);
+        for (var m = 0; m < matched.length && allMatched.length < 15; m++) {
+            allMatched.push(matched[m].movie);
+        }
+        
+        console.log('Total matches (series + TMDB):', allMatched.length);
+        
+        if (allMatched.length >= 3) {
+            this.similar_movies = allMatched;
+            if (allMatched.length < 15) {
                 this.addCategoryFallback(this.similar_movies, currentMovieId);
                 return;
             }
             this.renderSimilarMovies();
         } else {
-            console.log('Not enough name matches, adding category movies');
-            var tmdbMatched = [];
-            for (var m = 0; m < matched.length; m++) {
-                tmdbMatched.push(matched[m].movie);
-            }
-            this.addCategoryFallback(tmdbMatched, currentMovieId);
+            console.log('Not enough matches, adding category movies');
+            this.addCategoryFallback(allMatched, currentMovieId);
         }
     },
     addCategoryFallback: function(existingMatches, currentMovieId) {
