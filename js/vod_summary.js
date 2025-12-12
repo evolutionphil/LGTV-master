@@ -398,13 +398,19 @@ var vod_summary_page={
                 console.log('TMDB Similar Movies API Response:', response);
                 
                 if (response.results && response.results.length > 0) {
-                    var tmdbIds = [];
+                    var tmdbMovies = [];
                     for (var i = 0; i < response.results.length; i++) {
-                        tmdbIds.push(response.results[i].id);
+                        var m = response.results[i];
+                        tmdbMovies.push({
+                            id: m.id,
+                            title: m.title || '',
+                            original_title: m.original_title || '',
+                            release_year: m.release_date ? m.release_date.substring(0, 4) : ''
+                        });
                     }
-                    console.log('TMDB similar movie IDs:', tmdbIds);
+                    console.log('TMDB similar movies:', tmdbMovies);
                     
-                    that.matchTMDBWithLibrary(tmdbIds, currentMovieId, fallbackGenre);
+                    that.matchTMDBWithLibrary(tmdbMovies, currentMovieId, fallbackGenre);
                 } else {
                     console.log('No similar movies from TMDB, using category fallback');
                     that.findSameCategoryMovies(currentMovieId);
@@ -416,7 +422,17 @@ var vod_summary_page={
             }
         });
     },
-    matchTMDBWithLibrary: function(tmdbIds, currentMovieId, fallbackGenre) {
+    normalizeTitle: function(title) {
+        if (!title) return '';
+        return title.toLowerCase()
+            .replace(/[:\-–—]/g, ' ')
+            .replace(/\([^)]*\)/g, '')
+            .replace(/\[[^\]]*\]/g, '')
+            .replace(/[^a-z0-9\s]/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+    },
+    matchTMDBWithLibrary: function(tmdbMovies, currentMovieId, fallbackGenre) {
         var that = this;
         var allMovies = VodModel.movies || [];
         
@@ -432,24 +448,54 @@ var vod_summary_page={
             }
         }
         
-        console.log('Matching TMDB IDs with library of', allMovies.length, 'movies');
+        console.log('Matching TMDB movies by NAME with library of', allMovies.length, 'movies');
         
         var matched = [];
-        var tmdbIdMap = {};
-        for (var t = 0; t < tmdbIds.length; t++) {
-            tmdbIdMap[tmdbIds[t]] = t;
-        }
         
-        for (var i = 0; i < allMovies.length; i++) {
-            var movie = allMovies[i];
-            if (movie.stream_id === currentMovieId) continue;
+        for (var t = 0; t < tmdbMovies.length; t++) {
+            var tmdbMovie = tmdbMovies[t];
+            var tmdbTitle = this.normalizeTitle(tmdbMovie.title);
+            var tmdbOriginal = this.normalizeTitle(tmdbMovie.original_title);
+            var tmdbYear = tmdbMovie.release_year;
             
-            var movieTmdbId = movie.tmdb_id || (movie.info && movie.info.tmdb_id);
-            if (movieTmdbId && typeof tmdbIdMap[movieTmdbId] !== 'undefined') {
-                matched.push({
-                    movie: movie,
-                    order: tmdbIdMap[movieTmdbId]
-                });
+            for (var i = 0; i < allMovies.length; i++) {
+                var movie = allMovies[i];
+                if (movie.stream_id === currentMovieId) continue;
+                
+                var alreadyMatched = false;
+                for (var m = 0; m < matched.length; m++) {
+                    if (matched[m].movie.stream_id === movie.stream_id) {
+                        alreadyMatched = true;
+                        break;
+                    }
+                }
+                if (alreadyMatched) continue;
+                
+                var movieName = movie.name || '';
+                var normalizedName = this.normalizeTitle(movieName);
+                
+                var yearMatch = true;
+                if (tmdbYear && movieName.indexOf(tmdbYear) === -1) {
+                    var movieYear = movieName.match(/\((\d{4})\)/);
+                    if (movieYear && movieYear[1] !== tmdbYear) {
+                        yearMatch = false;
+                    }
+                }
+                
+                if (yearMatch) {
+                    if (normalizedName.indexOf(tmdbTitle) !== -1 || 
+                        tmdbTitle.indexOf(normalizedName) !== -1 ||
+                        (tmdbOriginal && (normalizedName.indexOf(tmdbOriginal) !== -1 || 
+                         tmdbOriginal.indexOf(normalizedName) !== -1))) {
+                        matched.push({
+                            movie: movie,
+                            order: t,
+                            matchedWith: tmdbMovie.title
+                        });
+                        console.log('✅ NAME MATCH: "' + movieName + '" ↔ "' + tmdbMovie.title + '"');
+                        break;
+                    }
+                }
             }
         }
         
@@ -457,16 +503,20 @@ var vod_summary_page={
             return a.order - b.order;
         });
         
-        console.log('TMDB matches in library:', matched.length);
+        console.log('TMDB name matches in library:', matched.length);
         
-        if (matched.length >= 5) {
+        if (matched.length >= 3) {
             this.similar_movies = [];
             for (var m = 0; m < Math.min(matched.length, 15); m++) {
                 this.similar_movies.push(matched[m].movie);
             }
+            if (matched.length < 15) {
+                this.addCategoryFallback(this.similar_movies, currentMovieId);
+                return;
+            }
             this.renderSimilarMovies();
         } else {
-            console.log('Not enough TMDB matches, adding category movies');
+            console.log('Not enough name matches, adding category movies');
             var tmdbMatched = [];
             for (var m = 0; m < matched.length; m++) {
                 tmdbMatched.push(matched[m].movie);
