@@ -5,7 +5,7 @@ var vod_summary_page={
         section: 'buttons',
         similar_index: 0
     },
-    buttons:$('.vod-action-btn'),
+    buttons:null,
     min_btn_index:0,
     is_loading:false,
     prev_route:'',
@@ -14,8 +14,10 @@ var vod_summary_page={
         this.prev_route=prev_route;
         this.min_btn_index=0;
         this.keys.section = 'buttons';
+        this.keys.index = 1;
         this.keys.similar_index = 0;
         this.similar_movies = [];
+        this.buttons = $('.vod-action-btn-new');
         $('#similar-movies-section').hide();
         var that=this;
         $('#vod-summary-image-wrapper img').attr('src','');
