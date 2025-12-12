@@ -955,130 +955,63 @@
         <div id="vod-summary-page" class="height-100 position-relative" style="display:none">
             <img class="vod-series-background-img" onerror="this.src=''">
             <div class="vod-series-background-img-overlay"></div>
-            <div class="vod-series-summary-page-contents-container">
-                
-                <div id="vod-summary-content-container">
-                    <div style="display: inline-block;height: 100vh; vertical-align: top;width: 500px;position: relative;">
+            <div class="vod-summary-redesign">
+                <div class="vod-summary-hero">
+                    <div class="vod-summary-poster">
                         <div id="vod-summary-image-wrapper">
                             <img onerror="this.src='images/404.png'">
                         </div>
                     </div>
-                    <div class="" style="height:100vh; overflow: hidden;width: calc(100% - 500px);vertical-align: top;display: inline-block;position: relative;">
-                        <div class="vod-summary-information-container position-relative">
+                    <div class="vod-summary-info">
+                        <div class="vod-summary-header">
                             <h3 id="vod-summary-name"></h3>
-                            <div class="category-rating-wrapper">
-                                <div id="current-vod-category">Current Category</div>
+                            <div class="vod-summary-meta-row">
+                                <div id="current-vod-category"></div>
+                                <span class="vod-meta-chip" id="vod-summary-release-date"></span>
+                                <span class="vod-meta-chip" id="vod-summary-release-length"></span>
+                                <div class="vod-rating-inline" id="vod-rating-container">
+                                    <span class="vod-rating-star">★</span>
+                                    <span class="rating-mark" id="vod-rating-mark">0</span>
+                                </div>
                             </div>
-                            <p class="vod-summary-item">
-                                <span class="vod-summary-item-label" data-word_code="genre">
-                                    Genre
-                                </span>:
-                                <span class="vod-summary-item-text" id="vod-summary-release-genre"></span>
-                            </p>
-                            <p class="vod-summary-item">
-                            <span class="vod-summary-item-label" data-word_code="release_date">
-                                Release Date:
-                            </span>
-                                <span class="vod-summary-item-text" id="vod-summary-release-date"></span>
-                            </p>
-                            <p class="vod-summary-item max-line-2">
-                            <span class="vod-summary-item-label" data-word_code="director">
-                                Director:
-                            </span>
-                                <span class="vod-summary-item-text" id="vod-summary-release-director"></span>
-                            </p>
-
-                            <p class="vod-summary-item">
-                                <span class="vod-summary-item-label" data-word_code="country">
-                                    Country:
-                                </span>
-                                <span class="vod-summary-item-text" id="vod-summary-release-country"></span>
-                            </p>
-
-                            <p class="vod-summary-item">
-                            <span class="vod-summary-item-label" data-word_code="length">
-                                Length:
-                            </span>
-                                <span class="vod-summary-item-text" id="vod-summary-release-length"></span>
-                            </p>
-                            <p class="vod-summary-item max-line-2">
-                            <span class="vod-summary-item-label" data-word_code="cast">
-                                Cast:
-                            </span>
-                                <span class="vod-summary-item-text" id="vod-summary-release-cast"></span>
-                            </p>
-                            <div class="vod-line"></div>
-                            <p id="vod-summary-description"></p>
-                            <div id="vod-summary-action-container">
-                                <button id="vod-watch-trailer-button"
-                                        class="btn rounded vod-action-btn vod-series-action-btn"
-                                        onclick="vod_summary_page.showTrailerVideo()"
-                                        onmouseenter="vod_summary_page.hoverButtons(0)"
-                                >
-                                    <i class="fa fa-play"></i>
-                                    <span class="vod-series-action-btn-txt" data-word_code="watch_trailer">
-                                        Watch Trailer
-                                    </span>
-                                </button>
-                                <button id="vod-watch-movie-button" class="btn  rounded vod-action-btn vod-series-action-btn"
-                                        onclick="vod_summary_page.showMovie()"
-                                        onmouseenter="vod_summary_page.hoverButtons(1)"
-                                >
-                                    <i class="fa fa-eye"></i>
-                                    <span class="vod-series-action-btn-txt" data-word_code="watch_movie">
-                                        Watch Movie
-                                    </span>
-                                </button>
-                                <button id="vod-add-favourite-button" class="btn rounded vod-action-btn vod-series-action-btn"
-                                    data-action="add"
-                                    onclick="vod_summary_page.addFavorite(this)"
-                                    onmouseenter="vod_summary_page.hoverButtons(2)"
-                                >
-                                    <i class="fa fa-heart"></i>
-                                    <span class="vod-series-action-btn-txt" data-word_code="add_to_favorite">
-                                        Add To Favorite
-                                    </span>
-                                </button>
+                        </div>
+                        <div class="vod-summary-genre" id="vod-summary-release-genre"></div>
+                        <p class="vod-summary-description" id="vod-summary-description"></p>
+                        <div class="vod-summary-details">
+                            <div class="vod-detail-item">
+                                <span class="vod-detail-label" data-word_code="director">Director</span>
+                                <span class="vod-detail-value" id="vod-summary-release-director"></span>
                             </div>
+                            <div class="vod-detail-item">
+                                <span class="vod-detail-label" data-word_code="cast">Cast</span>
+                                <span class="vod-detail-value" id="vod-summary-release-cast"></span>
+                            </div>
+                            <div class="vod-detail-item">
+                                <span class="vod-detail-label" data-word_code="country">Country</span>
+                                <span class="vod-detail-value" id="vod-summary-release-country"></span>
+                            </div>
+                        </div>
+                        <div class="vod-summary-actions" id="vod-summary-action-container">
+                            <button id="vod-watch-trailer-button" class="vod-action-btn-new" onclick="vod_summary_page.showTrailerVideo()" onmouseenter="vod_summary_page.hoverButtons(0)">
+                                <i class="fa fa-play"></i>
+                                <span data-word_code="watch_trailer">Trailer</span>
+                            </button>
+                            <button id="vod-watch-movie-button" class="vod-action-btn-new" onclick="vod_summary_page.showMovie()" onmouseenter="vod_summary_page.hoverButtons(1)">
+                                <i class="fa fa-play-circle"></i>
+                                <span data-word_code="watch_movie">Play</span>
+                            </button>
+                            <button id="vod-add-favourite-button" class="vod-action-btn-new" data-action="add" onclick="vod_summary_page.addFavorite(this)" onmouseenter="vod_summary_page.hoverButtons(2)">
+                                <i class="fa fa-heart"></i>
+                                <span data-word_code="add_to_favorite">Favorite</span>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="vod-series-rating-container" id="vod-rating-container">
-                    <div class="rating">
-                        <div class="rating-upper" style="width: 0%">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                        </div>
-                        <div class="rating-lower">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                        </div>
-                    </div>
-                    <div class="rating-mark" id="vod-rating-mark">4.5</div>
-                </div>
-                <div id="similar-movies-section" style="display:none;">
+                <div class="vod-summary-similar" id="similar-movies-section" style="display:none;">
                     <div class="similar-movies-title">
-                        <i class="fa fa-film"></i>
                         <span data-word_code="similar_movies">Similar Movies</span>
                     </div>
-                    <div id="similar-movies-container">
-                    </div>
+                    <div id="similar-movies-container"></div>
                 </div>
             </div>
         </div>
