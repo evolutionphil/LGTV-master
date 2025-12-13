@@ -232,7 +232,9 @@
 }
 
 #vod-watch-movie-button:hover,
-#vod-watch-movie-button.active {
+#vod-watch-movie-button.active,
+#vod-add-favourite-button:hover,
+#vod-add-favourite-button.active {
     background: #ffc800;
     border-color: #ffc800;
     color: #000;
