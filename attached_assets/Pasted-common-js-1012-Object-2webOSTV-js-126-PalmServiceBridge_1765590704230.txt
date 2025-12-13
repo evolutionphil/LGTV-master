@@ -1,0 +1,288 @@
+common.js:1012 Object
+2webOSTV.js:126 PalmServiceBridge is not found.
+value @ webOSTV.js:126
+main.js:8 Samsung Tizen platform detected
+login_operation.js:282 Samsung: Using Ethernet MAC address: 20:15:de:a7:41:1e
+login_operation.js:150 Object
+login_operation.js:154 ✅ BLOCKED CHANNELS RECEIVED FROM API: Array(0)
+login_operation.js:177 ✅ TERMS OF USE RECEIVED FROM API: Object
+login_operation.js:1107 📜 SHOWING TERMS OF USE (Version: 1.0)
+index.html:1 The resource https://flixapp.net/images/activation-qr-code.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+login_operation.js:1145 ✅ TERMS ACCEPTED (Version: 1.0)
+login_operation.js:33 {mac_registered: true, epg_urls: Array(0), youtube_api_key: 'AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE', themes: Array(3), adverts: Array(1), …}
+561956.png:1 
+        
+        
+       GET https://flixapp.tv/images/upload/561956.png 403 (Forbidden)
+Image (async)
+(anonymous) @ jquery.3.4.1.min.js:2
+_ @ jquery.3.4.1.min.js:2
+html @ jquery.3.4.1.min.js:2
+startApp @ login_operation.js:70
+acceptTerms @ login_operation.js:1150
+handleMenuClick @ login_operation.js:885
+HandleKey @ login_operation.js:1013
+(anonymous) @ main.js:147
+303512.png:1 
+        
+        
+       GET https://flixapp.tv/images/upload/303512.png 403 (Forbidden)
+VM65:1 [avinfo_api.js] getVersion success
+VM65:1 [avinfo_api.js] isHdrTvSupport success
+VM66:1 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+VM66:1 avplay_api.js adding listener for ID: [1]
+VM66:1 Entered AVPlayManager.prepareAsync()
+3VM66:1 Entering setDisplayRect
+VM66:1 Entering setDisplayRect
+common.js:787 getSortedMovies: Sorted 35555 items by "added" (direction: asc)
+VM66:1 Entering setDisplayRect
+vod_summary.js:82 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:83 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:84 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/1155823', tmdb_id: '1155823', name: 'Abducted by My Teacher: The Elizabeth Thomas Story (2023)', o_name: 'Abducted by My Teacher: The Elizabeth Thomas Story (2023)', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/C5Ce9f5mls4GxfqvPMeLxu5N9l.jpg', …}
+vod_summary.js:85 TMDB ID check: 1155823
+vod_summary.js:97 ✅ TMDB ID extracted and stored: 1155823
+vod_summary.js:376 === SIMILAR MOVIES DEBUG ===
+vod_summary.js:377 Current movie TMDB ID: 1155823
+vod_summary.js:378 Current movie genre string: TV-Film, Thriller, Krimi
+vod_summary.js:381 Fetching similar movies from TMDB API...
+vod_summary.js:176 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:177 Current movie enhanced data - Name: Abducted by My Teacher: The Elizabeth Thomas Story (2023) TMDB: 1155823 Year: undefined
+vod_summary.js:398 TMDB Similar Movies API Response: {page: 1, results: Array(20), total_pages: 5629, total_results: 112572}
+vod_summary.js:411 TMDB similar movies: (20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+vod_summary.js:451 === SAME SERIES SEARCH ===
+vod_summary.js:452 Current movie: Abducted by My Teacher: The Elizabeth Thomas Story (2023)
+vod_summary.js:453 Series base name: abducted by my teacher: the elizabeth thomas story
+vod_summary.js:484 ✅ SERIES MATCH: "Abducted 2018"
+vod_summary.js:484 ✅ SERIES MATCH: "Abducted (2020)"
+vod_summary.js:488 Same series movies found: 2
+vod_summary.js:514 Matching TMDB movies by NAME with library of 35555 movies
+vod_summary.js:579 ✅ NAME MATCH: "Abduction" ↔ "Amish Abduction"
+vod_summary.js:579 ✅ NAME MATCH: "Family" ↔ "My Family's Killer Affairs"
+vod_summary.js:579 ✅ NAME MATCH: "Irati – Age of Gods and Monsters (2023)" ↔ "Monster"
+vod_summary.js:579 ✅ NAME MATCH: "Girl Followed (2017)" ↔ "Girl Followed"
+vod_summary.js:579 ✅ NAME MATCH: "Darkness of Man" ↔ "Darkness of Man"
+vod_summary.js:579 ✅ NAME MATCH: "Gentleman" ↔ "Gentleman"
+vod_summary.js:590 TMDB name matches in library: 6
+vod_summary.js:597 Total matches (series + TMDB): 8
+vod_summary.js:648 Final similar movies (TMDB + category): 15
+vod_summary.js:698 Similar movie 0: Abducted 2018 poster: images/404.png
+vod_summary.js:698 Similar movie 1: Abducted (2020) poster: images/404.png
+vod_summary.js:698 Similar movie 2: Abduction poster: images/404.png
+vod_summary.js:698 Similar movie 3: Family poster: images/404.png
+vod_summary.js:698 Similar movie 4: Irati – Age of Gods and Monsters (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/tuX9qBWmNEm2Mx4uEeZBl6Vntvc.jpg
+vod_summary.js:698 Similar movie 5: Girl Followed (2017) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/gDG0lOrI1hqQPTkCRLwawi87ugH.jpg
+vod_summary.js:698 Similar movie 6: Darkness of Man poster: images/404.png
+vod_summary.js:698 Similar movie 7: Gentleman poster: images/404.png
+vod_summary.js:698 Similar movie 8: Transformers One (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/warMrMqOKC4BlBP4349I6MRGNXC.jpg
+vod_summary.js:698 Similar movie 9: Arcadian (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/spWV1eRzlDxvai8LbxwAWR0Vst4.jpg
+vod_summary.js:698 Similar movie 10: Marry Christmas - Eine Hochzeit kommt selten allein (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/pG6Bf6jLANNdgYkgj627NqmMkns.jpg
+vod_summary.js:698 Similar movie 11: Bring Her Back (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/aH0yjVTkEil8YbAogskpMEefx0Z.jpg
+vod_summary.js:698 Similar movie 12: Candlelight Christmas (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/qdA9mhYwi23YLFw4sAYV64TEHby.jpg
+vod_summary.js:698 Similar movie 13: Love in 39 Degrees (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/s0zO2xgFx0RQmj5h79pkLBYbePj.jpg
+vod_summary.js:698 Similar movie 14: Daddy's Head (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/1XBykMhfNhyV0raqtZKMxhJywTA.jpg
+VM66:1 Entering setDisplayRect
+vod_summary.js:82 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:83 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:84 Info object: {duration_secs: 5203, duration: '01:26:43', video: {…}, audio: {…}, bitrate: 5156}
+vod_summary.js:85 TMDB ID check: undefined
+vod_summary.js:99 ⚠️ NO TMDB ID in API response - subtitle matching will be less accurate
+vod_summary.js:376 === SIMILAR MOVIES DEBUG ===
+vod_summary.js:377 Current movie TMDB ID: undefined
+vod_summary.js:378 Current movie genre string: undefined
+vod_summary.js:384 No TMDB ID, falling back to category matching
+vod_summary.js:682 Same category movies found: 15
+vod_summary.js:698 Similar movie 0: Prinzessinnentausch (2018) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/qRy03sJpbjt5ER64H8iTQ4SdSX8.jpg
+vod_summary.js:698 Similar movie 1: The Architect (2006) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/jYdvNcumrVzbjkhTr1Y68pKIWN.jpg
+vod_summary.js:698 Similar movie 2: Detour (2013) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ofqVerGJKEKNZxk6ZAEkBifQcc2.jpg
+vod_summary.js:698 Similar movie 3: A Werewolf in England (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/hSJQOhfPPq8VMSHvJeW4P93yzQN.jpg
+vod_summary.js:698 Similar movie 4: The Great Wall (2016) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/82HQ8wUujm59XS7sL24odwJUZM7.jpg
+vod_summary.js:698 Similar movie 5: Nicholas Nickleby (1947) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ljEOQFFDWxKgdf2GnXzQzUsee4M.jpg
+vod_summary.js:698 Similar movie 6: The Sound (2018) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/17wFo3Q68w9xV4ihCpNLCFYzok8.jpg
+vod_summary.js:698 Similar movie 7: Becoming - Meine Geschichte (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/f0vo1yoEVlbpJ0Fkn0FgU7dTrO8.jpg
+vod_summary.js:698 Similar movie 8: Spy Daddy (2010) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/oyHTd3RXEPXkpXOvZ6M89r43lHz.jpg
+vod_summary.js:698 Similar movie 9: Outside the Law - Von Verrätern gejagt! (2002) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/fLFfEKJYBaVY0gQQEEEXiXFqigS.jpg
+vod_summary.js:698 Similar movie 10: The North Face Expedition: Everest - The North Face, Vol. 1 (1999) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/LRO3gvmYazVhmh4CHo3vj83Cx9.jpg
+vod_summary.js:698 Similar movie 11: Eine schöne Bescherung 2018 poster: images/404.png
+vod_summary.js:698 Similar movie 12: Der Spion von nebenan (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/kvyz0v8te9rCDfgTEl8mP9g5zWY.jpg
+vod_summary.js:698 Similar movie 13: Take Care (2014) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/lZmsE2TY9IOZALFjG0wqGNnARWZ.jpg
+vod_summary.js:698 Similar movie 14: Lords of Chaos (2018) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/y2eOIfQw2lLZov6aJZ3xpPjnRHH.jpg
+vod_summary.js:176 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:177 Current movie enhanced data - Name: Abducted 2018 TMDB: undefined Year: undefined
+VM66:1 Entering setDisplayRect
+vod_summary.js:82 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:83 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:84 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/1165466', tmdb_id: '1165466', name: 'Wake Up (2024)', o_name: 'Wake Up (2024)', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/erEAU7ygq2XFjziI3FpAdMajJFZ.jpg', …}
+vod_summary.js:85 TMDB ID check: 1165466
+vod_summary.js:97 ✅ TMDB ID extracted and stored: 1165466
+vod_summary.js:376 === SIMILAR MOVIES DEBUG ===
+vod_summary.js:377 Current movie TMDB ID: 1165466
+vod_summary.js:378 Current movie genre string: Horror, Thriller, Action
+vod_summary.js:381 Fetching similar movies from TMDB API...
+vod_summary.js:176 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:177 Current movie enhanced data - Name: Wake Up (2024) TMDB: 1165466 Year: undefined
+vod_summary.js:398 TMDB Similar Movies API Response: {page: 1, results: Array(20), total_pages: 7511, total_results: 150205}
+vod_summary.js:411 TMDB similar movies: (20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+vod_summary.js:451 === SAME SERIES SEARCH ===
+vod_summary.js:452 Current movie: Wake Up (2024)
+vod_summary.js:453 Series base name: wake up
+vod_summary.js:484 ✅ SERIES MATCH: "Wake Up (2019)"
+vod_summary.js:488 Same series movies found: 1
+vod_summary.js:514 Matching TMDB movies by NAME with library of 35555 movies
+vod_summary.js:579 ✅ NAME MATCH: "8 Found Dead (2023)" ↔ "8 Found Dead"
+vod_summary.js:579 ✅ NAME MATCH: "Psycho-Pass: Sinners of the System - Case.3 On the Other Side of Love and Hate 2019" ↔ "Psycho"
+vod_summary.js:579 ✅ NAME MATCH: "A Nightmare on Elm Street" ↔ "A Nightmare on Elm Street"
+vod_summary.js:579 ✅ NAME MATCH: "Blood (2022)" ↔ "Here for Blood"
+vod_summary.js:579 ✅ NAME MATCH: "Death Proof" ↔ "Death Proof"
+vod_summary.js:579 ✅ NAME MATCH: "Hostage: Missing Celebrity" ↔ "Hostage"
+vod_summary.js:579 ✅ NAME MATCH: "Hostel 3 " ↔ "Hostel"
+vod_summary.js:590 TMDB name matches in library: 7
+vod_summary.js:597 Total matches (series + TMDB): 8
+vod_summary.js:648 Final similar movies (TMDB + category): 15
+vod_summary.js:698 Similar movie 0: Wake Up (2019) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/z0kF14I3VTEPoUjHJkmGBEGdenW.jpg
+vod_summary.js:698 Similar movie 1: 8 Found Dead (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/tSJKiMXE04YkaYG2zPIMQcbMXc3.jpg
+vod_summary.js:698 Similar movie 2: Psycho-Pass: Sinners of the System - Case.3 On the Other Side of Love and Hate 2019 poster: images/404.png
+vod_summary.js:698 Similar movie 3: A Nightmare on Elm Street poster: images/404.png
+vod_summary.js:698 Similar movie 4: Blood (2022) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/tpXLySHYBJyLqmT818FskYRlliG.jpg
+vod_summary.js:698 Similar movie 5: Death Proof poster: images/404.png
+vod_summary.js:698 Similar movie 6: Hostage: Missing Celebrity poster: images/404.png
+vod_summary.js:698 Similar movie 7: Hostel 3  poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/qvLIOjdmkGiNkRKsAzafo7Sj67S.jpg
+vod_summary.js:698 Similar movie 8: Scarlett - Diamond of Revenge (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/5TR7JlJbKucNSq84rkbnjLd1JB5.jpg
+vod_summary.js:698 Similar movie 9: One Life (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/q2i35Kj4SqluUKlIQqxyPAr1S0v.jpg
+vod_summary.js:698 Similar movie 10: Ezra – Eine Familiengeschichte (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/9gl6yTph23Ml2A8R4s1Pz26vdzq.jpg
+vod_summary.js:698 Similar movie 11: Hedda (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ecflk7AZf0ij205yDswjlvdxlCO.jpg
+vod_summary.js:698 Similar movie 12: Bottoms (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/jeyTQrNEpyE1LZIgVlswYh3sc34.jpg
+vod_summary.js:698 Similar movie 13: Vorsicht, Freundschaft! (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ymMuXcRPpeeNfeu9y4sUglCHtHD.jpg
+vod_summary.js:698 Similar movie 14: Bird (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/xYANlAk987BBZKWG9jDnu1KPeEs.jpg
+common.js:787 getSortedMovies: Sorted 770 items by "added" (direction: asc)
+VM66:1 Entering setDisplayRect
+vod_summary.js:82 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:83 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:84 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/533533', tmdb_id: 533533, name: 'TRON: Ares', o_name: 'TRON: Ares', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/chpWmskl3aKm1aTZqUHRCtviwPy.jpg', …}
+vod_summary.js:85 TMDB ID check: 533533
+vod_summary.js:97 ✅ TMDB ID extracted and stored: 533533
+vod_summary.js:376 === SIMILAR MOVIES DEBUG ===
+vod_summary.js:377 Current movie TMDB ID: 533533
+vod_summary.js:378 Current movie genre string: Bilim-Kurgu, Macera, Aksiyon
+vod_summary.js:381 Fetching similar movies from TMDB API...
+vod_summary.js:176 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:177 Current movie enhanced data - Name: TRON: Ares (2025) TMDB: 533533 Year: undefined
+vod_summary.js:398 TMDB Similar Movies API Response: {page: 1, results: Array(20), total_pages: 4449, total_results: 88971}
+vod_summary.js:411 TMDB similar movies: (20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+vod_summary.js:451 === SAME SERIES SEARCH ===
+vod_summary.js:452 Current movie: TRON: Ares (2025)
+vod_summary.js:453 Series base name: tron: ares
+vod_summary.js:484 ✅ SERIES MATCH: "Tron: Ares (2025)"
+vod_summary.js:488 Same series movies found: 1
+vod_summary.js:514 Matching TMDB movies by NAME with library of 35555 movies
+vod_summary.js:579 ✅ NAME MATCH: "Dream" ↔ "Spy Kids 2: The Island of Lost Dreams"
+vod_summary.js:579 ✅ NAME MATCH: "Aliens Abducted My Parents and Now I Feel Kinda Left Out" ↔ "Alien³"
+vod_summary.js:579 ✅ NAME MATCH: "Der Junge und der Reiher (2023)" ↔ "JUNG_E"
+vod_summary.js:579 ✅ NAME MATCH: "Geostorm (2017)" ↔ "Geostorm"
+vod_summary.js:579 ✅ NAME MATCH: "Cop and a Half: New Recruit" ↔ "Cop and a Half: New Recruit"
+vod_summary.js:579 ✅ NAME MATCH: "Back to the Future Part II (1989)" ↔ "Back to the Future Part II"
+vod_summary.js:590 TMDB name matches in library: 6
+vod_summary.js:597 Total matches (series + TMDB): 7
+vod_summary.js:648 Final similar movies (TMDB + category): 15
+vod_summary.js:698 Similar movie 0: Tron: Ares (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/3H8K5kDc5Fb1NeUz1xfo44wvlxZ.jpg
+vod_summary.js:698 Similar movie 1: Dream poster: images/404.png
+vod_summary.js:698 Similar movie 2: Aliens Abducted My Parents and Now I Feel Kinda Left Out poster: images/404.png
+vod_summary.js:698 Similar movie 3: Der Junge und der Reiher (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/sLo0lyBCEntwdFFxcmf3K5l4qJf.jpg
+vod_summary.js:698 Similar movie 4: Geostorm (2017) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/nrsx0jEaBgXq4PWo7SooSnYJTv.jpg
+vod_summary.js:698 Similar movie 5: Cop and a Half: New Recruit poster: images/404.png
+vod_summary.js:698 Similar movie 6: Back to the Future Part II (1989) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/YBawEsTkUZBDajKbd5LiHkmMGf.jpg
+vod_summary.js:698 Similar movie 7: Elemental: Doğanın Güçleri (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/6oH378KUfCEitzJkm07r97L0RsZ.jpg
+vod_summary.js:698 Similar movie 8: Korkuyorum (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/svofVAaTa7JY5XdWQTiDYuu4sr.jpg
+vod_summary.js:698 Similar movie 9: Kahraman Yarışçılar (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/sJh9WemQi6aFAP5N02ciXiP8jf8.jpg
+vod_summary.js:698 Similar movie 10: Siyah Çay (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/oejLis6MmJvYH6Mun0yiSqJKUQK.jpg
+vod_summary.js:698 Similar movie 11: Piyanisti Vurdular (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/cY9BixYJjAE57bpLtGjYOe9FQYn.jpg
+vod_summary.js:698 Similar movie 12: Back to Black (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/xHQEeUT3Ac4fTY72UeNrI75xLtE.jpg
+vod_summary.js:698 Similar movie 13: Ferrari (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/gr99MmKP31ah3NFc3DbfX6f0WaN.jpg
+vod_summary.js:698 Similar movie 14: Saint-Ex (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/nzXl3tfxHoQq7rQwpUKmE5T05xi.jpg
+VM66:1 Entering setDisplayRect
+vod_summary.js:82 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:83 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:84 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/533533', tmdb_id: '533533', name: 'Tron: Ares (2025)', o_name: 'Tron: Ares (2025)', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/3H8K5kDc5Fb1NeUz1xfo44wvlxZ.jpg', …}
+vod_summary.js:85 TMDB ID check: 533533
+vod_summary.js:97 ✅ TMDB ID extracted and stored: 533533
+vod_summary.js:376 === SIMILAR MOVIES DEBUG ===
+vod_summary.js:377 Current movie TMDB ID: 533533
+vod_summary.js:378 Current movie genre string: Science Fiction, Abenteuer, Action
+vod_summary.js:381 Fetching similar movies from TMDB API...
+vod_summary.js:176 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:177 Current movie enhanced data - Name: Tron: Ares (2025) TMDB: 533533 Year: undefined
+vod_summary.js:398 TMDB Similar Movies API Response: {page: 1, results: Array(20), total_pages: 4449, total_results: 88971}
+vod_summary.js:411 TMDB similar movies: (20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+vod_summary.js:451 === SAME SERIES SEARCH ===
+vod_summary.js:452 Current movie: Tron: Ares (2025)
+vod_summary.js:453 Series base name: tron: ares
+vod_summary.js:484 ✅ SERIES MATCH: "TRON: Ares (2025)"
+vod_summary.js:488 Same series movies found: 1
+vod_summary.js:514 Matching TMDB movies by NAME with library of 35555 movies
+vod_summary.js:579 ✅ NAME MATCH: "Dream" ↔ "Spy Kids 2: The Island of Lost Dreams"
+vod_summary.js:579 ✅ NAME MATCH: "Aliens Abducted My Parents and Now I Feel Kinda Left Out" ↔ "Alien³"
+vod_summary.js:579 ✅ NAME MATCH: "Der Junge und der Reiher (2023)" ↔ "JUNG_E"
+vod_summary.js:579 ✅ NAME MATCH: "Geostorm (2017)" ↔ "Geostorm"
+vod_summary.js:579 ✅ NAME MATCH: "Cop and a Half: New Recruit" ↔ "Cop and a Half: New Recruit"
+vod_summary.js:579 ✅ NAME MATCH: "Back to the Future Part II (1989)" ↔ "Back to the Future Part II"
+vod_summary.js:590 TMDB name matches in library: 6
+vod_summary.js:597 Total matches (series + TMDB): 7
+vod_summary.js:648 Final similar movies (TMDB + category): 15
+vod_summary.js:698 Similar movie 0: TRON: Ares (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/chpWmskl3aKm1aTZqUHRCtviwPy.jpg
+vod_summary.js:698 Similar movie 1: Dream poster: images/404.png
+vod_summary.js:698 Similar movie 2: Aliens Abducted My Parents and Now I Feel Kinda Left Out poster: images/404.png
+vod_summary.js:698 Similar movie 3: Der Junge und der Reiher (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/sLo0lyBCEntwdFFxcmf3K5l4qJf.jpg
+vod_summary.js:698 Similar movie 4: Geostorm (2017) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/nrsx0jEaBgXq4PWo7SooSnYJTv.jpg
+vod_summary.js:698 Similar movie 5: Cop and a Half: New Recruit poster: images/404.png
+vod_summary.js:698 Similar movie 6: Back to the Future Part II (1989) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/YBawEsTkUZBDajKbd5LiHkmMGf.jpg
+vod_summary.js:698 Similar movie 7: Ein Prinz im Paradies (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/t6F1H2DVMVbeKVFEmKwSq33KbYw.jpg
+vod_summary.js:698 Similar movie 8: Purgatory Jack (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/wwGC2JxgIqT7DJfBOX0sT5QLKtl.jpg
+vod_summary.js:698 Similar movie 9: Escalation - Tödliche Bedrohung (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4yIDQ8gC76FZ2aANvrbVZbj1bmR.jpg
+vod_summary.js:698 Similar movie 10: Priscilla (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/oEUpEPPQTleAdnOHn6a2w95CkTG.jpg
+vod_summary.js:698 Similar movie 11: Raub ihren Atem (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/8SA6YkPepVnmSA4iYyujvcaokcA.jpg
+vod_summary.js:698 Similar movie 12: Verheissung - Der Grenzenlose (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/qjUFJnwNkIkPqmpQWz4E6nzBKEc.jpg
+vod_summary.js:698 Similar movie 13: Restore Point (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/wZePU9G8zr39wWp4nPeHGRm7jtE.jpg
+vod_summary.js:698 Similar movie 14: September 5 (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ghPlECtzmbhZ236uxnTfpDAKtAZ.jpg
+VM66:1 Entering setDisplayRect
+vod_summary.js:82 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:83 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:84 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/533533', tmdb_id: 533533, name: 'TRON: Ares', o_name: 'TRON: Ares', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/chpWmskl3aKm1aTZqUHRCtviwPy.jpg', …}
+vod_summary.js:85 TMDB ID check: 533533
+vod_summary.js:97 ✅ TMDB ID extracted and stored: 533533
+vod_summary.js:376 === SIMILAR MOVIES DEBUG ===
+vod_summary.js:377 Current movie TMDB ID: 533533
+vod_summary.js:378 Current movie genre string: Bilim-Kurgu, Macera, Aksiyon
+vod_summary.js:381 Fetching similar movies from TMDB API...
+vod_summary.js:176 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:177 Current movie enhanced data - Name: TRON: Ares (2025) TMDB: 533533 Year: undefined
+vod_summary.js:398 TMDB Similar Movies API Response: {page: 1, results: Array(20), total_pages: 4449, total_results: 88971}
+vod_summary.js:411 TMDB similar movies: (20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+vod_summary.js:451 === SAME SERIES SEARCH ===
+vod_summary.js:452 Current movie: TRON: Ares (2025)
+vod_summary.js:453 Series base name: tron: ares
+vod_summary.js:484 ✅ SERIES MATCH: "Tron: Ares (2025)"
+vod_summary.js:488 Same series movies found: 1
+vod_summary.js:514 Matching TMDB movies by NAME with library of 35555 movies
+vod_summary.js:579 ✅ NAME MATCH: "Dream" ↔ "Spy Kids 2: The Island of Lost Dreams"
+vod_summary.js:579 ✅ NAME MATCH: "Aliens Abducted My Parents and Now I Feel Kinda Left Out" ↔ "Alien³"
+vod_summary.js:579 ✅ NAME MATCH: "Der Junge und der Reiher (2023)" ↔ "JUNG_E"
+vod_summary.js:579 ✅ NAME MATCH: "Geostorm (2017)" ↔ "Geostorm"
+vod_summary.js:579 ✅ NAME MATCH: "Cop and a Half: New Recruit" ↔ "Cop and a Half: New Recruit"
+vod_summary.js:579 ✅ NAME MATCH: "Back to the Future Part II (1989)" ↔ "Back to the Future Part II"
+vod_summary.js:590 TMDB name matches in library: 6
+vod_summary.js:597 Total matches (series + TMDB): 7
+vod_summary.js:648 Final similar movies (TMDB + category): 15
+vod_summary.js:698 Similar movie 0: Tron: Ares (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/3H8K5kDc5Fb1NeUz1xfo44wvlxZ.jpg
+vod_summary.js:698 Similar movie 1: Dream poster: images/404.png
+vod_summary.js:698 Similar movie 2: Aliens Abducted My Parents and Now I Feel Kinda Left Out poster: images/404.png
+vod_summary.js:698 Similar movie 3: Der Junge und der Reiher (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/sLo0lyBCEntwdFFxcmf3K5l4qJf.jpg
+vod_summary.js:698 Similar movie 4: Geostorm (2017) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/nrsx0jEaBgXq4PWo7SooSnYJTv.jpg
+vod_summary.js:698 Similar movie 5: Cop and a Half: New Recruit poster: images/404.png
+vod_summary.js:698 Similar movie 6: Back to the Future Part II (1989) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/YBawEsTkUZBDajKbd5LiHkmMGf.jpg
+vod_summary.js:698 Similar movie 7: Av Oyunları (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/xVbEJzdMxIQqpuLgla0hU8qr9mt.jpg
+vod_summary.js:698 Similar movie 8: Cellar Door (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/9vasnPh69RoUg9oUpzXoErMVDB7.jpg
+vod_summary.js:698 Similar movie 9: Ayrılış (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/xZNwSozV8wqTWGjby7k1STeSpX0.jpg
+vod_summary.js:698 Similar movie 10: Mısır Tarlasındaki Palyaço (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ombHyZqE3AMkRlCkgWBZUhw1Atk.jpg
+vod_summary.js:698 Similar movie 11: Ölümsüzlerle Başa Çıkmak (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/yp2JCSJbMMpLXMy45dM2wtUi8hP.jpg
+vod_summary.js:698 Similar movie 12: The Home (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/r0NUt1M62StNgvSLmLsmJADbHpg.jpg
+vod_summary.js:698 Similar movie 13: Beterböcek Beterböcek (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/gzU2cRkxoAX29jHLqiIvlByvZIQ.jpg
+vod_summary.js:698 Similar movie 14: Becky'nin Gazabı (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/scvWF3ZJgebKf9jr8fPKo2hxuEF.jpg

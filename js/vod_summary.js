@@ -291,16 +291,12 @@ var vod_summary_page={
         $(this.buttons[this.keys.index]).trigger('click');
     },
     HandleKey:function (e) {
-        if(this.is_loading){
-            if(e.keyCode===tvKey.RETURN){
-                showLoader(false);
-                this.is_loading=false;
-                this.goBack();
-            }
-            return;
-        }
         switch (e.keyCode) {
             case tvKey.RETURN:
+                if(this.is_loading){
+                    showLoader(false);
+                    this.is_loading=false;
+                }
                 this.goBack();
                 break;
             case tvKey.LEFT:
@@ -446,13 +442,15 @@ var vod_summary_page={
     findSameSeriesMovies: function(currentMovieId) {
         var that = this;
         var currentName = current_movie.name || '';
+        var currentCategoryId = current_movie.category_id;
         var seriesBase = this.getSeriesBaseName(currentName);
         
         console.log('=== SAME SERIES SEARCH ===');
         console.log('Current movie:', currentName);
+        console.log('Current category:', currentCategoryId);
         console.log('Series base name:', seriesBase);
         
-        if (seriesBase.length < 3) {
+        if (seriesBase.length < 5) {
             return [];
         }
         
@@ -473,15 +471,16 @@ var vod_summary_page={
         for (var i = 0; i < allMovies.length; i++) {
             var movie = allMovies[i];
             if (movie.stream_id === currentMovieId) continue;
+            if (movie.category_id !== currentCategoryId) continue;
             
             var movieName = movie.name || '';
             var movieBase = this.getSeriesBaseName(movieName);
             
-            if (movieBase === seriesBase || 
-                movieName.toLowerCase().indexOf(seriesBase) === 0 ||
-                seriesBase.indexOf(movieBase) === 0 && movieBase.length >= 5) {
+            if (movieBase.length >= 5 && seriesBase.length >= 5 &&
+                (movieBase === seriesBase || 
+                 (movieName.toLowerCase().indexOf(seriesBase) === 0 && seriesBase.length >= 8))) {
                 seriesMovies.push(movie);
-                console.log('✅ SERIES MATCH: "' + movieName + '"');
+                console.log('✅ SERIES MATCH (same category): "' + movieName + '"');
             }
         }
         
