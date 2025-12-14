@@ -10,7 +10,10 @@ var trailer_page={
     currentTime: 0,
     duration: 0,
     
+    loadTimeout: null,
+    
     init:function(videoId,prev_route){
+        var that = this;
         showLoader(true);
         this.is_loading=true;
         this.back_url=prev_route;
@@ -35,6 +38,17 @@ var trailer_page={
         this.playerFrame = iframe;
         
         console.log('Trailer loading via flixapp player:', playerSrc);
+        
+        if (this.loadTimeout) {
+            clearTimeout(this.loadTimeout);
+        }
+        this.loadTimeout = setTimeout(function() {
+            if (that.is_loading) {
+                console.log('Trailer load timeout - hiding loader');
+                showLoader(false);
+                that.is_loading = false;
+            }
+        }, 8000);
     },
     
     setupMessageListener: function() {
@@ -52,6 +66,10 @@ var trailer_page={
                 switch (message.type) {
                     case 'ready':
                         console.log('Trailer Player Ready');
+                        if (that.loadTimeout) {
+                            clearTimeout(that.loadTimeout);
+                            that.loadTimeout = null;
+                        }
                         showLoader(false);
                         that.is_loading = false;
                         break;
@@ -107,6 +125,11 @@ var trailer_page={
     
     goBack:function(){
         current_route=this.back_url;
+        
+        if (this.loadTimeout) {
+            clearTimeout(this.loadTimeout);
+            this.loadTimeout = null;
+        }
         
         this.sendCommand('stop');
         

@@ -1,0 +1,915 @@
+common.js:1012 Object
+2webOSTV.js:126 PalmServiceBridge is not found.
+value @ webOSTV.js:126
+main.js:8 Samsung Tizen platform detected
+login_operation.js:282 Samsung: Using Ethernet MAC address: 20:15:de:a7:41:1e
+login_operation.js:150 Object
+login_operation.js:154 ✅ BLOCKED CHANNELS RECEIVED FROM API: Array(0)
+login_operation.js:177 ✅ TERMS OF USE RECEIVED FROM API: Object
+login_operation.js:1107 📜 SHOWING TERMS OF USE (Version: 1.0)
+index.html:1 The resource https://flixapp.net/images/activation-qr-code.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+login_operation.js:1145 ✅ TERMS ACCEPTED (Version: 1.0)
+login_operation.js:33 {mac_registered: true, epg_urls: Array(0), youtube_api_key: 'AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE', themes: Array(3), adverts: Array(1), …}
+303512.png:1 
+        
+        
+       GET https://flixapp.tv/images/upload/303512.png 403 (Forbidden)
+561956.png:1 
+        
+        
+       GET https://flixapp.tv/images/upload/561956.png 403 (Forbidden)
+Image (async)
+(anonymous) @ jquery.3.4.1.min.js:2
+_ @ jquery.3.4.1.min.js:2
+html @ jquery.3.4.1.min.js:2
+startApp @ login_operation.js:70
+acceptTerms @ login_operation.js:1150
+handleMenuClick @ login_operation.js:885
+HandleKey @ login_operation.js:1013
+(anonymous) @ main.js:147
+VM61:1 [avinfo_api.js] getVersion success
+VM61:1 [avinfo_api.js] isHdrTvSupport success
+VM62:1 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+VM62:1 avplay_api.js adding listener for ID: [1]
+VM62:1 Entered AVPlayManager.prepareAsync()
+3VM62:1 Entering setDisplayRect
+VM62:1 Entering setDisplayRect
+common.js:787 getSortedMovies: Sorted 35806 items by "added" (direction: asc)
+null:1 
+        
+        
+       GET file:///null net::ERR_ACCESS_DENIED
+Image (async)
+we @ jquery.3.4.1.min.js:2
+Ie @ jquery.3.4.1.min.js:2
+append @ jquery.3.4.1.min.js:2
+renderCategoryContent @ home_operation.js:937
+showCategoryContent @ home_operation.js:981
+submenuClick @ home_operation.js:1028
+showSubMenus @ home_operation.js:438
+onclick @ index.html:152
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ home_operation.js:1966
+HandleKey @ home_operation.js:2074
+(anonymous) @ main.js:150
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Güldür Güldür Show 423. Bölüm
+vod_summary.js:704 Series name: guldur guldur show
+vod_summary.js:705 Episode: 423
+vod_summary.js:758 Same series episodes found: 9
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Güldür Güldür Show 422. Bölüm
+vod_summary.js:772 2. Güldür Güldür Show 421. Bölüm
+vod_summary.js:772 3. Güldür Güldür Show 420. Bölüm
+vod_summary.js:772 4. Güldür Güldür Show 419. Bölüm
+vod_summary.js:772 5. Güldür Güldür Show 418. Bölüm
+vod_summary.js:772 6. Güldür Güldür Show 417. Bölüm
+vod_summary.js:772 7. Güldür Güldür Show 416. Bölüm
+vod_summary.js:772 8. Güldür Güldür Show 415. Bölüm
+vod_summary.js:772 9. Güldür Güldür Show 414. Bölüm
+vod_summary.js:772 10. MasterChef Türkiye 135. Bölüm
+vod_summary.js:772 11. Müge Anlı İle Tatlı Sert 12.09.2025
+vod_summary.js:772 12. MasterChef Türkiye 177. Bölüm ALTIN KUPA
+vod_summary.js:772 13. Müge Anlı İle Tatlı Sert 21.11.2025
+vod_summary.js:772 14. MasterChef Türkiye 162. Bölüm
+vod_summary.js:772 15. MasterChef Türkiye 110. Bölüm
+vod_summary.js:790 Similar movie 0: Güldür Güldür Show 422. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 1: Güldür Güldür Show 421. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 2: Güldür Güldür Show 420. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 3: Güldür Güldür Show 419. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 4: Güldür Güldür Show 418. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 5: Güldür Güldür Show 417. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 6: Güldür Güldür Show 416. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 7: Güldür Güldür Show 415. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 8: Güldür Güldür Show 414. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 9: MasterChef Türkiye 135. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 10: Müge Anlı İle Tatlı Sert 12.09.2025 poster: https://mediacms01.digiturkplay.com/sa_bc/PS0000000653/muge-anli-sezon9_220x286_raw.jpg
+vod_summary.js:790 Similar movie 11: MasterChef Türkiye 177. Bölüm ALTIN KUPA poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 12: Müge Anlı İle Tatlı Sert 21.11.2025 poster: https://mediacms01.digiturkplay.com/sa_bc/PS0000000653/muge-anli-sezon9_220x286_raw.jpg
+vod_summary.js:790 Similar movie 13: MasterChef Türkiye 162. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 14: MasterChef Türkiye 110. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: '', tmdb_id: '', name: 'Güldür Güldür Show 423. Bölüm', o_name: 'Güldür Güldür Show 423. Bölüm', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg', …}
+vod_summary.js:87 TMDB ID check: 
+vod_summary.js:97 ⚠️ NO TMDB ID in API response
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Güldür Güldür Show 423. Bölüm TMDB: undefined Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Güldür Güldür Show 422. Bölüm
+vod_summary.js:704 Series name: guldur guldur show
+vod_summary.js:705 Episode: 422
+vod_summary.js:758 Same series episodes found: 9
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Güldür Güldür Show 421. Bölüm
+vod_summary.js:772 2. Güldür Güldür Show 420. Bölüm
+vod_summary.js:772 3. Güldür Güldür Show 419. Bölüm
+vod_summary.js:772 4. Güldür Güldür Show 418. Bölüm
+vod_summary.js:772 5. Güldür Güldür Show 417. Bölüm
+vod_summary.js:772 6. Güldür Güldür Show 416. Bölüm
+vod_summary.js:772 7. Güldür Güldür Show 415. Bölüm
+vod_summary.js:772 8. Güldür Güldür Show 414. Bölüm
+vod_summary.js:772 9. Güldür Güldür Show 423. Bölüm
+vod_summary.js:772 10. MasterChef Türkiye 174. Bölüm
+vod_summary.js:772 11. MasterChef Türkiye 136. Bölüm
+vod_summary.js:772 12. MasterChef Türkiye 157. Bölüm
+vod_summary.js:772 13. Müge Anlı İle Tatlı Sert 11.12.2025
+vod_summary.js:772 14. Yetenek Sizsiniz 4. Bölüm
+vod_summary.js:772 15. Esra Erol'da 11.09.2025
+vod_summary.js:790 Similar movie 0: Güldür Güldür Show 421. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 1: Güldür Güldür Show 420. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 2: Güldür Güldür Show 419. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 3: Güldür Güldür Show 418. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 4: Güldür Güldür Show 417. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 5: Güldür Güldür Show 416. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 6: Güldür Güldür Show 415. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 7: Güldür Güldür Show 414. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 8: Güldür Güldür Show 423. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 9: MasterChef Türkiye 174. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 10: MasterChef Türkiye 136. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 11: MasterChef Türkiye 157. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 12: Müge Anlı İle Tatlı Sert 11.12.2025 poster: https://mediacms01.digiturkplay.com/sa_bc/PS0000000653/muge-anli-sezon9_220x286_raw.jpg
+vod_summary.js:790 Similar movie 13: Yetenek Sizsiniz 4. Bölüm poster: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ-wz7yd7kFDR9Z-3gPrbsaqGQR-9I1sXpGQ&s
+vod_summary.js:790 Similar movie 14: Esra Erol'da 11.09.2025 poster: https://i.hizliresim.com/dh2rric.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: '', tmdb_id: '', name: 'Güldür Güldür Show 422. Bölüm', o_name: 'Güldür Güldür Show 422. Bölüm', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg', …}
+vod_summary.js:87 TMDB ID check: 
+vod_summary.js:97 ⚠️ NO TMDB ID in API response
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Güldür Güldür Show 422. Bölüm TMDB: undefined Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Güldür Güldür Show 420. Bölüm
+vod_summary.js:704 Series name: guldur guldur show
+vod_summary.js:705 Episode: 420
+vod_summary.js:758 Same series episodes found: 9
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Güldür Güldür Show 419. Bölüm
+vod_summary.js:772 2. Güldür Güldür Show 418. Bölüm
+vod_summary.js:772 3. Güldür Güldür Show 417. Bölüm
+vod_summary.js:772 4. Güldür Güldür Show 416. Bölüm
+vod_summary.js:772 5. Güldür Güldür Show 415. Bölüm
+vod_summary.js:772 6. Güldür Güldür Show 414. Bölüm
+vod_summary.js:772 7. Güldür Güldür Show 423. Bölüm
+vod_summary.js:772 8. Güldür Güldür Show 422. Bölüm
+vod_summary.js:772 9. Güldür Güldür Show 421. Bölüm
+vod_summary.js:772 10. MasterChef Türkiye 142. Bölüm
+vod_summary.js:772 11. Yetenek Sizsiniz 10. Bölüm
+vod_summary.js:772 12. MasterChef Türkiye 172. Bölüm
+vod_summary.js:772 13. MasterChef Türkiye 161. Bölüm
+vod_summary.js:772 14. Esra Erol'da 05.06.2025
+vod_summary.js:772 15. Yetenek Sizsiniz 9. Bölüm
+vod_summary.js:790 Similar movie 0: Güldür Güldür Show 419. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 1: Güldür Güldür Show 418. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 2: Güldür Güldür Show 417. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 3: Güldür Güldür Show 416. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 4: Güldür Güldür Show 415. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 5: Güldür Güldür Show 414. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 6: Güldür Güldür Show 423. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 7: Güldür Güldür Show 422. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 8: Güldür Güldür Show 421. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 9: MasterChef Türkiye 142. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 10: Yetenek Sizsiniz 10. Bölüm poster: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ-wz7yd7kFDR9Z-3gPrbsaqGQR-9I1sXpGQ&s
+vod_summary.js:790 Similar movie 11: MasterChef Türkiye 172. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 12: MasterChef Türkiye 161. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 13: Esra Erol'da 05.06.2025 poster: https://i.hizliresim.com/dh2rric.jpg
+vod_summary.js:790 Similar movie 14: Yetenek Sizsiniz 9. Bölüm poster: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ-wz7yd7kFDR9Z-3gPrbsaqGQR-9I1sXpGQ&s
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: '', tmdb_id: '', name: 'Güldür Güldür Show 420. Bölüm', o_name: 'Güldür Güldür Show 420. Bölüm', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg', …}
+vod_summary.js:87 TMDB ID check: 
+vod_summary.js:97 ⚠️ NO TMDB ID in API response
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Güldür Güldür Show 420. Bölüm TMDB: undefined Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Güldür Güldür Show 417. Bölüm
+vod_summary.js:704 Series name: guldur guldur show
+vod_summary.js:705 Episode: 417
+vod_summary.js:758 Same series episodes found: 9
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Güldür Güldür Show 416. Bölüm
+vod_summary.js:772 2. Güldür Güldür Show 415. Bölüm
+vod_summary.js:772 3. Güldür Güldür Show 414. Bölüm
+vod_summary.js:772 4. Güldür Güldür Show 423. Bölüm
+vod_summary.js:772 5. Güldür Güldür Show 422. Bölüm
+vod_summary.js:772 6. Güldür Güldür Show 421. Bölüm
+vod_summary.js:772 7. Güldür Güldür Show 420. Bölüm
+vod_summary.js:772 8. Güldür Güldür Show 419. Bölüm
+vod_summary.js:772 9. Güldür Güldür Show 418. Bölüm
+vod_summary.js:772 10. MasterChef Türkiye 124. Bölüm
+vod_summary.js:772 11. Esra Erol'da 12.09.2025
+vod_summary.js:772 12. Esra Erol'da 01.12.2025
+vod_summary.js:772 13. Müge Anlı İle Tatlı Sert 17.09.2025
+vod_summary.js:772 14. MasterChef Türkiye 102. Bölüm
+vod_summary.js:772 15. Müge Anlı İle Tatlı Sert 09.12.2025
+vod_summary.js:790 Similar movie 0: Güldür Güldür Show 416. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 1: Güldür Güldür Show 415. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 2: Güldür Güldür Show 414. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 3: Güldür Güldür Show 423. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 4: Güldür Güldür Show 422. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 5: Güldür Güldür Show 421. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 6: Güldür Güldür Show 420. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 7: Güldür Güldür Show 419. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 8: Güldür Güldür Show 418. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg
+vod_summary.js:790 Similar movie 9: MasterChef Türkiye 124. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 10: Esra Erol'da 12.09.2025 poster: https://i.hizliresim.com/dh2rric.jpg
+vod_summary.js:790 Similar movie 11: Esra Erol'da 01.12.2025 poster: https://i.hizliresim.com/dh2rric.jpg
+vod_summary.js:790 Similar movie 12: Müge Anlı İle Tatlı Sert 17.09.2025 poster: https://mediacms01.digiturkplay.com/sa_bc/PS0000000653/muge-anli-sezon9_220x286_raw.jpg
+vod_summary.js:790 Similar movie 13: MasterChef Türkiye 102. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 14: Müge Anlı İle Tatlı Sert 09.12.2025 poster: https://mediacms01.digiturkplay.com/sa_bc/PS0000000653/muge-anli-sezon9_220x286_raw.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: '', tmdb_id: '', name: 'Güldür Güldür Show 417. Bölüm', o_name: 'Güldür Güldür Show 417. Bölüm', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/acEFesfWBukJ2w9JQ8isfFd2IBg.jpg', …}
+vod_summary.js:87 TMDB ID check: 
+vod_summary.js:97 ⚠️ NO TMDB ID in API response
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Güldür Güldür Show 417. Bölüm TMDB: undefined Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: MasterChef Türkiye 182. Bölüm
+vod_summary.js:704 Series name: masterchef turkiye
+vod_summary.js:705 Episode: 182
+vod_summary.js:758 Same series episodes found: 77
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. MasterChef Türkiye 181. Bölüm
+vod_summary.js:772 2. MasterChef Türkiye 180. Bölüm
+vod_summary.js:772 3. MasterChef Türkiye 179. Bölüm
+vod_summary.js:772 4. MasterChef Türkiye 175. Bölüm
+vod_summary.js:772 5. MasterChef Türkiye 174. Bölüm
+vod_summary.js:772 6. MasterChef Türkiye 173. Bölüm
+vod_summary.js:772 7. MasterChef Türkiye 172. Bölüm
+vod_summary.js:772 8. MasterChef Türkiye 171. Bölüm
+vod_summary.js:772 9. MasterChef Türkiye 170. Bölüm
+vod_summary.js:772 10. MasterChef Türkiye 169. Bölüm
+vod_summary.js:772 11. MasterChef Türkiye 168. Bölüm
+vod_summary.js:772 12. MasterChef Türkiye 167. Bölüm  
+vod_summary.js:772 13. MasterChef Türkiye 166. Bölüm
+vod_summary.js:772 14. MasterChef Türkiye 165. Bölüm
+vod_summary.js:772 15. MasterChef Türkiye 164. Bölüm
+vod_summary.js:790 Similar movie 0: MasterChef Türkiye 181. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 1: MasterChef Türkiye 180. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 2: MasterChef Türkiye 179. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 3: MasterChef Türkiye 175. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 4: MasterChef Türkiye 174. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 5: MasterChef Türkiye 173. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 6: MasterChef Türkiye 172. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 7: MasterChef Türkiye 171. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 8: MasterChef Türkiye 170. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 9: MasterChef Türkiye 169. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 10: MasterChef Türkiye 168. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 11: MasterChef Türkiye 167. Bölüm   poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 12: MasterChef Türkiye 166. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 13: MasterChef Türkiye 165. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 14: MasterChef Türkiye 164. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: '', tmdb_id: '', name: 'MasterChef Türkiye 182. Bölüm', o_name: 'MasterChef Türkiye 182. Bölüm', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg', …}
+vod_summary.js:87 TMDB ID check: 
+vod_summary.js:97 ⚠️ NO TMDB ID in API response
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: MasterChef Türkiye 182. Bölüm TMDB: undefined Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: MasterChef Türkiye 181. Bölüm
+vod_summary.js:704 Series name: masterchef turkiye
+vod_summary.js:705 Episode: 181
+vod_summary.js:758 Same series episodes found: 77
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. MasterChef Türkiye 180. Bölüm
+vod_summary.js:772 2. MasterChef Türkiye 179. Bölüm
+vod_summary.js:772 3. MasterChef Türkiye 175. Bölüm
+vod_summary.js:772 4. MasterChef Türkiye 174. Bölüm
+vod_summary.js:772 5. MasterChef Türkiye 173. Bölüm
+vod_summary.js:772 6. MasterChef Türkiye 172. Bölüm
+vod_summary.js:772 7. MasterChef Türkiye 171. Bölüm
+vod_summary.js:772 8. MasterChef Türkiye 170. Bölüm
+vod_summary.js:772 9. MasterChef Türkiye 169. Bölüm
+vod_summary.js:772 10. MasterChef Türkiye 168. Bölüm
+vod_summary.js:772 11. MasterChef Türkiye 167. Bölüm  
+vod_summary.js:772 12. MasterChef Türkiye 166. Bölüm
+vod_summary.js:772 13. MasterChef Türkiye 165. Bölüm
+vod_summary.js:772 14. MasterChef Türkiye 164. Bölüm
+vod_summary.js:772 15. MasterChef Türkiye 163. Bölüm
+vod_summary.js:790 Similar movie 0: MasterChef Türkiye 180. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 1: MasterChef Türkiye 179. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 2: MasterChef Türkiye 175. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 3: MasterChef Türkiye 174. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 4: MasterChef Türkiye 173. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 5: MasterChef Türkiye 172. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 6: MasterChef Türkiye 171. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 7: MasterChef Türkiye 170. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 8: MasterChef Türkiye 169. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 9: MasterChef Türkiye 168. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 10: MasterChef Türkiye 167. Bölüm   poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 11: MasterChef Türkiye 166. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 12: MasterChef Türkiye 165. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 13: MasterChef Türkiye 164. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:790 Similar movie 14: MasterChef Türkiye 163. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: '', tmdb_id: '', name: 'MasterChef Türkiye 181. Bölüm', o_name: 'MasterChef Türkiye 181. Bölüm', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg', …}
+vod_summary.js:87 TMDB ID check: 
+vod_summary.js:97 ⚠️ NO TMDB ID in API response
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: MasterChef Türkiye 181. Bölüm TMDB: undefined Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Prange - Man ist ja Nachbar (2025)
+vod_summary.js:704 Series name: prange - man ist ja nachbar
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. The Long Walk - Todesmarsch (2025) Kinoaufname
+vod_summary.js:772 2. Tron: Ares (2025)
+vod_summary.js:772 3. Dear Santa - Teuflische Weihnachten (2024)
+vod_summary.js:772 4. Liebesbriefe aus Nizza (2024)
+vod_summary.js:772 5. Guy Ritchie's Der Pakt (2023)
+vod_summary.js:772 6. Escort Girl (2023)
+vod_summary.js:772 7. Land Shark (2020)
+vod_summary.js:772 8. Rippy - Das Killerkänguru (2024)
+vod_summary.js:772 9. Pedro Páramo (2024)
+vod_summary.js:772 10. Libre (2024)
+vod_summary.js:772 11. Close To Me (2025)
+vod_summary.js:772 12. Un/Dressed (2024)
+vod_summary.js:772 13. Der Tränenmacher (2024)
+vod_summary.js:772 14. Emilia Pérez (2024)
+vod_summary.js:772 15. Eenie Meanie (2025)
+vod_summary.js:790 Similar movie 0: The Long Walk - Todesmarsch (2025) Kinoaufname poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/cn7Ok0iU2qsdg27PTTkZERqFZKq.jpg
+vod_summary.js:790 Similar movie 1: Tron: Ares (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/3H8K5kDc5Fb1NeUz1xfo44wvlxZ.jpg
+vod_summary.js:790 Similar movie 2: Dear Santa - Teuflische Weihnachten (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/8ALaAOmWNBom62vPRPFBeEFaG2q.jpg
+vod_summary.js:790 Similar movie 3: Liebesbriefe aus Nizza (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/89Ho6vwGGmwMBY9bqeCJdTaTTeJ.jpg
+vod_summary.js:790 Similar movie 4: Guy Ritchie's Der Pakt (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4PWcn93sLyMgPnIvz9H27lhofHX.jpg
+vod_summary.js:790 Similar movie 5: Escort Girl (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/fhf5vPEGbOyNMNouG5tlgH4uS26.jpg
+vod_summary.js:790 Similar movie 6: Land Shark (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/dD7olRdQrDEHIZWj4b5DfhgJR7Z.jpg
+vod_summary.js:790 Similar movie 7: Rippy - Das Killerkänguru (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/d5787bnwNUCA4xSotkhGbfgBRun.jpg
+vod_summary.js:790 Similar movie 8: Pedro Páramo (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/AeeqpYGfMr4dpepzrwfYTo22aDy.jpg
+vod_summary.js:790 Similar movie 9: Libre (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/2cu279FqRsvIr9xIAZE9TpeaPra.jpg
+vod_summary.js:790 Similar movie 10: Close To Me (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/jwGxoVEbHrNdZlMvyTsY1u4xYOv.jpg
+vod_summary.js:790 Similar movie 11: Un/Dressed (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/1DWujZQe3Mmg155XEaCVWvYRr4n.jpg
+vod_summary.js:790 Similar movie 12: Der Tränenmacher (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/gRqmT8S05Pgolvr9Ppl5WFcpq8I.jpg
+vod_summary.js:790 Similar movie 13: Emilia Pérez (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/AkXLeMgQw8EliaDAKVIJy8TCavm.jpg
+vod_summary.js:790 Similar movie 14: Eenie Meanie (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ziZdmtnW0Psnz86LGESQZHShTF.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/1544046', tmdb_id: 1544046, name: 'Prange - Man ist ja Nachbar', o_name: 'Prange - Man ist ja Nachbar', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/rjazrpUyHBzSzEcVlvuhOQ6D2pL.jpg', …}
+vod_summary.js:87 TMDB ID check: 1544046
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 1544046
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Prange - Man ist ja Nachbar (2025) TMDB: 1544046 Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: The Last Letter from Your Lover (2021)
+vod_summary.js:704 Series name: the last letter from your lover
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. The Christmas Chronicles (2018) [RO]
+vod_summary.js:772 2. The Evil That Men Do (2015) [RO]
+vod_summary.js:772 3. Una moglie bellissima (2007)
+vod_summary.js:772 4. Lo spietato (2019) [RO]
+vod_summary.js:772 5. Astral (2018) [RO]
+vod_summary.js:772 6. Redcon-1 (2018) [RO]
+vod_summary.js:772 7. The Favourite (2018) [RO]
+vod_summary.js:772 8. Balkan Line (2019) [RO]
+vod_summary.js:772 9. Death Fighter (2017) [RO]
+vod_summary.js:772 10. Under the Silver Lake (2018) [RO]
+vod_summary.js:772 11. Dezastrul din San Andreas (2015) [RO]
+vod_summary.js:772 12. Totul se termină cu noi (2024)
+vod_summary.js:772 13. 365 de zile (2020)
+vod_summary.js:772 14. Iubiți de sărbători (2020)
+vod_summary.js:772 15. Champions (2018) [RO]
+vod_summary.js:790 Similar movie 0: The Christmas Chronicles (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 1: The Evil That Men Do (2015) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 2: Una moglie bellissima (2007) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/zkxCuHPVqZg0FnB8WnQ9pIwCdQr.jpg
+vod_summary.js:790 Similar movie 3: Lo spietato (2019) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 4: Astral (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 5: Redcon-1 (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 6: The Favourite (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 7: Balkan Line (2019) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 8: Death Fighter (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 9: Under the Silver Lake (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 10: Dezastrul din San Andreas (2015) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 11: Totul se termină cu noi (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/loGLzJYhOf0qb7D1smNdv0qnPmG.jpg
+vod_summary.js:790 Similar movie 12: 365 de zile (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ibaDBJBAvWd4J5lzfbpq1PJ6ZU1.jpg
+vod_summary.js:790 Similar movie 13: Iubiți de sărbători (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/oXCLSlCRWWHsSSwLJSVIC0DDWsE.jpg
+vod_summary.js:790 Similar movie 14: Champions (2018) [RO] poster: images/404.png
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/638449', tmdb_id: '638449', name: 'The Last Letter from Your Lover (2021)', o_name: 'The Last Letter from Your Lover (2021)', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/fDKK51YdOfu9pTmSRw7sHUhGFxm.jpg', …}
+vod_summary.js:87 TMDB ID check: 638449
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 638449
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: The Last Letter from Your Lover (2021) TMDB: 638449 Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: The Christmas Chronicles (2018) [RO]
+vod_summary.js:704 Series name: the christmas chronicles 2018 ro
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Lords of Chaos (2018) [RO]
+vod_summary.js:772 2. Message Man (2018) [RO]
+vod_summary.js:772 3. A te îndrăgosti la prima vedere (2023)
+vod_summary.js:772 4. Misterul din Napoli (2017) [RO]
+vod_summary.js:772 5. Everybody Knows (2018) [RO]
+vod_summary.js:772 6. Racer and the Jailbird (2017) [RO]
+vod_summary.js:772 7. Hitch: Consilier în amor (2005)
+vod_summary.js:772 8. Five Feet Apart (2019) [RO]
+vod_summary.js:772 9. În voia vântului (2022)
+vod_summary.js:772 10. Ex Machina (2015) [RO]
+vod_summary.js:772 11. Vengeance- A Love Story (2017) [RO]
+vod_summary.js:772 12. Space Cadet (2024)
+vod_summary.js:772 13. Throne of Elves (2017) [RO]
+vod_summary.js:772 14. Hotel Artemis (2018) [RO]
+vod_summary.js:772 15. A United Kingdom (2016) [RO]
+vod_summary.js:790 Similar movie 0: Lords of Chaos (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 1: Message Man (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 2: A te îndrăgosti la prima vedere (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/vCMGlarDrcmhclBmnYoH7JUCDuA.jpg
+vod_summary.js:790 Similar movie 3: Misterul din Napoli (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 4: Everybody Knows (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 5: Racer and the Jailbird (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 6: Hitch: Consilier în amor (2005) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/wJKUUimOviFbg1i46PVvuZJSrT6.jpg
+vod_summary.js:790 Similar movie 7: Five Feet Apart (2019) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 8: În voia vântului (2022) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/gvWJdEckmx66J6XKYwhEcF6KiLN.jpg
+vod_summary.js:790 Similar movie 9: Ex Machina (2015) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 10: Vengeance- A Love Story (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 11: Space Cadet (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/gvcsuHVRswl3nzPnqj7wu2dCVrP.jpg
+vod_summary.js:790 Similar movie 12: Throne of Elves (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 13: Hotel Artemis (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 14: A United Kingdom (2016) [RO] poster: images/404.png
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {duration_secs: 6267, duration: '01:44:27', video: {…}, audio: {…}, bitrate: 2147}
+vod_summary.js:87 TMDB ID check: undefined
+vod_summary.js:97 ⚠️ NO TMDB ID in API response
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: The Christmas Chronicles (2018) [RO] TMDB: undefined Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Licorice Pizza (2021)
+vod_summary.js:704 Series name: licorice pizza
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. 68 de ucideri (2017) [RO]
+vod_summary.js:772 2. Jim Norton- Mouthful of Shame (2017) [RO]
+vod_summary.js:772 3. În ambele sensuri (2022)
+vod_summary.js:772 4. From a House on Willow Street (2016) [RO]
+vod_summary.js:772 5. The Air He Breathes (2024)
+vod_summary.js:772 6. Clowntergeist (2017) [RO]
+vod_summary.js:772 7. Jungle (2017) [RO]
+vod_summary.js:772 8. The Hard Way (2019) [RO]
+vod_summary.js:772 9. Golful Scoicilor (2021)
+vod_summary.js:772 10. King Kong (2005) [RO]
+vod_summary.js:772 11. The Nutcracker and the Four Realms (2018) [RO]
+vod_summary.js:772 12. Indivisible (2018) [RO]
+vod_summary.js:772 13. The Mine (2016) [RO]
+vod_summary.js:772 14. Loco por ella (2021)
+vod_summary.js:772 15. The Sweet Life (2016) [RO]
+vod_summary.js:790 Similar movie 0: 68 de ucideri (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 1: Jim Norton- Mouthful of Shame (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 2: În ambele sensuri (2022) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/jq8IGJgg16mJ95a5OPyS7eGJaam.jpg
+vod_summary.js:790 Similar movie 3: From a House on Willow Street (2016) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 4: The Air He Breathes (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/78mVsnTLDpalSVmXM2sNv0GlvZu.jpg
+vod_summary.js:790 Similar movie 5: Clowntergeist (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 6: Jungle (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 7: The Hard Way (2019) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 8: Golful Scoicilor (2021) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/78yiGIkeDzHk4g23Kj60HbYrAYP.jpg
+vod_summary.js:790 Similar movie 9: King Kong (2005) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 10: The Nutcracker and the Four Realms (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 11: Indivisible (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 12: The Mine (2016) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 13: Loco por ella (2021) poster: images/404.png
+vod_summary.js:790 Similar movie 14: The Sweet Life (2016) [RO] poster: images/404.png
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/718032', tmdb_id: '718032', name: 'Licorice Pizza (2021)', o_name: 'Licorice Pizza (2021)', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/ivXtvzfliGvoJ1DhSHIGyYBToWe.jpg', …}
+vod_summary.js:87 TMDB ID check: 718032
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 718032
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Licorice Pizza (2021) TMDB: 718032 Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Dragoste în casa de vacanță (2022)
+vod_summary.js:704 Series name: dragoste in casa de vacanță
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Bird Box (2018) [RO]
+vod_summary.js:772 2. Asher (2018) [RO]
+vod_summary.js:772 3. Message from the King (2016) [RO]
+vod_summary.js:772 4. Once Upon a Time in Venice (2017) [RO]
+vod_summary.js:772 5. Poveste de iarnă (2014)
+vod_summary.js:772 6. The Girl in the Spider's Web (2018) [RO]
+vod_summary.js:772 7. The Titan (2018) [RO]
+vod_summary.js:772 8. Solo (2013) [RO]
+vod_summary.js:772 9. Povestile familiei Meyerowitz (2017) [RO]
+vod_summary.js:772 10. Heavy Trip (2018) [RO]
+vod_summary.js:772 11. Joyland (2022)
+vod_summary.js:772 12. Maria Bamford Old Baby(2017) [RO]
+vod_summary.js:772 13. Următoarele 365 de zile (2022)
+vod_summary.js:772 14. Pasagerii (2016) [RO]
+vod_summary.js:772 15. Budapest (2018) [RO]
+vod_summary.js:790 Similar movie 0: Bird Box (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 1: Asher (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 2: Message from the King (2016) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 3: Once Upon a Time in Venice (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 4: Poveste de iarnă (2014) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ciHVZvLV5AwI95cwVVTdJXJmPQi.jpg
+vod_summary.js:790 Similar movie 5: The Girl in the Spider's Web (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 6: The Titan (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 7: Solo (2013) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 8: Povestile familiei Meyerowitz (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 9: Heavy Trip (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 10: Joyland (2022) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/sBZTz8E2qB3Q3hrq6qdeje3CER1.jpg
+vod_summary.js:790 Similar movie 11: Maria Bamford Old Baby(2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 12: Următoarele 365 de zile (2022) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/zT4TYenfZi41khaZrAxI0GgOUHT.jpg
+vod_summary.js:790 Similar movie 13: Pasagerii (2016) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 14: Budapest (2018) [RO] poster: images/404.png
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/934756', tmdb_id: '934756', name: 'Dragoste în casa de vacanță (2022)', o_name: 'Dragoste în casa de vacanță (2022)', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/t92CXfEP5aWBATeOomcF0wF9NsM.jpg', …}
+vod_summary.js:87 TMDB ID check: 934756
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 934756
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Dragoste în casa de vacanță (2022) TMDB: 934756 Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Poveste de iarnă (2014)
+vod_summary.js:704 Series name: poveste de iarnă
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Imigranta (2013)
+vod_summary.js:772 2. Goyo (2024)
+vod_summary.js:772 3. Apostolul lui Hristos (2018) [RO]
+vod_summary.js:772 4. Era timpul (2023)
+vod_summary.js:772 5. Chappaquiddick (2017) [RO]
+vod_summary.js:772 6. The Endless (2017) [RO]
+vod_summary.js:772 7. Revenge (2017) [RO]
+vod_summary.js:772 8. Burn Out (2017) [RO]
+vod_summary.js:772 9. American Star (2024)
+vod_summary.js:772 10. Bitcoin Heist (2016) [RO]
+vod_summary.js:772 11. 7 Seconds (2005) [RO]
+vod_summary.js:772 12. Imperiul luminii (2022)
+vod_summary.js:772 13. Tower Heist (2011) [RO]
+vod_summary.js:772 14. 10x10 (2018) [RO]
+vod_summary.js:772 15. The Kid Who Would Be King (2019) [RO]
+vod_summary.js:790 Similar movie 0: Imigranta (2013) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/jBAQ8ZhN3t3qzljrPXpJWiN8GtW.jpg
+vod_summary.js:790 Similar movie 1: Goyo (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/9lURUfL1cbPRbEawphL7ZKEgsJ.jpg
+vod_summary.js:790 Similar movie 2: Apostolul lui Hristos (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 3: Era timpul (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/gGtzr9huoZFm0SoQmXYAAcwO4ty.jpg
+vod_summary.js:790 Similar movie 4: Chappaquiddick (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 5: The Endless (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 6: Revenge (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 7: Burn Out (2017) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 8: American Star (2024) poster: images/404.png
+vod_summary.js:790 Similar movie 9: Bitcoin Heist (2016) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 10: 7 Seconds (2005) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 11: Imperiul luminii (2022) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/etEDUf5extNy7sLkSryfQS1dXKi.jpg
+vod_summary.js:790 Similar movie 12: Tower Heist (2011) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 13: 10x10 (2018) [RO] poster: images/404.png
+vod_summary.js:790 Similar movie 14: The Kid Who Would Be King (2019) [RO] poster: images/404.png
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/137321', tmdb_id: '137321', name: 'Poveste de iarnă (2014)', o_name: 'Poveste de iarnă (2014)', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/ciHVZvLV5AwI95cwVVTdJXJmPQi.jpg', …}
+vod_summary.js:87 TMDB ID check: 137321
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 137321
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Poveste de iarnă (2014) TMDB: 137321 Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Prange - Man ist ja Nachbar (2025)
+vod_summary.js:704 Series name: prange - man ist ja nachbar
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Corner Office (2023)
+vod_summary.js:772 2. Die Jagd nach der Mumie von Paris (2025)
+vod_summary.js:772 3. Der Prank - April, April! (2025)
+vod_summary.js:772 4. White Bird (2023)
+vod_summary.js:772 5. Gladiator II (2024)
+vod_summary.js:772 6. Super Icyclone (2024)
+vod_summary.js:772 7. The Ballad of Wallis Island (2025)
+vod_summary.js:772 8. Perpetrator - Ein Teil von ihr (2023)
+vod_summary.js:772 9. Die Hand an der Wiege (2025)
+vod_summary.js:772 10. Orang Ikan (2025)
+vod_summary.js:772 11. Wake Up (2024)
+vod_summary.js:772 12. Guns Up (2025)
+vod_summary.js:772 13. Libre (2024)
+vod_summary.js:772 14. Black Panthers of WWII - Amerikas wahre Helden (2025)
+vod_summary.js:772 15. Wicked (2024)
+vod_summary.js:790 Similar movie 0: Corner Office (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/2JOPMnpaaTBvhy0HCby9uSBkt11.jpg
+vod_summary.js:790 Similar movie 1: Die Jagd nach der Mumie von Paris (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/cKYnmMwVF0vNwKM0svOcCv6HhYP.jpg
+vod_summary.js:790 Similar movie 2: Der Prank - April, April! (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/iJt8QQbR0591KG6XmCXUYm3du7b.jpg
+vod_summary.js:790 Similar movie 3: White Bird (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/90G6utwPTavCXOPwto5X9rBg6mh.jpg
+vod_summary.js:790 Similar movie 4: Gladiator II (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ml5KqUtvpqQMtDdpcvUTUEWPkiE.jpg
+vod_summary.js:790 Similar movie 5: Super Icyclone (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/hX83GMDPIlXfEVYqL1odAAp5Dh9.jpg
+vod_summary.js:790 Similar movie 6: The Ballad of Wallis Island (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/yFg8j3sIIiXC1C03LV2LrXpar19.jpg
+vod_summary.js:790 Similar movie 7: Perpetrator - Ein Teil von ihr (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/Sg5q7dxu0klCKjHjY4LjF9OYqr.jpg
+vod_summary.js:790 Similar movie 8: Die Hand an der Wiege (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/3LytnXYANcyeusAKy8juznzgR4n.jpg
+vod_summary.js:790 Similar movie 9: Orang Ikan (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/sc7JvtLGHWaTRRlhtrTkgR0fTyO.jpg
+vod_summary.js:790 Similar movie 10: Wake Up (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/erEAU7ygq2XFjziI3FpAdMajJFZ.jpg
+vod_summary.js:790 Similar movie 11: Guns Up (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/payk2vk6x1JyfBNzCTQFAEJaZli.jpg
+vod_summary.js:790 Similar movie 12: Libre (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/2cu279FqRsvIr9xIAZE9TpeaPra.jpg
+vod_summary.js:790 Similar movie 13: Black Panthers of WWII - Amerikas wahre Helden (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/xcIZpuKevZ3xSP4ovb4qWhjZnPu.jpg
+vod_summary.js:790 Similar movie 14: Wicked (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/dchzqkWn4x2wbhVhRXsgrJ93sU2.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/1544046', tmdb_id: 1544046, name: 'Prange - Man ist ja Nachbar', o_name: 'Prange - Man ist ja Nachbar', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/rjazrpUyHBzSzEcVlvuhOQ6D2pL.jpg', …}
+vod_summary.js:87 TMDB ID check: 1544046
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 1544046
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Prange - Man ist ja Nachbar (2025) TMDB: 1544046 Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Corner Office (2023)
+vod_summary.js:704 Series name: corner office
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. The Deep Dark (2023)
+vod_summary.js:772 2. Vier Mütter für Edward (2025)
+vod_summary.js:772 3. Luckless in Love - Der Dating-Blog (2023)
+vod_summary.js:772 4. Her Body - A True Porn Story (2023)
+vod_summary.js:772 5. Alibi.com 2 (2023)
+vod_summary.js:772 6. Fairest of them All (2025)
+vod_summary.js:772 7. Here (2024)
+vod_summary.js:772 8. Die Nickel Boys (2024)
+vod_summary.js:772 9. Faith of Angels: Der Glaube an Engel (2024)
+vod_summary.js:772 10. Muxmäuschenstill X (2025)
+vod_summary.js:772 11. Transformers One (2024)
+vod_summary.js:772 12. Meg 2 - Die Tiefe (2023)
+vod_summary.js:772 13. The Life of Chuck (2025)
+vod_summary.js:772 14. Ein besonderer Weihnachtsgast (2023)
+vod_summary.js:772 15. New Life (2024)
+vod_summary.js:790 Similar movie 0: The Deep Dark (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/x8hiMBkSpVaFQv35xUwNhPi07wK.jpg
+vod_summary.js:790 Similar movie 1: Vier Mütter für Edward (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/1p9fM8C7e6kfzY6totsZUE7a4tJ.jpg
+vod_summary.js:790 Similar movie 2: Luckless in Love - Der Dating-Blog (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/c1F1x9Loqd6c6kuT6FfMFhapQim.jpg
+vod_summary.js:790 Similar movie 3: Her Body - A True Porn Story (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/baoAmZS50rWEFgr0C6QQmXhbI6y.jpg
+vod_summary.js:790 Similar movie 4: Alibi.com 2 (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/hiMcN5jpDEeT1ZytPuNwad7XxBE.jpg
+vod_summary.js:790 Similar movie 5: Fairest of them All (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/zW1EAfMpczSsT5ikyBsmNLAP2Kc.jpg
+vod_summary.js:790 Similar movie 6: Here (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/5ExSJICDxnwC6n7ko7YouCu3LPv.jpg
+vod_summary.js:790 Similar movie 7: Die Nickel Boys (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/3081wOyvBhtOtcc1HDVdMBWu1Si.jpg
+vod_summary.js:790 Similar movie 8: Faith of Angels: Der Glaube an Engel (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/hOJvkghZmCsjPiVuoDebYAA2wZh.jpg
+vod_summary.js:790 Similar movie 9: Muxmäuschenstill X (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/3JobYCYYfNjrJFI9i0DIDQv5rUT.jpg
+vod_summary.js:790 Similar movie 10: Transformers One (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/warMrMqOKC4BlBP4349I6MRGNXC.jpg
+vod_summary.js:790 Similar movie 11: Meg 2 - Die Tiefe (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/peRtIVwkHp3BlotCs0u7qqFeouo.jpg
+vod_summary.js:790 Similar movie 12: The Life of Chuck (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/zwaw6lvn6xrnadbflNEEy9c21QH.jpg
+vod_summary.js:790 Similar movie 13: Ein besonderer Weihnachtsgast (2023) poster: https://images.thalia.media/-/BF2000-2000/22636221d5a641198f3c6b02c65ff916/ein-besonderer-weihnachtsgast-christmas-at-the-holly-day-inn-dvd-anita-dobson.jpeg
+vod_summary.js:790 Similar movie 14: New Life (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/nk15OpDdPgRFgA3I536FCAbSG74.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/800279', tmdb_id: '800279', name: 'Corner Office (2023)', o_name: 'Corner Office (2023)', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/2JOPMnpaaTBvhy0HCby9uSBkt11.jpg', …}
+vod_summary.js:87 TMDB ID check: 800279
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 800279
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Corner Office (2023) TMDB: 800279 Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: The Deep Dark (2023)
+vod_summary.js:704 Series name: the deep dark
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Mars Express (2023)
+vod_summary.js:772 2. Whiteout (2025)
+vod_summary.js:772 3. Boléro (2024)
+vod_summary.js:772 4. Alice in Terrorland (2023)
+vod_summary.js:772 5. Black Ritual (2023)
+vod_summary.js:772 6. Alter weisser Mann (2024)
+vod_summary.js:772 7. Im Netz des Teufels – Verschwunden auf Sardinien (2024)
+vod_summary.js:772 8. Der Meister und Margarita (2024)
+vod_summary.js:772 9. Joika - Ein Leben für den Tanz (2023)
+vod_summary.js:772 10. Im Feuer des Krieges (2024)
+vod_summary.js:772 11. 825 Forest Road (2025)
+vod_summary.js:772 12. The Legend - Der Arm der Götter schlägt zurück (2024)
+vod_summary.js:772 13. Black Mold – Dein letzter Atemzug (2023)
+vod_summary.js:772 14. The Funeral (2020)
+vod_summary.js:772 15. Bloodline Killer (2024)
+vod_summary.js:790 Similar movie 0: Mars Express (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/zfmQVWt0aJ1ACkyfjaj8lk3QZX5.jpg
+vod_summary.js:790 Similar movie 1: Whiteout (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/x84psre99S5nqaFatB8wtHVXFYA.jpg
+vod_summary.js:790 Similar movie 2: Boléro (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/wg29tupbywrxyuonbgZharP5UFP.jpg
+vod_summary.js:790 Similar movie 3: Alice in Terrorland (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/sXTUMp3agax4rGFw6rjFdp35kGS.jpg
+vod_summary.js:790 Similar movie 4: Black Ritual (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/9DG2g1Gl1ENAxFONIxxb5FMH99f.jpg
+vod_summary.js:790 Similar movie 5: Alter weisser Mann (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/j5Qrdbh6a90jQhncVBbm0jjdx3U.jpg
+vod_summary.js:790 Similar movie 6: Im Netz des Teufels – Verschwunden auf Sardinien (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/lc59jGDtB8KVnsZk76C7RwZnWkJ.jpg
+vod_summary.js:790 Similar movie 7: Der Meister und Margarita (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/9xnh2DjrldnuHM7Hqap5cFPUsQ9.jpg
+vod_summary.js:790 Similar movie 8: Joika - Ein Leben für den Tanz (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/S9EhyUOn3Ndz1kNg834b8q63yo.jpg
+vod_summary.js:790 Similar movie 9: Im Feuer des Krieges (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/vwLT4Of8cFF4t2vRUco80Gss3uY.jpg
+vod_summary.js:790 Similar movie 10: 825 Forest Road (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/mxvRZxq6ACTeJYJZKsHQAhz76yF.jpg
+vod_summary.js:790 Similar movie 11: The Legend - Der Arm der Götter schlägt zurück (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/jkUDrtJBjTbyMZ8jBxJGrQ8Ey8y.jpg
+vod_summary.js:790 Similar movie 12: Black Mold – Dein letzter Atemzug (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/1yeX418AAipzpIwlkimXkJaHyEa.jpg
+vod_summary.js:790 Similar movie 13: The Funeral (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/xY4EwzV5Ekz3x0L7wbOXoeZtdaJ.jpg
+vod_summary.js:790 Similar movie 14: Bloodline Killer (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/wHmzCQwBzT6m8wtZdXHOIITn82B.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/976830', tmdb_id: '976830', name: 'The Deep Dark (2023)', o_name: 'The Deep Dark (2023)', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/x8hiMBkSpVaFQv35xUwNhPi07wK.jpg', …}
+vod_summary.js:87 TMDB ID check: 976830
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 976830
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: The Deep Dark (2023) TMDB: 976830 Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Tell Me Softly (2025)
+vod_summary.js:704 Series name: tell me softly
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Gran Turismo (2023)
+vod_summary.js:772 2. All eure Gesichter (2023)
+vod_summary.js:772 3. Longing (2024)
+vod_summary.js:772 4. Honey Don't! (2025)
+vod_summary.js:772 5. Evil Does Not Exist (2023)
+vod_summary.js:772 6. Im letzten Sommer (2023)
+vod_summary.js:772 7. We Will Dance Again (2024)
+vod_summary.js:772 8. Exile - Die Angst in dir (2023)
+vod_summary.js:772 9. Thabo - Das Nashornabenteuer (2023)
+vod_summary.js:772 10. Dreamin' Wild - Ein Leben für die Musik (2023)
+vod_summary.js:772 11. Ballerina Assassin (2025)
+vod_summary.js:772 12. It Feeds (2025)
+vod_summary.js:772 13. The Death of Snow White (2025)
+vod_summary.js:772 14. Apartment 7A (2024)
+vod_summary.js:772 15. Diva Futura (2025)
+vod_summary.js:790 Similar movie 0: Gran Turismo (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/p326HzS4sraShiQu6NsvG70pOe6.jpg
+vod_summary.js:790 Similar movie 1: All eure Gesichter (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/rJLVYxXvcJDXShANN34btHej1Dx.jpg
+vod_summary.js:790 Similar movie 2: Longing (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/jw2rVoVkk79ehpUkz2YantVTpBM.jpg
+vod_summary.js:790 Similar movie 3: Honey Don't! (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/vW5SWkfY3FxkMvGRMpU5bbIuxVS.jpg
+vod_summary.js:790 Similar movie 4: Evil Does Not Exist (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/vBVhgDjgLFwouUjTgvYRV5z0eb8.jpg
+vod_summary.js:790 Similar movie 5: Im letzten Sommer (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/cSKbSV8Y9FWJb41hnwWPrwH33sa.jpg
+vod_summary.js:790 Similar movie 6: We Will Dance Again (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/a2NlCpx4OgdgkjWotcjBw7dczgj.jpg
+vod_summary.js:790 Similar movie 7: Exile - Die Angst in dir (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/gfHHOvkDAJPVz5gErSn7AMg0V3x.jpg
+vod_summary.js:790 Similar movie 8: Thabo - Das Nashornabenteuer (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/7rlGfnMhGlpv0fzNFCJrlXqpPEy.jpg
+vod_summary.js:790 Similar movie 9: Dreamin' Wild - Ein Leben für die Musik (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/2RQVe7ZaYJlldv4U6zFVLRr0Q2G.jpg
+vod_summary.js:790 Similar movie 10: Ballerina Assassin (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4Izb4Hs0yX5SDsrO7AK6pxmo4Ul.jpg
+vod_summary.js:790 Similar movie 11: It Feeds (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/iLzL8ERGwHVLp2FoykDoF95xvuL.jpg
+vod_summary.js:790 Similar movie 12: The Death of Snow White (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/nmj0h2mp2Qf3OTUhAozjJTK4pZP.jpg
+vod_summary.js:790 Similar movie 13: Apartment 7A (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/uSn7OxD4UbyP0j0E9ocoUKyWbFD.jpg
+vod_summary.js:790 Similar movie 14: Diva Futura (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/icssNy2vrNFnLYGHIjZgY8e2iq6.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/1379963', tmdb_id: '1379963', name: 'Tell Me Softly (2025)', o_name: 'Tell Me Softly (2025)', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/dvebFZgb6HczmYkOA43bGfSrvYl.jpg', …}
+vod_summary.js:87 TMDB ID check: 1379963
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 1379963
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Tell Me Softly (2025) TMDB: 1379963 Year: undefined
+2trailer.js:37 Trailer loading via flixapp player: https://flixapp.net/youtube-player.html?videoId=kX2rXEwpkCA
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Longing (2024)
+vod_summary.js:704 Series name: longing
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Tetris (2023)
+vod_summary.js:772 2. Ruthless - Gnadenlos (2023)
+vod_summary.js:772 3. Orang Ikan (2025)
+vod_summary.js:772 4. BROKE. ALONE. A kinky love story (2024)
+vod_summary.js:772 5. Karaoke - Ein ungleiches Paar (2024)
+vod_summary.js:772 6. It Feeds (2025)
+vod_summary.js:772 7. Du bist sowas von nicht zu meiner Bat-Mizwa eingeladen (2023)
+vod_summary.js:772 8. The Painter (2024)
+vod_summary.js:772 9. Breathing In (2023)
+vod_summary.js:772 10. Wicked (2024)
+vod_summary.js:772 11. Never let go – Lass niemals los (2024)
+vod_summary.js:772 12. Eenie Meanie (2025)
+vod_summary.js:772 13. Die Wärterin (2024)
+vod_summary.js:772 14. The Sleeping Woman (2024)
+vod_summary.js:772 15. We Live in Time (2024)
+vod_summary.js:790 Similar movie 0: Tetris (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4F2QwCOYHJJjecSvdOjStuVLkpu.jpg
+vod_summary.js:790 Similar movie 1: Ruthless - Gnadenlos (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/evq31PLqBivu7uyBtJhK88Krlcp.jpg
+vod_summary.js:790 Similar movie 2: Orang Ikan (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/l2BvR3ghfCxFXxcY5EZvxj9sfsn.jpg
+vod_summary.js:790 Similar movie 3: BROKE. ALONE. A kinky love story (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ckaGEREIXuTRTWh3fJTnj4GoHqr.jpg
+vod_summary.js:790 Similar movie 4: Karaoke - Ein ungleiches Paar (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/5MYpx6fyCARGWPbkU33F79nlu56.jpg
+vod_summary.js:790 Similar movie 5: It Feeds (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/iLzL8ERGwHVLp2FoykDoF95xvuL.jpg
+vod_summary.js:790 Similar movie 6: Du bist sowas von nicht zu meiner Bat-Mizwa eingeladen (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/om73NmZZ90lI9q7lLrDDvLALMFb.jpg
+vod_summary.js:790 Similar movie 7: The Painter (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/zJTuTXBs1zL6jOHrGSIWXuQKYfD.jpg
+vod_summary.js:790 Similar movie 8: Breathing In (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/yy2dmnBlPhx21GUMUJUPxA9QUFp.jpg
+vod_summary.js:790 Similar movie 9: Wicked (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/dchzqkWn4x2wbhVhRXsgrJ93sU2.jpg
+vod_summary.js:790 Similar movie 10: Never let go – Lass niemals los (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/3Cmt9EWxSjL3siaiH6V6QpCZxo9.jpg
+vod_summary.js:790 Similar movie 11: Eenie Meanie (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ziZdmtnW0Psnz86LGESQZHShTF.jpg
+vod_summary.js:790 Similar movie 12: Die Wärterin (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/aC8WZilZQVrJ4DFQgfOyayMLxH9.jpg
+vod_summary.js:790 Similar movie 13: The Sleeping Woman (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/iUi9cgPUv0Mellt8eARSCK7lVzK.jpg
+vod_summary.js:790 Similar movie 14: We Live in Time (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/hbgG8RuA3ADQ3sKRMwNjbIkzN8I.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/1167351', tmdb_id: '1167351', name: 'Longing (2024)', o_name: 'Longing (2024)', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/jw2rVoVkk79ehpUkz2YantVTpBM.jpg', …}
+vod_summary.js:87 TMDB ID check: 1167351
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 1167351
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Longing (2024) TMDB: 1167351 Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Prange - Man ist ja Nachbar (2025)
+vod_summary.js:704 Series name: prange - man ist ja nachbar
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Speak No Evil (2024)
+vod_summary.js:772 2. Borderlands (2024)
+vod_summary.js:772 3. Eine letzte Reise (2024)
+vod_summary.js:772 4. The Harbinger - Träume des Grauens (2023)
+vod_summary.js:772 5. Better Man - Die Robbie Williams Story (2024)
+vod_summary.js:772 6. Predator: Badlands (2025)
+vod_summary.js:772 7. Whisper of the Witch (2024)
+vod_summary.js:772 8. Depravity (2024)
+vod_summary.js:772 9. Idol Affair - Ein fast perfekter Seitensprung (2024)
+vod_summary.js:772 10. 镇魂曲之九霄琴 (2023)
+vod_summary.js:772 11. Raptus (2025)
+vod_summary.js:772 12. The Creeps (2025)
+vod_summary.js:772 13. Uppercut (2025)
+vod_summary.js:772 14. The Unheard (2023)
+vod_summary.js:772 15. Zwei zu Eins (2024)
+vod_summary.js:790 Similar movie 0: Speak No Evil (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/eATkVZTqLxXaWlwImloZb5ONjvZ.jpg
+vod_summary.js:790 Similar movie 1: Borderlands (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/k7q5LR9VkL2tbcxgNPQlBYL2VHd.jpg
+vod_summary.js:790 Similar movie 2: Eine letzte Reise (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/2O55urjFmKpUimlzvPk4sTBeAN6.jpg
+vod_summary.js:790 Similar movie 3: The Harbinger - Träume des Grauens (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/odomTO1of0NwFKdpJKvVh8GEJJR.jpg
+vod_summary.js:790 Similar movie 4: Better Man - Die Robbie Williams Story (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/eWJEm0Zlkxero5HTpM9gNk3zOmf.jpg
+vod_summary.js:790 Similar movie 5: Predator: Badlands (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/zl2JpACU88KpcaQXWCUiUiYJTrI.jpg
+vod_summary.js:790 Similar movie 6: Whisper of the Witch (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/x9RyluJaH5QW2Sik6AzFHapp8cX.jpg
+vod_summary.js:790 Similar movie 7: Depravity (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/6nxnlqPpvOyfVrsMLg3VeIGf3G9.jpg
+vod_summary.js:790 Similar movie 8: Idol Affair - Ein fast perfekter Seitensprung (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/qwnhSGshv9Slfnj2YSjtSPKL3Lo.jpg
+vod_summary.js:790 Similar movie 9: 镇魂曲之九霄琴 (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/nVDyEYgq7exwG9yvztX3mfUwLZ7.jpg
+vod_summary.js:790 Similar movie 10: Raptus (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/kbtzuwyqS9UTZNinb1ZDgBSJlnQ.jpg
+vod_summary.js:790 Similar movie 11: The Creeps (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/9LU1uvxf0BZxfPGX0oInpYxZX0.jpg
+vod_summary.js:790 Similar movie 12: Uppercut (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/jW50cdJdhRK2CmRiF2yhh7AuVNn.jpg
+vod_summary.js:790 Similar movie 13: The Unheard (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/nRW7jHeSMAsuSQyLDYIc04T9F.jpg
+vod_summary.js:790 Similar movie 14: Zwei zu Eins (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/c2ZyIC4FGids01wBmLpp2sS1CgE.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/1544046', tmdb_id: 1544046, name: 'Prange - Man ist ja Nachbar', o_name: 'Prange - Man ist ja Nachbar', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/rjazrpUyHBzSzEcVlvuhOQ6D2pL.jpg', …}
+vod_summary.js:87 TMDB ID check: 1544046
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 1544046
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Prange - Man ist ja Nachbar (2025) TMDB: 1544046 Year: undefined
+VM62:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Speak No Evil (2024)
+vod_summary.js:704 Series name: speak no evil
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. A Million Days (2023)
+vod_summary.js:772 2. Monster High 2 (2023)
+vod_summary.js:772 3. Queer (2024)
+vod_summary.js:772 4. It Feeds (2025)
+vod_summary.js:772 5. Eileen (2023)
+vod_summary.js:772 6. Fast & Furious 10 (2023)
+vod_summary.js:772 7. Rez Ball (2024)
+vod_summary.js:772 8. Escape: Flucht in die Freiheit (2024)
+vod_summary.js:772 9. Before Dawn (2024)
+vod_summary.js:772 10. Monsternado (2023)
+vod_summary.js:772 11. Crescent City (2024)
+vod_summary.js:772 12. Mars Express (2023)
+vod_summary.js:772 13. Trinket Box - Wenn das Böse erwacht (2023)
+vod_summary.js:772 14. Lonely Planet: Liebe in Marokko (2024)
+vod_summary.js:772 15. The Final Showdown (2023)
+vod_summary.js:790 Similar movie 0: A Million Days (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/dj5pr0SkzEvMDkJzQ8VyZ3e19Dm.jpg
+vod_summary.js:790 Similar movie 1: Monster High 2 (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/mClrCMfGpOqTSiuCTSK67WZ92x5.jpg
+vod_summary.js:790 Similar movie 2: Queer (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/wnKQcvETtZ2YsA1gJd5QRfOSgCR.jpg
+vod_summary.js:790 Similar movie 3: It Feeds (2025) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/iLzL8ERGwHVLp2FoykDoF95xvuL.jpg
+vod_summary.js:790 Similar movie 4: Eileen (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/AriZ4WnBwdwwPiMEmLVVK16bO0.jpg
+vod_summary.js:790 Similar movie 5: Fast & Furious 10 (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/n1yqPecXtChHsz2riwWX8wcaNG3.jpg
+vod_summary.js:790 Similar movie 6: Rez Ball (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/eISIK4fuUJ56gT5pT4FxUmXpoTd.jpg
+vod_summary.js:790 Similar movie 7: Escape: Flucht in die Freiheit (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/vfsyNvkDs42PywoLsp8QlGZqmF9.jpg
+vod_summary.js:790 Similar movie 8: Before Dawn (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/a51x5NWJqdzWbFA58dwRgwfgQDj.jpg
+vod_summary.js:790 Similar movie 9: Monsternado (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/txA4srjcxa4HiWEaMyrNtWHbR5a.jpg
+vod_summary.js:790 Similar movie 10: Crescent City (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/a5WJmlobmnM38GpXnNloHlLOKTZ.jpg
+vod_summary.js:790 Similar movie 11: Mars Express (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/zfmQVWt0aJ1ACkyfjaj8lk3QZX5.jpg
+vod_summary.js:790 Similar movie 12: Trinket Box - Wenn das Böse erwacht (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ocvTlP4LvbWqaMWYkpr72y3rTri.jpg
+vod_summary.js:790 Similar movie 13: Lonely Planet: Liebe in Marokko (2024) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/sH7Orig1yqa6ojMLIzLDxA2GRkH.jpg
+vod_summary.js:790 Similar movie 14: The Final Showdown (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/1BHE8h2wnqk7MY6KdnIE1RZT4ZK.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/1114513', tmdb_id: 1114513, name: 'Speak No Evil', o_name: 'Speak No Evil', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/eATkVZTqLxXaWlwImloZb5ONjvZ.jpg', …}
+vod_summary.js:87 TMDB ID check: 1114513
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 1114513
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Speak No Evil (2024) TMDB: 1114513 Year: undefined
+trailer.js:37 Trailer loading via flixapp player: https://flixapp.net/youtube-player.html?videoId=S8vHNzUlVhs
