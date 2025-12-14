@@ -707,6 +707,9 @@ var vod_summary_page={
         var sameSeriesMovies = [];
         var otherCategoryMovies = [];
         
+        var currentBaseWords = currentSeriesName.split(' ');
+        var currentFirstTwoWords = currentBaseWords.slice(0, 2).join(' ');
+        
         for (var i = 0; i < allMovies.length; i++) {
             var movie = allMovies[i];
             if (movie.stream_id === currentMovieId) continue;
@@ -716,7 +719,25 @@ var vod_summary_page={
             var movieSeriesName = this.normalizeSeriesName(movieName);
             var movieEpisode = this.parseEpisodeNumber(movieName);
             
+            var isMatch = false;
+            
             if (currentSeriesName.length >= 3 && movieSeriesName === currentSeriesName) {
+                isMatch = true;
+            }
+            else if (currentSeriesName.length >= 5 && movieSeriesName.length >= 5) {
+                if (movieSeriesName.indexOf(currentSeriesName) === 0 || 
+                    currentSeriesName.indexOf(movieSeriesName) === 0) {
+                    isMatch = true;
+                }
+                else if (currentFirstTwoWords.length >= 5) {
+                    var movieFirstTwoWords = movieSeriesName.split(' ').slice(0, 2).join(' ');
+                    if (currentFirstTwoWords === movieFirstTwoWords && currentFirstTwoWords.length >= 8) {
+                        isMatch = true;
+                    }
+                }
+            }
+            
+            if (isMatch) {
                 sameSeriesMovies.push({
                     movie: movie,
                     episode: movieEpisode
