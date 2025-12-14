@@ -71,10 +71,12 @@ var vod_summary_page={
 
         home_page.Exit();
         $('#vod-summary-page').show();
+        
+        setTimeout(function() {
+            that.loadSimilarMoviesLazy(current_movie.stream_id);
+        }, 100);
+        
         if(settings.playlist_type==="xtreme"){
-            showLoader(true);
-            this.is_loading=true;
-            // Hide duration during loading for Xtreme playlist
             $('#vod-summary-release-length').hide();
             $.getJSON(api_host_url+'/player_api.php?username='+user_name+'&password='+password+'&action=get_vod_info&vod_id='+current_movie.stream_id)
                 .then(
@@ -84,22 +86,17 @@ var vod_summary_page={
                         console.log('Info object:', response.info);
                         console.log('TMDB ID check:', response.info.tmdb_id);
                         
-                        showLoader(false);
-                        that.is_loading=false;
                         var info=response.info;
                         
-                        // Store complete info object
                         current_movie.info = info;
                         
-                        // CRITICAL: Extract TMDB ID from API response
                         if(info.tmdb_id) {
                             current_movie.tmdb_id = info.tmdb_id;
                             console.log('✅ TMDB ID extracted and stored:', current_movie.tmdb_id);
                         } else {
-                            console.log('⚠️ NO TMDB ID in API response - subtitle matching will be less accurate');
+                            console.log('⚠️ NO TMDB ID in API response');
                         }
                         
-                        // Store other enhanced metadata for subtitle fetching
                         if(info.year) {
                             current_movie.year = info.year;
                         }
@@ -107,18 +104,15 @@ var vod_summary_page={
                             current_movie.release_date = info.releasedate;
                         }
                         
-                        // Update UI elements
                         $('#vod-summary-release-date').text(info.releasedate);
                         $('#vod-summary-release-genre').text(info.genre);
                         
-                        // Hide duration field if empty/null/0
                         if(info.duration && info.duration !== '' && info.duration !== '0') {
                             $('#vod-summary-release-length').text(info.duration).show();
                         } else {
                             $('#vod-summary-release-length').text('').hide();
                         }
                         
-                        // Show/hide detail items based on content
                         if(info.country && info.country.trim() !== '') {
                             $('#vod-summary-release-country').text(info.country).closest('.vod-detail-item').show();
                         } else {
@@ -142,8 +136,6 @@ var vod_summary_page={
                         } else {
                             $('#vod-summary-description').hide();
                         }
-                        
-                        that.findSimilarMovies(info.genre, current_movie.stream_id);
 
                         var backdrop_image='';
                         try{
@@ -151,7 +143,6 @@ var vod_summary_page={
                         }catch (e) {
                         }
                         
-                        // Use backdrop if available, otherwise use poster as fallback
                         if(backdrop_image) {
                             $('.vod-series-background-img').attr('src', backdrop_image).show().on('error', function() {
                                 $(this).hide();
@@ -179,31 +170,21 @@ var vod_summary_page={
                 )
                 .fail(
                     function () {
-                        showLoader(false);
-                        that.is_loading=false;
+                        console.log('get_vod_info API failed');
                     }
                 )
         } else {
-            // Non-Xtreme playlist: check current_movie.duration
             if(current_movie.duration && current_movie.duration !== '' && current_movie.duration !== '0') {
                 $('#vod-summary-release-length').text(current_movie.duration).show();
             } else {
                 $('#vod-summary-release-length').text('').hide();
             }
-            
-            // For non-Xtreme, try to find similar movies using category
-            var genreForSimilar = current_movie.genre || '';
-            if (!genreForSimilar) {
-                var categories = VodModel.categories || [];
-                for (var i = 0; i < categories.length; i++) {
-                    if (categories[i].category_id == current_movie.category_id) {
-                        genreForSimilar = categories[i].category_name;
-                        break;
-                    }
-                }
-            }
-            that.findSimilarMovies(genreForSimilar, current_movie.stream_id);
         }
+    },
+    loadSimilarMoviesLazy: function(currentMovieId) {
+        var that = this;
+        console.log('=== LAZY LOADING SIMILAR MOVIES ===');
+        this.findSameCategoryMovies(currentMovieId);
     },
     goBack:function(){
         $('#vod-summary-page').hide();
