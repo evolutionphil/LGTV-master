@@ -1,0 +1,24 @@
+=== LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:662 Same category movies found: 15
+vod_summary.js:678 Similar movie 0: Yetenek Sizsiniz 5. Bölüm poster: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ-wz7yd7kFDR9Z-3gPrbsaqGQR-9I1sXpGQ&s
+vod_summary.js:678 Similar movie 1: Yetenek Sizsiniz 2. Bölüm poster: https://scontent-dus1-1.cdninstagram.com/v/t39.30808-6/505410796_1295252878628241_7388046971451046681_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjEwODB4MTM1MC5zZHIuZjMwODA4LmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=scontent-dus1-1.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2QHfYZkRFjJiUe666-ftr5FfgtXBF8XZhofF6xNCQP-pkjMIOT_Zd6kJzs6fmBdCBF4grinMDKrRBudIZDcuC5gG&_nc_ohc=jxyKPVQJikwQ7kNvwGaJkcr&_nc_gid=dN4i9Gpz5z4TZ6NuHRIjNQ&edm=AP4sbd4AAAAA&ccb=7-5&ig_cache_key=MzY1MTIxODg1OTEzMDMxMjAyOA%3D%3D.3-ccb7-5&oh=00_AfPAIq7oOrESaMliyv4aWuOxNFv7IgMLvx0iCkyRF_kbbg&oe=68565017&_nc_sid=7a9f4b
+vod_summary.js:678 Similar movie 2: MasterChef Türkiye 145. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:678 Similar movie 3: MasterChef Türkiye 126. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:678 Similar movie 4: MasterChef Türkiye 139. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:678 Similar movie 5: MasterChef Türkiye 132. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:678 Similar movie 6: Yetenek Sizsiniz 8. Bölüm poster: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ-wz7yd7kFDR9Z-3gPrbsaqGQR-9I1sXpGQ&s
+vod_summary.js:678 Similar movie 7: Yetenek Sizsiniz 3. Bölüm poster: https://scontent-dus1-1.cdninstagram.com/v/t39.30808-6/505410796_1295252878628241_7388046971451046681_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjEwODB4MTM1MC5zZHIuZjMwODA4LmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=scontent-dus1-1.cdninstagram.com&_nc_cat=109&_nc_oc=Q6cZ2QHfYZkRFjJiUe666-ftr5FfgtXBF8XZhofF6xNCQP-pkjMIOT_Zd6kJzs6fmBdCBF4grinMDKrRBudIZDcuC5gG&_nc_ohc=jxyKPVQJikwQ7kNvwGaJkcr&_nc_gid=dN4i9Gpz5z4TZ6NuHRIjNQ&edm=AP4sbd4AAAAA&ccb=7-5&ig_cache_key=MzY1MTIxODg1OTEzMDMxMjAyOA%3D%3D.3-ccb7-5&oh=00_AfPAIq7oOrESaMliyv4aWuOxNFv7IgMLvx0iCkyRF_kbbg&oe=68565017&_nc_sid=7a9f4b
+vod_summary.js:678 Similar movie 8: MasterChef Türkiye 179. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:678 Similar movie 9: MasterChef Türkiye 104. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:678 Similar movie 10: Müge Anlı İle Tatlı Sert 12.09.2025 poster: https://mediacms01.digiturkplay.com/sa_bc/PS0000000653/muge-anli-sezon9_220x286_raw.jpg
+vod_summary.js:678 Similar movie 11: MasterChef Türkiye 113. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:678 Similar movie 12: Esra Erol'da 18.09.2025 poster: https://i.hizliresim.com/dh2rric.jpg
+vod_summary.js:678 Similar movie 13: MasterChef Türkiye 153. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:678 Similar movie 14: MasterChef Türkiye 159. Bölüm poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: '', tmdb_id: '', name: 'MasterChef Türkiye 182. Bölüm', o_name: 'MasterChef Türkiye 182. Bölüm', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg', …}actors: ""age: ""audio: {index: 1, codec_name: 'aac', codec_long_name: 'AAC (Advanced Audio Coding)', profile: 'LC', codec_type: 'audio', …}bitrate: 3210cast: ""country: ""cover_big: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg"description: ""director: ""duration: "02:19:00"duration_secs: 8340episode_run_time: ""genre: ""kinopoisk_url: ""movie_image: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/4FCK9wIPWjORP7EUht3jsDwzngr.jpg"mpaa_rating: ""name: "MasterChef Türkiye 182. Bölüm"o_name: "MasterChef Türkiye 182. Bölüm"plot: ""rating: ""rating_count_kinopoisk: 0releasedate: ""tmdb_id: ""video: {index: 0, codec_name: 'h264', codec_long_name: 'H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10', profile: 'High', codec_type: 'video', …}youtube_trailer: ""[[Prototype]]: Object
+vod_summary.js:87 TMDB ID check: 
+vod_summary.js:97 ⚠️ NO TMDB ID in API response
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: MasterChef Türkiye 182. Bölüm TMDB: unde

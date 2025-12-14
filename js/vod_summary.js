@@ -628,7 +628,60 @@ var vod_summary_page={
         console.log('Final similar movies (TMDB + category):', this.similar_movies.length);
         this.renderSimilarMovies();
     },
+    removeTurkishDiacritics: function(str) {
+        if (!str) return '';
+        return str
+            .replace(/\u0307/g, '')
+            .replace(/ü/g, 'u').replace(/Ü/g, 'U')
+            .replace(/ö/g, 'o').replace(/Ö/g, 'O')
+            .replace(/ı/g, 'i').replace(/İ/g, 'I')
+            .replace(/ş/g, 's').replace(/Ş/g, 'S')
+            .replace(/ğ/g, 'g').replace(/Ğ/g, 'G')
+            .replace(/ç/g, 'c').replace(/Ç/g, 'C')
+            .replace(/â/g, 'a').replace(/Â/g, 'A')
+            .replace(/î/g, 'i').replace(/Î/g, 'I')
+            .replace(/û/g, 'u').replace(/Û/g, 'U');
+    },
+    normalizeSeriesName: function(title) {
+        if (!title) return '';
+        var step1 = this.removeTurkishDiacritics(title.toLowerCase());
+        var normalized = step1
+            .replace(/\d{1,2}[\.\-\/]\d{1,2}[\.\-\/]\d{2,4}/g, '')
+            .replace(/\d{1,2}\s+(ocak|subat|mart|nisan|mayis|haziran|temmuz|agustos|eylul|ekim|kasim|aralik|january|february|march|april|may|june|july|august|september|october|november|december)\s*\d{0,4}/gi, '')
+            .replace(/\d+\.\s*(bolum|episode|ep)\b/gi, '')
+            .replace(/\b(bolum|episode|ep)\s*\d+/gi, '')
+            .replace(/[\(\)\[\]:,'"]+/g, ' ')
+            .replace(/\s*\d+\s*$/g, '')
+            .replace(/\s*[\.\-]\s*$/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+        return normalized;
+    },
+    parseEpisodeNumber: function(title) {
+        if (!title) return -1;
+        if (/\d{1,2}[\.\-\/]\d{1,2}[\.\-\/]\d{2,4}/.test(title)) {
+            return -1;
+        }
+        if (/\d{1,2}\s+(ocak|subat|şubat|mart|nisan|mayis|mayıs|haziran|temmuz|agustos|ağustos|eylul|eylül|ekim|kasim|kasım|aralik|aralık)/i.test(title)) {
+            return -1;
+        }
+        var patterns = [
+            /(\d+)\.\s*(bölüm|bolum|episode|ep)/i,
+            /(bölüm|bolum|episode|ep)\s*(\d+)/i
+        ];
+        for (var i = 0; i < patterns.length; i++) {
+            var match = title.match(patterns[i]);
+            if (match) {
+                var num = parseInt(match[1]) || parseInt(match[2]);
+                if (!isNaN(num) && num > 0 && num < 10000) {
+                    return num;
+                }
+            }
+        }
+        return -1;
+    },
     findSameCategoryMovies: function(currentMovieId) {
+        var that = this;
         var allMovies = VodModel.movies || [];
         if (allMovies.length === 0) {
             var categories = VodModel.categories || [];
@@ -642,24 +695,83 @@ var vod_summary_page={
             }
         }
         
-        var sameCategoryMovies = [];
+        var currentName = current_movie.name || '';
+        var currentSeriesName = this.normalizeSeriesName(currentName);
+        var currentEpisode = this.parseEpisodeNumber(currentName);
+        
+        console.log('=== NETFLIX STYLE SIMILAR MOVIES ===');
+        console.log('Current:', currentName);
+        console.log('Series name:', currentSeriesName);
+        console.log('Episode:', currentEpisode);
+        
+        var sameSeriesMovies = [];
+        var otherCategoryMovies = [];
+        
         for (var i = 0; i < allMovies.length; i++) {
             var movie = allMovies[i];
             if (movie.stream_id === currentMovieId) continue;
-            if (movie.category_id === current_movie.category_id) {
-                sameCategoryMovies.push(movie);
+            if (movie.category_id !== current_movie.category_id) continue;
+            
+            var movieName = movie.name || '';
+            var movieSeriesName = this.normalizeSeriesName(movieName);
+            var movieEpisode = this.parseEpisodeNumber(movieName);
+            
+            if (currentSeriesName.length >= 3 && movieSeriesName === currentSeriesName) {
+                sameSeriesMovies.push({
+                    movie: movie,
+                    episode: movieEpisode
+                });
+            } else {
+                otherCategoryMovies.push(movie);
             }
         }
         
-        for (var i = sameCategoryMovies.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = sameCategoryMovies[i];
-            sameCategoryMovies[i] = sameCategoryMovies[j];
-            sameCategoryMovies[j] = temp;
+        sameSeriesMovies.sort(function(a, b) {
+            if (a.episode === -1 && b.episode === -1) return 0;
+            if (a.episode === -1) return 1;
+            if (b.episode === -1) return -1;
+            return b.episode - a.episode;
+        });
+        
+        var sortedSameSeriesIndex = -1;
+        for (var s = 0; s < sameSeriesMovies.length; s++) {
+            if (sameSeriesMovies[s].episode < currentEpisode || currentEpisode === -1) {
+                sortedSameSeriesIndex = s;
+                break;
+            }
         }
         
-        this.similar_movies = sameCategoryMovies.slice(0, 15);
-        console.log('Same category movies found:', this.similar_movies.length);
+        var prioritizedSeries = [];
+        if (sortedSameSeriesIndex >= 0) {
+            for (var p = sortedSameSeriesIndex; p < sameSeriesMovies.length; p++) {
+                prioritizedSeries.push(sameSeriesMovies[p].movie);
+            }
+            for (var q = 0; q < sortedSameSeriesIndex; q++) {
+                prioritizedSeries.push(sameSeriesMovies[q].movie);
+            }
+        } else {
+            for (var r = 0; r < sameSeriesMovies.length; r++) {
+                prioritizedSeries.push(sameSeriesMovies[r].movie);
+            }
+        }
+        
+        console.log('Same series episodes found:', prioritizedSeries.length);
+        
+        for (var j = otherCategoryMovies.length - 1; j > 0; j--) {
+            var k = Math.floor(Math.random() * (j + 1));
+            var temp = otherCategoryMovies[j];
+            otherCategoryMovies[j] = otherCategoryMovies[k];
+            otherCategoryMovies[k] = temp;
+        }
+        
+        var combined = prioritizedSeries.concat(otherCategoryMovies);
+        this.similar_movies = combined.slice(0, 15);
+        
+        console.log('Final order:');
+        for (var f = 0; f < this.similar_movies.length; f++) {
+            console.log((f+1) + '. ' + this.similar_movies[f].name);
+        }
+        
         this.renderSimilarMovies();
     },
     renderSimilarMovies: function() {
