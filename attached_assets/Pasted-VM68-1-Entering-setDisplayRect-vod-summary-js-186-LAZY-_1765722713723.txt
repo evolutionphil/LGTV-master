@@ -1,0 +1,90 @@
+VM68:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Resident Evil: Extinction (2007)
+vod_summary.js:704 Series name: resident evil extinction
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Gun City (2018)
+vod_summary.js:772 2. Nackte Tiere (2020)
+vod_summary.js:772 3. The Island - Auge um Auge (2023)
+vod_summary.js:772 4. StreetDance 2 (2012)
+vod_summary.js:772 5. Takeover - Voll vertauscht (2020)
+vod_summary.js:772 6. Die perfekte Kandidatin (2020)
+vod_summary.js:772 7. Die zweite Frau (2008)
+vod_summary.js:772 8. Scooby-Doo! und die schaurige Vogelscheuche (2013)
+vod_summary.js:772 9. Entdecke die Mandy in Dir (2018)
+vod_summary.js:772 10. Der Nebelmann (2017)
+vod_summary.js:772 11. The Curse of Dracula (2019)
+vod_summary.js:772 12. Special Correspondents 2016
+vod_summary.js:772 13. Black Swan (2010)
+vod_summary.js:772 14. A Babysitter's Guide to Monster Hunting (2020)
+vod_summary.js:772 15. Der Obrist und die Tänzerin (2002)
+vod_summary.js:790 Similar movie 0: Gun City (2018) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/1oC6UwQQm79VxHJUoSi8vcE6Jsm.jpg
+vod_summary.js:790 Similar movie 1: Nackte Tiere (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/8G2QQb00Cs5EmONz69cql0g6xJd.jpg
+vod_summary.js:790 Similar movie 2: The Island - Auge um Auge (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/dVaafnNTgV5MARsvOGfIURqAbZg.jpg
+vod_summary.js:790 Similar movie 3: StreetDance 2 (2012) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/bwg8qnQKAbT3EJubK8qyWfi9hTl.jpg
+vod_summary.js:790 Similar movie 4: Takeover - Voll vertauscht (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/7JYWBrAJnQbtESeiFqj46PVw9r4.jpg
+vod_summary.js:790 Similar movie 5: Die perfekte Kandidatin (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/43WmAkVFL5N42FwsEiq5Q1Q4eso.jpg
+vod_summary.js:790 Similar movie 6: Die zweite Frau (2008) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/tgajr3AYJGNwETNMXadWkqDBfni.jpg
+vod_summary.js:790 Similar movie 7: Scooby-Doo! und die schaurige Vogelscheuche (2013) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/tq2Xc3fp47F0nQsFGsnxmX8H2NS.jpg
+vod_summary.js:790 Similar movie 8: Entdecke die Mandy in Dir (2018) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/jinI69KTBEIfymujLblzoYLwetQ.jpg
+vod_summary.js:790 Similar movie 9: Der Nebelmann (2017) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/osVGMQsM6cG2uBXvYm0W2YrBQZ4.jpg
+vod_summary.js:790 Similar movie 10: The Curse of Dracula (2019) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ot9atmVbcOi1CXXnCToSaplOL9l.jpg
+vod_summary.js:790 Similar movie 11: Special Correspondents 2016 poster: images/404.png
+vod_summary.js:790 Similar movie 12: Black Swan (2010) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/f5yFgSs9wMCP9lNnRGUM1QI0tXs.jpg
+vod_summary.js:790 Similar movie 13: A Babysitter's Guide to Monster Hunting (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/vEKwyhgdAfw41zcMc9VAuKOdNN8.jpg
+vod_summary.js:790 Similar movie 14: Der Obrist und die Tänzerin (2002) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/jG662jKzEf63fhcbbN3WiLlz5MX.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/7737', tmdb_id: 7737, name: 'Resident Evil: Extinction', o_name: 'Resident Evil: Extinction', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/tI0DZIzU3J1qr20iYTodcQjenh6.jpg', …}
+vod_summary.js:87 TMDB ID check: 7737
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 7737
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Resident Evil: Extinction (2007) TMDB: 7737 Year: undefined
+VM68:1 Entering setDisplayRect
+vod_summary.js:186 === LAZY LOADING SIMILAR MOVIES ===
+vod_summary.js:702 === NETFLIX STYLE SIMILAR MOVIES ===
+vod_summary.js:703 Current: Resident Evil: Apocalypse (2004)
+vod_summary.js:704 Series name: resident evil apocalypse
+vod_summary.js:705 Episode: -1
+vod_summary.js:758 Same series episodes found: 0
+vod_summary.js:770 Final order:
+vod_summary.js:772 1. Verliebt am See (2020)
+vod_summary.js:772 2. Columbus Circle (2012)
+vod_summary.js:772 3. Transporter 3 (2008)
+vod_summary.js:772 4. Drifter (2023)
+vod_summary.js:772 5. Bedingungslos geliebt (2012)
+vod_summary.js:772 6. The Corrupted 2019
+vod_summary.js:772 7. American Gun (2005)
+vod_summary.js:772 8. Black Gold (2011)
+vod_summary.js:772 9. Killing Them Softly (2012)
+vod_summary.js:772 10. Verliebt in die Braut (2008)
+vod_summary.js:772 11. Resident Evil: Extinction (2007)
+vod_summary.js:772 12. Prestige - Die Meister der Magie (2006)
+vod_summary.js:772 13. Skiptrace (2016)
+vod_summary.js:772 14. Rückenwind von vorn (2018)
+vod_summary.js:772 15. Tornado Warning (2002)
+vod_summary.js:790 Similar movie 0: Verliebt am See (2020) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/skN4yVKtCaYjkLmD7kSNCKynjjE.jpg
+vod_summary.js:790 Similar movie 1: Columbus Circle (2012) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/vRQPepTFo9TQ87botNB9zHmFeBQ.jpg
+vod_summary.js:790 Similar movie 2: Transporter 3 (2008) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/gucv9gRRnVFDyqeIS1KC7irnX0b.jpg
+vod_summary.js:790 Similar movie 3: Drifter (2023) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/pEA5PSofvDqmsp3sscJ3mqEmXLZ.jpg
+vod_summary.js:790 Similar movie 4: Bedingungslos geliebt (2012) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/yRpTwmAYz2OMPdyGrRlmx5pmVf0.jpg
+vod_summary.js:790 Similar movie 5: The Corrupted 2019 poster: images/404.png
+vod_summary.js:790 Similar movie 6: American Gun (2005) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/1GikvdDanJwSQOb0oCWY5FqFTxZ.jpg
+vod_summary.js:790 Similar movie 7: Black Gold (2011) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/9ikn974ObBFOnIre7JE4tDwQnGd.jpg
+vod_summary.js:790 Similar movie 8: Killing Them Softly (2012) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/g87Adp0yKpoogzYvLMuWjM4lcJb.jpg
+vod_summary.js:790 Similar movie 9: Verliebt in die Braut (2008) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/ruZgzF5Ogtl1xb2oOT6PU1GkTVd.jpg
+vod_summary.js:790 Similar movie 10: Resident Evil: Extinction (2007) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/tI0DZIzU3J1qr20iYTodcQjenh6.jpg
+vod_summary.js:790 Similar movie 11: Prestige - Die Meister der Magie (2006) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/wx6gj3KKbnOsrGnwA6CyfXRrVF0.jpg
+vod_summary.js:790 Similar movie 12: Skiptrace (2016) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/mRJ52dSP4E1BMQhKkoNJG6vg2c.jpg
+vod_summary.js:790 Similar movie 13: Rückenwind von vorn (2018) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/monJnQUpNlvz1AkEL9lLI8bjGiV.jpg
+vod_summary.js:790 Similar movie 14: Tornado Warning (2002) poster: https://image.tmdb.org/t/p/w600_and_h900_bestv2/sSO3il16x8X3c21NfyC1ivCcfIx.jpg
+vod_summary.js:84 === XTREME API get_vod_info RESPONSE ANALYSIS ===
+vod_summary.js:85 Full API response: {info: {…}, movie_data: {…}}
+vod_summary.js:86 Info object: {kinopoisk_url: 'https://www.themoviedb.org/movie/1577', tmdb_id: 1577, name: 'Resident Evil: Apocalypse', o_name: 'Resident Evil: Apocalypse', cover_big: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/1BO2AyfRdBvKpBibcuh4hjtbg9g.jpg', …}
+vod_summary.js:87 TMDB ID check: 1577
+vod_summary.js:95 ✅ TMDB ID extracted and stored: 1577
+vod_summary.js:167 === MOVIE DATA STORAGE COMPLETE ===
+vod_summary.js:168 Current movie enhanced data - Name: Resident Evil: Apocalypse (2004) TMDB: 1577 Year: undefined

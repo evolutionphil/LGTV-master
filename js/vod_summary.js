@@ -650,12 +650,33 @@ var vod_summary_page={
             .replace(/\d{1,2}\s+(ocak|subat|mart|nisan|mayis|haziran|temmuz|agustos|eylul|ekim|kasim|aralik|january|february|march|april|may|june|july|august|september|october|november|december)\s*\d{0,4}/gi, '')
             .replace(/\d+\.\s*(bolum|episode|ep)\b/gi, '')
             .replace(/\b(bolum|episode|ep)\s*\d+/gi, '')
-            .replace(/[\(\)\[\]:,'"]+/g, ' ')
+            .replace(/[\(\)\[\],'"]+/g, ' ')
             .replace(/\s*\d+\s*$/g, '')
             .replace(/\s*[\.\-]\s*$/g, '')
             .replace(/\s+/g, ' ')
             .trim();
         return normalized;
+    },
+    extractMovieSeriesBase: function(title) {
+        if (!title) return '';
+        var step1 = this.removeTurkishDiacritics(title.toLowerCase());
+        var base = step1
+            .replace(/\s*\([^)]*\)\s*/g, '')
+            .replace(/\s*\[[^\]]*\]\s*/g, '');
+        var colonIndex = base.indexOf(':');
+        if (colonIndex > 3) {
+            base = base.substring(0, colonIndex);
+        }
+        var dashMatch = base.match(/^(.{4,}?)\s+[\-–—]\s+/);
+        if (dashMatch) {
+            base = dashMatch[1];
+        }
+        base = base
+            .replace(/\s*(I{1,3}|IV|V|VI{0,3}|IX|X{1,3})\s*$/i, '')
+            .replace(/\s*\d+\s*$/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+        return base;
     },
     parseEpisodeNumber: function(title) {
         if (!title) return -1;
@@ -697,18 +718,17 @@ var vod_summary_page={
         
         var currentName = current_movie.name || '';
         var currentSeriesName = this.normalizeSeriesName(currentName);
+        var currentMovieBase = this.extractMovieSeriesBase(currentName);
         var currentEpisode = this.parseEpisodeNumber(currentName);
         
         console.log('=== NETFLIX STYLE SIMILAR MOVIES ===');
         console.log('Current:', currentName);
         console.log('Series name:', currentSeriesName);
+        console.log('Movie base:', currentMovieBase);
         console.log('Episode:', currentEpisode);
         
         var sameSeriesMovies = [];
         var otherCategoryMovies = [];
-        
-        var currentBaseWords = currentSeriesName.split(' ');
-        var currentFirstTwoWords = currentBaseWords.slice(0, 2).join(' ');
         
         for (var i = 0; i < allMovies.length; i++) {
             var movie = allMovies[i];
@@ -717,6 +737,7 @@ var vod_summary_page={
             
             var movieName = movie.name || '';
             var movieSeriesName = this.normalizeSeriesName(movieName);
+            var movieBase = this.extractMovieSeriesBase(movieName);
             var movieEpisode = this.parseEpisodeNumber(movieName);
             
             var isMatch = false;
@@ -724,16 +745,13 @@ var vod_summary_page={
             if (currentSeriesName.length >= 3 && movieSeriesName === currentSeriesName) {
                 isMatch = true;
             }
+            else if (currentMovieBase.length >= 5 && movieBase.length >= 5 && currentMovieBase === movieBase) {
+                isMatch = true;
+            }
             else if (currentSeriesName.length >= 5 && movieSeriesName.length >= 5) {
                 if (movieSeriesName.indexOf(currentSeriesName) === 0 || 
                     currentSeriesName.indexOf(movieSeriesName) === 0) {
                     isMatch = true;
-                }
-                else if (currentFirstTwoWords.length >= 5) {
-                    var movieFirstTwoWords = movieSeriesName.split(' ').slice(0, 2).join(' ');
-                    if (currentFirstTwoWords === movieFirstTwoWords && currentFirstTwoWords.length >= 8) {
-                        isMatch = true;
-                    }
                 }
             }
             
