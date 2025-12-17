@@ -846,8 +846,18 @@ var vod_summary_page={
         
         this.keys.similar_index = index;
         $('.similar-movie-item').removeClass('active');
+        $('.similar-movie-name').removeClass('marquee');
         var activeItem = $('.similar-movie-item[data-index="' + index + '"]');
         activeItem.addClass('active');
+        
+        var nameElement = activeItem.find('.similar-movie-name');
+        if (nameElement.length > 0) {
+            var textWidth = nameElement[0].scrollWidth;
+            var containerWidth = nameElement.width();
+            if (textWidth > containerWidth + 5) {
+                nameElement.addClass('marquee');
+            }
+        }
         
         // Scroll into view
         var container = document.getElementById('similar-movies-container');

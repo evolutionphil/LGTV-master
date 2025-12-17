@@ -390,6 +390,90 @@
     #vod-summary-description, series-summary-description{
         -webkit-line-clamp:7;
     }
+    
+    /* VOD Summary Redesign - 720p */
+    .vod-summary-redesign {
+        padding: 2vh 3vw;
+    }
+    .vod-summary-hero {
+        gap: 2vw;
+    }
+    .vod-summary-poster {
+        width: 18vw;
+    }
+    #vod-summary-page #vod-summary-image-wrapper {
+        width: 18vw;
+    }
+    #vod-summary-page #vod-summary-image-wrapper img {
+        width: 18vw;
+        height: 50vh;
+        border-radius: 10px;
+    }
+    .vod-summary-info {
+        padding-left: 1.5vw;
+    }
+    #vod-summary-page #vod-summary-name {
+        font-size: 2.4vw;
+        margin-bottom: 1vh;
+    }
+    .vod-meta-chip {
+        font-size: 1.2vw;
+        padding: 0.6vh 1vw;
+    }
+    .vod-rating-inline {
+        padding: 0.6vh 1vw;
+    }
+    .vod-rating-star {
+        font-size: 1.2vw;
+    }
+    .vod-rating-inline .rating-mark {
+        font-size: 1.1vw;
+    }
+    #vod-summary-page .vod-summary-description {
+        font-size: 1.3vw;
+        -webkit-line-clamp: 4;
+        margin-bottom: 1.5vh;
+    }
+    .vod-detail-label {
+        font-size: 0.9vw;
+    }
+    .vod-detail-value {
+        font-size: 1.2vw;
+    }
+    .vod-action-btn-new {
+        padding: 1.5vh 2vw;
+        font-size: 1.2vw;
+        border-radius: 8px;
+    }
+    .vod-action-btn-new i {
+        font-size: 1.2vw;
+    }
+    .vod-summary-similar {
+        padding-top: 15px;
+        padding-bottom: 8px;
+    }
+    .similar-movies-title {
+        font-size: 1.2vw;
+        margin-bottom: 1vh;
+    }
+    .similar-movie-item {
+        width: 7vw;
+    }
+    .similar-movie-item img {
+        width: 7vw;
+        height: 18vh;
+        border-radius: 8px;
+    }
+    .similar-movie-item .similar-movie-name {
+        font-size: 0.65vw;
+        max-width: 7vw;
+    }
+    .similar-movie-item.active .similar-movie-name.marquee {
+        --marquee-offset: 7vw;
+    }
+    #vod-summary-page #current-vod-category {
+        font-size: 1.2vw;
+    }
     #channel-back-button-wrapper {
         width: 120px;
     }

@@ -308,6 +308,27 @@
     color: #ffc800;
 }
 
+.similar-movie-item.active .similar-movie-name.marquee {
+    --marquee-offset: 8vw;
+    animation: marquee-scroll 5s linear infinite;
+    text-overflow: clip;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    10% {
+        transform: translateX(0%);
+    }
+    90% {
+        transform: translateX(calc(-100% + var(--marquee-offset, 8vw)));
+    }
+    100% {
+        transform: translateX(calc(-100% + var(--marquee-offset, 8vw)));
+    }
+}
+
 #vod-summary-content-container,
 #series-summary-content-container {
     margin: 0 auto !important;
