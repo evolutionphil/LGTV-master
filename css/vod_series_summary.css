@@ -310,21 +310,47 @@
 
 .similar-movie-item.active .similar-movie-name.marquee {
     --marquee-offset: 8vw;
-    animation: marquee-scroll 5s linear infinite;
+    overflow: visible;
+    display: inline-block;
     text-overflow: clip;
+    -webkit-animation: marquee-scroll 5s linear infinite;
+    animation: marquee-scroll 5s linear infinite;
+}
+
+@-webkit-keyframes marquee-scroll {
+    0% {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+    10% {
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+    90% {
+        -webkit-transform: translateX(calc(-100% + 8vw));
+        transform: translateX(calc(-100% + 8vw));
+    }
+    100% {
+        -webkit-transform: translateX(calc(-100% + 8vw));
+        transform: translateX(calc(-100% + 8vw));
+    }
 }
 
 @keyframes marquee-scroll {
     0% {
+        -webkit-transform: translateX(0%);
         transform: translateX(0%);
     }
     10% {
+        -webkit-transform: translateX(0%);
         transform: translateX(0%);
     }
     90% {
+        -webkit-transform: translateX(calc(-100% + var(--marquee-offset, 8vw)));
         transform: translateX(calc(-100% + var(--marquee-offset, 8vw)));
     }
     100% {
+        -webkit-transform: translateX(calc(-100% + var(--marquee-offset, 8vw)));
         transform: translateX(calc(-100% + var(--marquee-offset, 8vw)));
     }
 }
