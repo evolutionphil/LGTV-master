@@ -396,7 +396,9 @@
         padding: 2vh 3vw;
     }
     .vod-summary-hero {
-        gap: 2vw;
+        gap: 2.5vw;
+        flex-wrap: nowrap;
+        align-items: flex-start;
     }
     .vod-summary-poster {
         width: 18vw;
@@ -487,6 +489,52 @@
         display: inline-block;
         padding: 10px 10px;
         font-size: 22px;
+    }
+}
+
+/* ==========================================================================
+   1080p / Full HD TV Support (1920x1080)
+   For smaller 1080p TVs like 32-inch models
+   ========================================================================== */
+@media screen and (min-width: 1282px) and (max-width: 1920px) {
+    /* VOD Summary Redesign - 1080p */
+    .vod-summary-hero {
+        gap: 2.5vw;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+    }
+    .vod-summary-poster {
+        width: 20vw;
+        flex-shrink: 0;
+    }
+    #vod-summary-page #vod-summary-image-wrapper {
+        width: 20vw;
+    }
+    #vod-summary-page #vod-summary-image-wrapper img {
+        width: 20vw;
+        height: 55vh;
+    }
+    .vod-summary-info {
+        min-width: 0;
+        padding-left: 1vw;
+    }
+    #vod-summary-page #vod-summary-name {
+        font-size: 2.8vw;
+    }
+    #vod-summary-page .vod-summary-description {
+        font-size: 1.4vw;
+        -webkit-line-clamp: 5;
+    }
+    .similar-movie-item {
+        width: 7.5vw;
+    }
+    .similar-movie-item img {
+        width: 7.5vw;
+        height: 20vh;
+    }
+    .similar-movie-item .similar-movie-name {
+        font-size: 0.7vw;
+        max-width: 7.5vw;
     }
 }
 

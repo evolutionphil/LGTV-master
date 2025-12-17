@@ -31,7 +31,7 @@
 .vod-summary-hero {
     display: flex;
     flex: 1;
-    gap: 3vw;
+    gap: 2.5vw;
     min-height: 0;
     flex-wrap: nowrap;
     align-items: flex-start;
