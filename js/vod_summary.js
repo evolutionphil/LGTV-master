@@ -846,7 +846,16 @@ var vod_summary_page={
         
         this.keys.similar_index = index;
         $('.similar-movie-item').removeClass('active');
-        $('.similar-movie-name').removeClass('marquee');
+        $('.similar-movie-name').each(function() {
+            if ($(this).hasClass('marquee')) {
+                var content = $(this).find('.marquee-content');
+                if (content.length > 0) {
+                    var text = content.text().split('    ')[0].trim();
+                    $(this).text(text);
+                }
+                $(this).removeClass('marquee');
+            }
+        });
         var activeItem = $('.similar-movie-item[data-index="' + index + '"]');
         activeItem.addClass('active');
         
@@ -856,6 +865,8 @@ var vod_summary_page={
             var containerWidth = nameElement.width();
             if (textWidth > containerWidth + 5) {
                 nameElement.addClass('marquee');
+                var originalText = nameElement.text();
+                nameElement.html('<span class="marquee-content">' + originalText + '&nbsp;&nbsp;&nbsp;&nbsp;' + originalText + '</span>');
             }
         }
         

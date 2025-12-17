@@ -468,27 +468,6 @@
         font-size: 0.65vw;
         max-width: 7vw;
     }
-    .similar-movie-item.active .similar-movie-name.marquee {
-        --marquee-offset: 7vw;
-    }
-    @-webkit-keyframes marquee-scroll {
-        0% {
-            -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-        }
-        10% {
-            -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-        }
-        90% {
-            -webkit-transform: translateX(calc(-100% + 7vw));
-            transform: translateX(calc(-100% + 7vw));
-        }
-        100% {
-            -webkit-transform: translateX(calc(-100% + 7vw));
-            transform: translateX(calc(-100% + 7vw));
-        }
-    }
     #vod-summary-page #current-vod-category {
         font-size: 1.2vw;
     }
