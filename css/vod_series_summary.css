@@ -315,8 +315,8 @@
 
 .similar-movie-item.active .similar-movie-name.marquee .marquee-content {
     display: inline-block;
-    -webkit-animation: marquee-scroll 4s linear infinite;
-    animation: marquee-scroll 4s linear infinite;
+    -webkit-animation: marquee-scroll 8s linear infinite;
+    animation: marquee-scroll 8s linear infinite;
 }
 
 @-webkit-keyframes marquee-scroll {
