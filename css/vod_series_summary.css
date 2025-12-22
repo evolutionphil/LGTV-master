@@ -1009,6 +1009,65 @@
     box-shadow: 0 0 0 2px rgba(255,200,0,0.3);
 }
 
+.season-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.season-dropdown-container .dropdown-arrow {
+    margin-left: 8px;
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+
+.season-dropdown-container.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.season-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    max-height: 300px;
+    overflow-y: auto;
+    background: rgba(30,30,30,0.98);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    z-index: 1000;
+    margin-top: 8px;
+}
+
+.season-dropdown-item {
+    padding: 12px 16px;
+    color: #ccc;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.season-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.season-dropdown-item:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+.season-dropdown-item.active {
+    background: var(--focus-color);
+    color: #000;
+    font-weight: 600;
+}
+
+.season-dropdown-item.focused {
+    background: rgba(255,200,0,0.2);
+    color: #fff;
+}
+
 .series-episode-rail {
     display: flex;
     gap: 16px;

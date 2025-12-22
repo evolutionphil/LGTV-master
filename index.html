@@ -1059,10 +1059,14 @@
                                 <i class="fa fa-play"></i>
                                 <span data-word_code="watch_trailer">Trailer</span>
                             </button>
-                            <button id="series-watch-movie-button" class="vod-action-btn-new series-action-btn" onclick="series_summary_page.showSeason()" onmouseenter="series_summary_page.hoverButtons(1)">
-                                <i class="fa fa-play"></i>
-                                <span data-word_code="watch_season">Episodes</span>
-                            </button>
+                            <div id="series-season-dropdown" class="season-dropdown-container" style="display:none;">
+                                <button id="series-season-dropdown-btn" class="vod-action-btn-new series-action-btn" onclick="series_summary_page.toggleSeasonDropdown()" onmouseenter="series_summary_page.hoverButtons(1)">
+                                    <i class="fa fa-list"></i>
+                                    <span id="series-season-dropdown-text">Season 1</span>
+                                    <i class="fa fa-chevron-down dropdown-arrow"></i>
+                                </button>
+                                <div id="series-season-dropdown-menu" class="season-dropdown-menu" style="display:none;"></div>
+                            </div>
                             <button id="series-add-favourite-button" class="vod-action-btn-new series-action-btn" data-action="add" onclick="series_summary_page.addFavorite(this)" onmouseenter="series_summary_page.hoverButtons(2)">
                                 <i class="fa fa-heart"></i>
                                 <span data-word_code="add_to_favorite">Favorite</span>
@@ -1071,7 +1075,6 @@
                     </div>
                 </div>
                 <div class="series-episodes-section" id="series-episodes-section" style="display:none;">
-                    <div class="series-season-tabs" id="series-season-tabs"></div>
                     <div class="series-episode-rail" id="series-episode-rail"></div>
                 </div>
                 <div class="vod-summary-similar" id="similar-series-section" style="display:none;">
