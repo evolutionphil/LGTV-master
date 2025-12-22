@@ -1074,14 +1074,23 @@
 }
 
 .season-dropdown-item.active {
-    background: var(--focus-color);
+    color: #ffc800;
+    font-weight: 600;
+}
+
+.season-dropdown-item.active::after {
+    content: ' ✓';
+    color: #ffc800;
+}
+
+.season-dropdown-item.focused {
+    background: #ffc800;
     color: #000;
     font-weight: 600;
 }
 
-.season-dropdown-item.focused {
-    background: rgba(255,200,0,0.2);
-    color: #fff;
+.season-dropdown-item.focused.active::after {
+    color: #000;
 }
 
 .series-episode-rail {
