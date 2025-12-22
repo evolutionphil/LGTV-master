@@ -518,3 +518,259 @@
     margin-right: 20px;
     margin-bottom: 0;
 }
+
+/* Netflix Style Seasons & Episodes Pages */
+.netflix-seasons-container,
+.netflix-episodes-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 3vw;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.netflix-seasons-header,
+.netflix-episodes-header {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    padding-bottom: 2vh;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+}
+
+.netflix-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8vw;
+    color: #888;
+    font-size: 1.4vw;
+    cursor: pointer;
+    padding: 1vh 1.5vw;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.05);
+}
+
+.netflix-back-btn.active {
+    color: #fff;
+    background: rgba(255,200,0,0.2);
+    border: 2px solid #ffc800;
+}
+
+.netflix-back-btn i {
+    font-size: 1.6vw;
+}
+
+.netflix-series-info,
+.netflix-episode-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+}
+
+.netflix-series-info h2,
+.netflix-episode-info h2 {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.netflix-series-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+}
+
+#season-rating {
+    color: #ffc800;
+    font-size: 1.2vw;
+}
+
+#season-count-badge,
+#episode-count-badge {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 0.3vh 1vw;
+    border-radius: 20px;
+    font-size: 1vw;
+}
+
+.netflix-seasons-content {
+    display: flex;
+    gap: 3vw;
+    flex: 1;
+    padding-top: 2vh;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.netflix-series-poster {
+    flex-shrink: 0;
+    width: 18vw;
+}
+
+.netflix-series-poster img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.netflix-seasons-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.netflix-section-title {
+    font-size: 1.6vw;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 1.5vh 0;
+}
+
+.netflix-season-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5vw;
+    overflow-y: auto;
+    padding-right: 1vw;
+    padding-bottom: 2vh;
+}
+
+.netflix-season-card {
+    width: calc(25% - 1.5vw);
+    background: rgba(30,30,30,0.8);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.netflix-season-card.active {
+    border-color: #ffc800;
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(255,200,0,0.3);
+}
+
+.netflix-season-card:hover {
+    background: rgba(50,50,50,0.9);
+}
+
+.netflix-season-poster {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.netflix-season-info {
+    padding: 1.2vh 1vw;
+}
+
+.netflix-season-name {
+    font-size: 1.1vw;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.5vh 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.netflix-season-episodes {
+    font-size: 0.9vw;
+    color: #888;
+}
+
+/* Netflix Episode Grid */
+.netflix-episodes-content {
+    flex: 1;
+    padding-top: 2vh;
+    overflow-y: auto;
+    padding-right: 1vw;
+}
+
+.netflix-episode-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.netflix-episode-card {
+    display: flex;
+    gap: 1.5vw;
+    background: rgba(30,30,30,0.7);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    padding: 1vh;
+}
+
+.netflix-episode-card.active {
+    border-color: #ffc800;
+    background: rgba(50,50,50,0.9);
+    box-shadow: 0 4px 20px rgba(255,200,0,0.2);
+}
+
+.netflix-episode-thumbnail {
+    flex-shrink: 0;
+    width: 20vw;
+    height: 11vw;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.netflix-episode-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5vh 0;
+}
+
+.netflix-episode-number {
+    font-size: 1vw;
+    color: #888;
+    margin-bottom: 0.5vh;
+}
+
+.netflix-episode-title {
+    font-size: 1.3vw;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.8vh;
+}
+
+.netflix-episode-duration {
+    font-size: 0.9vw;
+    color: #666;
+}
+
+.netflix-episode-play-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4vw;
+    color: #ffc800;
+    font-size: 2vw;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.netflix-episode-card.active .netflix-episode-play-icon {
+    opacity: 1;
+}

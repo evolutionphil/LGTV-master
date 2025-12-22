@@ -23,15 +23,16 @@ var episode_variable={
         $('#episode-page-back-button').removeClass('active');
         $(this.episode_doms).removeClass('active');
         $(this.episode_doms[index]).addClass('active');
+        moveScrollPosition($('#episode-grid-container'),this.episode_doms[index],'vertical',false);
     },
     showMovie:function(index){
         this.Exit();
-        var episode_buttons=$('.episode-grid-item-wrapper');
+        var episode_cards=$('.netflix-episode-card');
         this.keys.focused_part="grid_part";
         this.keys.index=index;
-        $('.episode-grid-item-wrapper').removeClass('active');
+        $('.netflix-episode-card').removeClass('active');
         $('#episode-page-back-button').removeClass('active');
-        $(episode_buttons[index]).addClass('active');
+        $(episode_cards[index]).addClass('active');
         var episodes=current_season.episodes;
         current_episode=episodes[index];
         vod_series_player.makeEpisodeDoms('episode-page');
@@ -45,23 +46,23 @@ var episode_variable={
                 keys.focused_part="grid_part";
                 keys.index=0;
                 $('#episode-page-back-button').removeClass('active');
-                $($('.episode-grid-item-wrapper')[0]).addClass('active');
+                $($('.netflix-episode-card')[0]).addClass('active');
             }
         }
         else{
-            var season_buttons=$('.episode-grid-item-wrapper');
+            var episode_cards=$('.netflix-episode-card');
             keys.index+=increment;
             if(keys.index<0){
                 keys.focused_part="back_button";
-                $('.episode-grid-item-wrapper').removeClass('active');
+                $('.netflix-episode-card').removeClass('active');
                 $('#episode-page-back-button').addClass('active');
             }
             else{
-                if(keys.index>=season_buttons.length)
-                    keys.index=season_buttons.length-1;
-                $('.episode-grid-item-wrapper').removeClass('active');
-                moveScrollPosition($('#episode-grid-container'),$(season_buttons[keys.index]).closest('.episode-grid-item-container'),'vertical',false)
-                $(season_buttons[keys.index]).addClass('active');
+                if(keys.index>=episode_cards.length)
+                    keys.index=episode_cards.length-1;
+                $('.netflix-episode-card').removeClass('active');
+                moveScrollPosition($('#episode-grid-container'),episode_cards[keys.index],'vertical',false);
+                $(episode_cards[keys.index]).addClass('active');
             }
         }
     },
@@ -71,17 +72,16 @@ var episode_variable={
         if(keys.focused_part==="back_button")
             element=$('#episode-page-back-button');
         else{
-            var season_buttons=$('.episode-grid-item-wrapper');
-            element=season_buttons[keys.index];
+            var episode_cards=$('.netflix-episode-card');
+            element=episode_cards[keys.index];
         }
         $(element).trigger('click');
     },
     goBack:function(){
         this.keys.focused_part="grid_part";
         this.keys.index=0;
-        $('.episode-grid-item-wrapper').removeClass('active');
+        $('.netflix-episode-card').removeClass('active');
         $('#episode-page-back-button').addClass('active');
-
         current_route="seasons-page";
         $('#episode-page').hide();
         $('#seasons-page').show();

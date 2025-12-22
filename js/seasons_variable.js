@@ -10,15 +10,17 @@ var seasons_variable={
         showLoader(true);
         this.is_loading=true;
         var that=this;
-        $('#series-title').text(current_series.num+"."+current_series.name);
-        $('#series-image').attr('src', current_series.cover)
-        $('#season-rating').text(current_series.rating_5based);
+        $('#series-title').text(current_series.name);
+        $('#series-image').attr('src', current_series.cover);
+        $('#season-rating-value').text(current_series.rating_5based || '');
+        var seasonCount = current_series.seasons ? current_series.seasons.length : 0;
+        $('#season-count-badge').text(seasonCount + ' Season' + (seasonCount !== 1 ? 's' : ''));
         $('#season-grid-container').html('');
         current_route="seasons-page";
         $('#series-summary-page').hide();
         $('#seasons-page').show();
         $('#season-grid-container').scrollTop(0);
-        $($('.season-grid-item-wrapper')[0]).addClass('active');
+        $($('.netflix-season-card')[0]).addClass('active');
         if(settings.playlist_type==='xtreme'){
             $.getJSON(api_host_url+'/player_api.php?username='+user_name+'&password='+password+'&action=get_series_info&series_id='+current_series.series_id)
                 .then(
@@ -79,31 +81,28 @@ var seasons_variable={
                 item.episodes=current_series.episodes[item.name]
             })
             this.renderSeasons();
-            $($('.season-grid-item-wrapper')[0]).addClass('active');
+            $($('.netflix-season-card')[0]).addClass('active');
             this.hoverSeasonItem(0);
         }
     },
     renderSeasons:function(){
         var htmlContent="";
+        var seasonCount = current_series.seasons ? current_series.seasons.length : 0;
+        $('#season-count-badge').text(seasonCount + ' Season' + (seasonCount !== 1 ? 's' : ''));
         current_series.seasons.map(function(season, index1){
+            var episodeCount = season.episodes ? season.episodes.length : 0;
+            var coverImg = season.cover || current_series.cover || 'images/series.png';
             htmlContent+=
-                '<div class="season-grid-item-container">\
-                    <div class="season-grid-item-wrapper"\
-                        data-index="'+index1+'"\
-                        onclick="seasons_variable.showEpisode('+index1+')"\
-                        onmouseenter="seasons_variable.hoverSeasonItem('+index1+')"\
-                    >\
-                        <img class="season-image" src="'+season.cover+'" onerror="this.src=\'images/series.png\'">\
-                        <div class="season-title-wrapper position-relative">\
-                            <p class="season-title">'+
-                                season.name+
-                            '</p>\
-                        </div>\
-                    </div>\
-                </div>'
-        })
+                '<div class="netflix-season-card" data-index="'+index1+'" onclick="seasons_variable.showEpisode('+index1+')" onmouseenter="seasons_variable.hoverSeasonItem('+index1+')">'+
+                    '<img class="netflix-season-poster" src="'+coverImg+'" onerror="this.src=\'images/series.png\'">'+
+                    '<div class="netflix-season-info">'+
+                        '<p class="netflix-season-name">'+season.name+'</p>'+
+                        '<p class="netflix-season-episodes">'+episodeCount+' Episode'+(episodeCount !== 1 ? 's' : '')+'</p>'+
+                    '</div>'+
+                '</div>';
+        });
         $('#season-grid-container').html(htmlContent);
-        seasons_variable.season_doms=$('.season-grid-item-wrapper');
+        seasons_variable.season_doms=$('.netflix-season-card');
     },
     hoverGoBack:function(){
         this.keys.focused_part="back_button";
@@ -117,43 +116,42 @@ var seasons_variable={
         $('#season-page-back-button').removeClass('active');
         $(this.season_doms).removeClass('active');
         $(this.season_doms[index]).addClass('active');
-        moveScrollPosition($('#season-grid-container'),this.season_doms[index],'vertical',false)
+        moveScrollPosition($('#season-grid-container'),this.season_doms[index],'vertical',false);
     },
     showEpisode:function(index){
-        var season_buttons=$('.season-grid-item-wrapper');
+        var season_cards=$('.netflix-season-card');
         this.keys.focused_part="grid_part";
         this.keys.index=index;
-        $('.season-grid-item-wrapper').removeClass('active');
+        $('.netflix-season-card').removeClass('active');
         $('#season-page-back-button').removeClass('active');
-        $(season_buttons[index]).addClass('active');
+        $(season_cards[index]).addClass('active');
         current_season=current_series.seasons[index];
         var episodes=current_season.episodes;
         if(typeof episodes!="undefined" && episodes.length>0){
-            $('#season-title-container').text(current_season.name);
+            $('#season-title-container').text(current_series.name + ' - ' + current_season.name);
+            $('#episode-count-badge').text(episodes.length + ' Episode' + (episodes.length !== 1 ? 's' : ''));
             var htmlContent="";
-            episodes.map(function(episode, index){
+            episodes.map(function(episode, idx){
+                var episodeImg = (episode.info && episode.info.movie_image) ? episode.info.movie_image : 'images/series.png';
+                var duration = (episode.info && episode.info.duration) ? episode.info.duration : '';
                 htmlContent+=
-                    '<div class="episode-grid-item-container">\
-                        <div class="episode-grid-item-wrapper" data-index="'+index+'"\
-                            onclick="episode_variable.showMovie('+index+')"\
-                            onmouseenter="episode_variable.hoverMovie('+index+')"\
-                        >\
-                            <img class="episode-image" src="'+episode.info.movie_image+'" onerror="this.src=\'images/series.png\'">\
-                            <div class="episode-title-wrapper position-relative">\
-                                <p class="episode-title">'+
-                                    episode.title+
-                                '</p>\
-                            </div>\
-                        </div>\
-                    </div>'
-            })
+                    '<div class="netflix-episode-card" data-index="'+idx+'" onclick="episode_variable.showMovie('+idx+')" onmouseenter="episode_variable.hoverMovie('+idx+')">'+
+                        '<img class="netflix-episode-thumbnail" src="'+episodeImg+'" onerror="this.src=\'images/series.png\'">'+
+                        '<div class="netflix-episode-details">'+
+                            '<p class="netflix-episode-number">Episode '+(idx+1)+'</p>'+
+                            '<p class="netflix-episode-title">'+episode.title+'</p>'+
+                            (duration ? '<p class="netflix-episode-duration">'+duration+'</p>' : '')+
+                        '</div>'+
+                        '<div class="netflix-episode-play-icon"><i class="fa fa-play-circle"></i></div>'+
+                    '</div>';
+            });
             $('#episode-grid-container').html(htmlContent);
-            episode_variable.episode_doms=$('.episode-grid-item-wrapper');
+            episode_variable.episode_doms=$('.netflix-episode-card');
             current_route="episode-page";
             $('#seasons-page').hide();
             $('#episode-page').show();
             $('#episode-grid-container').scrollTop(0);
-            $($('.episode-grid-item-wrapper')[0]).addClass('active');
+            $($('.netflix-episode-card')[0]).addClass('active');
             episode_variable.keys.focused_part="grid_part";
             episode_variable.keys.grid_part=0;
         }
@@ -172,19 +170,19 @@ var seasons_variable={
             }
         }
         else{
-            var season_buttons=$('.season-grid-item-wrapper');
+            var season_cards=$('.netflix-season-card');
             keys.index+=increment;
             if(keys.index<0){
                 keys.focused_part="back_button";
-                $('.season-grid-item-wrapper').removeClass('active');
+                $('.netflix-season-card').removeClass('active');
                 $('#season-page-back-button').addClass('active');
             }
             else{
-                if(keys.index>=season_buttons.length)
-                    keys.index=season_buttons.length-1;
-                $('.season-grid-item-wrapper').removeClass('active');
-                $(season_buttons[keys.index]).addClass('active');
-                moveScrollPosition($('#season-grid-container'),$(season_buttons[keys.index]).closest('.season-grid-item-container'),'vertical',false)
+                if(keys.index>=season_cards.length)
+                    keys.index=season_cards.length-1;
+                $('.netflix-season-card').removeClass('active');
+                $(season_cards[keys.index]).addClass('active');
+                moveScrollPosition($('#season-grid-container'),season_cards[keys.index],'vertical',false);
             }
         }
     },
@@ -194,16 +192,15 @@ var seasons_variable={
         if(keys.focused_part==="back_button")
             element=$('#season-page-back-button');
         else{
-
-            var season_buttons=$('.season-grid-item-wrapper');
-            element=season_buttons[keys.index];
+            var season_cards=$('.netflix-season-card');
+            element=season_cards[keys.index];
         }
         $(element).trigger('click');
     },
     goBack:function(){
         this.keys.focused_part="grid_part";
         this.keys.index=0;
-        $('.season-grid-item-wrapper').removeClass('active');
+        $('.netflix-season-card').removeClass('active');
         $('#season-page-back-button').removeClass('active');
         current_route="series-summary-page";
         $('#seasons-page').hide();

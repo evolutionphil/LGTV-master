@@ -1318,28 +1318,29 @@
         <div id="seasons-page" class="height-100" style="display: none">
             <img class="vod-series-background-img" onerror="this.src=''">
             <div class="vod-series-background-img-overlay"></div>
-            <div class="season-episode-page-contents-container">
-                <div id="season-page-back-button"
-                     onclick="seasons_variable.goBack()"
-                     onmouseenter="seasons_variable.hoverGoBack()"
-                     class="active"
-                >
-                    <i class="fa fa-arrow-left"></i>
+            <div class="netflix-seasons-container">
+                <div class="netflix-seasons-header">
+                    <div id="season-page-back-button" class="netflix-back-btn active"
+                         onclick="seasons_variable.goBack()"
+                         onmouseenter="seasons_variable.hoverGoBack()">
+                        <i class="fa fa-arrow-left"></i>
+                        <span data-word_code="go_back">Back</span>
+                    </div>
+                    <div class="netflix-series-info">
+                        <h2 id="series-title"></h2>
+                        <div class="netflix-series-meta">
+                            <span id="season-rating"><i class="fa fa-star"></i> <span id="season-rating-value"></span></span>
+                            <span id="season-count-badge"></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="" id="seasons-page-container">
-                    <div id="series-image-container">
+                <div class="netflix-seasons-content">
+                    <div class="netflix-series-poster">
                         <img id="series-image" onerror="this.src='images/series.png'">
                     </div>
-                    <div style="padding-left: 0px;width: 66.66%;display: inline-block;vertical-align: middle">
-                        <div id="series-title-container">
-                            <span id="series-title">1. Season Title</span>
-                            <span id="season-rating">
-                            <i class="fa fa-star"></i>
-                        </span>
-                        </div>
-                        <div class="position-relative">
-                            <div id="season-grid-container"></div>
-                        </div>
+                    <div class="netflix-seasons-list">
+                        <h3 class="netflix-section-title" data-word_code="seasons">Seasons</h3>
+                        <div id="season-grid-container" class="netflix-season-grid"></div>
                     </div>
                 </div>
             </div>
@@ -1347,22 +1348,21 @@
         <div id="episode-page" class="height-100" style="display: none">
             <img class="vod-series-background-img" onerror="this.src=''">
             <div class="vod-series-background-img-overlay"></div>
-            <div class="season-episode-page-contents-container">
-                <div id="episode-page-back-button"
-                     onclick="episode_variable.goBack()" class="active"
-                     onmouseenter="episode_variable.hoverGoBack()"
-                >
-                    <i class="fa fa-arrow-left"></i>
+            <div class="netflix-episodes-container">
+                <div class="netflix-episodes-header">
+                    <div id="episode-page-back-button" class="netflix-back-btn active"
+                         onclick="episode_variable.goBack()"
+                         onmouseenter="episode_variable.hoverGoBack()">
+                        <i class="fa fa-arrow-left"></i>
+                        <span data-word_code="go_back">Back</span>
+                    </div>
+                    <div class="netflix-episode-info">
+                        <h2 id="season-title-container"></h2>
+                        <span id="episode-count-badge"></span>
+                    </div>
                 </div>
-                <div class="row" id="episode-page-container">
-                    <div id="season-title-container">
-                        1. Season Title
-                    </div>
-                    <div class="position-relative" style="margin-top:20px;width:100%">
-                        <div id="episode-grid-container">
-
-                        </div>
-                    </div>
+                <div class="netflix-episodes-content">
+                    <div id="episode-grid-container" class="netflix-episode-grid"></div>
                 </div>
             </div>
         </div>
