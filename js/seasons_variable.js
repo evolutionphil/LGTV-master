@@ -11,7 +11,7 @@ var seasons_variable={
         this.is_loading=true;
         var that=this;
         $('#series-title').text(current_series.name);
-        $('#series-image').attr('src', current_series.cover);
+        $('#seasons-page-background').attr('src', current_series.cover || '');
         $('#season-rating-value').text(current_series.rating_5based || '');
         var seasonCount = current_series.seasons ? current_series.seasons.length : 0;
         $('#season-count-badge').text(seasonCount + ' Season' + (seasonCount !== 1 ? 's' : ''));
@@ -117,6 +117,9 @@ var seasons_variable={
         $(this.season_doms).removeClass('active');
         $(this.season_doms[index]).addClass('active');
         moveScrollPosition($('#season-grid-container'),this.season_doms[index],'horizontal',false);
+        var season = current_series.seasons[index];
+        var bgImg = (season && season.cover) || current_series.cover || '';
+        $('#seasons-page-background').attr('src', bgImg);
     },
     showEpisode:function(index){
         var season_cards=$('.netflix-season-card');

@@ -539,6 +539,28 @@
     --card-bg-hover: rgba(60, 60, 60, 0.95);
 }
 
+/* Dynamic Background for Seasons Page */
+.seasons-dynamic-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: opacity 0.5s ease;
+}
+
+.seasons-dynamic-bg-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(20,20,20,0.95) 0%, rgba(20,20,20,0.7) 50%, rgba(20,20,20,0.95) 100%);
+    z-index: 2;
+}
+
 /* Seasons Page Container */
 .netflix-seasons-container,
 .netflix-episodes-container {
@@ -643,45 +665,13 @@
     font-weight: 500;
 }
 
-/* Seasons Content Area */
+/* Seasons Content Area - Centered */
 .netflix-seasons-content {
     display: flex;
-    gap: 40px;
+    justify-content: center;
+    align-items: center;
     flex: 1;
     min-height: 0;
-    overflow: hidden;
-}
-
-/* Series Poster */
-.netflix-series-poster {
-    flex-shrink: 0;
-    width: 280px;
-}
-
-.netflix-series-poster img {
-    width: 100%;
-    height: auto;
-    max-height: calc(100vh - 200px);
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-}
-
-/* Seasons List */
-.netflix-seasons-list {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-    overflow: hidden;
-}
-
-.netflix-section-title {
-    font-size: var(--title-font);
-    font-weight: 600;
-    color: #fff;
-    margin: 0 0 20px 0;
-    flex-shrink: 0;
 }
 
 /* Season Grid - Horizontal Scroll Rail */

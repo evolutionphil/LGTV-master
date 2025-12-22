@@ -1316,11 +1316,11 @@
             </div>
         </div>
         <div id="seasons-page" class="height-100" style="display: none">
-            <img class="vod-series-background-img" onerror="this.src=''">
-            <div class="vod-series-background-img-overlay"></div>
+            <img id="seasons-page-background" class="seasons-dynamic-bg" onerror="this.src=''">
+            <div class="seasons-dynamic-bg-overlay"></div>
             <div class="netflix-seasons-container">
                 <div class="netflix-seasons-header">
-                    <div id="season-page-back-button" class="netflix-back-btn active"
+                    <div id="season-page-back-button" class="netflix-back-btn"
                          onclick="seasons_variable.goBack()"
                          onmouseenter="seasons_variable.hoverGoBack()">
                         <i class="fa fa-arrow-left"></i>
@@ -1335,13 +1335,7 @@
                     </div>
                 </div>
                 <div class="netflix-seasons-content">
-                    <div class="netflix-series-poster">
-                        <img id="series-image" onerror="this.src='images/series.png'">
-                    </div>
-                    <div class="netflix-seasons-list">
-                        <h3 class="netflix-section-title" data-word_code="seasons">Seasons</h3>
-                        <div id="season-grid-container" class="netflix-season-grid"></div>
-                    </div>
+                    <div id="season-grid-container" class="netflix-season-grid"></div>
                 </div>
             </div>
         </div>
