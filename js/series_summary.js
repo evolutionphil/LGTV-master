@@ -624,6 +624,7 @@ var series_summary_page={
                 }
                 break;
             case tvKey.LEFT:
+                e.preventDefault();
                 if(keys.focused_part === 'episodes') {
                     if(keys.episode_index > 0) {
                         this.hoverEpisode(keys.episode_index - 1);
@@ -633,6 +634,7 @@ var series_summary_page={
                 }
                 break;
             case tvKey.RIGHT:
+                e.preventDefault();
                 if(keys.focused_part === 'episodes') {
                     if(keys.episode_index < episodeCards.length - 1) {
                         this.hoverEpisode(keys.episode_index + 1);
@@ -642,6 +644,7 @@ var series_summary_page={
                 }
                 break;
             case tvKey.UP:
+                e.preventDefault();
                 if(keys.focused_part === 'dropdown') {
                     if(keys.dropdown_focus_index > 0) {
                         this.hoverDropdownItem(keys.dropdown_focus_index - 1);
@@ -653,6 +656,7 @@ var series_summary_page={
                 }
                 break;
             case tvKey.DOWN:
+                e.preventDefault();
                 if(keys.focused_part === 'dropdown') {
                     if(keys.dropdown_focus_index < dropdownItems.length - 1) {
                         this.hoverDropdownItem(keys.dropdown_focus_index + 1);
