@@ -1059,10 +1059,16 @@
                                 <i class="fa fa-play"></i>
                                 <span data-word_code="watch_trailer">Trailer</span>
                             </button>
-                            <button id="series-watch-movie-button" class="vod-action-btn-new series-action-btn" onclick="series_summary_page.showSeason()" onmouseenter="series_summary_page.hoverButtons(1)">
-                                <i class="fa fa-list"></i>
-                                <span data-word_code="watch_season">Seasons</span>
-                            </button>
+                            <div class="season-dropdown-wrapper">
+                                <button id="series-watch-movie-button" class="vod-action-btn-new series-action-btn" onclick="series_summary_page.toggleSeasonDropdown()" onmouseenter="series_summary_page.hoverButtons(1)">
+                                    <i class="fa fa-list"></i>
+                                    <span data-word_code="watch_season">Seasons</span>
+                                    <i class="fa fa-chevron-down dropdown-arrow"></i>
+                                </button>
+                                <div id="season-dropdown" class="season-dropdown" style="display:none;">
+                                    <div id="season-dropdown-list" class="season-dropdown-list"></div>
+                                </div>
+                            </div>
                             <button id="series-add-favourite-button" class="vod-action-btn-new series-action-btn" data-action="add" onclick="series_summary_page.addFavorite(this)" onmouseenter="series_summary_page.hoverButtons(2)">
                                 <i class="fa fa-heart"></i>
                                 <span data-word_code="add_to_favorite">Favorite</span>
