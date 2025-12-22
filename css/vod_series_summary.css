@@ -446,12 +446,17 @@
 }
 
 
+#series-summary-page .vod-summary-info {
+    overflow: visible;
+}
+
 #series-summary-page .vod-summary-redesign #series-summary-action-container {
     position: static;
     display: flex;
     gap: 1.5vw;
     margin-top: auto;
     padding-bottom: 1.5vh;
+    overflow: visible;
     justify-content: flex-start;
     width: 100%;
     z-index: auto;
@@ -1031,21 +1036,23 @@
     min-width: 180px;
     max-height: 300px;
     overflow-y: auto;
-    background: rgba(30,30,30,0.98);
-    border: 1px solid rgba(255,255,255,0.15);
+    background: #1e1e1e;
+    border: 2px solid #ffc800;
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-    z-index: 1000;
+    z-index: 9999;
     margin-top: 8px;
 }
 
 .season-dropdown-item {
+    display: block;
     padding: 12px 16px;
-    color: #ccc;
-    font-size: 15px;
+    color: #fff;
+    font-size: 16px;
     cursor: pointer;
     transition: all 0.15s ease;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
 }
 
 .season-dropdown-item:last-child {
