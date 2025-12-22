@@ -1018,117 +1018,63 @@
         <div id="series-summary-page" class="height-100 position-relative" style="display:none">
             <img class="vod-series-background-img" onerror="this.src=''">
             <div class="vod-series-background-img-overlay"></div>
-            <div class="vod-series-summary-page-contents-container">
-                
-                <div class="" id="series-summary-content-container">
-                    <div style="display: inline-block;height: 100vh; vertical-align: top;width: 500px;position: relative;">
+            <div class="vod-summary-redesign">
+                <div class="vod-summary-hero">
+                    <div class="vod-summary-poster">
                         <div id="series-summary-image-wrapper">
                             <img onerror="this.src='images/series.png'">
                         </div>
                     </div>
-                    <div style="height:100vh; overflow: hidden;vertical-align: top;display: inline-block;width: calc(100% - 500px);position: relative;">
-                        <div class="vod-summary-information-container position-relative">
+                    <div class="vod-summary-info">
+                        <div class="vod-summary-header">
                             <h3 id="series-summary-name"></h3>
-                            <!--                    <p class="vod-summary-item">-->
-                            <!--                        <span class="vod-summary-item-label">-->
-                            <!--                            Genre:-->
-                            <!--                        </span>-->
-                            <!--                        <span class="vod-summary-item-text" id="series-summary-release-genre"></span>-->
-                            <!--                    </p>-->
-                            <div class="category-rating-wrapper">
+                            <div class="vod-summary-meta-row">
                                 <div id="current-series-category"></div>
+                                <span class="vod-meta-chip" id="series-summary-release-date"></span>
+                                <span class="vod-meta-chip" id="series-summary-seasons-count"></span>
+                                <div class="vod-rating-inline" id="series-rating-container">
+                                    <span class="vod-rating-star">★</span>
+                                    <span class="rating-mark" id="series-rating-mark">0</span>
+                                </div>
                             </div>
-                            <p class="vod-summary-item max-line-2">
-                                <span class="vod-summary-item-label" data-word_code="genre">
-                                    Genre:
-                                </span>
-                                <span class="vod-summary-item-text" id="series-summary-release-genre"></span>
-                            </p>
-                            <p class="vod-summary-item">
-                                <span class="vod-summary-item-label" data-word_code="release_date">
-                                    Release Date:
-                                </span>
-                                <span class="vod-summary-item-text" id="series-summary-release-date"></span>
-                            </p>
-                            <p class="vod-summary-item max-line-2">
-                                <span class="vod-summary-item-label" data-word_code="director">
-                                    Director:
-                                </span>
-                                <span class="vod-summary-item-text" id="series-summary-release-director"></span>
-                            </p>
-
-
-                            <p class="vod-summary-item max-line-2">
-                                <span class="vod-summary-item-label" data-word_code="cast">
-                                    Cast:
-                                </span>
-                                <span class="vod-summary-item-text" id="series-summary-release-cast"></span>
-                            </p>
-                            <div class="vod-line"></div>
-                            <p id="series-summary-description"></p>
-                            <div id="series-summary-action-container">
-                                <button id="series-watch-trailer-button"
-                                    class="btn rounded vod-series-action-btn series-action-btn"
-                                    onclick="series_summary_page.showTrailerVideo()"
-                                    onmouseenter="series_summary_page.hoverButtons(0)"
-                                >
-                                    <i class="fa fa-play"></i>
-                                    <span class="vod-series-action-btn-txt" data-word_code="watch_trailer">
-                                        Watch Trailer
-                                    </span>
-                                </button>
-                                <button id="series-watch-movie-button"
-                                    class="btn rounded vod-series-action-btn series-action-btn"
-                                    onclick="series_summary_page.showSeason()"
-                                    onmouseenter="series_summary_page.hoverButtons(1)"
-                                >
-                                    <i class="fa fa-eye"></i>
-                                    <span class="vod-series-action-btn-txt" data-word_code="watch_season">
-                                        Watch Season
-                                    </span>
-                                </button>
-                                <button id="series-add-favourite-button"
-                                    class="btn rounded vod-series-action-btn series-action-btn" data-action="add"
-                                    onclick="series_summary_page.addFavorite(this)"
-                                    onmouseenter="series_summary_page.hoverButtons(2)"
-                                >
-                                    <i class="fa fa-heart"></i>
-                                    <span class="vod-series-action-btn-txt" data-word_code="add_to_favorite">
-                                         Add To Favorite
-                                    </span>
-                                </button>
+                        </div>
+                        <div class="vod-summary-genre" id="series-summary-release-genre"></div>
+                        <p class="vod-summary-description" id="series-summary-description"></p>
+                        <div class="vod-summary-details">
+                            <div class="vod-detail-item">
+                                <span class="vod-detail-label" data-word_code="director">Director</span>
+                                <span class="vod-detail-value" id="series-summary-release-director"></span>
                             </div>
+                            <div class="vod-detail-item">
+                                <span class="vod-detail-label" data-word_code="cast">Cast</span>
+                                <span class="vod-detail-value" id="series-summary-release-cast"></span>
+                            </div>
+                            <div class="vod-detail-item">
+                                <span class="vod-detail-label" data-word_code="country">Country</span>
+                                <span class="vod-detail-value" id="series-summary-release-country"></span>
+                            </div>
+                        </div>
+                        <div class="vod-summary-actions" id="series-summary-action-container">
+                            <button id="series-watch-trailer-button" class="vod-action-btn-new series-action-btn" onclick="series_summary_page.showTrailerVideo()" onmouseenter="series_summary_page.hoverButtons(0)">
+                                <i class="fa fa-play"></i>
+                                <span data-word_code="watch_trailer">Trailer</span>
+                            </button>
+                            <button id="series-watch-movie-button" class="vod-action-btn-new series-action-btn" onclick="series_summary_page.showSeason()" onmouseenter="series_summary_page.hoverButtons(1)">
+                                <i class="fa fa-list"></i>
+                                <span data-word_code="watch_season">Seasons</span>
+                            </button>
+                            <button id="series-add-favourite-button" class="vod-action-btn-new series-action-btn" data-action="add" onclick="series_summary_page.addFavorite(this)" onmouseenter="series_summary_page.hoverButtons(2)">
+                                <i class="fa fa-heart"></i>
+                                <span data-word_code="add_to_favorite">Favorite</span>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="vod-series-rating-container" id="series-rating-container">
-                    <div class="rating">
-                        <div class="rating-upper" style="width: 0%">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                        </div>
-                        <div class="rating-lower">
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                            <span>★</span>
-                        </div>
+                <div class="vod-summary-similar" id="similar-series-section" style="display:none;">
+                    <div class="similar-movies-title">
+                        <span data-word_code="similar_series">Similar Series</span>
                     </div>
-                    <div class="rating-mark" id="series-rating-mark">4.5</div>
+                    <div id="similar-series-container"></div>
                 </div>
             </div>
         </div>

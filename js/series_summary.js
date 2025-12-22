@@ -2,27 +2,39 @@
 var series_summary_page={
     keys:{
         index:1,
-        buttons:[]
+        buttons:[],
+        focused_part: 'buttons',
+        similar_index: 0
     },
     min_btn_index:0,
     is_loading:false,
     prev_route:'',
-    buttons:$('.series-action-btn'),
+    buttons:$('#series-summary-page .series-action-btn'),
+    similar_series: [],
     init:function(prev_route){
         this.prev_route=prev_route;
         showLoader(true);
         this.is_loading=true;
+        this.similar_series = [];
+        this.keys.similar_index = 0;
+        this.keys.focused_part = 'buttons';
+        $('#similar-series-section').hide();
         $('#series-summary-image-wrapper img').attr('src','');
-        $('.vod-series-background-img').attr('src','').hide();
+        $('#series-summary-page .vod-series-background-img').attr('src','').hide();
         $('#series-summary-name').text(current_series.name);
-        $('#series-summary-release-date').text(current_series.releasedate);
-        $('#series-summary-release-genre').text(current_series.genre);
-        $('#series-summary-release-length').text(current_series.duration);
-        $('#series-summary-release-country').text(current_series.country);
-        $('#series-summary-release-director').text(current_series.director);
-        $('#series-summary-release-cast').text(current_series.cast);
-        $('#series-summary-description').text(current_series.plot);
-        $('#series-summary-image-wrapper img').attr('src',current_series.cover)
+        $('#series-summary-release-date').text(current_series.releasedate || '');
+        $('#series-summary-release-genre').text(current_series.genre || '');
+        $('#series-summary-release-country').text(current_series.country || '');
+        $('#series-summary-release-director').text(current_series.director || '');
+        $('#series-summary-release-cast').text(current_series.cast || '');
+        $('#series-summary-description').text(current_series.plot || '');
+        if(current_series.seasons && current_series.seasons.length > 0) {
+            var seasonText = current_series.seasons.length + ' Season' + (current_series.seasons.length > 1 ? 's' : '');
+            $('#series-summary-seasons-count').text(seasonText);
+        } else {
+            $('#series-summary-seasons-count').text('');
+        }
+        $('#series-summary-image-wrapper img').attr('src',current_series.cover);
         var backdrop_image='';
         try{
             backdrop_image=current_series.backdrop_path[0];
@@ -31,24 +43,27 @@ var series_summary_page={
         
         // Use backdrop if available, otherwise use poster as fallback
         if(backdrop_image) {
-            $('.vod-series-background-img').attr('src', backdrop_image).show().on('error', function() {
+            $('#series-summary-page .vod-series-background-img').attr('src', backdrop_image).show().on('error', function() {
                 $(this).hide();
             });
         } else if(current_series.cover) {
-            $('.vod-series-background-img').attr('src', current_series.cover).show().on('error', function() {
+            $('#series-summary-page .vod-series-background-img').attr('src', current_series.cover).show().on('error', function() {
                 $(this).hide();
             });
         } else {
-            $('.vod-series-background-img').hide();
+            $('#series-summary-page .vod-series-background-img').hide();
         }
+        this.buttons = $('#series-summary-page .series-action-btn');
         this.hoverButtons(1);
         if(current_series.is_favourite){
-            $(this.buttons[2]).data('action','remove')
-            $(this.buttons[2]).find('.vod-series-action-btn-txt').text('Remove Favourite')
+            $(this.buttons[2]).data('action','remove');
+            $(this.buttons[2]).find('span').text('Remove');
+            $(this.buttons[2]).find('i').removeClass('fa-heart').addClass('fa-heart-broken');
         }
         else{
-            $(this.buttons[2]).data('action','add')
-            $(this.buttons[2]).find('.vod-series-action-btn-txt').text('Add Favourite')
+            $(this.buttons[2]).data('action','add');
+            $(this.buttons[2]).find('span').text('Favorite');
+            $(this.buttons[2]).find('i').removeClass('fa-heart-broken').addClass('fa-heart');
         }
         var rating=0;
         if(typeof current_series.rating==="undefined" || current_series.rating==="")
@@ -57,8 +72,12 @@ var series_summary_page={
             rating=parseFloat(current_series.rating);
         if(isNaN(rating))
             rating=0;
-        $('#series-rating-container').find('.rating-upper').css({width:rating*10+"%"});
         $('#series-rating-mark').text(rating.toFixed(1));
+        if(rating > 0) {
+            $('#series-rating-container').show();
+        } else {
+            $('#series-rating-container').hide();
+        }
         if(typeof current_series.youtube_trailer!='undefined' && current_series.youtube_trailer!=null && current_series.youtube_trailer.trim()!==''){
             this.min_btn_index=0;
             $('#series-watch-trailer-button').show();
@@ -68,12 +87,17 @@ var series_summary_page={
         }
         $('#current-series-category').text('');
         var categories=SeriesModel.categories;
+        var currentCategoryName = '';
         for(var i=0;i<categories.length;i++){
             if(categories[i].category_id==current_series.category_id){
-                $('#current-series-category').text(categories[i].category_name);
+                currentCategoryName = categories[i].category_name;
+                $('#current-series-category').text(currentCategoryName);
                 break;
             }
         }
+        
+        var that = this;
+        this.loadSimilarSeries(current_series, currentCategoryName);
 
         // Fetch detailed series info from XTREME API for TMDB data
         if(settings.playlist_type==="xtreme"){
@@ -197,6 +221,12 @@ var series_summary_page={
                         console.log('=== EPISODE STRUCTURE COMPLETE ===');
                         console.log('Total seasons processed:', current_series.seasons ? current_series.seasons.length : 0);
                         
+                        // Update seasons count display
+                        if(current_series.seasons && current_series.seasons.length > 0) {
+                            var seasonText = current_series.seasons.length + ' Season' + (current_series.seasons.length > 1 ? 's' : '');
+                            $('#series-summary-seasons-count').text(seasonText);
+                        }
+                        
                         // Update enhanced info if available
                         if(info.plot && info.plot !== current_series.plot) {
                             current_series.plot = info.plot;
@@ -262,7 +292,9 @@ var series_summary_page={
     },
     hoverButtons:function(index){
         $(this.buttons).removeClass('active');
+        $('#similar-series-container .similar-movie-item').removeClass('active');
         this.keys.index=index;
+        this.keys.focused_part = 'buttons';
         $(this.buttons[index]).addClass('active');
     },
     keyMove:function(increment){
@@ -297,17 +329,132 @@ var series_summary_page={
         if(action==="add"){
             SeriesModel.addRecentOrFavouriteMovie(current_series,'favourite');
             current_series.is_favourite=true;
-            // End
             $(targetElement).data('action','remove');
-            $(targetElement).find('.vod-series-action-btn-txt').text('Remove Favourite');
+            $(targetElement).find('span').text('Remove');
+            $(targetElement).find('i').removeClass('fa-heart').addClass('fa-heart-broken');
         }
         else{
             current_series.is_favourite=false;
-            SeriesModel.removeRecentOrFavouriteMovie(current_series.series_id,'favourite')
+            SeriesModel.removeRecentOrFavouriteMovie(current_series.series_id,'favourite');
             $(targetElement).data('action','add');
-            $(targetElement).find('.vod-series-action-btn-txt').text('Add Favourite');
+            $(targetElement).find('span').text('Favorite');
+            $(targetElement).find('i').removeClass('fa-heart-broken').addClass('fa-heart');
         }
         favourites_dirty = true;
+    },
+    loadSimilarSeries: function(series, categoryName) {
+        var that = this;
+        var allSeries = SeriesModel.movies || [];
+        var similar = [];
+        var seriesName = (series.name || '').toLowerCase();
+        var seriesGenre = (series.genre || '').toLowerCase();
+        
+        var franchisePatterns = [
+            /^(.*?)\s*[\:\-]\s*season\s*\d+/i,
+            /^(.*?)\s*[\(\[]\d{4}[\)\]]/i,
+            /^(.*?)\s*\d+$/i
+        ];
+        
+        var baseName = seriesName;
+        for(var p = 0; p < franchisePatterns.length; p++) {
+            var match = seriesName.match(franchisePatterns[p]);
+            if(match && match[1]) {
+                baseName = match[1].trim();
+                break;
+            }
+        }
+        
+        allSeries.forEach(function(s) {
+            if(s.series_id === series.series_id) return;
+            
+            var sName = (s.name || '').toLowerCase();
+            var sGenre = (s.genre || '').toLowerCase();
+            var score = 0;
+            
+            if(baseName.length > 3 && sName.indexOf(baseName) !== -1) {
+                score += 100;
+            }
+            
+            if(s.category_id === series.category_id) {
+                score += 30;
+            }
+            
+            if(seriesGenre && sGenre) {
+                var genres1 = seriesGenre.split(/[,\/]/);
+                var genres2 = sGenre.split(/[,\/]/);
+                genres1.forEach(function(g1) {
+                    g1 = g1.trim();
+                    if(g1.length > 2) {
+                        genres2.forEach(function(g2) {
+                            if(g2.trim() === g1) score += 15;
+                        });
+                    }
+                });
+            }
+            
+            if(score > 0) {
+                similar.push({ series: s, score: score });
+            }
+        });
+        
+        similar.sort(function(a, b) { return b.score - a.score; });
+        similar = similar.slice(0, 10);
+        
+        if(similar.length > 0) {
+            this.similar_series = similar.map(function(item) { return item.series; });
+            this.renderSimilarSeries();
+            $('#similar-series-section').show();
+        } else {
+            $('#similar-series-section').hide();
+        }
+    },
+    renderSimilarSeries: function() {
+        var html = '';
+        var that = this;
+        this.similar_series.forEach(function(series, index) {
+            var cover = series.cover || 'images/series.png';
+            var name = series.name || '';
+            html += '<div class="similar-movie-item" data-index="' + index + '" ' +
+                    'onmouseenter="series_summary_page.hoverSimilarSeries(' + index + ')" ' +
+                    'onclick="series_summary_page.selectSimilarSeries(' + index + ')">' +
+                    '<img src="' + cover + '" onerror="this.src=\'images/series.png\'">' +
+                    '<div class="similar-movie-name">' + name + '</div>' +
+                    '</div>';
+        });
+        $('#similar-series-container').html(html);
+    },
+    hoverSimilarSeries: function(index) {
+        if(index < 0) index = 0;
+        if(index >= this.similar_series.length) index = this.similar_series.length - 1;
+        
+        this.keys.similar_index = index;
+        $('#similar-series-container .similar-movie-item').removeClass('active');
+        
+        var activeItem = $('#similar-series-container .similar-movie-item[data-index="' + index + '"]');
+        activeItem.addClass('active');
+        
+        var nameElement = activeItem.find('.similar-movie-name');
+        if(nameElement.length > 0) {
+            nameElement.removeClass('marquee').find('.marquee-content').each(function() {
+                var text = $(this).text().split('    ')[0].trim();
+                $(this).parent().text(text);
+            });
+            
+            var textWidth = nameElement[0].scrollWidth;
+            var containerWidth = nameElement.width();
+            if(textWidth > containerWidth + 5) {
+                nameElement.addClass('marquee');
+                var originalText = nameElement.text();
+                nameElement.html('<span class="marquee-content">' + originalText + '&nbsp;&nbsp;&nbsp;&nbsp;' + originalText + '</span>');
+            }
+        }
+    },
+    selectSimilarSeries: function(index) {
+        var selectedSeries = this.similar_series[index];
+        if(selectedSeries) {
+            current_series = selectedSeries;
+            this.init(this.prev_route);
+        }
     },
     HandleKey:function (e) {
         if(this.is_loading){
@@ -318,29 +465,64 @@ var series_summary_page={
             }
             return;
         }
+        var keys = this.keys;
         switch (e.keyCode) {
             case tvKey.RETURN:
                 this.goBack();
                 break;
             case tvKey.LEFT:
-                this.keyMove(-1);
+                if(keys.focused_part === 'similar') {
+                    if(keys.similar_index > 0) {
+                        this.hoverSimilarSeries(keys.similar_index - 1);
+                    }
+                } else {
+                    this.keyMove(-1);
+                }
                 break;
             case tvKey.RIGHT:
-                this.keyMove(1);
+                if(keys.focused_part === 'similar') {
+                    if(keys.similar_index < this.similar_series.length - 1) {
+                        this.hoverSimilarSeries(keys.similar_index + 1);
+                    }
+                } else {
+                    this.keyMove(1);
+                }
+                break;
+            case tvKey.UP:
+                if(keys.focused_part === 'similar') {
+                    keys.focused_part = 'buttons';
+                    $('#similar-series-container .similar-movie-item').removeClass('active');
+                    $(this.buttons[keys.index]).addClass('active');
+                }
+                break;
+            case tvKey.DOWN:
+                if(keys.focused_part === 'buttons' && this.similar_series.length > 0) {
+                    keys.focused_part = 'similar';
+                    $(this.buttons).removeClass('active');
+                    this.hoverSimilarSeries(keys.similar_index);
+                }
                 break;
             case tvKey.YELLOW:
                 if(!current_series.is_favourite){
                     SeriesModel.addRecentOrFavouriteMovie(current_series, 'favourite');
                     current_series.is_favourite=true;
+                    $(this.buttons[2]).find('span').text('Remove');
+                    $(this.buttons[2]).find('i').removeClass('fa-heart').addClass('fa-heart-broken');
                 }
                 else{
                     SeriesModel.removeRecentOrFavouriteMovie(current_series.series_id,"favourite");
                     current_series.is_favourite=false;
+                    $(this.buttons[2]).find('span').text('Favorite');
+                    $(this.buttons[2]).find('i').removeClass('fa-heart-broken').addClass('fa-heart');
                 }
                 favourites_dirty = true;
                 break;
             case tvKey.ENTER:
-                this.handleMenuClick();
+                if(keys.focused_part === 'similar') {
+                    this.selectSimilarSeries(keys.similar_index);
+                } else {
+                    this.handleMenuClick();
+                }
                 break;
         }
     }
