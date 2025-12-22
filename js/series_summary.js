@@ -4,9 +4,7 @@ var series_summary_page={
         index:1,
         buttons:[],
         focused_part: 'buttons',
-        similar_index: 0,
-        dropdown_open: false,
-        dropdown_index: 0
+        similar_index: 0
     },
     min_btn_index:0,
     is_loading:false,
@@ -20,10 +18,6 @@ var series_summary_page={
         this.similar_series = [];
         this.keys.similar_index = 0;
         this.keys.focused_part = 'buttons';
-        this.keys.dropdown_open = false;
-        this.keys.dropdown_index = 0;
-        $('#season-dropdown').hide();
-        $('.season-dropdown-wrapper').removeClass('open');
         $('#similar-series-section').hide();
         $('#series-summary-image-wrapper img').attr('src','');
         $('#series-summary-page .vod-series-background-img').attr('src','').hide();
@@ -256,49 +250,6 @@ var series_summary_page={
                 )
         }
         
-        // Fallback: Create demo seasons if none exist after 2 seconds (handles API failures and demo mode)
-        var that = this;
-        setTimeout(function() {
-            if(!current_series.seasons || current_series.seasons.length === 0) {
-                console.log('=== FALLBACK - Creating demo seasons ===');
-                var demoSeasons = [];
-                var numSeasons = Math.floor(Math.random() * 3) + 2; // 2-4 seasons
-                
-                for(var s = 1; s <= numSeasons; s++) {
-                    var numEpisodes = Math.floor(Math.random() * 6) + 5; // 5-10 episodes per season
-                    var episodes = [];
-                    
-                    for(var e = 1; e <= numEpisodes; e++) {
-                        episodes.push({
-                            id: s * 100 + e,
-                            episode_num: e,
-                            title: 'Episode ' + e,
-                            container_extension: 'mp4',
-                            info: {
-                                name: current_series.name + ' S' + s + 'E' + e,
-                                plot: 'Demo episode ' + e + ' of season ' + s,
-                                duration: '45 min'
-                            }
-                        });
-                    }
-                    
-                    demoSeasons.push({
-                        season_number: s,
-                        name: 'Season ' + s,
-                        cover: current_series.cover || 'images/series.png',
-                        episodes: episodes
-                    });
-                }
-                
-                current_series.seasons = demoSeasons;
-                console.log('✅ Created ' + demoSeasons.length + ' demo seasons');
-                
-                // Update seasons count display
-                var seasonText = demoSeasons.length + ' Season' + (demoSeasons.length > 1 ? 's' : '');
-                $('#series-summary-seasons-count').text(seasonText);
-            }
-        }, 2000);
-        
         showLoader(false);
         this.is_loading=false;
         current_route="series-summary-page";
@@ -372,79 +323,6 @@ var series_summary_page={
     },
     showSeason:function(){
         seasons_variable.init();
-    },
-    toggleSeasonDropdown: function(){
-        if(this.keys.dropdown_open){
-            this.closeSeasonDropdown();
-        } else {
-            this.openSeasonDropdown();
-        }
-    },
-    openSeasonDropdown: function(){
-        var seasons = current_series.seasons || [];
-        if(seasons.length === 0){
-            showToast("Info", "Sezon bilgisi yükleniyor veya mevcut değil");
-            return;
-        }
-        if(seasons.length === 1){
-            current_season = seasons[0];
-            episode_variable.init();
-            return;
-        }
-        var html = '';
-        for(var i = 0; i < seasons.length; i++){
-            var seasonName = seasons[i].name || ('Season ' + seasons[i].season_number);
-            html += '<div class="season-dropdown-item" data-index="' + i + '" ' +
-                    'onmouseenter="series_summary_page.hoverDropdownItem(' + i + ')" ' +
-                    'onclick="series_summary_page.selectSeasonFromDropdown(' + i + ')">' +
-                    seasonName + '</div>';
-        }
-        $('#season-dropdown-list').html(html);
-        $('#season-dropdown').show();
-        $('.season-dropdown-wrapper').addClass('open');
-        this.keys.dropdown_open = true;
-        this.keys.dropdown_index = 0;
-        this.keys.dropdown_opener_index = this.keys.index;
-        this.keys.focused_part = 'dropdown';
-        $(this.buttons).removeClass('active');
-        this.hoverDropdownItem(0);
-    },
-    closeSeasonDropdown: function(){
-        $('#season-dropdown').hide();
-        $('.season-dropdown-wrapper').removeClass('open');
-        this.keys.dropdown_open = false;
-        this.keys.focused_part = 'buttons';
-        var restoreIndex = this.keys.dropdown_opener_index || 1;
-        this.hoverButtons(restoreIndex);
-    },
-    hoverDropdownItem: function(index){
-        var items = $('.season-dropdown-item');
-        if(index < 0) index = 0;
-        if(index >= items.length) index = items.length - 1;
-        this.keys.dropdown_index = index;
-        items.removeClass('active');
-        $(items[index]).addClass('active');
-        var dropdown = $('#season-dropdown');
-        var activeItem = items[index];
-        if(activeItem){
-            var itemTop = activeItem.offsetTop;
-            var itemHeight = activeItem.offsetHeight;
-            var dropdownHeight = dropdown.height();
-            var scrollTop = dropdown.scrollTop();
-            if(itemTop < scrollTop){
-                dropdown.scrollTop(itemTop);
-            } else if(itemTop + itemHeight > scrollTop + dropdownHeight){
-                dropdown.scrollTop(itemTop + itemHeight - dropdownHeight);
-            }
-        }
-    },
-    selectSeasonFromDropdown: function(index){
-        var seasons = current_series.seasons || [];
-        if(index >= 0 && index < seasons.length){
-            current_season = seasons[index];
-            this.closeSeasonDropdown();
-            episode_variable.init();
-        }
     },
     addFavorite:function(targetElement){
         var action=$(targetElement).data('action');
@@ -588,33 +466,6 @@ var series_summary_page={
             return;
         }
         var keys = this.keys;
-        
-        if(keys.dropdown_open){
-            switch(e.keyCode){
-                case tvKey.RETURN:
-                    this.closeSeasonDropdown();
-                    break;
-                case tvKey.UP:
-                    if(keys.dropdown_index > 0){
-                        this.hoverDropdownItem(keys.dropdown_index - 1);
-                    }
-                    break;
-                case tvKey.DOWN:
-                    var items = $('.season-dropdown-item');
-                    if(keys.dropdown_index < items.length - 1){
-                        this.hoverDropdownItem(keys.dropdown_index + 1);
-                    }
-                    break;
-                case tvKey.ENTER:
-                    this.selectSeasonFromDropdown(keys.dropdown_index);
-                    break;
-                case tvKey.LEFT:
-                case tvKey.RIGHT:
-                    break;
-            }
-            return;
-        }
-        
         switch (e.keyCode) {
             case tvKey.RETURN:
                 this.goBack();
