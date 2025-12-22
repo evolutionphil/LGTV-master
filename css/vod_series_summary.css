@@ -1041,17 +1041,17 @@
 .season-dropdown-container.open #series-season-dropdown-btn::after {
     content: '';
     position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    height: 6px;
+    bottom: -2px;
+    left: 2px;
+    right: 2px;
+    height: 4px;
     background: #1e1e1e;
     z-index: 10001;
 }
 
 .season-dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% - 2px);
     left: 0;
     width: 100%;
     max-height: 300px;
