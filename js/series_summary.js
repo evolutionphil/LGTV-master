@@ -6,7 +6,8 @@ var series_summary_page={
         focused_part: 'buttons',
         similar_index: 0,
         season_index: 0,
-        episode_index: 0
+        episode_index: 0,
+        dropdown_focus_index: 0
     },
     min_btn_index:0,
     is_loading:false,
@@ -381,10 +382,11 @@ var series_summary_page={
     openSeasonDropdown:function(){
         this.dropdownOpen = true;
         this.keys.focused_part = 'dropdown';
+        this.keys.dropdown_focus_index = this.keys.season_index;
         $('#series-season-dropdown').addClass('open');
         $('#series-season-dropdown-menu').show();
         this.renderSeasonDropdown();
-        this.hoverDropdownItem(this.keys.season_index);
+        this.hoverDropdownItem(this.keys.dropdown_focus_index);
     },
     closeSeasonDropdown:function(){
         this.dropdownOpen = false;
@@ -410,7 +412,7 @@ var series_summary_page={
         $('#series-season-dropdown-text').text(currentName);
     },
     hoverDropdownItem:function(index){
-        this.keys.season_index = index;
+        this.keys.dropdown_focus_index = index;
         $('.season-dropdown-item').removeClass('focused');
         $('.season-dropdown-item[data-index="'+index+'"]').addClass('focused');
     },
@@ -641,8 +643,8 @@ var series_summary_page={
                 break;
             case tvKey.UP:
                 if(keys.focused_part === 'dropdown') {
-                    if(keys.season_index > 0) {
-                        this.hoverDropdownItem(keys.season_index - 1);
+                    if(keys.dropdown_focus_index > 0) {
+                        this.hoverDropdownItem(keys.dropdown_focus_index - 1);
                     }
                 } else if(keys.focused_part === 'episodes') {
                     keys.focused_part = 'buttons';
@@ -652,8 +654,8 @@ var series_summary_page={
                 break;
             case tvKey.DOWN:
                 if(keys.focused_part === 'dropdown') {
-                    if(keys.season_index < dropdownItems.length - 1) {
-                        this.hoverDropdownItem(keys.season_index + 1);
+                    if(keys.dropdown_focus_index < dropdownItems.length - 1) {
+                        this.hoverDropdownItem(keys.dropdown_focus_index + 1);
                     }
                 } else if(keys.focused_part === 'buttons') {
                     if(episodeCards.length > 0) {
@@ -680,7 +682,7 @@ var series_summary_page={
                 break;
             case tvKey.ENTER:
                 if(keys.focused_part === 'dropdown') {
-                    this.selectSeasonFromDropdown(keys.season_index);
+                    this.selectSeasonFromDropdown(keys.dropdown_focus_index);
                 } else if(keys.focused_part === 'episodes') {
                     this.playEpisode(keys.episode_index);
                 } else {
