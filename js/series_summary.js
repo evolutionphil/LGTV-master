@@ -10,6 +10,8 @@ var series_summary_page={
     },
     min_btn_index:0,
     is_loading:false,
+    seasonsReady: false,
+    pendingSeasonRequest: false,
     prev_route:'',
     buttons:$('#series-summary-page .series-action-btn'),
     similar_series: [],
@@ -22,6 +24,8 @@ var series_summary_page={
         this.keys.season_index = 0;
         this.keys.episode_index = 0;
         this.keys.focused_part = 'buttons';
+        this.seasonsReady = false;
+        this.pendingSeasonRequest = false;
         $('#similar-series-section').hide();
         $('#series-episodes-section').hide();
         $('#series-season-tabs').html('');
@@ -234,6 +238,9 @@ var series_summary_page={
                             $('#series-summary-seasons-count').text(seasonText);
                         }
                         
+                        // Notify that seasons data is ready
+                        series_summary_page.handleSeasonsReady();
+                        
                         // Update enhanced info if available
                         if(info.plot && info.plot !== current_series.plot) {
                             current_series.plot = info.plot;
@@ -329,21 +336,12 @@ var series_summary_page={
             trailer_page.init(current_series.youtube_trailer,'series-summary-page');
     },
     showSeason:function(){
-        if(!current_series.seasons || current_series.seasons.length === 0){
+        if(!this.seasonsReady){
+            this.pendingSeasonRequest = true;
             showToast("Loading", "Please wait, seasons are loading...");
             return;
         }
-        var hasEpisodes = false;
-        for(var i = 0; i < current_series.seasons.length; i++){
-            if(current_series.seasons[i].episodes && current_series.seasons[i].episodes.length > 0){
-                hasEpisodes = true;
-                break;
-            }
-        }
-        if(!hasEpisodes){
-            showToast("Loading", "Please wait, episodes are loading...");
-            return;
-        }
+        this.pendingSeasonRequest = false;
         this.keys.focused_part = 'seasons';
         this.keys.season_index = 0;
         this.keys.episode_index = 0;
@@ -352,6 +350,23 @@ var series_summary_page={
         this.selectSeason(0);
         $('#series-episodes-section').show();
         $('.season-tab').first().addClass('active focused');
+    },
+    handleSeasonsReady:function(){
+        var hasEpisodes = false;
+        if(current_series.seasons && current_series.seasons.length > 0){
+            for(var i = 0; i < current_series.seasons.length; i++){
+                if(current_series.seasons[i].episodes && current_series.seasons[i].episodes.length > 0){
+                    hasEpisodes = true;
+                    break;
+                }
+            }
+        }
+        if(hasEpisodes){
+            this.seasonsReady = true;
+            if(this.pendingSeasonRequest){
+                this.showSeason();
+            }
+        }
     },
     renderSeasonTabs:function(){
         var html = '';
