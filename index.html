@@ -1060,8 +1060,8 @@
                                 <span data-word_code="watch_trailer">Trailer</span>
                             </button>
                             <button id="series-watch-movie-button" class="vod-action-btn-new series-action-btn" onclick="series_summary_page.showSeason()" onmouseenter="series_summary_page.hoverButtons(1)">
-                                <i class="fa fa-list"></i>
-                                <span data-word_code="watch_season">Seasons</span>
+                                <i class="fa fa-play"></i>
+                                <span data-word_code="watch_season">Episodes</span>
                             </button>
                             <button id="series-add-favourite-button" class="vod-action-btn-new series-action-btn" data-action="add" onclick="series_summary_page.addFavorite(this)" onmouseenter="series_summary_page.hoverButtons(2)">
                                 <i class="fa fa-heart"></i>
@@ -1069,6 +1069,10 @@
                             </button>
                         </div>
                     </div>
+                </div>
+                <div class="series-episodes-section" id="series-episodes-section" style="display:none;">
+                    <div class="series-season-tabs" id="series-season-tabs"></div>
+                    <div class="series-episode-rail" id="series-episode-rail"></div>
                 </div>
                 <div class="vod-summary-similar" id="similar-series-section" style="display:none;">
                     <div class="similar-movies-title">

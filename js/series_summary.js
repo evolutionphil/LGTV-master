@@ -4,7 +4,9 @@ var series_summary_page={
         index:1,
         buttons:[],
         focused_part: 'buttons',
-        similar_index: 0
+        similar_index: 0,
+        season_index: 0,
+        episode_index: 0
     },
     min_btn_index:0,
     is_loading:false,
@@ -17,8 +19,13 @@ var series_summary_page={
         this.is_loading=true;
         this.similar_series = [];
         this.keys.similar_index = 0;
+        this.keys.season_index = 0;
+        this.keys.episode_index = 0;
         this.keys.focused_part = 'buttons';
         $('#similar-series-section').hide();
+        $('#series-episodes-section').hide();
+        $('#series-season-tabs').html('');
+        $('#series-episode-rail').html('');
         $('#series-summary-image-wrapper img').attr('src','');
         $('#series-summary-page .vod-series-background-img').attr('src','').hide();
         $('#series-summary-name').text(current_series.name);
@@ -322,7 +329,96 @@ var series_summary_page={
             trailer_page.init(current_series.youtube_trailer,'series-summary-page');
     },
     showSeason:function(){
-        seasons_variable.init();
+        if(!current_series.seasons || current_series.seasons.length === 0){
+            showToast("Loading", "Please wait, seasons are loading...");
+            return;
+        }
+        var hasEpisodes = false;
+        for(var i = 0; i < current_series.seasons.length; i++){
+            if(current_series.seasons[i].episodes && current_series.seasons[i].episodes.length > 0){
+                hasEpisodes = true;
+                break;
+            }
+        }
+        if(!hasEpisodes){
+            showToast("Loading", "Please wait, episodes are loading...");
+            return;
+        }
+        this.keys.focused_part = 'seasons';
+        this.keys.season_index = 0;
+        this.keys.episode_index = 0;
+        $(this.buttons).removeClass('active');
+        this.renderSeasonTabs();
+        this.selectSeason(0);
+        $('#series-episodes-section').show();
+        $('.season-tab').first().addClass('active focused');
+    },
+    renderSeasonTabs:function(){
+        var html = '';
+        var seasons = current_series.seasons || [];
+        seasons.forEach(function(season, index){
+            var name = season.name || ('Season ' + (index + 1));
+            html += '<div class="season-tab" data-index="'+index+'" '+
+                    'onclick="series_summary_page.selectSeason('+index+')" '+
+                    'onmouseenter="series_summary_page.hoverSeasonTab('+index+')">'+
+                    name+'</div>';
+        });
+        $('#series-season-tabs').html(html);
+    },
+    hoverSeasonTab:function(index){
+        this.keys.focused_part = 'seasons';
+        this.keys.season_index = index;
+        $('.season-tab').removeClass('focused');
+        $('.season-tab[data-index="'+index+'"]').addClass('focused');
+    },
+    selectSeason:function(index){
+        current_season = current_series.seasons[index];
+        this.keys.season_index = index;
+        this.keys.episode_index = 0;
+        $('.season-tab').removeClass('active');
+        $('.season-tab[data-index="'+index+'"]').addClass('active');
+        this.renderEpisodeRail();
+    },
+    renderEpisodeRail:function(){
+        var html = '';
+        var episodes = current_season.episodes || [];
+        if(episodes.length === 0){
+            html = '<p style="color:#888;padding:20px;">No episodes available</p>';
+        } else {
+            episodes.forEach(function(episode, index){
+                var thumbImg = (episode.info && episode.info.movie_image) ? episode.info.movie_image : 
+                               (current_season.cover || current_series.cover || 'images/series.png');
+                var title = episode.title || episode.name || ('Episode ' + (index + 1));
+                var duration = (episode.info && episode.info.duration) || '';
+                html += '<div class="series-ep-card" data-index="'+index+'" '+
+                        'onclick="series_summary_page.playEpisode('+index+')" '+
+                        'onmouseenter="series_summary_page.hoverEpisode('+index+')">'+
+                        '<img class="series-ep-thumb" src="'+thumbImg+'" onerror="this.src=\'images/series.png\'">'+
+                        '<div class="series-ep-info">'+
+                            '<p class="series-ep-number">Episode '+(index+1)+'</p>'+
+                            '<p class="series-ep-title">'+title+'</p>'+
+                            (duration ? '<p class="series-ep-duration">'+duration+'</p>' : '')+
+                        '</div>'+
+                    '</div>';
+            });
+        }
+        $('#series-episode-rail').html(html);
+    },
+    hoverEpisode:function(index){
+        this.keys.focused_part = 'episodes';
+        this.keys.episode_index = index;
+        $('.series-ep-card').removeClass('active');
+        $('.series-ep-card[data-index="'+index+'"]').addClass('active');
+        moveScrollPosition($('#series-episode-rail'),$('.series-ep-card[data-index="'+index+'"]')[0],'horizontal',false);
+    },
+    playEpisode:function(index){
+        var episodes = current_season.episodes || [];
+        if(index < 0 || index >= episodes.length) return;
+        current_episode = episodes[index];
+        $('#series-summary-page').hide();
+        vod_series_player.makeEpisodeDoms('series-summary-page');
+        vod_series_player.init(current_episode,'series','series-summary-page');
+        vod_series_player.keys.episode_selection = index;
     },
     addFavorite:function(targetElement){
         var action=$(targetElement).data('action');
@@ -466,6 +562,8 @@ var series_summary_page={
             return;
         }
         var keys = this.keys;
+        var seasonTabs = $('.season-tab');
+        var episodeCards = $('.series-ep-card');
         switch (e.keyCode) {
             case tvKey.RETURN:
                 this.goBack();
@@ -474,6 +572,14 @@ var series_summary_page={
                 if(keys.focused_part === 'similar') {
                     if(keys.similar_index > 0) {
                         this.hoverSimilarSeries(keys.similar_index - 1);
+                    }
+                } else if(keys.focused_part === 'seasons') {
+                    if(keys.season_index > 0) {
+                        this.hoverSeasonTab(keys.season_index - 1);
+                    }
+                } else if(keys.focused_part === 'episodes') {
+                    if(keys.episode_index > 0) {
+                        this.hoverEpisode(keys.episode_index - 1);
                     }
                 } else {
                     this.keyMove(-1);
@@ -484,22 +590,66 @@ var series_summary_page={
                     if(keys.similar_index < this.similar_series.length - 1) {
                         this.hoverSimilarSeries(keys.similar_index + 1);
                     }
+                } else if(keys.focused_part === 'seasons') {
+                    if(keys.season_index < seasonTabs.length - 1) {
+                        this.hoverSeasonTab(keys.season_index + 1);
+                    }
+                } else if(keys.focused_part === 'episodes') {
+                    if(keys.episode_index < episodeCards.length - 1) {
+                        this.hoverEpisode(keys.episode_index + 1);
+                    }
                 } else {
                     this.keyMove(1);
                 }
                 break;
             case tvKey.UP:
                 if(keys.focused_part === 'similar') {
+                    if(episodeCards.length > 0) {
+                        keys.focused_part = 'episodes';
+                        $('#similar-series-container .similar-movie-item').removeClass('active');
+                        this.hoverEpisode(keys.episode_index || 0);
+                    } else if(seasonTabs.length > 0) {
+                        keys.focused_part = 'seasons';
+                        $('#similar-series-container .similar-movie-item').removeClass('active');
+                        this.hoverSeasonTab(keys.season_index || 0);
+                    } else {
+                        keys.focused_part = 'buttons';
+                        $('#similar-series-container .similar-movie-item').removeClass('active');
+                        $(this.buttons[keys.index]).addClass('active');
+                    }
+                } else if(keys.focused_part === 'episodes') {
+                    keys.focused_part = 'seasons';
+                    $('.series-ep-card').removeClass('active');
+                    this.hoverSeasonTab(keys.season_index || 0);
+                } else if(keys.focused_part === 'seasons') {
                     keys.focused_part = 'buttons';
-                    $('#similar-series-container .similar-movie-item').removeClass('active');
+                    $('.season-tab').removeClass('focused');
                     $(this.buttons[keys.index]).addClass('active');
                 }
                 break;
             case tvKey.DOWN:
-                if(keys.focused_part === 'buttons' && this.similar_series.length > 0) {
-                    keys.focused_part = 'similar';
-                    $(this.buttons).removeClass('active');
-                    this.hoverSimilarSeries(keys.similar_index);
+                if(keys.focused_part === 'buttons') {
+                    if(seasonTabs.length > 0) {
+                        keys.focused_part = 'seasons';
+                        $(this.buttons).removeClass('active');
+                        this.hoverSeasonTab(keys.season_index || 0);
+                    } else if(this.similar_series.length > 0) {
+                        keys.focused_part = 'similar';
+                        $(this.buttons).removeClass('active');
+                        this.hoverSimilarSeries(keys.similar_index);
+                    }
+                } else if(keys.focused_part === 'seasons') {
+                    if(episodeCards.length > 0) {
+                        keys.focused_part = 'episodes';
+                        $('.season-tab').removeClass('focused');
+                        this.hoverEpisode(keys.episode_index || 0);
+                    }
+                } else if(keys.focused_part === 'episodes') {
+                    if(this.similar_series.length > 0) {
+                        keys.focused_part = 'similar';
+                        $('.series-ep-card').removeClass('active');
+                        this.hoverSimilarSeries(keys.similar_index || 0);
+                    }
                 }
                 break;
             case tvKey.YELLOW:
@@ -520,6 +670,10 @@ var series_summary_page={
             case tvKey.ENTER:
                 if(keys.focused_part === 'similar') {
                     this.selectSimilarSeries(keys.similar_index);
+                } else if(keys.focused_part === 'seasons') {
+                    this.selectSeason(keys.season_index);
+                } else if(keys.focused_part === 'episodes') {
+                    this.playEpisode(keys.episode_index);
                 } else {
                     this.handleMenuClick();
                 }
