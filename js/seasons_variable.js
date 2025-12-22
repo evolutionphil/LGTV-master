@@ -116,7 +116,7 @@ var seasons_variable={
         $('#season-page-back-button').removeClass('active');
         $(this.season_doms).removeClass('active');
         $(this.season_doms[index]).addClass('active');
-        moveScrollPosition($('#season-grid-container'),this.season_doms[index],'vertical',false);
+        moveScrollPosition($('#season-grid-container'),this.season_doms[index],'horizontal',false);
     },
     showEpisode:function(index){
         var season_cards=$('.netflix-season-card');
@@ -182,7 +182,7 @@ var seasons_variable={
                     keys.index=season_cards.length-1;
                 $('.netflix-season-card').removeClass('active');
                 $(season_cards[keys.index]).addClass('active');
-                moveScrollPosition($('#season-grid-container'),season_cards[keys.index],'vertical',false);
+                moveScrollPosition($('#season-grid-container'),season_cards[keys.index],'horizontal',false);
             }
         }
     },
@@ -223,10 +223,12 @@ var seasons_variable={
                 this.moveKey(1);
                 break;
             case tvKey.UP:
-                this.moveKey(-5);
+                this.hoverGoBack();
                 break;
             case tvKey.DOWN:
-                this.moveKey(5);
+                if(this.keys.focused_part === "back_button"){
+                    this.hoverSeasonItem(0);
+                }
                 break;
             case tvKey.ENTER:
                 this.handleMenuClick();

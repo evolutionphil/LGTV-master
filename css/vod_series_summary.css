@@ -519,7 +519,27 @@
     margin-bottom: 0;
 }
 
-/* Netflix Style Seasons & Episodes Pages */
+/* ============================================
+   Netflix Style Seasons & Episodes Pages
+   Responsive Design with CSS Variables
+   ============================================ */
+
+:root {
+    --season-card-width: 220px;
+    --season-card-gap: 20px;
+    --episode-thumb-width: 280px;
+    --episode-thumb-height: 158px;
+    --page-padding: 40px;
+    --header-font: 32px;
+    --title-font: 24px;
+    --body-font: 18px;
+    --small-font: 14px;
+    --focus-color: #ffc800;
+    --card-bg: rgba(40, 40, 40, 0.9);
+    --card-bg-hover: rgba(60, 60, 60, 0.95);
+}
+
+/* Seasons Page Container */
 .netflix-seasons-container,
 .netflix-episodes-container {
     position: fixed;
@@ -529,102 +549,125 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 2vh 3vw;
+    padding: var(--page-padding);
     box-sizing: border-box;
     z-index: 10;
 }
 
+/* Header Section */
 .netflix-seasons-header,
 .netflix-episodes-header {
     display: flex;
     align-items: center;
-    gap: 2vw;
-    padding-bottom: 2vh;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    gap: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
     flex-shrink: 0;
 }
 
+/* Back Button */
 .netflix-back-btn {
     display: flex;
     align-items: center;
-    gap: 0.8vw;
-    color: #888;
-    font-size: 1.4vw;
+    gap: 12px;
+    color: #aaa;
+    font-size: var(--body-font);
     cursor: pointer;
-    padding: 1vh 1.5vw;
+    padding: 12px 24px;
     border-radius: 8px;
-    transition: all 0.3s ease;
-    background: rgba(255,255,255,0.05);
+    transition: all 0.25s ease;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid transparent;
+    flex-shrink: 0;
+}
+
+.netflix-back-btn:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
 }
 
 .netflix-back-btn.active {
     color: #fff;
-    background: rgba(255,200,0,0.2);
-    border: 2px solid #ffc800;
+    background: rgba(255,200,0,0.15);
+    border-color: var(--focus-color);
 }
 
 .netflix-back-btn i {
-    font-size: 1.6vw;
+    font-size: 20px;
 }
 
+/* Series/Episode Info in Header */
 .netflix-series-info,
 .netflix-episode-info {
     display: flex;
     flex-direction: column;
-    gap: 0.5vh;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
 }
 
 .netflix-series-info h2,
 .netflix-episode-info h2 {
-    font-size: 2.2vw;
+    font-size: var(--header-font);
     font-weight: 700;
     color: #fff;
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .netflix-series-meta {
     display: flex;
     align-items: center;
-    gap: 1.5vw;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 #season-rating {
-    color: #ffc800;
-    font-size: 1.2vw;
+    color: var(--focus-color);
+    font-size: var(--body-font);
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 #season-count-badge,
 #episode-count-badge {
-    background: rgba(255,255,255,0.15);
-    color: #fff;
-    padding: 0.3vh 1vw;
+    background: rgba(255,255,255,0.12);
+    color: #ddd;
+    padding: 6px 16px;
     border-radius: 20px;
-    font-size: 1vw;
+    font-size: var(--small-font);
+    font-weight: 500;
 }
 
+/* Seasons Content Area */
 .netflix-seasons-content {
     display: flex;
-    gap: 3vw;
+    gap: 40px;
     flex: 1;
-    padding-top: 2vh;
     min-height: 0;
     overflow: hidden;
 }
 
+/* Series Poster */
 .netflix-series-poster {
     flex-shrink: 0;
-    width: 18vw;
+    width: 280px;
 }
 
 .netflix-series-poster img {
     width: 100%;
     height: auto;
-    max-height: 70vh;
+    max-height: calc(100vh - 200px);
     object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
 }
 
+/* Seasons List */
 .netflix-seasons-list {
     flex: 1;
     display: flex;
@@ -634,104 +677,121 @@
 }
 
 .netflix-section-title {
-    font-size: 1.6vw;
+    font-size: var(--title-font);
     font-weight: 600;
     color: #fff;
-    margin: 0 0 1.5vh 0;
+    margin: 0 0 20px 0;
+    flex-shrink: 0;
 }
 
+/* Season Grid - Horizontal Scroll Rail */
 .netflix-season-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5vw;
-    overflow-y: auto;
-    padding-right: 1vw;
-    padding-bottom: 2vh;
+    flex-wrap: nowrap;
+    gap: var(--season-card-gap);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
+/* Season Card */
 .netflix-season-card {
-    width: calc(25% - 1.5vw);
-    background: rgba(30,30,30,0.8);
-    border-radius: 12px;
+    width: var(--season-card-width);
+    background: var(--card-bg);
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     border: 3px solid transparent;
-}
-
-.netflix-season-card.active {
-    border-color: #ffc800;
-    transform: scale(1.03);
-    box-shadow: 0 8px 25px rgba(255,200,0,0.3);
+    flex-shrink: 0;
 }
 
 .netflix-season-card:hover {
-    background: rgba(50,50,50,0.9);
+    background: var(--card-bg-hover);
+}
+
+.netflix-season-card.active {
+    border-color: var(--focus-color);
+    transform: scale(1.02);
+    box-shadow: 0 6px 25px rgba(255,200,0,0.25);
 }
 
 .netflix-season-poster {
     width: 100%;
-    aspect-ratio: 16/9;
+    height: 124px;
     object-fit: cover;
+    background: #222;
 }
 
 .netflix-season-info {
-    padding: 1.2vh 1vw;
+    padding: 14px 16px;
 }
 
 .netflix-season-name {
-    font-size: 1.1vw;
+    font-size: var(--body-font);
     font-weight: 600;
     color: #fff;
-    margin: 0 0 0.5vh 0;
+    margin: 0 0 6px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .netflix-season-episodes {
-    font-size: 0.9vw;
+    font-size: var(--small-font);
     color: #888;
+    margin: 0;
 }
 
-/* Netflix Episode Grid */
+/* ============================================
+   Episodes Page Styles
+   ============================================ */
+
 .netflix-episodes-content {
     flex: 1;
-    padding-top: 2vh;
     overflow-y: auto;
-    padding-right: 1vw;
+    padding-right: 10px;
 }
 
 .netflix-episode-grid {
     display: flex;
     flex-direction: column;
-    gap: 1.5vh;
+    gap: 16px;
 }
 
+/* Episode Card - Horizontal Layout */
 .netflix-episode-card {
     display: flex;
-    gap: 1.5vw;
-    background: rgba(30,30,30,0.7);
+    gap: 24px;
+    background: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     border: 3px solid transparent;
-    padding: 1vh;
+    padding: 12px;
+    align-items: center;
+}
+
+.netflix-episode-card:hover {
+    background: var(--card-bg-hover);
 }
 
 .netflix-episode-card.active {
-    border-color: #ffc800;
-    background: rgba(50,50,50,0.9);
+    border-color: var(--focus-color);
+    background: var(--card-bg-hover);
     box-shadow: 0 4px 20px rgba(255,200,0,0.2);
 }
 
 .netflix-episode-thumbnail {
     flex-shrink: 0;
-    width: 20vw;
-    height: 11vw;
+    width: var(--episode-thumb-width);
+    height: var(--episode-thumb-height);
     object-fit: cover;
     border-radius: 8px;
+    background: #222;
 }
 
 .netflix-episode-details {
@@ -739,38 +799,153 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0.5vh 0;
+    gap: 8px;
+    min-width: 0;
 }
 
 .netflix-episode-number {
-    font-size: 1vw;
+    font-size: var(--small-font);
     color: #888;
-    margin-bottom: 0.5vh;
+    margin: 0;
 }
 
 .netflix-episode-title {
-    font-size: 1.3vw;
+    font-size: var(--title-font);
     font-weight: 600;
     color: #fff;
-    margin-bottom: 0.8vh;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .netflix-episode-duration {
-    font-size: 0.9vw;
+    font-size: var(--small-font);
     color: #666;
+    margin: 0;
 }
 
 .netflix-episode-play-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 4vw;
-    color: #ffc800;
-    font-size: 2vw;
+    width: 60px;
+    height: 60px;
+    color: var(--focus-color);
+    font-size: 36px;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.25s ease;
+    flex-shrink: 0;
 }
 
 .netflix-episode-card.active .netflix-episode-play-icon {
     opacity: 1;
+}
+
+/* ============================================
+   Responsive Breakpoints
+   ============================================ */
+
+/* 720p TVs (max-width: 1281px) */
+@media screen and (max-width: 1281px) {
+    :root {
+        --season-card-width: 180px;
+        --season-card-gap: 15px;
+        --episode-thumb-width: 200px;
+        --episode-thumb-height: 113px;
+        --page-padding: 30px;
+        --header-font: 26px;
+        --title-font: 20px;
+        --body-font: 16px;
+        --small-font: 13px;
+    }
+    
+    .netflix-series-poster {
+        width: 200px;
+    }
+    
+    .netflix-series-poster img {
+        max-height: calc(100vh - 160px);
+    }
+    
+    .netflix-season-poster {
+        height: 100px;
+    }
+    
+    .netflix-seasons-content {
+        gap: 25px;
+    }
+    
+    .netflix-back-btn {
+        padding: 10px 18px;
+        gap: 8px;
+    }
+    
+    .netflix-back-btn i {
+        font-size: 18px;
+    }
+    
+    .netflix-episode-card {
+        gap: 16px;
+        padding: 10px;
+    }
+    
+    .netflix-episode-play-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+    }
+}
+
+/* 1080p TVs (1282px - 1919px) - Default styles apply */
+
+/* 4K TVs (min-width: 1920px) */
+@media screen and (min-width: 1920px) {
+    :root {
+        --season-card-width: 280px;
+        --season-card-gap: 30px;
+        --episode-thumb-width: 360px;
+        --episode-thumb-height: 202px;
+        --page-padding: 60px;
+        --header-font: 42px;
+        --title-font: 30px;
+        --body-font: 22px;
+        --small-font: 18px;
+    }
+    
+    .netflix-series-poster {
+        width: 380px;
+    }
+    
+    .netflix-season-poster {
+        height: 158px;
+    }
+    
+    .netflix-seasons-content {
+        gap: 50px;
+    }
+    
+    .netflix-back-btn {
+        padding: 16px 32px;
+        gap: 16px;
+    }
+    
+    .netflix-back-btn i {
+        font-size: 26px;
+    }
+    
+    .netflix-episode-card {
+        gap: 32px;
+        padding: 16px;
+    }
+    
+    .netflix-episode-play-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 48px;
+    }
+    
+    .netflix-season-info {
+        padding: 18px 20px;
+    }
 }
