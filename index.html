@@ -1340,23 +1340,39 @@
             </div>
         </div>
         <div id="episode-page" class="height-100" style="display: none">
-            <img class="vod-series-background-img" onerror="this.src=''">
-            <div class="vod-series-background-img-overlay"></div>
-            <div class="netflix-episodes-container">
-                <div class="netflix-episodes-header">
-                    <div id="episode-page-back-button" class="netflix-back-btn active"
+            <img id="episode-page-background" class="episode-dynamic-bg" onerror="this.src=''">
+            <div class="episode-dynamic-bg-overlay"></div>
+            <div class="episode-split-container">
+                <div class="episode-header-bar">
+                    <div id="episode-page-back-button" class="netflix-back-btn"
                          onclick="episode_variable.goBack()"
                          onmouseenter="episode_variable.hoverGoBack()">
                         <i class="fa fa-arrow-left"></i>
                         <span data-word_code="go_back">Back</span>
                     </div>
-                    <div class="netflix-episode-info">
+                    <div class="episode-header-info">
                         <h2 id="season-title-container"></h2>
                         <span id="episode-count-badge"></span>
                     </div>
                 </div>
-                <div class="netflix-episodes-content">
-                    <div id="episode-grid-container" class="netflix-episode-grid"></div>
+                <div class="episode-split-content">
+                    <div class="episode-detail-pane">
+                        <div class="episode-detail-number" id="focused-episode-number">Episode 1</div>
+                        <h1 class="episode-detail-title" id="focused-episode-title">Episode Title</h1>
+                        <div class="episode-detail-meta">
+                            <span class="episode-detail-duration" id="focused-episode-duration"></span>
+                        </div>
+                        <p class="episode-detail-description" id="focused-episode-description"></p>
+                        <div id="episode-watch-btn" class="episode-watch-button"
+                             onclick="episode_variable.handleMenuClick()"
+                             onmouseenter="episode_variable.hoverWatchButton()">
+                            <i class="fa fa-play"></i>
+                            <span data-word_code="watch_now">Watch Now</span>
+                        </div>
+                    </div>
+                    <div class="episode-rail-container">
+                        <div id="episode-grid-container" class="episode-vertical-rail"></div>
+                    </div>
                 </div>
             </div>
         </div>

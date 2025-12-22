@@ -133,30 +133,13 @@ var seasons_variable={
         if(typeof episodes!="undefined" && episodes.length>0){
             $('#season-title-container').text(current_series.name + ' - ' + current_season.name);
             $('#episode-count-badge').text(episodes.length + ' Episode' + (episodes.length !== 1 ? 's' : ''));
-            var htmlContent="";
-            episodes.map(function(episode, idx){
-                var episodeImg = (episode.info && episode.info.movie_image) ? episode.info.movie_image : 'images/series.png';
-                var duration = (episode.info && episode.info.duration) ? episode.info.duration : '';
-                htmlContent+=
-                    '<div class="netflix-episode-card" data-index="'+idx+'" onclick="episode_variable.showMovie('+idx+')" onmouseenter="episode_variable.hoverMovie('+idx+')">'+
-                        '<img class="netflix-episode-thumbnail" src="'+episodeImg+'" onerror="this.src=\'images/series.png\'">'+
-                        '<div class="netflix-episode-details">'+
-                            '<p class="netflix-episode-number">Episode '+(idx+1)+'</p>'+
-                            '<p class="netflix-episode-title">'+episode.title+'</p>'+
-                            (duration ? '<p class="netflix-episode-duration">'+duration+'</p>' : '')+
-                        '</div>'+
-                        '<div class="netflix-episode-play-icon"><i class="fa fa-play-circle"></i></div>'+
-                    '</div>';
-            });
-            $('#episode-grid-container').html(htmlContent);
-            episode_variable.episode_doms=$('.netflix-episode-card');
+            episode_variable.renderEpisodes();
+            episode_variable.init();
             current_route="episode-page";
             $('#seasons-page').hide();
             $('#episode-page').show();
             $('#episode-grid-container').scrollTop(0);
-            $($('.netflix-episode-card')[0]).addClass('active');
-            episode_variable.keys.focused_part="grid_part";
-            episode_variable.keys.grid_part=0;
+            episode_variable.hoverMovie(0);
         }
         else{
             showToast("Sorry","No episodes available");
