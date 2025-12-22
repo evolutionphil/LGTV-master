@@ -322,6 +322,11 @@ var vod_series_player={
                     $('#storage-page').show();
                     storage_page.hoverMenuItem(storage_page.keys.menu_selection);
                 }
+                if(this.back_url==='series-summary-page') {
+                    $('#series-summary-page').show();
+                    series_summary_page.keys.focused_part = 'episodes';
+                    series_summary_page.hoverEpisode(series_summary_page.keys.episode_index);
+                }
             }
         }
         if(this.keys.focused_part==="operation_modal"){
