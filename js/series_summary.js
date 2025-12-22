@@ -340,11 +340,12 @@ var series_summary_page={
     openSeasonDropdown: function(){
         var seasons = current_series.seasons || [];
         if(seasons.length === 0){
-            showToast("Info", "No seasons available");
+            showToast("Info", "Sezon bilgisi yükleniyor veya mevcut değil");
             return;
         }
         if(seasons.length === 1){
-            this.selectSeasonFromDropdown(0);
+            current_season = seasons[0];
+            episode_variable.init();
             return;
         }
         var html = '';
