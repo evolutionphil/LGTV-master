@@ -1240,6 +1240,48 @@
     .episode-watch-button {
         padding: 12px 30px;
     }
+    
+    /* Series Summary Page - 720p */
+    .series-ep-card {
+        width: 180px;
+    }
+    
+    .series-ep-thumb {
+        height: 101px;
+    }
+    
+    .series-ep-info {
+        padding: 8px;
+    }
+    
+    .series-ep-number {
+        font-size: 10px;
+    }
+    
+    .series-ep-title {
+        font-size: 12px;
+    }
+    
+    .series-ep-duration {
+        font-size: 10px;
+    }
+    
+    .series-episode-rail {
+        gap: 12px;
+    }
+    
+    .season-dropdown-menu {
+        max-height: 200px;
+    }
+    
+    .vod-summary-description {
+        font-size: 14px;
+        -webkit-line-clamp: 3;
+    }
+    
+    .vod-summary-actions {
+        gap: 10px;
+    }
 }
 
 /* 1080p TVs (1282px - 1919px) - Default styles apply */
@@ -1317,5 +1359,47 @@
     .episode-detail-description {
         max-height: 160px;
         -webkit-line-clamp: 5;
+    }
+    
+    /* Series Summary Page - 4K */
+    .series-ep-card {
+        width: 320px;
+    }
+    
+    .series-ep-thumb {
+        height: 180px;
+    }
+    
+    .series-ep-info {
+        padding: 16px;
+    }
+    
+    .series-ep-number {
+        font-size: 14px;
+    }
+    
+    .series-ep-title {
+        font-size: 18px;
+    }
+    
+    .series-ep-duration {
+        font-size: 14px;
+    }
+    
+    .series-episode-rail {
+        gap: 24px;
+    }
+    
+    .season-dropdown-menu {
+        max-height: 400px;
+    }
+    
+    .vod-summary-description {
+        font-size: 22px;
+        -webkit-line-clamp: 5;
+    }
+    
+    .vod-summary-actions {
+        gap: 20px;
     }
 }
