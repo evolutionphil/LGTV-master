@@ -268,6 +268,16 @@ var series_summary_page={
         this.is_loading=false;
         current_route="series-summary-page";
         $('#series-summary-page').show();
+        
+        // For non-XTREME playlists (M3U/type1), map episodes to seasons
+        if(settings.playlist_type !== "xtreme") {
+            if(settings.playlist_type === "type1" && current_series.seasons && current_series.episodes) {
+                current_series.seasons.map(function(item){
+                    item.episodes = current_series.episodes[item.name] || [];
+                });
+            }
+            this.handleSeasonsReady();
+        }
     },
     goBack:function(){
         current_route=this.prev_route;
