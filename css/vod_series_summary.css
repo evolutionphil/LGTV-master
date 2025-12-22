@@ -406,30 +406,7 @@
     height: 100%;
 }
 
-#series-summary-image-wrapper {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    max-width: 500px;
-}
 
-#series-summary-image-wrapper img {
-    border: 5px solid #48278f;
-    box-shadow: 0 0 10px 0 #48278f, 0 2px 20px 0 #22222278;
-    top: 50%;
-    left: 0px;
-    width: 480px;
-    max-width: 90%;
-    position: absolute;
-    transform: translateY(-50%);
-}
-
-#current-series-category {
-    font-size: 35px;
-    color: #0df1be;
-    margin-top: -5px;
-    margin-bottom: 10px;
-}
 
 .vod-summary-information-container {
     padding-left: 60px;
@@ -451,10 +428,6 @@
     margin-right: 15px;
 }
 
-#series-summary-name {
-    font-size: 50px;
-    font-weight: bold;
-}
 
 .max-line-2 {
     overflow: hidden;
@@ -472,23 +445,16 @@
     text-overflow: ellipsis;
 }
 
-#series-summary-description {
-    margin-top: 20px;
-    font-size: 30px;
-    line-height: 36px;
-    overflow: hidden;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-}
 
-#series-summary-action-container {
-    bottom: 20px;
-    right: 20px;
-    position: fixed;
-    z-index: 100;
+#series-summary-page .vod-summary-redesign #series-summary-action-container {
+    position: static;
+    display: flex;
+    gap: 1.5vw;
+    margin-top: auto;
+    padding-bottom: 1.5vh;
+    justify-content: flex-start;
+    width: 100%;
+    z-index: auto;
 }
 
 .vod-series-action-btn {
