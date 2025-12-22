@@ -1038,6 +1038,17 @@
     z-index: 10000;
 }
 
+.season-dropdown-container.open #series-season-dropdown-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: #1e1e1e;
+    z-index: 10001;
+}
+
 .season-dropdown-menu {
     position: absolute;
     top: 100%;
@@ -1047,11 +1058,11 @@
     overflow-y: auto;
     background: #1e1e1e;
     border: 2px solid #ffc800;
-    border-top: 2px solid #1e1e1e;
+    border-top: none;
     border-radius: 0 0 8px 8px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     z-index: 9999;
-    margin-top: -2px;
+    margin-top: 0;
 }
 
 .season-dropdown-item {
