@@ -28,6 +28,7 @@ var series_summary_page={
         this.pendingSeasonRequest = false;
         $('#similar-series-section').hide();
         $('#series-episodes-section').hide();
+        $('#series-watch-movie-button').hide();
         $('#series-season-tabs').html('');
         $('#series-episode-rail').html('');
         $('#series-summary-image-wrapper img').attr('src','');
@@ -108,7 +109,6 @@ var series_summary_page={
         }
         
         var that = this;
-        this.loadSimilarSeries(current_series, currentCategoryName);
 
         // Fetch detailed series info from XTREME API for TMDB data
         if(settings.playlist_type==="xtreme"){
@@ -324,6 +324,7 @@ var series_summary_page={
     keyMove:function(increment){
         var keys=this.keys;
         keys.index+=increment;
+        if(keys.index === 1) keys.index += increment;
         var min_btn_index=this.min_btn_index;
         if(keys.index<min_btn_index)
             keys.index=2;
@@ -345,22 +346,6 @@ var series_summary_page={
         }else
             trailer_page.init(current_series.youtube_trailer,'series-summary-page');
     },
-    showSeason:function(){
-        if(!this.seasonsReady){
-            this.pendingSeasonRequest = true;
-            showToast("Loading", "Please wait, seasons are loading...");
-            return;
-        }
-        this.pendingSeasonRequest = false;
-        this.keys.focused_part = 'seasons';
-        this.keys.season_index = 0;
-        this.keys.episode_index = 0;
-        $(this.buttons).removeClass('active');
-        this.renderSeasonTabs();
-        this.selectSeason(0);
-        $('#series-episodes-section').show();
-        $('.season-tab').first().addClass('active focused');
-    },
     handleSeasonsReady:function(){
         var hasEpisodes = false;
         if(current_series.seasons && current_series.seasons.length > 0){
@@ -373,9 +358,10 @@ var series_summary_page={
         }
         if(hasEpisodes){
             this.seasonsReady = true;
-            if(this.pendingSeasonRequest){
-                this.showSeason();
-            }
+            this.renderSeasonTabs();
+            this.selectSeason(0);
+            $('#series-episodes-section').show();
+            $('.season-tab').first().addClass('active');
         }
     },
     renderSeasonTabs:function(){
@@ -594,11 +580,7 @@ var series_summary_page={
                 this.goBack();
                 break;
             case tvKey.LEFT:
-                if(keys.focused_part === 'similar') {
-                    if(keys.similar_index > 0) {
-                        this.hoverSimilarSeries(keys.similar_index - 1);
-                    }
-                } else if(keys.focused_part === 'seasons') {
+                if(keys.focused_part === 'seasons') {
                     if(keys.season_index > 0) {
                         this.hoverSeasonTab(keys.season_index - 1);
                     }
@@ -611,11 +593,7 @@ var series_summary_page={
                 }
                 break;
             case tvKey.RIGHT:
-                if(keys.focused_part === 'similar') {
-                    if(keys.similar_index < this.similar_series.length - 1) {
-                        this.hoverSimilarSeries(keys.similar_index + 1);
-                    }
-                } else if(keys.focused_part === 'seasons') {
+                if(keys.focused_part === 'seasons') {
                     if(keys.season_index < seasonTabs.length - 1) {
                         this.hoverSeasonTab(keys.season_index + 1);
                     }
@@ -628,21 +606,7 @@ var series_summary_page={
                 }
                 break;
             case tvKey.UP:
-                if(keys.focused_part === 'similar') {
-                    if(episodeCards.length > 0) {
-                        keys.focused_part = 'episodes';
-                        $('#similar-series-container .similar-movie-item').removeClass('active');
-                        this.hoverEpisode(keys.episode_index || 0);
-                    } else if(seasonTabs.length > 0) {
-                        keys.focused_part = 'seasons';
-                        $('#similar-series-container .similar-movie-item').removeClass('active');
-                        this.hoverSeasonTab(keys.season_index || 0);
-                    } else {
-                        keys.focused_part = 'buttons';
-                        $('#similar-series-container .similar-movie-item').removeClass('active');
-                        $(this.buttons[keys.index]).addClass('active');
-                    }
-                } else if(keys.focused_part === 'episodes') {
+                if(keys.focused_part === 'episodes') {
                     keys.focused_part = 'seasons';
                     $('.series-ep-card').removeClass('active');
                     this.hoverSeasonTab(keys.season_index || 0);
@@ -658,22 +622,12 @@ var series_summary_page={
                         keys.focused_part = 'seasons';
                         $(this.buttons).removeClass('active');
                         this.hoverSeasonTab(keys.season_index || 0);
-                    } else if(this.similar_series.length > 0) {
-                        keys.focused_part = 'similar';
-                        $(this.buttons).removeClass('active');
-                        this.hoverSimilarSeries(keys.similar_index);
                     }
                 } else if(keys.focused_part === 'seasons') {
                     if(episodeCards.length > 0) {
                         keys.focused_part = 'episodes';
                         $('.season-tab').removeClass('focused');
                         this.hoverEpisode(keys.episode_index || 0);
-                    }
-                } else if(keys.focused_part === 'episodes') {
-                    if(this.similar_series.length > 0) {
-                        keys.focused_part = 'similar';
-                        $('.series-ep-card').removeClass('active');
-                        this.hoverSimilarSeries(keys.similar_index || 0);
                     }
                 }
                 break;

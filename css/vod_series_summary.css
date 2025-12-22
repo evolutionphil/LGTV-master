@@ -1013,7 +1013,8 @@
     display: flex;
     gap: 16px;
     overflow-x: auto;
-    padding-bottom: 20px;
+    padding: 10px 10px 20px 10px;
+    margin-left: -10px;
     scroll-behavior: smooth;
 }
 
