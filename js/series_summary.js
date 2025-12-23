@@ -414,7 +414,11 @@ var series_summary_page={
     hoverDropdownItem:function(index){
         this.keys.dropdown_focus_index = index;
         $('.season-dropdown-item').removeClass('focused');
-        $('.season-dropdown-item[data-index="'+index+'"]').addClass('focused');
+        var item = $('.season-dropdown-item[data-index="'+index+'"]');
+        item.addClass('focused');
+        if(item.length > 0 && item[0].scrollIntoView){
+            item[0].scrollIntoView({block:'nearest', behavior:'smooth'});
+        }
     },
     selectSeasonFromDropdown:function(index){
         this.selectSeason(index);
