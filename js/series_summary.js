@@ -471,14 +471,23 @@ var series_summary_page={
         if(card.length > 0 && rail.length > 0) {
             var cardEl = card[0];
             var railEl = rail[0];
-            var cardLeft = cardEl.offsetLeft;
-            var cardWidth = cardEl.offsetWidth;
-            var railScrollLeft = railEl.scrollLeft;
-            var railWidth = railEl.offsetWidth;
-            if(cardLeft < railScrollLeft) {
-                rail.animate({ scrollLeft: cardLeft }, 150);
-            } else if(cardLeft + cardWidth > railScrollLeft + railWidth) {
-                rail.animate({ scrollLeft: cardLeft + cardWidth - railWidth }, 150);
+            var buffer = 20;
+            var cardRect = cardEl.getBoundingClientRect();
+            var railRect = railEl.getBoundingClientRect();
+            var currentScroll = railEl.scrollLeft;
+            var maxScroll = railEl.scrollWidth - railEl.clientWidth;
+            var targetScroll = currentScroll;
+            var leftOverflow = railRect.left - cardRect.left + buffer;
+            var rightOverflow = cardRect.right - railRect.right + buffer;
+            if(leftOverflow > 0) {
+                targetScroll = Math.max(0, currentScroll - leftOverflow);
+            } else if(rightOverflow > 0) {
+                targetScroll = Math.min(maxScroll, currentScroll + rightOverflow);
+            }
+            if(targetScroll !== currentScroll) {
+                var distance = Math.abs(targetScroll - currentScroll);
+                var duration = Math.min(300, Math.max(100, distance * 0.5));
+                rail.stop(true, false).animate({ scrollLeft: targetScroll }, duration);
             }
         }
     },
