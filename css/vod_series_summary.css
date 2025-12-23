@@ -458,10 +458,11 @@
     display: flex;
     gap: 1.5vw;
     margin-top: auto;
+    margin-left: calc(-22vw - 2.5vw);
     padding-bottom: 1.5vh;
     overflow: visible;
     justify-content: flex-start;
-    width: 100%;
+    width: calc(100% + 22vw + 2.5vw);
     z-index: auto;
 }
 
