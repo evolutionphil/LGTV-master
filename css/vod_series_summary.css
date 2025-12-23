@@ -93,7 +93,7 @@
 
 #series-summary-page #current-series-category {
     font-size: 1.5vw;
-    color: #00d9a5;
+    color: #fff;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -187,7 +187,8 @@
     display: none;
 }
 
-#vod-summary-page .vod-summary-description {
+#vod-summary-page .vod-summary-description,
+#series-summary-page .vod-summary-description {
     font-size: 1.6vw;
     line-height: 1.6;
     color: #fff;
@@ -214,7 +215,7 @@
 
 .vod-detail-label {
     font-size: 1.1vw;
-    color: #666;
+    color: #aaa;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0.5vh;
