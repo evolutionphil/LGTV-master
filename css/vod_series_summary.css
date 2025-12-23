@@ -510,11 +510,13 @@
     z-index: 10;
 }
 
-#series-summary-page .vod-summary-redesign #series-summary-action-container > .vod-action-btn-new {
+#series-summary-page .vod-summary-redesign #series-summary-action-container > .vod-action-btn-new,
+#series-summary-page .vod-summary-redesign #series-summary-action-container > button {
     margin-right: 1.5vw;
 }
 
-#series-summary-page .vod-summary-redesign #series-summary-action-container > .vod-action-btn-new:last-child {
+#series-summary-page .vod-summary-redesign #series-summary-action-container > .vod-action-btn-new:last-child,
+#series-summary-page .vod-summary-redesign #series-summary-action-container > button:last-child {
     margin-right: 0;
 }
 
@@ -1037,6 +1039,7 @@
     flex-direction: column;
     overflow-y: auto;
     padding-right: 15px;
+    padding-bottom: 20px;
     scroll-behavior: smooth;
 }
 
@@ -1262,7 +1265,7 @@
 .series-episode-rail {
     display: flex;
     overflow-x: auto;
-    padding: 10px 10px 20px 10px;
+    padding: 10px 10px 30px 10px;
     margin-left: -10px;
     scroll-behavior: smooth;
 }
