@@ -1078,9 +1078,9 @@
 
 .season-dropdown-item {
     display: block;
-    padding: 2vh 3vw;
+    padding: 12px 20px;
     color: #fff;
-    font-size: 1.5vw;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.15s ease;
@@ -1157,7 +1157,7 @@
 .series-ep-thumb {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     background: #222;
 }
 
