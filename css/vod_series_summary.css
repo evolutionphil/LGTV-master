@@ -109,7 +109,7 @@
     padding-top: 2vh;
     max-width: 75vw;
     min-width: 0;
-    height: 100%;
+    height: calc(60vh + 2vh);
 }
 
 .vod-summary-header {
@@ -212,8 +212,9 @@
 .vod-detail-item {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 0 1 auto;
     min-width: 0;
+    max-width: 35%;
 }
 
 .vod-detail-label {
