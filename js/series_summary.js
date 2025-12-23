@@ -466,7 +466,11 @@ var series_summary_page={
         this.keys.episode_index = index;
         $('.series-ep-card').removeClass('active');
         $('.series-ep-card[data-index="'+index+'"]').addClass('active');
-        moveScrollPosition($('#series-episode-rail'),$('.series-ep-card[data-index="'+index+'"]')[0],'horizontal',false);
+        if(index === 0) {
+            $('#series-episode-rail').animate({ scrollLeft: 0 }, 100);
+        } else {
+            moveScrollPosition($('#series-episode-rail'),$('.series-ep-card[data-index="'+index+'"]')[0],'horizontal',false);
+        }
     },
     playEpisode:function(index){
         var episodes = current_season.episodes || [];

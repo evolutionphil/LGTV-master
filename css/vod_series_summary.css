@@ -135,7 +135,7 @@
 
 #vod-summary-page #current-vod-category {
     font-size: 1.5vw;
-    color: #00d9a5;
+    color: #fff;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -194,7 +194,7 @@
     color: #fff;
     margin: 0 0 2vh 0;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
     white-space: normal;
@@ -210,7 +210,8 @@
 .vod-detail-item {
     display: flex;
     flex-direction: column;
-    max-width: 40vw;
+    flex: 1;
+    min-width: 0;
 }
 
 .vod-detail-label {
