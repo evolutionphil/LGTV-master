@@ -1330,6 +1330,39 @@
     .vod-summary-actions {
         gap: 10px;
     }
+    
+    /* Series Summary Page - 720p responsive */
+    .vod-summary-hero {
+        height: calc(55vh + 2vh);
+    }
+    
+    #series-summary-page #series-summary-image-wrapper img,
+    #vod-summary-page #vod-summary-image-wrapper img {
+        height: 55vh;
+    }
+    
+    .vod-summary-poster {
+        width: 20vw;
+    }
+    
+    #series-summary-page #series-summary-image-wrapper,
+    #vod-summary-page #vod-summary-image-wrapper {
+        width: 20vw;
+    }
+    
+    #series-summary-page #series-summary-image-wrapper img,
+    #vod-summary-page #vod-summary-image-wrapper img {
+        width: 20vw;
+    }
+    
+    #series-summary-page .vod-summary-redesign #series-summary-action-container {
+        left: calc(20vw + 2.5vw);
+    }
+    
+    .vod-action-btn-new {
+        padding: 1.5vh 2vw;
+        font-size: 1.3vw;
+    }
 }
 
 /* 1080p TVs (1282px - 1919px) - Default styles apply */
@@ -1454,5 +1487,38 @@
     
     .vod-summary-actions {
         gap: 20px;
+    }
+    
+    /* Series Summary Page - 4K responsive */
+    .vod-summary-hero {
+        height: calc(65vh + 2vh);
+    }
+    
+    #series-summary-page #series-summary-image-wrapper img,
+    #vod-summary-page #vod-summary-image-wrapper img {
+        height: 65vh;
+    }
+    
+    .vod-summary-poster {
+        width: 24vw;
+    }
+    
+    #series-summary-page #series-summary-image-wrapper,
+    #vod-summary-page #vod-summary-image-wrapper {
+        width: 24vw;
+    }
+    
+    #series-summary-page #series-summary-image-wrapper img,
+    #vod-summary-page #vod-summary-image-wrapper img {
+        width: 24vw;
+    }
+    
+    #series-summary-page .vod-summary-redesign #series-summary-action-container {
+        left: calc(24vw + 2.5vw);
+    }
+    
+    .vod-action-btn-new {
+        padding: 2.5vh 3.5vw;
+        font-size: 1.6vw;
     }
 }
