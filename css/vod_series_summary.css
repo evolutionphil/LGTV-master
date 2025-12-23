@@ -475,6 +475,7 @@
     left: calc(22vw + 2.5vw);
     display: flex;
     gap: 1.5vw;
+    padding-bottom: 0;
     overflow: visible;
     justify-content: flex-start;
     z-index: 10;
