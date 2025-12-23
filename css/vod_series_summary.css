@@ -189,12 +189,12 @@
 
 #vod-summary-page .vod-summary-description,
 #series-summary-page .vod-summary-description {
-    font-size: 1.6vw;
-    line-height: 1.6;
+    font-size: 1.2vw;
+    line-height: 1.5;
     color: #fff;
-    margin: 0 0 2.5vh 0;
+    margin: 0 0 2vh 0;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     white-space: normal;
@@ -224,9 +224,12 @@
 .vod-detail-value {
     font-size: 1.4vw;
     color: #fff;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .vod-detail-value:empty {
@@ -1159,7 +1162,7 @@
 .series-ep-thumb {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: fill;
     background: #222;
 }
 
