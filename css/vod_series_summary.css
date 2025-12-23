@@ -248,7 +248,7 @@
 .vod-action-btn-new {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.8vw;
     padding: 2vh 3vw;
     font-size: 1.5vw;
