@@ -465,11 +465,21 @@ var series_summary_page={
         this.keys.focused_part = 'episodes';
         this.keys.episode_index = index;
         $('.series-ep-card').removeClass('active');
-        $('.series-ep-card[data-index="'+index+'"]').addClass('active');
-        if(index === 0) {
-            $('#series-episode-rail').animate({ scrollLeft: 0 }, 100);
-        } else {
-            moveScrollPosition($('#series-episode-rail'),$('.series-ep-card[data-index="'+index+'"]')[0],'horizontal',false);
+        var card = $('.series-ep-card[data-index="'+index+'"]');
+        card.addClass('active');
+        var rail = $('#series-episode-rail');
+        if(card.length > 0 && rail.length > 0) {
+            var cardEl = card[0];
+            var railEl = rail[0];
+            var cardLeft = cardEl.offsetLeft;
+            var cardWidth = cardEl.offsetWidth;
+            var railScrollLeft = railEl.scrollLeft;
+            var railWidth = railEl.offsetWidth;
+            if(cardLeft < railScrollLeft) {
+                rail.animate({ scrollLeft: cardLeft }, 150);
+            } else if(cardLeft + cardWidth > railScrollLeft + railWidth) {
+                rail.animate({ scrollLeft: cardLeft + cardWidth - railWidth }, 150);
+            }
         }
     },
     playEpisode:function(index){
