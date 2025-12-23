@@ -32,7 +32,6 @@
 .vod-summary-hero {
     display: flex;
     flex: 0 0 auto;
-    gap: 2.5vw;
     min-height: 0;
     flex-wrap: nowrap;
     align-items: flex-start;
@@ -40,12 +39,14 @@
     height: calc(60vh + 2vh);
 }
 
+/* Tizen 2.4 / LG WebOS gap fallback - use margin instead of gap */
 .vod-summary-poster {
     flex-shrink: 0;
     width: 22vw;
     display: flex;
     align-items: flex-start;
     padding-top: 2vh;
+    margin-right: 2.5vw;
 }
 
 #vod-summary-page #vod-summary-image-wrapper {
@@ -133,8 +134,16 @@
 .vod-summary-meta-row {
     display: flex;
     align-items: center;
-    gap: 1vw;
     flex-wrap: wrap;
+}
+
+.vod-summary-meta-row > * {
+    margin-right: 1vw;
+    margin-bottom: 0.5vh;
+}
+
+.vod-summary-meta-row > *:last-child {
+    margin-right: 0;
 }
 
 #vod-summary-page #current-vod-category {
@@ -161,10 +170,17 @@
 .vod-rating-inline {
     display: flex;
     align-items: center;
-    gap: 0.5vw;
     padding: 0.8vh 1.2vw;
     background: rgba(255,200,0,0.15);
     border-radius: 20px;
+}
+
+.vod-rating-inline > * {
+    margin-right: 0.5vw;
+}
+
+.vod-rating-inline > *:last-child {
+    margin-right: 0;
 }
 
 .vod-rating-star {
@@ -207,8 +223,16 @@
 .vod-summary-details {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5vh 3vw;
     margin-bottom: 2vh;
+}
+
+.vod-summary-details > .vod-detail-item {
+    margin-right: 3vw;
+    margin-bottom: 1.5vh;
+}
+
+.vod-summary-details > .vod-detail-item:last-child {
+    margin-right: 0;
 }
 
 .vod-detail-item {
@@ -257,18 +281,24 @@
 
 .vod-summary-actions {
     display: flex;
-    gap: 1.5vw;
     margin-top: auto;
     padding-bottom: 1.5vh;
     justify-content: flex-start;
     width: 100%;
 }
 
+.vod-summary-actions > .vod-action-btn-new {
+    margin-right: 1.5vw;
+}
+
+.vod-summary-actions > .vod-action-btn-new:last-child {
+    margin-right: 0;
+}
+
 .vod-action-btn-new {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 0.8vw;
     padding: 2vh 3vw;
     font-size: 1.5vw;
     font-weight: 600;
@@ -281,6 +311,7 @@
 }
 
 .vod-action-btn-new i {
+    margin-right: 0.8vw;
     font-size: 1.5vw;
 }
 
@@ -316,7 +347,6 @@
 
 #similar-movies-container {
     display: flex;
-    gap: 1.2vw;
     overflow-x: auto;
     overflow-y: hidden;
     padding: 1vh 0.5vw;
@@ -474,11 +504,18 @@
     bottom: 0;
     left: calc(22vw + 2.5vw);
     display: flex;
-    gap: 1.5vw;
     padding-bottom: 0;
     overflow: visible;
     justify-content: flex-start;
     z-index: 10;
+}
+
+#series-summary-page .vod-summary-redesign #series-summary-action-container > .vod-action-btn-new {
+    margin-right: 1.5vw;
+}
+
+#series-summary-page .vod-summary-redesign #series-summary-action-container > .vod-action-btn-new:last-child {
+    margin-right: 0;
 }
 
 .vod-series-action-btn {
@@ -614,7 +651,6 @@
 .netflix-episodes-header {
     display: flex;
     align-items: center;
-    gap: 30px;
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-bottom: 1px solid rgba(255,255,255,0.15);
@@ -625,7 +661,6 @@
 .netflix-back-btn {
     display: flex;
     align-items: center;
-    gap: 12px;
     color: #aaa;
     font-size: var(--body-font);
     cursor: pointer;
@@ -635,6 +670,11 @@
     background: rgba(255,255,255,0.08);
     border: 2px solid transparent;
     flex-shrink: 0;
+    margin-right: 30px;
+}
+
+.netflix-back-btn i {
+    margin-right: 12px;
 }
 
 .netflix-back-btn:hover {
@@ -657,9 +697,18 @@
 .netflix-episode-info {
     display: flex;
     flex-direction: column;
-    gap: 8px;
     flex: 1;
     min-width: 0;
+}
+
+.netflix-series-info > *,
+.netflix-episode-info > * {
+    margin-bottom: 8px;
+}
+
+.netflix-series-info > *:last-child,
+.netflix-episode-info > *:last-child {
+    margin-bottom: 0;
 }
 
 .netflix-series-info h2,
@@ -676,8 +725,16 @@
 .netflix-series-meta {
     display: flex;
     align-items: center;
-    gap: 20px;
     flex-wrap: wrap;
+}
+
+.netflix-series-meta > * {
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+.netflix-series-meta > *:last-child {
+    margin-right: 0;
 }
 
 #season-rating {
@@ -685,7 +742,14 @@
     font-size: var(--body-font);
     display: flex;
     align-items: center;
-    gap: 6px;
+}
+
+#season-rating > * {
+    margin-right: 6px;
+}
+
+#season-rating > *:last-child {
+    margin-right: 0;
 }
 
 #season-count-badge,
@@ -711,7 +775,6 @@
 .netflix-season-grid {
     display: flex;
     flex-wrap: nowrap;
-    gap: var(--season-card-gap);
     overflow-x: auto;
     overflow-y: hidden;
     padding-bottom: 20px;
@@ -724,6 +787,14 @@
     width: var(--season-card-width);
     background: var(--card-bg);
     border-radius: 10px;
+    margin-right: var(--season-card-gap);
+}
+
+.netflix-season-card:last-child {
+    margin-right: 0;
+}
+
+.netflix-season-card-inner {
     overflow: hidden;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -809,15 +880,29 @@
 .episode-header-bar {
     display: flex;
     align-items: center;
-    gap: 30px;
     margin-bottom: 30px;
     flex-shrink: 0;
+}
+
+.episode-header-bar > * {
+    margin-right: 30px;
+}
+
+.episode-header-bar > *:last-child {
+    margin-right: 0;
 }
 
 .episode-header-info {
     display: flex;
     align-items: center;
-    gap: 20px;
+}
+
+.episode-header-info > * {
+    margin-right: 20px;
+}
+
+.episode-header-info > *:last-child {
+    margin-right: 0;
 }
 
 .episode-header-info h2 {
@@ -830,8 +915,11 @@
 .episode-split-content {
     display: flex;
     flex: 1;
-    gap: 60px;
     min-height: 0;
+}
+
+.episode-split-content > .episode-detail-pane {
+    margin-right: 60px;
 }
 
 /* Left Pane - Episode Details */
@@ -863,8 +951,15 @@
 .episode-detail-meta {
     display: flex;
     align-items: center;
-    gap: 20px;
     margin-bottom: 25px;
+}
+
+.episode-detail-meta > * {
+    margin-right: 20px;
+}
+
+.episode-detail-meta > *:last-child {
+    margin-right: 0;
 }
 
 .episode-detail-duration {
@@ -872,7 +967,14 @@
     color: #aaa;
     display: flex;
     align-items: center;
-    gap: 8px;
+}
+
+.episode-detail-duration > * {
+    margin-right: 8px;
+}
+
+.episode-detail-duration > *:last-child {
+    margin-right: 0;
 }
 
 .episode-detail-description {
@@ -891,7 +993,6 @@
 .episode-watch-button {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
     background: #fff;
     color: #000;
     padding: 16px 40px;
@@ -902,6 +1003,10 @@
     transition: all 0.25s ease;
     border: 3px solid transparent;
     width: fit-content;
+}
+
+.episode-watch-button i {
+    margin-right: 12px;
 }
 
 .episode-watch-button:hover {
@@ -930,16 +1035,22 @@
 .episode-vertical-rail {
     display: flex;
     flex-direction: column;
-    gap: 12px;
     overflow-y: auto;
     padding-right: 15px;
     scroll-behavior: smooth;
 }
 
+.episode-vertical-rail > .episode-rail-card {
+    margin-bottom: 12px;
+}
+
+.episode-vertical-rail > .episode-rail-card:last-child {
+    margin-bottom: 0;
+}
+
 /* Episode Card - Compact Style */
 .episode-rail-card {
     display: flex;
-    gap: 16px;
     background: rgba(40, 40, 40, 0.6);
     border-radius: 8px;
     overflow: hidden;
@@ -949,6 +1060,10 @@
     padding: 10px;
     align-items: center;
     flex-shrink: 0;
+}
+
+.episode-rail-card > .episode-rail-thumb {
+    margin-right: 16px;
 }
 
 .episode-rail-card:hover {
@@ -1006,10 +1121,17 @@
 
 .series-season-tabs {
     display: flex;
-    gap: 8px;
     margin-bottom: 20px;
     overflow-x: auto;
     padding-bottom: 10px;
+}
+
+.series-season-tabs > .season-tab {
+    margin-right: 8px;
+}
+
+.series-season-tabs > .season-tab:last-child {
+    margin-right: 0;
 }
 
 .season-tab {
@@ -1139,11 +1261,18 @@
 
 .series-episode-rail {
     display: flex;
-    gap: 16px;
     overflow-x: auto;
     padding: 10px 10px 20px 10px;
     margin-left: -10px;
     scroll-behavior: smooth;
+}
+
+.series-episode-rail > .series-ep-card {
+    margin-right: 16px;
+}
+
+.series-episode-rail > .series-ep-card:last-child {
+    margin-right: 0;
 }
 
 .series-ep-card {
@@ -1246,16 +1375,12 @@
         height: 100px;
     }
     
-    .netflix-seasons-content {
-        gap: 25px;
-    }
-    
     .netflix-back-btn {
         padding: 10px 18px;
-        gap: 8px;
     }
     
     .netflix-back-btn i {
+        margin-right: 8px;
         font-size: 18px;
     }
     
@@ -1272,8 +1397,8 @@
         flex: 0 0 55%;
     }
     
-    .episode-split-content {
-        gap: 40px;
+    .episode-split-content > .episode-detail-pane {
+        margin-right: 40px;
     }
     
     .episode-rail-thumb {
@@ -1315,8 +1440,8 @@
         font-size: 10px;
     }
     
-    .series-episode-rail {
-        gap: 12px;
+    .series-episode-rail > .series-ep-card {
+        margin-right: 12px;
     }
     
     .season-dropdown-menu {
@@ -1328,8 +1453,12 @@
         -webkit-line-clamp: 3;
     }
     
-    .vod-summary-actions {
-        gap: 10px;
+    .vod-summary-actions > .vod-action-btn-new {
+        margin-right: 10px;
+    }
+    
+    .vod-summary-actions > .vod-action-btn-new:last-child {
+        margin-right: 0;
     }
     
     /* Series Summary Page - 720p responsive */
@@ -1390,16 +1519,12 @@
         height: 158px;
     }
     
-    .netflix-seasons-content {
-        gap: 50px;
-    }
-    
     .netflix-back-btn {
         padding: 16px 32px;
-        gap: 16px;
     }
     
     .netflix-back-btn i {
+        margin-right: 16px;
         font-size: 26px;
     }
     
@@ -1411,8 +1536,8 @@
         font-size: 56px;
     }
     
-    .episode-split-content {
-        gap: 80px;
+    .episode-split-content > .episode-detail-pane {
+        margin-right: 80px;
     }
     
     .episode-rail-thumb {
@@ -1422,7 +1547,10 @@
     
     .episode-rail-card {
         padding: 14px;
-        gap: 20px;
+    }
+    
+    .episode-rail-card > .episode-rail-thumb {
+        margin-right: 20px;
     }
     
     .episode-rail-number {
@@ -1473,8 +1601,8 @@
         font-size: 14px;
     }
     
-    .series-episode-rail {
-        gap: 24px;
+    .series-episode-rail > .series-ep-card {
+        margin-right: 24px;
     }
     
     .season-dropdown-menu {
@@ -1486,8 +1614,12 @@
         -webkit-line-clamp: 5;
     }
     
-    .vod-summary-actions {
-        gap: 20px;
+    .vod-summary-actions > .vod-action-btn-new {
+        margin-right: 20px;
+    }
+    
+    .vod-summary-actions > .vod-action-btn-new:last-child {
+        margin-right: 0;
     }
     
     /* Series Summary Page - 4K responsive */
