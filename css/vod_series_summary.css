@@ -493,6 +493,7 @@
 .series-action-btn {
     pointer-events: auto !important;
     cursor: pointer;
+    justify-content: flex-start !important;
 }
 
 .vod-line {
