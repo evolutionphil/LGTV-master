@@ -511,12 +511,14 @@
 }
 
 #series-summary-page .vod-summary-redesign #series-summary-action-container > .vod-action-btn-new,
-#series-summary-page .vod-summary-redesign #series-summary-action-container > button {
+#series-summary-page .vod-summary-redesign #series-summary-action-container > button,
+#series-summary-page .vod-summary-redesign #series-summary-action-container > .season-dropdown-container {
     margin-right: 1.5vw;
 }
 
 #series-summary-page .vod-summary-redesign #series-summary-action-container > .vod-action-btn-new:last-child,
-#series-summary-page .vod-summary-redesign #series-summary-action-container > button:last-child {
+#series-summary-page .vod-summary-redesign #series-summary-action-container > button:last-child,
+#series-summary-page .vod-summary-redesign #series-summary-action-container > .season-dropdown-container:last-child {
     margin-right: 0;
 }
 
@@ -1617,12 +1619,22 @@
         -webkit-line-clamp: 5;
     }
     
-    .vod-summary-actions > .vod-action-btn-new {
+    .vod-summary-actions > .vod-action-btn-new,
+    .vod-summary-actions > .season-dropdown-container {
         margin-right: 20px;
     }
     
-    .vod-summary-actions > .vod-action-btn-new:last-child {
+    .vod-summary-actions > .vod-action-btn-new:last-child,
+    .vod-summary-actions > .season-dropdown-container:last-child {
         margin-right: 0;
+    }
+    
+    .series-episode-rail {
+        padding-bottom: 40px;
+    }
+    
+    .episode-vertical-rail {
+        padding-bottom: 30px;
     }
     
     /* Series Summary Page - 4K responsive */
