@@ -444,11 +444,13 @@ var series_summary_page={
                 html += '<div class="series-ep-card" data-index="'+index+'" '+
                         'onclick="series_summary_page.playEpisode('+index+')" '+
                         'onmouseenter="series_summary_page.hoverEpisode('+index+')">'+
-                        '<img class="series-ep-thumb" src="'+thumbImg+'" onerror="this.src=\'images/series.png\'">'+
+                        '<div class="series-ep-thumb-container">'+
+                            '<img class="series-ep-thumb" src="'+thumbImg+'" onerror="this.src=\'images/series.png\'">'+
+                            (duration ? '<span class="series-ep-duration">'+duration+'</span>' : '')+
+                        '</div>'+
                         '<div class="series-ep-info">'+
                             '<p class="series-ep-number">Episode '+(index+1)+'</p>'+
                             '<p class="series-ep-title">'+title+'</p>'+
-                            (duration ? '<p class="series-ep-duration">'+duration+'</p>' : '')+
                         '</div>'+
                     '</div>';
             });
