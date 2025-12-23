@@ -494,6 +494,14 @@
     pointer-events: auto !important;
     cursor: pointer;
     justify-content: flex-start !important;
+    text-align: left !important;
+}
+
+#series-season-dropdown-btn,
+#series-add-favourite-button,
+#series-watch-trailer-button {
+    justify-content: flex-start !important;
+    text-align: left !important;
 }
 
 .vod-line {
