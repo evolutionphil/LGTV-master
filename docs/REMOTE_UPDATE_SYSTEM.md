@@ -42,15 +42,80 @@ TV Uygulaması Açılır
 ```
 remote-assets/
 ├── manifest.json          # Versiyon bilgileri
-├── css/                   # CSS dosyaları
-│   ├── vod_series_summary.css
+├── css/                   # 18 CSS dosyası
+│   ├── style.css
+│   ├── variables.css
 │   ├── responsive.css
-│   └── ...
-└── js/                    # JavaScript dosyaları
+│   ├── loader.css
+│   ├── login.css
+│   ├── homepage.css
+│   ├── channel_page.css
+│   ├── vod_series_summary.css
+│   ├── vod_series_player_page.css
+│   ├── guide.css
+│   ├── catchup.css
+│   ├── search_page.css
+│   ├── subtitle.css
+│   ├── movie_grid.css
+│   ├── rating.css
+│   ├── storage_page.css
+│   ├── youtube_page.css
+│   └── gallary.css
+└── js/                    # 30 JavaScript dosyası
+    ├── Models/
+    │   ├── VodModel.js
+    │   ├── LiveModel.js
+    │   └── SeriesModel.js
     ├── common.js
+    ├── common_with_encrypt.js
+    ├── main.js
+    ├── keyTizen.js
+    ├── time_helper.js
+    ├── language_codes.js
+    ├── seasons_variable.js
+    ├── episode_variable.js
+    ├── home_operation.js
+    ├── login_operation.js
+    ├── channel_operation.js
+    ├── vod_summary.js
+    ├── series_summary.js
     ├── player.js
-    └── ...
+    ├── vod_series_player.js
+    ├── guide_page.js
+    ├── catchup.js
+    ├── search_page.js
+    ├── youtube_page.js
+    ├── storage_operation.js
+    ├── image_page.js
+    ├── settings.js
+    ├── trailer.js
+    ├── srt_operation.js
+    ├── srt_parser.js
+    ├── subtitle_fetcher.js
+    └── enhanced_subtitle_workflow.js
 ```
+
+### Dahil Edilmeyen Dosyalar
+
+| Dosya Tipi | Neden Dahil Edilmedi |
+|------------|----------------------|
+| **Görüntüler (images/)** | localStorage limiti ~5MB, binary dosyalar desteklenmiyor. Görüntüleri CDN URL'leri ile CSS içinde referans verin. |
+| **Kütüphane dosyaları (libs/)** | jQuery, Bootstrap, CAPH vb. nadiren değişir, paket boyutunu artırır. |
+| **remote-loader.js, remote-config.js** | Bunlar yükleyici kendisi, uzaktan güncellenmemeli. |
+| **Platform dosyaları** | Tizen/WebOS spesifik dosyalar yerelde kalmalı. |
+
+### Görüntüleri Güncelleme
+
+Görüntüleri uzaktan güncellemek için:
+
+1. Yeni görüntüyü CDN'e yükle (örn: `https://flixapp.pages.dev/images/yeni-logo.png`)
+2. CSS dosyasında URL'i güncelle:
+   ```css
+   .logo {
+       background-image: url('https://flixapp.pages.dev/images/yeni-logo.png');
+   }
+   ```
+3. CSS'i remote update ile gönder
 
 ---
 
