@@ -28,6 +28,15 @@
         
         Sentry.setTag('tv_platform', platform);
         Sentry.setTag('app_version', '1.1.8');
+        
+        window.testSentryError = function() {
+          try {
+            myUndefinedFunction();
+          } catch(e) {
+            Sentry.captureException(e);
+            console.log('Test error sent to Sentry!');
+          }
+        };
       });
     </script>
 
