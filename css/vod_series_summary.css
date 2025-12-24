@@ -41,9 +41,10 @@
 }
 
 /* Tizen 2.4 / LG WebOS gap fallback - use margin instead of gap */
+/* Poster aspect ratio: 2:3 (width:height) - 23vw:62vh ≈ 0.67 */
 .vod-summary-poster {
     flex-shrink: 0;
-    width: 22vw;
+    width: 23vw;
     display: flex;
     align-items: flex-start;
     padding-top: 0;
@@ -52,12 +53,12 @@
 
 #vod-summary-page #vod-summary-image-wrapper {
     position: relative;
-    width: 22vw;
+    width: 23vw;
     height: auto;
 }
 
 #vod-summary-page #vod-summary-image-wrapper img {
-    width: 22vw;
+    width: 23vw;
     height: 62vh;
     object-fit: cover;
     border-radius: 14px;
@@ -69,12 +70,12 @@
 
 #series-summary-page #series-summary-image-wrapper {
     position: relative;
-    width: 22vw;
+    width: 23vw;
     height: auto;
 }
 
 #series-summary-page #series-summary-image-wrapper img {
-    width: 22vw;
+    width: 23vw;
     height: 62vh;
     object-fit: cover;
     border-radius: 14px;
@@ -1490,32 +1491,29 @@
     }
     
     /* Series Summary Page - 720p responsive */
+    /* Poster aspect ratio 2:3: 21vw:55vh */
     .vod-summary-hero {
         height: auto;
     }
     
     #series-summary-page #series-summary-image-wrapper img,
     #vod-summary-page #vod-summary-image-wrapper img {
-        width: 20vw;
+        width: 21vw;
         height: 55vh;
     }
     
-    #series-summary-page .vod-summary-info {
+    #series-summary-page .vod-summary-info,
+    #vod-summary-page .vod-summary-info {
         min-height: 55vh;
     }
     
     .vod-summary-poster {
-        width: 20vw;
+        width: 21vw;
     }
     
     #series-summary-page #series-summary-image-wrapper,
     #vod-summary-page #vod-summary-image-wrapper {
-        width: 20vw;
-    }
-    
-    #series-summary-page #series-summary-image-wrapper img,
-    #vod-summary-page #vod-summary-image-wrapper img {
-        width: 20vw;
+        width: 21vw;
     }
     
     .vod-action-btn-new {
@@ -1660,28 +1658,29 @@
         padding-bottom: 40px;
     }
     
-    /* 4K adjustments - use 1080p values for LG TV compatibility */
+    /* 4K adjustments - Poster aspect ratio 2:3: 25vw:65vh */
     .vod-summary-hero {
         height: auto;
     }
     
     #series-summary-page #series-summary-image-wrapper img,
     #vod-summary-page #vod-summary-image-wrapper img {
-        width: 24vw;
+        width: 25vw;
         height: 65vh;
     }
     
-    #series-summary-page .vod-summary-info {
+    #series-summary-page .vod-summary-info,
+    #vod-summary-page .vod-summary-info {
         min-height: 65vh;
     }
     
     .vod-summary-poster {
-        width: 24vw;
+        width: 25vw;
     }
     
     #series-summary-page #series-summary-image-wrapper,
     #vod-summary-page #vod-summary-image-wrapper {
-        width: 24vw;
+        width: 25vw;
     }
     
     #series-summary-page .vod-summary-redesign #series-summary-action-container {
