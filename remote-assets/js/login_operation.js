@@ -151,7 +151,7 @@ var login_page={
                     data = decryptResponse(data1);
                 } catch(e) {
                     console.log('⚠️ Decryption failed:', e.message);
-                    // Fall back to cached data or demo mode
+                    // Fall back to cached data or show network issue popup
                     var local_data = localStorage.getItem(storage_id+'api_data');
                     var parsed_local_data = null;
                     try {
@@ -163,8 +163,24 @@ var login_page={
                         console.log('✅ Using cached API data');
                         that.startApp(parsed_local_data);
                     } else {
-                        console.log('⚠️ No valid cached data, using demo mode');
-                        that.fallbackToLocalDemo();
+                        console.log('⚠️ No valid cached data, showing network issue popup');
+                        that.hideLoadImage();
+                        // Update MAC address in network issue modal
+                        if(typeof mac_address !== 'undefined' && mac_address) {
+                            $('#network-issue-mac-address').text(mac_address);
+                        }
+                        // Hide or show Choose Playlist button based on playlist count
+                        var playlistCount = playlist_urls ? playlist_urls.length : 0;
+                        var choosePlaylistBtn = $('.network-issue-btn').filter(function() {
+                            return $(this).attr('onclick') === 'login_page.showPlaylistSelectionModal()';
+                        });
+                        if (playlistCount > 1) {
+                            choosePlaylistBtn.show();
+                        } else {
+                            choosePlaylistBtn.hide();
+                        }
+                        $('#network-issue-container').show();
+                        that.hoverNetworkIssueBtn(0);
                     }
                     return;
                 }
