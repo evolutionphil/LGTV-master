@@ -6,7 +6,7 @@
  */
 
 var REMOTE_UPDATE_CONFIG = {
-    enabled: true,
+    enabled: false,
     
     manifestUrl: 'https://flixapp.pages.dev/manifest.json',
     

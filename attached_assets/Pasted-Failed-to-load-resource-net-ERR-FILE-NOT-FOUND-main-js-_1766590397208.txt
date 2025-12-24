@@ -1,0 +1,55 @@
+Failed to load resource: net::ERR_FILE_NOT_FOUND
+main.js:1 LG WebOS platform detected (fallback)
+login_operation.js:1 LG: Using LGUDID for MAC address
+login_operation.js:1 Object
+login_operation.js:1 ✅ BLOCKED CHANNELS RECEIVED FROM API: Array(0)
+login_operation.js:1 ✅ TERMS OF USE RECEIVED FROM API: Object
+login_operation.js:1 📜 SHOWING TERMS OF USE (Version: 1.0)
+index.html:1 Access is blocked to resource: file:///media/developer/apps/usr/palm/applications/images/background1.png
+chromeillegalwebdata/:1 
+        
+        
+       Failed to load resource: net::ERR_BLOCKED_BY_CLIENT
+VM56:15 LG WebOS platform detected (fallback)
+login_operation.js:1 LG: Using LGUDID for MAC address
+VM55:569 encrypt_position_char=b encrypt_length_position_char=u
+VM55:601 Uncaught TypeError: Cannot read properties of undefined (reading 'split')
+    at reverseString (<anonymous>:601:27)
+    at decryptResponse (<anonymous>:578:22)
+    at Object.success (login_operation.js:1:4708)
+    at c (jquery.3.4.1.min.js:2:27690)
+    at Object.fireWith [as resolveWith] (jquery.3.4.1.min.js:2:28438)
+    at S (jquery.3.4.1.min.js:2:78781)
+    at XMLHttpRequest.<anonymous> (jquery.3.4.1.min.js:2:81121)
+VM61:1182 Uncaught TypeError: Cannot read properties of undefined (reading '1')
+    at Object.hoverTermsButton (<anonymous>:1182:29)
+    at HTMLButtonElement.onmouseenter (index.html:1747:151)
+hoverTermsButton @ VM61:1182
+onmouseenter @ index.html:1747
+VM61:1182 Uncaught TypeError: Cannot read properties of undefined (reading '0')
+    at Object.hoverTermsButton (<anonymous>:1182:29)
+    at HTMLButtonElement.onmouseenter (index.html:1741:149)
+hoverTermsButton @ VM61:1182
+onmouseenter @ index.html:1741
+index.html:1 The resource https://flixapp.net/images/activation-qr-code.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+VM61:1182 Uncaught TypeError: Cannot read properties of undefined (reading '1')
+    at Object.hoverTermsButton (<anonymous>:1182:29)
+    at HTMLButtonElement.onmouseenter (index.html:1747:151)
+hoverTermsButton @ VM61:1182
+onmouseenter @ index.html:1747
+VM61:1182 Uncaught TypeError: Cannot read properties of undefined (reading '0')
+    at Object.hoverTermsButton (<anonymous>:1182:29)
+    at HTMLButtonElement.onmouseenter (index.html:1741:149)
+hoverTermsButton @ VM61:1182
+onmouseenter @ index.html:1741
+VM61:1145 ✅ TERMS ACCEPTED (Version: 1.0)
+VM61:29 Uncaught TypeError: Cannot read properties of undefined (reading 'adverts')
+    at Object.startApp (<anonymous>:29:34)
+    at Object.acceptTerms (<anonymous>:1150:14)
+    at HTMLButtonElement.onclick (index.html:1741:149)
+startApp @ VM61:29
+acceptTerms @ VM61:1150
+onclick @ index.html:1741
+VM61:1182 Uncaught TypeError: Cannot read properties of undefined (reading '1')
+    at Object.hoverTermsButton (<anonymous>:1182:29)
+    at HTMLButtonElement.onmouseenter (index.html:1747:151)
