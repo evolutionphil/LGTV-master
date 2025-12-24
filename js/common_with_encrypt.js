@@ -575,7 +575,7 @@ function decryptResponse(data1) {
     var raw_response = data1 && data1.data ? data1.data : null;
     if (!raw_response) {
         console.log('[decryptResponse] No data to decrypt, data1:', data1);
-        return data1;
+        throw new Error('No encrypted data in response');
     }
     var enc_pos,enc_len, enc_pos_char, enc_len_char;
     if(app_type!=='android'){

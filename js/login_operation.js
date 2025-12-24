@@ -146,31 +146,29 @@ var login_page={
                 data:encrypted_data,
             },
             success: function (data1) {
-                var data=decryptResponse(data1);
-                console.log(data);
-                
-                // Check if API returned an error - fall back to cached/demo data
-                if(!data || data.status === 'error' || !data.mac_registered) {
-                    console.log('⚠️ API returned error or invalid response, trying fallback...');
-                    var local_data=localStorage.getItem(storage_id+'api_data');
+                var data;
+                try {
+                    data = decryptResponse(data1);
+                } catch(e) {
+                    console.log('⚠️ Decryption failed:', e.message);
+                    // Fall back to cached data or demo mode
+                    var local_data = localStorage.getItem(storage_id+'api_data');
                     var parsed_local_data = null;
                     try {
                         parsed_local_data = local_data ? JSON.parse(local_data) : null;
-                    } catch(e) {
+                    } catch(parseErr) {
                         parsed_local_data = null;
                     }
-                    // Only use cached data if it's valid (has mac_registered and no error status)
-                    if(parsed_local_data && parsed_local_data.mac_registered && parsed_local_data.status !== 'error') {
+                    if(parsed_local_data && parsed_local_data.mac_registered) {
                         console.log('✅ Using cached API data');
                         that.startApp(parsed_local_data);
                     } else {
                         console.log('⚠️ No valid cached data, using demo mode');
-                        // Clear invalid cached data
-                        localStorage.removeItem(storage_id+'api_data');
                         that.fallbackToLocalDemo();
                     }
                     return;
                 }
+                console.log(data);
                 
                 // Check for blocked channels from backend
                 if(data.blocked_channels) {
