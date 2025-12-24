@@ -46,7 +46,7 @@
     width: 22vw;
     display: flex;
     align-items: flex-start;
-    padding-top: 2vh;
+    padding-top: 0;
     margin-right: 2.5vw;
 }
 
@@ -58,7 +58,8 @@
 
 #vod-summary-page #vod-summary-image-wrapper img {
     width: 22vw;
-    height: 52vh;
+    height: auto;
+    aspect-ratio: 2/3;
     object-fit: cover;
     border-radius: 14px;
     border: none;
@@ -75,7 +76,8 @@
 
 #series-summary-page #series-summary-image-wrapper img {
     width: 22vw;
-    height: 52vh;
+    height: auto;
+    aspect-ratio: 2/3;
     object-fit: cover;
     border-radius: 14px;
     border: none;
@@ -110,7 +112,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    padding-top: 2vh;
+    padding-top: 0;
     max-width: 75vw;
     min-width: 0;
     height: auto;
@@ -500,7 +502,6 @@
     overflow: visible;
     display: flex;
     flex-direction: column;
-    min-height: 52vh;
 }
 
 #series-summary-page .vod-summary-redesign #series-summary-action-container {
@@ -1469,13 +1470,11 @@
         height: auto;
     }
     
-    #series-summary-page .vod-summary-info {
-        min-height: 45vh;
-    }
-    
     #series-summary-page #series-summary-image-wrapper img,
     #vod-summary-page #vod-summary-image-wrapper img {
-        height: 45vh;
+        width: 20vw;
+        height: auto;
+        aspect-ratio: 2/3;
     }
     
     .vod-summary-poster {
@@ -1638,13 +1637,11 @@
         height: auto;
     }
     
-    #series-summary-page .vod-summary-info {
-        min-height: 52vh;
-    }
-    
     #series-summary-page #series-summary-image-wrapper img,
     #vod-summary-page #vod-summary-image-wrapper img {
-        height: 52vh;
+        width: 22vw;
+        height: auto;
+        aspect-ratio: 2/3;
     }
     
     .vod-summary-poster {
@@ -1653,11 +1650,6 @@
     
     #series-summary-page #series-summary-image-wrapper,
     #vod-summary-page #vod-summary-image-wrapper {
-        width: 22vw;
-    }
-    
-    #series-summary-page #series-summary-image-wrapper img,
-    #vod-summary-page #vod-summary-image-wrapper img {
         width: 22vw;
     }
     
