@@ -1,6 +1,6 @@
 {
-  "version": "1.0.6",
-  "lastUpdate": "2025-12-24T15:32:54.477Z",
+  "version": "1.1.1",
+  "lastUpdate": "2025-12-24T17:22:16.900Z",
   "killSwitch": false,
   "baseUrl": "https://flixapp.pages.dev/",
   "cachePrefix": "flix_remote_",
@@ -293,6 +293,12 @@
       "size": 13635,
       "hash": "b0039d46",
       "priority": 2
+    },
+    "js/asset-bootstrapper.js": {
+      "version": "1.0.0",
+      "size": 6799,
+      "hash": "763259b6",
+      "priority": 1
     }
   }
 }

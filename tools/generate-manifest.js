@@ -65,7 +65,8 @@ var CONFIG = {
         { path: 'js/srt_operation.js', priority: 2 },
         { path: 'js/srt_parser.js', priority: 2 },
         { path: 'js/subtitle_fetcher.js', priority: 2 },
-        { path: 'js/enhanced_subtitle_workflow.js', priority: 2 }
+        { path: 'js/enhanced_subtitle_workflow.js', priority: 2 },
+        { path: 'js/asset-bootstrapper.js', priority: 1 }
     ]
 };
 

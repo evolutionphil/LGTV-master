@@ -1,9 +1,11 @@
 /**
- * FLIX IPTV Remote Asset Loader
+ * FLIX IPTV Remote Asset Loader v2.0
  * ES5 Compatible - Works on Tizen 2.4+ and WebOS 3.0+
  * 
- * Bu sistem uzaktan CSS/JS dosyalarini yukler ve cache'ler
- * Internet yoksa yerel dosyalari kullanir
+ * Arka plan guncelleme modu:
+ * - Ilk acilista yerel/cache dosyalar kullanilir (hizli)
+ * - Arka planda guncellemeler indirilir ve cache'lenir
+ * - Sonraki acilista guncel dosyalar kullanilir
  */
 
 (function(global) {
@@ -15,6 +17,7 @@
             timeout: 5000,
             cachePrefix: 'flix_remote_',
             debug: false,
+            cssOnly: false,
             onProgress: null,
             onComplete: null,
             onError: null
@@ -24,10 +27,11 @@
             platform: 'unknown',
             isOnline: true,
             manifest: null,
-            loadedFiles: [],
+            downloadedFiles: [],
             failedFiles: [],
             totalFiles: 0,
-            completedFiles: 0
+            completedFiles: 0,
+            hasUpdates: false
         },
 
         init: function(options) {
@@ -44,16 +48,16 @@
             this.detectPlatform();
             this.checkNetworkStatus();
 
-            this.log('RemoteLoader initialized on ' + this.state.platform);
+            this.log('RemoteLoader v2.0 initialized on ' + this.state.platform);
             this.log('Network status: ' + (this.state.isOnline ? 'online' : 'offline'));
 
             if (!this.state.isOnline) {
-                this.log('Offline mode - using local files');
+                this.log('Offline mode - skipping background update');
                 this.complete(false);
                 return;
             }
 
-            this.loadManifest();
+            this.startBackgroundUpdate();
         },
 
         detectPlatform: function() {
@@ -86,6 +90,15 @@
             }
         },
 
+        startBackgroundUpdate: function() {
+            var self = this;
+            
+            setTimeout(function() {
+                self.log('Starting background update check...');
+                self.loadManifest();
+            }, 2000);
+        },
+
         loadManifest: function() {
             var self = this;
             var xhr = new XMLHttpRequest();
@@ -96,8 +109,8 @@
 
             timeoutId = setTimeout(function() {
                 xhr.abort();
-                self.log('Manifest timeout - using cached or local files');
-                self.loadCachedManifest();
+                self.log('Manifest timeout');
+                self.complete(false);
             }, this.config.timeout);
 
             xhr.onreadystatechange = function() {
@@ -112,11 +125,11 @@
                             self.processManifest(manifest);
                         } catch (e) {
                             self.log('Manifest parse error: ' + e.message);
-                            self.loadCachedManifest();
+                            self.complete(false);
                         }
                     } else {
                         self.log('Manifest load failed: ' + xhr.status);
-                        self.loadCachedManifest();
+                        self.complete(false);
                     }
                 }
             };
@@ -124,28 +137,10 @@
             xhr.onerror = function() {
                 clearTimeout(timeoutId);
                 self.log('Manifest network error');
-                self.loadCachedManifest();
+                self.complete(false);
             };
 
             xhr.send();
-        },
-
-        loadCachedManifest: function() {
-            try {
-                var cached = localStorage.getItem(this.config.cachePrefix + 'manifest');
-                if (cached) {
-                    var manifest = JSON.parse(cached);
-                    this.state.manifest = manifest;
-                    this.log('Using cached manifest v' + manifest.version);
-                    this.processManifest(manifest);
-                } else {
-                    this.log('No cached manifest - using local files');
-                    this.complete(false);
-                }
-            } catch (e) {
-                this.log('Cache read error: ' + e.message);
-                this.complete(false);
-            }
         },
 
         saveManifestToCache: function(manifest) {
@@ -157,16 +152,29 @@
             }
         },
 
+        getCachedManifest: function() {
+            try {
+                var cached = localStorage.getItem(this.config.cachePrefix + 'manifest');
+                if (cached) {
+                    return JSON.parse(cached);
+                }
+            } catch (e) {
+                this.log('Cache read error: ' + e.message);
+            }
+            return null;
+        },
+
         processManifest: function(manifest) {
             var self = this;
 
             if (manifest.killSwitch === true) {
-                this.log('Kill switch active - using local files');
+                this.log('Kill switch active - clearing cache');
+                this.clearAllCache();
                 this.complete(false);
                 return;
             }
 
-            var filesToLoad = [];
+            var filesToDownload = [];
             var files = manifest.files;
 
             for (var filePath in files) {
@@ -175,34 +183,33 @@
                     var cachedVersion = this.getCachedVersion(filePath);
 
                     if (cachedVersion !== fileInfo.version) {
-                        filesToLoad.push({
+                        filesToDownload.push({
                             path: filePath,
                             info: fileInfo,
                             url: (manifest.baseUrl || '') + filePath + '?v=' + fileInfo.version
                         });
-                    } else {
-                        this.applyCachedFile(filePath);
                     }
                 }
             }
 
-            filesToLoad.sort(function(a, b) {
+            filesToDownload.sort(function(a, b) {
                 return (a.info.priority || 99) - (b.info.priority || 99);
             });
 
-            this.state.totalFiles = filesToLoad.length;
+            this.state.totalFiles = filesToDownload.length;
 
-            if (filesToLoad.length === 0) {
+            if (filesToDownload.length === 0) {
                 this.log('All files up to date');
                 this.complete(true);
                 return;
             }
 
-            this.log('Loading ' + filesToLoad.length + ' updated files...');
-            this.loadFilesSequentially(filesToLoad, 0);
+            this.state.hasUpdates = true;
+            this.log('Downloading ' + filesToDownload.length + ' updated files in background...');
+            this.downloadFilesSequentially(filesToDownload, 0);
         },
 
-        loadFilesSequentially: function(files, index) {
+        downloadFilesSequentially: function(files, index) {
             var self = this;
 
             if (index >= files.length) {
@@ -211,18 +218,18 @@
             }
 
             var file = files[index];
-            this.loadRemoteFile(file, function(success) {
+            this.downloadFile(file, function(success) {
                 self.state.completedFiles++;
                 
                 if (self.config.onProgress) {
                     self.config.onProgress(self.state.completedFiles, self.state.totalFiles, file.path);
                 }
 
-                self.loadFilesSequentially(files, index + 1);
+                self.downloadFilesSequentially(files, index + 1);
             });
         },
 
-        loadRemoteFile: function(file, callback) {
+        downloadFile: function(file, callback) {
             var self = this;
             var xhr = new XMLHttpRequest();
             var timeoutId;
@@ -244,14 +251,12 @@
                     if (xhr.status === 200) {
                         var content = xhr.responseText;
                         self.cacheFile(file.path, content, file.info.version);
-                        self.applyFile(file.path, content);
-                        self.state.loadedFiles.push(file.path);
-                        self.log('Loaded: ' + file.path);
+                        self.state.downloadedFiles.push(file.path);
+                        self.log('Downloaded: ' + file.path);
                         callback(true);
                     } else {
-                        self.log('Failed to load: ' + file.path + ' (' + xhr.status + ')');
+                        self.log('Failed to download: ' + file.path + ' (' + xhr.status + ')');
                         self.state.failedFiles.push(file.path);
-                        self.applyCachedFile(file.path);
                         callback(false);
                     }
                 }
@@ -261,7 +266,6 @@
                 clearTimeout(timeoutId);
                 self.log('Network error: ' + file.path);
                 self.state.failedFiles.push(file.path);
-                self.applyCachedFile(file.path);
                 callback(false);
             };
 
@@ -276,6 +280,13 @@
             } catch (e) {
                 this.log('Cache file error: ' + e.message);
                 this.clearOldCache();
+                try {
+                    var key = this.config.cachePrefix + this.pathToKey(filePath);
+                    localStorage.setItem(key, content);
+                    localStorage.setItem(key + '_version', version);
+                } catch (e2) {
+                    this.log('Cache still full after cleanup: ' + e2.message);
+                }
             }
         },
 
@@ -297,60 +308,6 @@
             }
         },
 
-        applyCachedFile: function(filePath) {
-            var content = this.getCachedContent(filePath);
-            if (content) {
-                this.applyFile(filePath, content);
-                this.log('Applied cached: ' + filePath);
-            }
-        },
-
-        applyFile: function(filePath, content) {
-            var ext = filePath.split('.').pop().toLowerCase();
-
-            if (ext === 'css') {
-                this.applyCSS(filePath, content);
-            } else if (ext === 'js') {
-                this.applyJS(filePath, content);
-            }
-        },
-
-        applyCSS: function(filePath, content) {
-            var styleId = 'remote-css-' + this.pathToKey(filePath);
-            var existing = document.getElementById(styleId);
-
-            if (existing) {
-                existing.parentNode.removeChild(existing);
-            }
-
-            var style = document.createElement('style');
-            style.id = styleId;
-            style.type = 'text/css';
-            style.appendChild(document.createTextNode(content));
-            document.head.appendChild(style);
-        },
-
-        applyJS: function(filePath, content) {
-            var scriptId = 'remote-js-' + this.pathToKey(filePath);
-            var existing = document.getElementById(scriptId);
-
-            if (existing) {
-                existing.parentNode.removeChild(existing);
-            }
-
-            var script = document.createElement('script');
-            script.id = scriptId;
-            script.type = 'text/javascript';
-            
-            try {
-                script.appendChild(document.createTextNode(content));
-            } catch (e) {
-                script.text = content;
-            }
-
-            document.body.appendChild(script);
-        },
-
         pathToKey: function(filePath) {
             return filePath.replace(/[\/\.]/g, '_');
         },
@@ -358,29 +315,55 @@
         clearOldCache: function() {
             try {
                 var keysToRemove = [];
+                var prefix = this.config.cachePrefix;
                 for (var i = 0; i < localStorage.length; i++) {
                     var key = localStorage.key(i);
-                    if (key && key.indexOf(this.config.cachePrefix) === 0) {
+                    if (key && key.indexOf(prefix) === 0) {
+                        keysToRemove.push(key);
+                    }
+                }
+                var halfLength = Math.floor(keysToRemove.length / 2);
+                for (var j = 0; j < halfLength; j++) {
+                    localStorage.removeItem(keysToRemove[j]);
+                }
+                this.log('Cleared ' + halfLength + ' old cache entries');
+            } catch (e) {
+                this.log('Clear cache error: ' + e.message);
+            }
+        },
+
+        clearAllCache: function() {
+            try {
+                var keysToRemove = [];
+                var prefix = this.config.cachePrefix;
+                for (var i = 0; i < localStorage.length; i++) {
+                    var key = localStorage.key(i);
+                    if (key && key.indexOf(prefix) === 0) {
                         keysToRemove.push(key);
                     }
                 }
                 for (var j = 0; j < keysToRemove.length; j++) {
                     localStorage.removeItem(keysToRemove[j]);
                 }
-                this.log('Cleared old cache');
+                this.log('Cleared all cache');
             } catch (e) {
                 this.log('Clear cache error: ' + e.message);
             }
         },
 
-        complete: function(fromRemote) {
-            this.log('Loading complete. Remote: ' + fromRemote);
-            this.log('Loaded: ' + this.state.loadedFiles.length + ', Failed: ' + this.state.failedFiles.length);
+        complete: function(success) {
+            if (this.state.hasUpdates && this.state.downloadedFiles.length > 0) {
+                this.log('Background update complete. ' + this.state.downloadedFiles.length + ' files updated.');
+                this.log('Updates will be applied on next app launch.');
+            } else {
+                this.log('No updates needed.');
+            }
 
             if (this.config.onComplete) {
                 this.config.onComplete({
-                    fromRemote: fromRemote,
-                    loadedFiles: this.state.loadedFiles,
+                    success: success,
+                    hasUpdates: this.state.hasUpdates,
+                    downloadedFiles: this.state.downloadedFiles,
                     failedFiles: this.state.failedFiles,
                     manifest: this.state.manifest
                 });
@@ -398,24 +381,134 @@
                 platform: this.state.platform,
                 isOnline: this.state.isOnline,
                 manifestVersion: this.state.manifest ? this.state.manifest.version : null,
-                loadedFiles: this.state.loadedFiles,
+                hasUpdates: this.state.hasUpdates,
+                downloadedFiles: this.state.downloadedFiles,
                 failedFiles: this.state.failedFiles
             };
         },
 
         clearCache: function() {
-            this.clearOldCache();
-            this.log('Cache cleared');
+            this.clearAllCache();
+            this.log('Cache cleared manually');
         },
 
-        forceReload: function() {
-            this.clearCache();
-            this.state.loadedFiles = [];
-            this.state.failedFiles = [];
-            this.loadManifest();
+        hasCachedFile: function(filePath) {
+            return this.getCachedContent(filePath) !== null;
+        },
+
+        getFileFromCache: function(filePath) {
+            return this.getCachedContent(filePath);
         }
     };
 
     global.RemoteLoader = RemoteLoader;
 
 })(typeof window !== 'undefined' ? window : this);
+
+
+/**
+ * Asset Bootstrapper
+ * Bu fonksiyon index.html'den cagrilir ve dosyalari cache'den veya yerelden yukler
+ */
+var AssetBootstrapper = {
+    cachePrefix: 'flix_remote_',
+    
+    pathToKey: function(filePath) {
+        return filePath.replace(/[\/\.]/g, '_');
+    },
+    
+    getCachedContent: function(filePath) {
+        try {
+            var key = this.cachePrefix + this.pathToKey(filePath);
+            return localStorage.getItem(key);
+        } catch (e) {
+            return null;
+        }
+    },
+    
+    getCachedVersion: function(filePath) {
+        try {
+            var key = this.cachePrefix + this.pathToKey(filePath) + '_version';
+            return localStorage.getItem(key);
+        } catch (e) {
+            return null;
+        }
+    },
+    
+    loadCSS: function(filePath) {
+        var cached = this.getCachedContent(filePath);
+        
+        if (cached) {
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.setAttribute('data-file', filePath);
+            style.setAttribute('data-source', 'cache');
+            try {
+                style.appendChild(document.createTextNode(cached));
+            } catch (e) {
+                style.cssText = cached;
+            }
+            document.head.appendChild(style);
+            return true;
+        }
+        
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = filePath;
+        link.setAttribute('data-source', 'local');
+        document.head.appendChild(link);
+        return false;
+    },
+    
+    loadJS: function(filePath, callback) {
+        var cached = this.getCachedContent(filePath);
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.setAttribute('data-file', filePath);
+        
+        if (cached) {
+            script.setAttribute('data-source', 'cache');
+            try {
+                script.appendChild(document.createTextNode(cached));
+            } catch (e) {
+                script.text = cached;
+            }
+            document.body.appendChild(script);
+            if (callback) callback(true);
+            return true;
+        }
+        
+        script.src = filePath;
+        script.setAttribute('data-source', 'local');
+        script.onload = function() {
+            if (callback) callback(false);
+        };
+        script.onerror = function() {
+            console.error('Failed to load: ' + filePath);
+            if (callback) callback(false);
+        };
+        document.body.appendChild(script);
+        return false;
+    },
+    
+    loadJSSync: function(filePath) {
+        var cached = this.getCachedContent(filePath);
+        
+        if (cached) {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.setAttribute('data-file', filePath);
+            script.setAttribute('data-source', 'cache');
+            try {
+                script.appendChild(document.createTextNode(cached));
+            } catch (e) {
+                script.text = cached;
+            }
+            document.body.appendChild(script);
+            return true;
+        }
+        
+        document.write('<script src="' + filePath + '" data-source="local"><\/script>');
+        return false;
+    }
+};

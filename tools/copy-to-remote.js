@@ -59,7 +59,8 @@ var CONFIG = {
         'js/srt_operation.js',
         'js/srt_parser.js',
         'js/subtitle_fetcher.js',
-        'js/enhanced_subtitle_workflow.js'
+        'js/enhanced_subtitle_workflow.js',
+        'js/asset-bootstrapper.js'
     ]
 };
 

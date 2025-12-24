@@ -7,33 +7,38 @@
     <title>flixiptv</title>
 
     <link rel="preload" href="https://flixapp.net/images/activation-qr-code.svg" as="image" type="image/svg+xml">
+    
+    <!-- Library CSS (not remotely updated) -->
     <link rel="stylesheet" href="css/libs/bootstrap4.4.1.min.css"/>
     <link rel="stylesheet" href="css/libs/fontawesome-5.12.1/css/all.min.css">
     <link rel="stylesheet" href="css/libs/magic-check-master/css/magic-check.min.css">
-
-    <!--    Pages Css    -->
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/variables.css"/>
-    <link rel="stylesheet" href="css/guide.css">
-    <link rel="stylesheet" href="css/homepage.css">
-    <link rel="stylesheet" href="css/vod_series_summary.css">
-    <link rel="stylesheet" href="css/vod_series_player_page.css">
-    <link rel="stylesheet" href="css/channel_page.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/movie_grid.css">
-    <link rel="stylesheet" href="css/catchup.css">
-    <link rel="stylesheet" href="css/rating.css">
-    <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/libs/rangeslider.css">
     <link rel="stylesheet" type="text/css" href="css/libs/slick.css">
     <link rel="stylesheet" type="text/css" href="css/libs/slick-theme.css">
-    <link rel="stylesheet" href="css/search_page.css">
-    <link rel="stylesheet" href="css/subtitle.css">
-    <link rel="stylesheet" href="css/youtube_page.css">
-    <link rel="stylesheet" href="css/storage_page.css">
     <link rel="stylesheet" type="text/css" href="css/libs/photobox.css">
-    <link rel="stylesheet" type="text/css" href="css/gallary.css">
-    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Asset Bootstrapper - loads CSS from cache or local -->
+    <script src="js/asset-bootstrapper.js"></script>
+    <script>
+        FlixBootstrapper.writeCSS('css/style.css');
+        FlixBootstrapper.writeCSS('css/variables.css');
+        FlixBootstrapper.writeCSS('css/guide.css');
+        FlixBootstrapper.writeCSS('css/homepage.css');
+        FlixBootstrapper.writeCSS('css/vod_series_summary.css');
+        FlixBootstrapper.writeCSS('css/vod_series_player_page.css');
+        FlixBootstrapper.writeCSS('css/channel_page.css');
+        FlixBootstrapper.writeCSS('css/login.css');
+        FlixBootstrapper.writeCSS('css/movie_grid.css');
+        FlixBootstrapper.writeCSS('css/catchup.css');
+        FlixBootstrapper.writeCSS('css/rating.css');
+        FlixBootstrapper.writeCSS('css/loader.css');
+        FlixBootstrapper.writeCSS('css/search_page.css');
+        FlixBootstrapper.writeCSS('css/subtitle.css');
+        FlixBootstrapper.writeCSS('css/youtube_page.css');
+        FlixBootstrapper.writeCSS('css/storage_page.css');
+        FlixBootstrapper.writeCSS('css/gallary.css');
+        FlixBootstrapper.writeCSS('css/responsive.css');
+    </script>
 </head>
 <body>
     <div id="login-container" class="height-100">
@@ -1761,10 +1766,9 @@
         }
     </script>
     <script src="webOSTVjs-1.2.0/webOSTV.js"></script>
+    
+    <!-- Library JS (not remotely updated) -->
     <script src="js/libs/jquery.3.4.1.min.js"></script>
-    <!-- Remote Update System (ES5 compatible) -->
-    <script src="js/remote-loader.js"></script>
-    <script src="js/remote-config.js"></script>
     <script src="js/libs/popper.1.16.0.min.js"></script>
     <script src="js/libs/bootstrap.4.4.1.min.js"></script>
     <script src="js/libs/moment.js"></script>
@@ -1772,34 +1776,43 @@
     <script src="js/libs/rangeslider.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="https://vjs.zencdn.net/7.7.6/video.js"></script>
-    <script src="js/Models/VodModel.js"></script>
-    <script src="js/Models/LiveModel.js"></script>
-    <script src="js/Models/SeriesModel.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/login_operation.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/home_operation.js"></script>
-    <script src="js/catchup.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/keyTizen.js"></script>
-    <script src="js/channel_operation.js"></script>
-    <script src="js/player.js"></script>
-    <script src="js/time_helper.js"></script>
-    <script src="js/vod_summary.js"></script>
-    <script src="js/vod_series_player.js"></script>
-    <script src="js/trailer.js"></script>
-    <script src="js/series_summary.js"></script>
-    <script src="js/seasons_variable.js"></script>
-    <script src="js/episode_variable.js"></script>
-    <script src="js/language_codes.js"></script>
-    <script src="js/search_page.js"></script>
-    <script src="js/subtitle_fetcher.js"></script>
-    <script src="js/enhanced_subtitle_workflow.js"></script>
-    <script src="js/srt_parser.js"></script>
-    <script src="js/srt_operation.js"></script>
-    <script src="js/youtube_page.js"></script>
-    <script src="js/storage_operation.js"></script>
     <script src="js/libs/photobox.js"></script>
-    <script src="js/image_page.js"></script>
+    
+    <!-- Remote Update System -->
+    <script src="js/remote-loader.js"></script>
+    <script src="js/remote-config.js"></script>
+    
+    <!-- App JS (loaded from cache or local via bootstrapper) -->
+    <script>
+        FlixBootstrapper.writeJS('js/Models/VodModel.js');
+        FlixBootstrapper.writeJS('js/Models/LiveModel.js');
+        FlixBootstrapper.writeJS('js/Models/SeriesModel.js');
+        FlixBootstrapper.writeJS('js/common.js');
+        FlixBootstrapper.writeJS('js/common_with_encrypt.js');
+        FlixBootstrapper.writeJS('js/settings.js');
+        FlixBootstrapper.writeJS('js/login_operation.js');
+        FlixBootstrapper.writeJS('js/home_operation.js');
+        FlixBootstrapper.writeJS('js/catchup.js');
+        FlixBootstrapper.writeJS('js/main.js');
+        FlixBootstrapper.writeJS('js/keyTizen.js');
+        FlixBootstrapper.writeJS('js/channel_operation.js');
+        FlixBootstrapper.writeJS('js/player.js');
+        FlixBootstrapper.writeJS('js/time_helper.js');
+        FlixBootstrapper.writeJS('js/vod_summary.js');
+        FlixBootstrapper.writeJS('js/vod_series_player.js');
+        FlixBootstrapper.writeJS('js/trailer.js');
+        FlixBootstrapper.writeJS('js/series_summary.js');
+        FlixBootstrapper.writeJS('js/seasons_variable.js');
+        FlixBootstrapper.writeJS('js/episode_variable.js');
+        FlixBootstrapper.writeJS('js/language_codes.js');
+        FlixBootstrapper.writeJS('js/search_page.js');
+        FlixBootstrapper.writeJS('js/subtitle_fetcher.js');
+        FlixBootstrapper.writeJS('js/enhanced_subtitle_workflow.js');
+        FlixBootstrapper.writeJS('js/srt_parser.js');
+        FlixBootstrapper.writeJS('js/srt_operation.js');
+        FlixBootstrapper.writeJS('js/youtube_page.js');
+        FlixBootstrapper.writeJS('js/storage_operation.js');
+        FlixBootstrapper.writeJS('js/image_page.js');
+    </script>
 </body>
 </html>

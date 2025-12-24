@@ -1,32 +1,33 @@
 /**
- * FLIX IPTV Remote Update Configuration
+ * FLIX IPTV Remote Update Configuration v2.0
  * 
- * Bu dosya uzaktan guncelleme sisteminin yapilandirmasini icerir.
- * CDN kurulumu tamamlaninca enabled: true yapin.
+ * Arka plan guncelleme sistemi:
+ * - Ilk acilista yerel/cache dosyalar kullanilir
+ * - Arka planda guncellemeler indirilir
+ * - Sonraki acilista guncel dosyalar kullanilir
  */
 
 var REMOTE_UPDATE_CONFIG = {
-    enabled: false,
+    enabled: true,
     
     manifestUrl: 'https://flixapp.pages.dev/manifest.json',
     
     timeout: 5000,
     
-    debug: false,
+    debug: true,
     
     onProgress: function(completed, total, fileName) {
         if (REMOTE_UPDATE_CONFIG.debug) {
-            console.log('[RemoteUpdate] Progress: ' + completed + '/' + total + ' - ' + fileName);
+            console.log('[RemoteUpdate] Downloading: ' + completed + '/' + total + ' - ' + fileName);
         }
     },
     
     onComplete: function(result) {
         if (REMOTE_UPDATE_CONFIG.debug) {
-            console.log('[RemoteUpdate] Complete:', result);
-        }
-        
-        if (typeof window.onRemoteUpdateComplete === 'function') {
-            window.onRemoteUpdateComplete(result);
+            console.log('[RemoteUpdate] Background update complete:', result);
+            if (result.hasUpdates && result.downloadedFiles.length > 0) {
+                console.log('[RemoteUpdate] ' + result.downloadedFiles.length + ' files updated. Restart app to apply.');
+            }
         }
     },
     
@@ -40,12 +41,12 @@ var REMOTE_UPDATE_CONFIG = {
     
     if (!REMOTE_UPDATE_CONFIG.enabled) {
         if (REMOTE_UPDATE_CONFIG.debug) {
-            console.log('[RemoteUpdate] Disabled - using local files');
+            console.log('[RemoteUpdate] Disabled');
         }
         return;
     }
     
-    function waitForRemoteLoader() {
+    function startBackgroundUpdate() {
         if (typeof RemoteLoader !== 'undefined') {
             RemoteLoader.init({
                 manifestUrl: REMOTE_UPDATE_CONFIG.manifestUrl,
@@ -56,13 +57,15 @@ var REMOTE_UPDATE_CONFIG = {
                 onError: REMOTE_UPDATE_CONFIG.onError
             });
         } else {
-            setTimeout(waitForRemoteLoader, 50);
+            setTimeout(startBackgroundUpdate, 100);
         }
     }
     
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', waitForRemoteLoader);
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(startBackgroundUpdate, 1000);
+        });
     } else {
-        waitForRemoteLoader();
+        setTimeout(startBackgroundUpdate, 1000);
     }
 })();
