@@ -50,6 +50,21 @@ Preferred communication style: Simple, everyday language.
 -   **Development Tools**: Build scripts for packaging and deployment to both platforms.
 -   **Power Management**: Handles TV power off/on events during buffering to prevent auto-resume of content.
 
+## Remote Update System
+-   **OTA Updates**: Push CSS/JS updates to TVs without app store resubmission.
+-   **Manifest-Based Versioning**: JSON manifest tracks file versions and hashes.
+-   **Cloudflare CDN**: Recommended hosting for global distribution and caching.
+-   **LocalStorage Cache**: Downloaded files cached locally for offline fallback.
+-   **Kill Switch**: Emergency fallback to local files if remote update has issues.
+-   **ES5 Compatible**: Works on Tizen 2.4+ and WebOS 3.0+.
+-   **Files**:
+    -   `js/remote-loader.js`: Core loading logic
+    -   `js/remote-config.js`: Configuration (disabled by default)
+    -   `remote-assets/manifest.json`: Version manifest
+    -   `tools/generate-manifest.js`: Manifest generator
+    -   `tools/copy-to-remote.js`: File copy helper
+    -   `docs/REMOTE_UPDATE_SYSTEM.md`: Full documentation
+
 # External Dependencies
 
 ## Core Libraries
