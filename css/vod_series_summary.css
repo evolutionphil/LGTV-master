@@ -509,6 +509,13 @@
     min-height: 62vh;
 }
 
+#vod-summary-page .vod-summary-info {
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    min-height: 62vh;
+}
+
 #series-summary-page .vod-summary-redesign #series-summary-action-container {
     display: flex;
     margin-top: auto;
