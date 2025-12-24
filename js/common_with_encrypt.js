@@ -1,7 +1,7 @@
 "use strict";
 var mac_address, user_name, password,
     api_host_url, device_key, is_trial,
-    panel_urls=["http://dev.bai.com:4000/api"],
+    panel_urls=["https://flixapp.net/api"],
     time_difference_with_server=0  // time difference between user time and server time, measured by mins
 var expire_date,app_loading=false;
 var current_route='login-page';
@@ -15,8 +15,8 @@ var languages=[], current_words=[], notification={};
 var client_offset = moment(new Date()).utcOffset();
 var storage_id='DNF3s9SAag_'
 var platform='samsung';  // can be samsung or lg.
-var samsung_version='1.0.1';
-var lg_version='1.0.1',real_time_notification,reseller_id;
+var samsung_version='1.1.8';
+var lg_version='1.1.8',real_time_notification,reseller_id;
 var notification_interval;
 function showLoader(flag) {
     if(typeof flag=='undefined')
