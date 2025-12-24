@@ -58,8 +58,7 @@
 
 #vod-summary-page #vod-summary-image-wrapper img {
     width: 22vw;
-    height: auto;
-    aspect-ratio: 2/3;
+    height: 52vh;
     object-fit: cover;
     border-radius: 14px;
     border: none;
@@ -76,8 +75,7 @@
 
 #series-summary-page #series-summary-image-wrapper img {
     width: 22vw;
-    height: auto;
-    aspect-ratio: 2/3;
+    height: 52vh;
     object-fit: cover;
     border-radius: 14px;
     border: none;
@@ -502,6 +500,7 @@
     overflow: visible;
     display: flex;
     flex-direction: column;
+    min-height: 52vh;
 }
 
 #series-summary-page .vod-summary-redesign #series-summary-action-container {
@@ -1473,8 +1472,11 @@
     #series-summary-page #series-summary-image-wrapper img,
     #vod-summary-page #vod-summary-image-wrapper img {
         width: 20vw;
-        height: auto;
-        aspect-ratio: 2/3;
+        height: 48vh;
+    }
+    
+    #series-summary-page .vod-summary-info {
+        min-height: 48vh;
     }
     
     .vod-summary-poster {
@@ -1499,8 +1501,9 @@
 
 /* 1080p TVs (1282px - 1919px) - Default styles apply */
 
-/* 4K TVs (min-width: 1920px) */
-@media screen and (min-width: 1920px) {
+/* Large displays - only apply to TRUE 4K (both width AND height are large) */
+/* LG TVs report 1920px width but only 1080px height, so use height check */
+@media screen and (min-width: 1920px) and (min-height: 1200px) {
     :root {
         --season-card-width: 280px;
         --season-card-gap: 30px;
@@ -1639,18 +1642,21 @@
     
     #series-summary-page #series-summary-image-wrapper img,
     #vod-summary-page #vod-summary-image-wrapper img {
-        width: 22vw;
-        height: auto;
-        aspect-ratio: 2/3;
+        width: 24vw;
+        height: 55vh;
+    }
+    
+    #series-summary-page .vod-summary-info {
+        min-height: 55vh;
     }
     
     .vod-summary-poster {
-        width: 22vw;
+        width: 24vw;
     }
     
     #series-summary-page #series-summary-image-wrapper,
     #vod-summary-page #vod-summary-image-wrapper {
-        width: 22vw;
+        width: 24vw;
     }
     
     #series-summary-page .vod-summary-redesign #series-summary-action-container {
