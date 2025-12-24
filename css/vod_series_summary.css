@@ -497,12 +497,13 @@
 
 #series-summary-page .vod-summary-info {
     overflow: visible;
+    position: relative;
 }
 
 #series-summary-page .vod-summary-redesign #series-summary-action-container {
     position: absolute;
     bottom: 0;
-    left: calc(22vw + 2.5vw);
+    left: 0;
     display: flex;
     padding-bottom: 0;
     overflow: visible;
@@ -510,15 +511,11 @@
     z-index: 10;
 }
 
-#series-summary-page .vod-summary-redesign #series-summary-action-container > .vod-action-btn-new,
-#series-summary-page .vod-summary-redesign #series-summary-action-container > button,
-#series-summary-page .vod-summary-redesign #series-summary-action-container > .season-dropdown-container {
+#series-summary-page .vod-summary-redesign #series-summary-action-container > * {
     margin-right: 1.5vw;
 }
 
-#series-summary-page .vod-summary-redesign #series-summary-action-container > .vod-action-btn-new:last-child,
-#series-summary-page .vod-summary-redesign #series-summary-action-container > button:last-child,
-#series-summary-page .vod-summary-redesign #series-summary-action-container > .season-dropdown-container:last-child {
+#series-summary-page .vod-summary-redesign #series-summary-action-container > *:last-child {
     margin-right: 0;
 }
 
@@ -1491,7 +1488,7 @@
     }
     
     #series-summary-page .vod-summary-redesign #series-summary-action-container {
-        left: calc(20vw + 2.5vw);
+        left: 0;
     }
     
     .vod-action-btn-new {
@@ -1619,13 +1616,11 @@
         -webkit-line-clamp: 5;
     }
     
-    .vod-summary-actions > .vod-action-btn-new,
-    .vod-summary-actions > .season-dropdown-container {
+    .vod-summary-actions > * {
         margin-right: 20px;
     }
     
-    .vod-summary-actions > .vod-action-btn-new:last-child,
-    .vod-summary-actions > .season-dropdown-container:last-child {
+    .vod-summary-actions > *:last-child {
         margin-right: 0;
     }
     
@@ -1662,7 +1657,7 @@
     }
     
     #series-summary-page .vod-summary-redesign #series-summary-action-container {
-        left: calc(24vw + 2.5vw);
+        left: 0;
     }
     
     .vod-action-btn-new {
