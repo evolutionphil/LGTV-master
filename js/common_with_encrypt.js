@@ -572,7 +572,11 @@ function encryptRequest(data) {
 function decryptResponse(data1) {
     var app_type='samsung';
     var encrypt_position=0, encrypt_length_position=1;
-    var raw_response = data1.data;
+    var raw_response = data1 && data1.data ? data1.data : null;
+    if (!raw_response) {
+        console.log('[decryptResponse] No data to decrypt, data1:', data1);
+        return data1;
+    }
     var enc_pos,enc_len, enc_pos_char, enc_len_char;
     if(app_type!=='android'){
         raw_response=reverseString(raw_response);
