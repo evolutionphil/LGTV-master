@@ -322,10 +322,7 @@
     #season-grid-container, #episode-grid-container{
         height:460px;
     }
-    #vod-summary-image-wrapper img, #series-summary-image-wrapper img{
-        width: 400px;
-        max-height: 634px;
-    }
+    /* VOD/Series poster styles moved to vod_series_summary.css */
     #search-page {
         padding: 25px 30px;
     }
@@ -496,47 +493,7 @@
    1080p / Full HD TV Support (1920x1080)
    For smaller 1080p TVs like 32-inch models
    ========================================================================== */
-@media screen and (min-width: 1282px) and (max-width: 1920px) {
-    /* VOD Summary Redesign - 1080p */
-    .vod-summary-hero {
-        gap: 2.5vw;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-    }
-    .vod-summary-poster {
-        width: 20vw;
-        flex-shrink: 0;
-    }
-    #vod-summary-page #vod-summary-image-wrapper {
-        width: 20vw;
-    }
-    #vod-summary-page #vod-summary-image-wrapper img {
-        width: 20vw;
-        height: 55vh;
-    }
-    .vod-summary-info {
-        min-width: 0;
-        padding-left: 1vw;
-    }
-    #vod-summary-page #vod-summary-name {
-        font-size: 2.8vw;
-    }
-    #vod-summary-page .vod-summary-description {
-        font-size: 1.4vw;
-        -webkit-line-clamp: 5;
-    }
-    .similar-movie-item {
-        width: 7.5vw;
-    }
-    .similar-movie-item img {
-        width: 7.5vw;
-        height: 20vh;
-    }
-    .similar-movie-item .similar-movie-name {
-        font-size: 0.7vw;
-        max-width: 7.5vw;
-    }
-}
+/* 1080p VOD/Series summary styles moved to vod_series_summary.css */
 
 /* ==========================================================================
    4K / Ultra HD TV Support (3840x2160)
@@ -730,13 +687,7 @@
     .vod-series-summary-page-contents-container {
         padding: 40px 160px;
     }
-    .vod-summary-information-container {
-        padding-left: 120px;
-        padding-top: 200px;
-    }
-    #vod-summary-image-wrapper img, #series-summary-image-wrapper img {
-        width: 960px;
-    }
+    /* Legacy VOD/Series styles removed - handled by vod_series_summary.css */
 
     /* Guide */
     #guide-categories-container .guide-category-item {
