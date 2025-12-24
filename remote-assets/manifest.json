@@ -1,15 +1,21 @@
 {
-  "version": "1.0.2",
-  "lastUpdate": "2025-12-24T15:03:55.175Z",
+  "version": "1.0.3",
+  "lastUpdate": "2025-12-24T15:08:44.587Z",
   "killSwitch": false,
   "baseUrl": "https://flixapp.pages.dev/",
   "cachePrefix": "flix_remote_",
   "timeout": 5000,
   "files": {
-    "css/vod_series_summary.css": {
+    "css/style.css": {
       "version": "1.0.0",
-      "size": 32874,
-      "hash": "96f79d18",
+      "size": 18256,
+      "hash": "c89cf79d",
+      "priority": 1
+    },
+    "css/variables.css": {
+      "version": "1.0.0",
+      "size": 150,
+      "hash": "eaf8f40b",
       "priority": 1
     },
     "css/responsive.css": {
@@ -18,11 +24,17 @@
       "hash": "fcfc2276",
       "priority": 1
     },
-    "css/style.css": {
+    "css/vod_series_summary.css": {
       "version": "1.0.0",
-      "size": 18256,
-      "hash": "c89cf79d",
+      "size": 32874,
+      "hash": "96f79d18",
       "priority": 1
+    },
+    "css/vod_series_player_page.css": {
+      "version": "1.0.0",
+      "size": 5421,
+      "hash": "d0a63a17",
+      "priority": 2
     },
     "css/channel_page.css": {
       "version": "1.0.0",
@@ -41,12 +53,6 @@
       "size": 12733,
       "hash": "84dee7cc",
       "priority": 1
-    },
-    "css/vod_series_player_page.css": {
-      "version": "1.0.0",
-      "size": 5421,
-      "hash": "d0a63a17",
-      "priority": 2
     },
     "css/guide.css": {
       "version": "1.0.0",
@@ -72,11 +78,107 @@
       "hash": "4f93fc60",
       "priority": 2
     },
+    "css/movie_grid.css": {
+      "version": "1.0.0",
+      "size": 2099,
+      "hash": "aab732a5",
+      "priority": 2
+    },
+    "css/rating.css": {
+      "version": "1.0.0",
+      "size": 700,
+      "hash": "e794ded2",
+      "priority": 2
+    },
+    "css/loader.css": {
+      "version": "1.0.0",
+      "size": 1343,
+      "hash": "b30f0c3f",
+      "priority": 1
+    },
+    "css/storage_page.css": {
+      "version": "1.0.0",
+      "size": 1492,
+      "hash": "9af653b6",
+      "priority": 3
+    },
+    "css/youtube_page.css": {
+      "version": "1.0.0",
+      "size": 1849,
+      "hash": "9bd11c0d",
+      "priority": 3
+    },
+    "css/gallary.css": {
+      "version": "1.0.0",
+      "size": 2107,
+      "hash": "f5eea9a5",
+      "priority": 3
+    },
+    "js/Models/VodModel.js": {
+      "version": "1.0.0",
+      "size": 15684,
+      "hash": "b1b94f7b",
+      "priority": 1
+    },
+    "js/Models/LiveModel.js": {
+      "version": "1.0.0",
+      "size": 17515,
+      "hash": "7368a155",
+      "priority": 1
+    },
+    "js/Models/SeriesModel.js": {
+      "version": "1.0.0",
+      "size": 13022,
+      "hash": "9eca2f6e",
+      "priority": 1
+    },
     "js/common.js": {
       "version": "1.0.0",
       "size": 36574,
       "hash": "45dbbba0",
       "priority": 1
+    },
+    "js/common_with_encrypt.js": {
+      "version": "1.0.0",
+      "size": 23001,
+      "hash": "23aff124",
+      "priority": 1
+    },
+    "js/main.js": {
+      "version": "1.0.0",
+      "size": 8250,
+      "hash": "be9e1a24",
+      "priority": 1
+    },
+    "js/keyTizen.js": {
+      "version": "1.0.0",
+      "size": 4817,
+      "hash": "3a444b2d",
+      "priority": 1
+    },
+    "js/time_helper.js": {
+      "version": "1.0.0",
+      "size": 325,
+      "hash": "724737e1",
+      "priority": 1
+    },
+    "js/language_codes.js": {
+      "version": "1.0.0",
+      "size": 40051,
+      "hash": "31bed6af",
+      "priority": 1
+    },
+    "js/seasons_variable.js": {
+      "version": "1.0.0",
+      "size": 10001,
+      "hash": "5af291ef",
+      "priority": 2
+    },
+    "js/episode_variable.js": {
+      "version": "1.0.0",
+      "size": 6594,
+      "hash": "c761eaa4",
+      "priority": 2
     },
     "js/vod_summary.js": {
       "version": "1.0.0",
@@ -150,6 +252,12 @@
       "hash": "f15f525f",
       "priority": 3
     },
+    "js/image_page.js": {
+      "version": "1.0.0",
+      "size": 2524,
+      "hash": "a480d794",
+      "priority": 3
+    },
     "js/settings.js": {
       "version": "1.0.0",
       "size": 2850,
@@ -168,10 +276,22 @@
       "hash": "510e2d59",
       "priority": 2
     },
+    "js/srt_parser.js": {
+      "version": "1.0.0",
+      "size": 4120,
+      "hash": "42c74688",
+      "priority": 2
+    },
     "js/subtitle_fetcher.js": {
       "version": "1.0.0",
       "size": 22757,
       "hash": "ced5b366",
+      "priority": 2
+    },
+    "js/enhanced_subtitle_workflow.js": {
+      "version": "1.0.0",
+      "size": 13635,
+      "hash": "b0039d46",
       "priority": 2
     }
   }

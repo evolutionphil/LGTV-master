@@ -1,0 +1,76 @@
+#storage-page {
+    padding: 50px 100px;
+    font-size: 0;
+}
+#storage-page-path-container {
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+#storage-page-container {
+    font-size: 0;
+}
+#directories-container {
+    display: inline-block;
+    vertical-align: top;
+    width: 75%;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-shadow: 2px 0 50px #a5a3f5;
+    padding: 10px;
+}
+#description-container {
+    display: inline-block;
+    vertical-align: middle;
+    width: 25%;
+}
+#directories-wrapper {
+    position: relative;
+    overflow-y: scroll;
+    font-size: 0;
+    height: 870px;
+}
+.menu-item-container {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20%;
+}
+.menu-item-wrapper {
+    padding:10px 10px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+.menu-item-wrapper.active {
+    background: rgba(204, 232, 255, 0.45);
+    border-color: #6584f3;
+}
+.menu-item-wrapper.directory .file-icon {
+    display: none;
+}
+.menu-item-wrapper.file .folder-icon {
+    display: none;
+}
+.menu-item-img-wrapper {
+    /*display: inline-block;*/
+    /*vertical-align: middle;*/
+    text-align: center;
+}
+.menu-item-icon {
+    max-width: 100%;
+    height: 200px;
+}
+.menu-item-title-wrapper {
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    position: relative;
+    height: 70px;
+}
+.menu-item-title {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}

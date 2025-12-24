@@ -1,0 +1,52 @@
+a{ text-decoration:none; }
+
+.mobile.show .pbWrapper > div, .mobile.show .pbWrapper > img {
+    transition: 500ms;
+}
+
+
+
+#pbAutoplayBtn {
+    display: none !important;
+}
+#pbCloseBtn{
+    display: none; !important;
+}
+.rotateBtn {
+    display: none !important;
+}
+.thumbs .pbThumbs{
+    margin-bottom: 0;
+}
+#pbCaption label{
+    display: none !important;
+}
+
+#wrap{ overflow:hidden; padding:3%; }
+#pbOverlay.show ~ #wrap{ -webkit-filter:blur(2px) grayscale(.4); }
+
+.info-gallery{ padding:20px; }
+.info-gallery li{ list-style:none; perspective:100px; -webkit-perspective:100px; margin:1px; float:right; position:relative; transition:.1s; -webkit-transition:0.1s; }
+.info-gallery li.video::before{ content:'\25BA'; color:#FFF; font-size:20px; height:20px; width:20px; line-height:0.9; position:absolute; bottom:3px; left:4px; z-index:1; background:rgba(0,0,0,0.4); box-shadow:0 0 0 3px rgba(0,0,0,0.4); border-radius:0 3px 0 0; pointer-events:none; opacity:0; transition:.5s 0.2s; }
+.info-gallery li.loaded.video::before{ opacity:1; }
+.info-gallery a{ display:block; width:75px; height:68px; vertical-align:bottom; overflow:hidden; background:rgba(0,0,0,0.1);
+    transition:.4s ease-out; -webkit-transition:0.4s ease-out; -webkit-transform:rotateX(90deg) translate(-50px,-50%); transform:rotateX(90deg) translate(-50px,-50%); }
+.info-gallery a:active, .info-gallery a:focus{ outline:none; }
+.info-gallery a img{ min-height:100%; width:100%; transition:.3s ease-out; -webkit-transition:0.3s ease-out; }
+.info-gallery .loaded a{ -webkit-transform:rotateX(0deg) translate(0,0); transform:rotateX(0deg) translate(0,0); }
+.info-gallery li.loaded:hover{ z-index:2; transform:scale(1.5); -webkit-transform:scale(1.5); }
+.info-gallery li.loaded a:hover{ box-shadow:0 0 0 2px #FFF, 0 0 20px 5px #000; transition:.1s; -webkit-transition:0.1s; }
+.info-gallery li.loaded:hover img{ transform:scale(1.2); -webkit-transform:scale(1.2); }
+.info-gallery li.loaded.video:hover::before{ opacity:0; }
+
+
+
+/* Bai's Code */
+.pbWrapper>img {
+    width: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    object-fit: contain;
+}
+
+/**/
