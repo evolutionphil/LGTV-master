@@ -1149,6 +1149,8 @@ var login_page={
         var that = this;
         that.app_data = data;
         
+        that.hideLoadImage();
+        
         $('#terms-content').text(terms.content || 'Terms content not available.');
         if(terms.updated_date) {
             $('#terms-version').text('Version ' + (terms.version || '1.0') + ' | Last updated: ' + terms.updated_date);
