@@ -1,0 +1,878 @@
+#live_channels_home{
+    white-space: nowrap;
+}
+#live_channels_home .left-container{
+    border-right:2px solid #c46992;
+    overflow-x: hidden;
+    overflow-y:scroll;
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    width: 41.7%;
+}
+#channel-page-right-part{
+    width: 58.3%;
+    vertical-align: top;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+}
+#live_channels_home .left-container, #live_channels_home .right-container{
+    padding:0 !important;
+}
+
+#live_channels_home #channel-menu-container{
+    margin-top:50px;
+    padding: 0 20px;
+    padding-left:0;
+}
+#channel-menu-wrapper{
+    height:930px;
+    overflow-y: scroll;
+    position: relative;
+}
+#live_channels_home .channel-menu-item{
+    padding:10px;
+    font-size:30px;
+    color:#fff;
+    width:100%;
+    margin-right:150px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    position:relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#live_channels_home .channel-menu-item.current{
+    background: #d136f5;
+}
+#live_channels_home .channel-menu-item.active{
+    background:#42a5f5;
+}
+
+#channel-page-search-back-button-wrapper{
+    color:#999;
+    font-size:25px;
+    margin-bottom:20px;
+    white-space: nowrap;
+}
+
+#channel-back-button-wrapper {
+    width: 150px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#live-channel-category-name{
+    font-size: 40px;
+    color: #999;
+    text-align: center;
+    width: 458px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+}
+#channel-search-button-wrapper {
+    width: 170px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#live_channels_home .search-back-button span{
+    display: inline-block;
+    padding:10px 20px;
+    border-radius:5px;
+    text-align: center;
+    color:#999;
+    background: transparent;
+    vertical-align: middle;
+}
+#live-channel-category-name{
+    font-size:40px;
+    color:#999;
+    text-align: center;
+}
+#channel-page-search-back-button-wrapper i{
+    margin-right:10px;
+    vertical-align: middle;
+    display: inline-block;
+}
+#live_channels_home .search-back-button.active span, .search-back-button:hover span{
+    color:#fff;
+    background:#438bd8;
+}
+#channel-page-right-part{
+    overflow-y: hidden;
+}
+#live_channels_home .channel-icon{
+    width:50px;
+    height:50px;
+    margin:0 10px;
+}
+#live_channels_home .channel-number{
+    width:90px;
+    margin-right:10px;
+    text-align: center;
+    display:inline-block;
+}
+#live_channels_home .player-container{
+    width:58.3vw;
+    height:58.3vh;
+    background: #000;
+    position: relative;
+}
+#channel-page-video, #channel-page-video-lg{
+    left:0;
+    top:0;
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit: contain;
+    background: black;
+}
+
+/* CRITICAL: Fullscreen video must escape container constraints */
+#channel-page-video.video-fullscreen, #channel-page-video-lg.video-fullscreen{
+    position:fixed !important;
+    left:0 !important;
+    top:0 !important;
+    width:100vw !important;
+    height:100vh !important;
+    z-index: 500 !important; /* Below subtitles (z-index: 1000) */
+}
+#live_channels_home .channel-information-container{
+    margin-top:20px;
+    padding:30px;
+}
+#channel-title{
+    font-size:40px;
+    color:#fff;
+
+}
+.next-program-item{
+    font-size:30px;
+    color:#eee;
+}
+.next-program-item.current{
+    color: #ffff00;
+}
+.program-time{
+    margin-right:20px;
+}
+
+#full-screen-information{
+    /* Robust background with TV browser compatibility */
+    background: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    bottom: 1.5vh;
+    left: 8vw;
+    right: 8vw;
+    /* Three-section flexbox layout - force flex when visible */
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 20px;
+    /* Modern rounded corners */
+    border-radius: 14px;
+    /* Subtle border for definition */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+    /* Smooth transitions */
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    /* Start hidden */
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Use visibility and opacity for show/hide instead of display */
+#full-screen-information.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Enhanced styling for browsers that support blur */
+@supports (backdrop-filter: blur(1px)) {
+    #full-screen-information {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(20, 20, 30, 0.9) 100%);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* === LEFT SECTION: Channel Identity === */
+.player-info-left {
+    flex: 0 0 auto;
+    min-width: 0;
+    max-width: 280px;
+    width: fit-content;
+}
+
+.channel-identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+}
+
+.channel-logo {
+    /* Much larger and cleaner logo */
+    height: 160px;
+    width: auto;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.channel-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    width: fit-content;
+}
+
+.channel-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #00d4ff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    line-height: 1;
+}
+
+.video-resolution-detailed {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 3px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-block;
+}
+
+/* Horizontal layout time styling */
+.status-indicators-horizontal #full-screen-current-time {
+    display: block !important;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+}
+
+/* Ensure the time in the time-resolution-stack is visible and properly styled */
+.time-resolution-stack #full-screen-current-time {
+    display: block !important;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+.time-resolution-stack .video-resolution {
+    margin-top: 4px;
+}
+
+.channel-name {
+    /* Compact TV size */
+    font-size: 28px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    word-wrap: break-word;
+    max-width: 180px;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* === CENTER SECTION: Program Information === */
+.player-info-center {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 60%;
+}
+
+.program-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.program-title {
+    font-size: 24px !important;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.program-description {
+    font-size: 14px !important;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    margin: 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    line-height: 1.3;
+    letter-spacing: 0.25px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+
+.epg-progress {
+    height: 6px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 100%);
+    border-radius: 3px;
+    margin: 6px 0;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.current-next-programs {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.current-program, .next-program {
+    flex: 1;
+    padding: 8px 16px;
+    /* TV-optimized size per guidelines */
+    font-size: 26px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    min-width: 0;
+    word-wrap: break-word;
+    text-align: center;
+    /* Trim long program names */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Specific trimming for current/next program elements */
+#full-screen-current-program, #catchup-full-screen-current-program,
+#full-screen-next-program, #catchup-full-screen-next-program {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100%;
+}
+
+.current-program {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-left: 4px solid #00d4ff;
+}
+
+.next-program {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.7) 0%, rgba(118, 75, 162, 0.7) 100%);
+    border-left: 4px solid rgba(0, 212, 255, 0.6);
+}
+
+/* === RIGHT SECTION: Status Indicators === */
+.player-info-right {
+    flex: 0 0 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+}
+
+.status-indicators-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.status-indicators {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    min-height: auto;
+}
+
+.status-indicators .time-resolution-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    margin-top: 2px;
+}
+
+/* Hide other current-time elements that might be showing in wrong places */
+.current-time {
+    display: none !important;
+}
+
+/* Only show the specific right-side time element */
+#full-screen-current-time {
+    display: block !important;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+#full-screen-resolution {
+    /* Positioned directly under LIVE indicator with same right alignment */
+    font-size: 16px;
+    padding: 6px 12px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    /* Match LIVE indicator styling but smaller */
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Removed - now handled by .channel-logo class */
+
+#full-screen-program-name,#catchup-full-screen-program-name, #guide-video-program-name{
+    /* TV-optimized typography - adjusted per guidelines */
+    font-size: 36px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+    /* Better text rendering for TVs */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+#full-screen-program-description,#catchup-full-screen-program-description,
+#guide-video-program-description {
+    margin-top: 12px;
+    white-space: normal;
+    margin-bottom: 16px;
+    /* Improved TV typography */
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    /* Better text rendering */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+    letter-spacing: 0.25px;
+}
+/* Scope modern styling to live TV channel name only */
+#full-screen-channel-name{
+    /* TV-optimized channel name typography */
+    font-size: 44px;
+    font-weight: 700;
+    color: #ffffff;
+    /* Robust background with fallback */
+    background: rgba(0, 0, 0, 0.85);
+    padding: 24px 40px;
+    text-align: center;
+    z-index: 10;
+    /* Better text rendering */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+    /* Modern border styling */
+    border-bottom: 3px solid rgba(0, 212, 255, 0.7);
+}
+
+/* Enhanced styling for browsers that support blur */
+@supports (backdrop-filter: blur(1px)) {
+    #full-screen-channel-name {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 30, 0.95) 100%);
+        backdrop-filter: blur(8px);
+    }
+}
+
+/* Keep original styling for catchup and guide contexts */
+#catchup-full-screen-channel-name, #guide-video-channel-name{
+    font-size:46px;
+    font-weight: bold;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top:20px;
+    padding-bottom: 20px;
+    text-align: center;
+    z-index: 10;
+}
+#full-screen-channel-name{
+    white-space: nowrap;
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 10;
+    /* Hide the top channel name since we now show it in compact header */
+    visibility: hidden;
+}
+
+.channel-fullscreen-padding-text{
+    padding: 0;
+    margin-bottom: 12px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    /* Better spacing for modern layout */
+    max-width: calc(100% - 100px); /* Account for logo space */
+}
+#full-screen-information-progress, #guide-video-information-progress{
+    /* Enhanced EPG-aware progress container */
+    width: 60%;
+    margin: 16px 0;
+    position: relative;
+}
+
+/* Compact program header */
+.program-header {
+    margin-bottom: 8px;
+}
+
+.channel-name-compact {
+    color: #007bff;
+    font-weight: 600;
+    font-size: 32px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.program-title {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    font-size: 28px;
+    margin: 0;
+    display: block;
+}
+
+/* EPG time labels */
+.epg-progress-times {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-weight: 500;
+}
+
+/* Hide time labels when no EPG but keep progress bar functional */
+.epg-progress-times:not([style*="display: none"]) {
+    display: flex;
+}
+
+.epg-progress-times[style*="display: none"] {
+    display: none !important;
+}
+
+.progress-start-time,
+.progress-end-time {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 4px 8px;
+    border-radius: 4px;
+    backdrop-filter: blur(2px);
+}
+
+/* Enhanced progress bar container */
+.epg-progress-bar {
+    height: 8px;
+    overflow: hidden;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 100%);
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Progress fill - blue gradient matching original design */
+.progress-fill {
+    display: block;
+    background: linear-gradient(90deg, #007bff 0%, #0056b3 50%, #004085 100%);
+    height: 100%;
+    width: 0;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+    transition: width 0.3s ease-out;
+    position: relative;
+}
+
+/* Current time indicator */
+.current-time-indicator {
+    position: absolute;
+    top: -2px;
+    width: 4px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    transform: translateX(-2px);
+    transition: left 0.5s ease-out;
+}
+#full-screen-programs-container,#catchup-full-screen-programs-container {
+    color: white;
+    margin: 16px 0 !important;
+    border-radius: 10px;
+    overflow: hidden;
+    /* Responsive flex layout for better adaptation */
+    display: flex;
+    gap: 8px;
+    min-width: 0;
+    /* Subtle backdrop for program info */
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced styling for browsers that support blur */
+@supports (backdrop-filter: blur(1px)) {
+    #full-screen-programs-container,#catchup-full-screen-programs-container {
+        backdrop-filter: blur(4px);
+    }
+}
+
+
+#full-screen-channel-name .channel-name{
+    display: inline-block;
+    vertical-align: middle;
+    width: 80%;
+}
+#full-screen-current-program, #full-screen-next-program,#catchup-full-screen-current-program,#catchup-full-screen-next-program{
+    padding: 12px 20px;
+    flex: 1;
+    /* TV-optimized font size */
+    font-size: 28px;
+    font-weight: 500;
+    border-radius: 8px;
+    /* Better text rendering */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    min-width: 0;
+    word-wrap: break-word;
+}
+#full-screen-current-program,#catchup-full-screen-current-program{
+    /* Modern gradient for current program */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-left: 4px solid #00d4ff;
+    margin-right: 4px;
+}
+#full-screen-next-program,#catchup-full-screen-next-program{
+    /* Modern gradient for next program */
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.7) 0%, rgba(118, 75, 162, 0.7) 100%);
+    border-left: 4px solid rgba(0, 212, 255, 0.6);
+    margin-left: 4px;
+}
+#live_channels_home .player-container{
+
+}
+
+#live-channel-button-container{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:fit-content;
+}
+.channel-action-btn{
+    font-size: 30px;
+    width: 200px;
+    background: #520178;
+    color: #ccc;
+    border-radius: 35px;
+    border: 1px solid #fff0;
+}
+.channel-action-btn.active {
+    color: #fff;
+    background: #910ad0;
+    border: 2px solid #fff;
+}
+.favourite-icon{
+    position: absolute;
+    right:20px;
+    top:50%;
+    transform: translateY(-50%);
+}
+.sort-icon {
+    font-size: 22px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    color: #ef2222;
+}
+.channel-menu-item.rearrange.active .sort-icon {
+    display: block;
+}
+.favourite-icon+.sort-icon {
+    right: 5px;
+}
+#typed-channel-number{
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    color: yellow;
+    font-weight: bold;
+    font-size: 50px;
+}
+#channel-back-button-text{
+    padding:0 !important;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#search-btn-text{
+    padding:0 !important;
+    width: 82px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.channel-operation-item{
+    transition: all 0.4s;
+}
+.channel-epg-icon {
+    width: 30px;
+    margin-right: 10px;
+    margin-left: -5px;
+}
+
+.bottom-label-item {
+    display: none;
+    /*width: 150px;*/
+    color: #fff;
+    font-size: 20px;
+    padding:0 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+}
+.bottom-label-icon{
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+.bottom-label-text {
+    font-weight: lighter;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+.bottom-item-red {
+    background: #ff0000;
+}
+.bottom-item-blue{
+    background: #0000ff;
+}
+.bottom-item-yellow {
+    background: #ffff00;
+}
+.bottom-item-green {
+    background: #00ff00;
+}
+
+/* Live indicator and resolution container - positioned together */
+.live-resolution-stack {
+    position: absolute;
+    top: 2vh;
+    right: 1.8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    z-index: 110;
+}
+
+/* Modern LIVE indicator - now within stack */
+.live-indicator {
+    background: linear-gradient(135deg, #ff3b30 0%, #ff6b35 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 12px rgba(255, 59, 48, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    animation: pulse-glow 2s infinite;
+}
+
+/* TV-optimized animation - transform/opacity only for performance */
+@keyframes pulse-glow {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+/* Status indicators container */
+.player-status-indicators {
+    position: absolute;
+    top: 2vh;
+    right: 1.8vw;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    z-index: 110;
+}
+
+.status-indicator {
+    background: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 6px 12px;
+    border-radius: 12px;
+    /* Compact TV size */
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Horizontal layout LIVE indicator styling */
+.status-indicators-horizontal .live-indicator {
+    background: linear-gradient(135deg, #ff3b30 0%, #ff6b35 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 8px rgba(255, 59, 48, 0.4);
+}
+
+/* Enhanced styling for browsers that support blur */
+@supports (backdrop-filter: blur(1px)) {
+    .status-indicator {
+        backdrop-filter: blur(8px);
+    }
+}

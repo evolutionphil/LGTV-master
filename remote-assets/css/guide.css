@@ -1,0 +1,298 @@
+#guide-page{
+    color:#fff;
+}
+#guide-categories-container{
+    width:0;
+    display: inline-block;
+    margin: 0;
+    padding:20px 0;
+    background: #130244;
+    overflow-y: scroll;
+    height: calc(100vh - 10px);
+    box-sizing:border-box;
+}
+#guide-categories-container.expanded{
+    width: 20vw;
+    border-right: 2px solid #c407e6e3;
+}
+
+
+#guide-page-right-part{
+    width:80vw;
+    float:right;
+    box-sizing: border-box;
+    height:100vh;
+    overflow: hidden;
+}
+#guide-page-right-part.expanded{
+    width:100vw;
+}
+
+#guide-back-button {
+    position:absolute;
+    top:10px;
+    left:10px;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    transition:background-color 0.2s;
+    color:#fff;
+}
+#guide-back-button i{
+    line-height: 50px;
+    margin-right: 5px;
+}
+#guide-back-button:hover, #guide-back-button.active{
+    box-shadow: 0 0 15px #31036f;
+    color: #ddd;
+    background: #07abbdbf;
+}
+
+.guide-channel-information-container{
+    height:30vh;
+    width:50vw;
+    padding: 30px 5px 20px 100px;
+    white-space: nowrap;
+}
+.guide-channel-image-container{
+    width:120px;
+    text-align:center;
+    display: inline-block;
+    vertical-align: top;
+}
+#guide-channel-icon{
+    width:100%;
+}
+.guide-channel-information-wrapper{
+    margin-left:30px;
+    width:1280px;
+    display: inline-block;
+    vertical-align: top;
+}
+#guide-program-time {
+    font-size: 25px;
+    font-weight: normal;
+}
+#guide-programme-name{
+    font-size: 35px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+#guide-programme-description {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom:20px;
+    white-space: normal;
+}
+#guide-page .player-container{
+    position:fixed;
+    right:0;
+    top:0;
+    width:30vw;
+    height:30vh;
+    background-color:#111;
+    z-index: 999;
+}
+
+
+#guide-categories-container .guide-category-item{
+    color: #ddd;
+    font-size: 25px;
+    padding: 2px 15px 2px;
+    border-bottom: 2px solid #0c8888ab;
+    width:calc(20vw - 2px);
+}
+#guide-categories-container .guide-category-item.active, #guide-categories-container .guide-category-item:hover{
+    background: #08bae4;
+}
+
+
+#guide-datetime-container {
+    width: 100%;
+    border-top: 2px solid #a800a5;
+    border-bottom: 2px solid #a800a5;
+    background: #3a0375;
+}
+
+#guide-programme-date {
+    border-top: 2px solid #a800a5;
+    border-bottom: 2px solid #a800a5;
+    background: #3a0375;
+}
+#guide-time-container{
+    width:100%;
+    white-space: nowrap;
+    overflow:hidden;
+    background: #3a0375;
+    border-top: 2px solid #a800a5;
+    border-bottom: 2px solid #a800a5;
+
+    font-size: 0px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+}
+.guide-time {
+    padding: 10px;
+    color: #ddd;
+    font-weight: bold;
+    text-align: center;
+    position:relative;
+    box-sizing: border-box;
+    font-size:25px;
+    /**/
+}
+
+.guide-time i{
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    font-size:12px;
+    transform: translateX(-50%);
+    color: #ff180b;
+}
+
+
+.guide-channel-item-wrapper {
+    padding: 5px 10px;
+    background:rgba(156, 124, 230, 0.6);
+    border-radius: 10px;
+    margin-bottom: 2px;
+    height:50px;
+    font-size:25px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.guide-channel-item-wrapper.active {
+    background: rgba(33, 166, 197, 0.9);
+}
+.guide-channel-number {
+    width: 80px;
+    display: inline-block;
+    text-align: center;
+}
+.guide-channel-icon {
+    width: 30px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+#guide-channels-container{
+    height:calc(70vh - 60px);
+    overflow-y: scroll;
+    padding-bottom:20px;
+}
+#guide-programme-time-container{
+    overflow-x: hidden;
+}
+#guide-programmes-container{
+    height:calc(70vh - 60px);
+    padding-bottom: 20px;
+    margin-top:0px;
+    padding-top:0px;
+    overflow-y: scroll;
+}
+
+.guide-programme-wrapper{
+    width: 100%;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom:2px;
+    height:50px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    font-size: 0px;
+}
+.guide-programme-item-wrapper {
+    height: 50px;
+    font-size: 25px;
+    padding: 5px 10px;
+    background: #7e63bd;
+    border-radius: 10px;
+    display:inline-block;
+    overflow:hidden;
+    position:relative;
+}
+
+
+
+
+.guide-programme-item-wrapper.active {
+    background: #b36fc5;
+}
+
+#current-time-bar{
+    position:absolute;
+    top:0;
+    height:100%;
+    width:3px;
+    border-right:3px solid #6aa4b9;
+}
+
+#guide-video-information-wrapper{
+    /*background-color: rgba(137, 25, 194, 0.57);*/
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:30px 0;
+    z-index:1200;
+    display: none;
+}
+#guide-screen-channel-logo{
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    height: 100px;
+}
+#guide-video-program-description{
+    width:calc(100% - 110px);
+    margin-bottom:10px;
+}
+
+#guide-video-information-progress{
+    height: 10px;
+    overflow: hidden;
+    background-color: #00ffb4;
+    width:50%;
+    margin:20px 40px;
+
+}
+#guide-video-information-progress span{
+    display: block;
+    background: #cc0000;
+    height:100%;
+    width:0;
+}
+#guide-video-programs-container {
+    color: white;
+    width: 50%;
+    margin:0 40px !important;
+    white-space: nowrap;
+    font-size: 0;
+}
+#guide-video-channel-name{
+    white-space: nowrap;
+}
+#guide-video-channel-name .channel-name{
+    vertical-align:middle;
+    width: 80%;
+    display: inline-block;
+}
+#guide-video-current-program, #guide-video-next-program{
+    padding:15px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    font-size: 23px;
+}
+#guide-video-current-program{
+    background: #9d00ff;
+}
+#guide-video-next-program{
+    background:#6c0fb3;
+}

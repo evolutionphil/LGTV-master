@@ -1,0 +1,1694 @@
+.vod-series-background-img {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vod-series-background-img-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.6) 100%);
+}
+
+.vod-summary-redesign {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 3vh 4vw;
+    box-sizing: border-box;
+}
+
+
+.vod-summary-hero {
+    display: flex;
+    flex: 0 0 auto;
+    min-height: 0;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    position: relative;
+    height: auto;
+    margin-bottom: 3vh;
+}
+
+/* Tizen 2.4 / LG WebOS gap fallback - use margin instead of gap */
+/* Poster aspect ratio: 2:3 (width:height) - 23vw:62vh ≈ 0.67 */
+.vod-summary-poster {
+    flex-shrink: 0;
+    width: 23vw;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0;
+    margin-right: 2.5vw;
+}
+
+#vod-summary-page #vod-summary-image-wrapper {
+    position: relative;
+    width: 23vw;
+    height: auto;
+}
+
+#vod-summary-page #vod-summary-image-wrapper img {
+    width: 23vw;
+    height: 62vh;
+    object-fit: cover;
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    position: static;
+    transform: none;
+}
+
+#series-summary-page #series-summary-image-wrapper {
+    position: relative;
+    width: 23vw;
+    height: auto;
+}
+
+#series-summary-page #series-summary-image-wrapper img {
+    width: 23vw;
+    height: 62vh;
+    object-fit: cover;
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    position: static;
+    transform: none;
+}
+
+#series-summary-page #series-summary-name {
+    font-size: 3.2vw;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 1.5vh 0;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+#series-summary-page #current-series-category {
+    font-size: 1.5vw;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 1.5vw 0 0;
+}
+
+.vod-summary-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-top: 0;
+    max-width: 75vw;
+    min-width: 0;
+    height: auto;
+    min-height: 62vh;
+}
+
+.vod-summary-header {
+    margin-bottom: 1.5vh;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#vod-summary-page .vod-summary-header h3,
+#series-summary-page .vod-summary-header h3 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#vod-summary-page #vod-summary-name {
+    font-size: 3.2vw;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 1.5vh 0;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.vod-summary-meta-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.vod-summary-meta-row > * {
+    margin-right: 1vw;
+    margin-bottom: 0.5vh;
+}
+
+.vod-summary-meta-row > *:last-child {
+    margin-right: 0;
+}
+
+#vod-summary-page #current-vod-category {
+    font-size: 1.5vw;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 1.5vw 0 0;
+}
+
+.vod-meta-chip {
+    font-size: 1.4vw;
+    color: #bbb;
+    padding: 0.8vh 1.2vw;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+}
+
+.vod-meta-chip:empty {
+    display: none;
+}
+
+.vod-rating-inline {
+    display: flex;
+    align-items: center;
+    padding: 0.8vh 1.2vw;
+    background: rgba(255,200,0,0.15);
+    border-radius: 20px;
+}
+
+.vod-rating-inline > * {
+    margin-right: 0.5vw;
+}
+
+.vod-rating-inline > *:last-child {
+    margin-right: 0;
+}
+
+.vod-rating-star {
+    color: #ffc800;
+    font-size: 1.4vw;
+}
+
+.vod-rating-inline .rating-mark {
+    color: #ffc800;
+    font-size: 1.3vw;
+    font-weight: 600;
+}
+
+.vod-summary-genre {
+    font-size: 1.4vw;
+    color: #888;
+    margin-bottom: 2vh;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vod-summary-genre:empty {
+    display: none;
+}
+
+#vod-summary-page .vod-summary-description,
+#series-summary-page .vod-summary-description {
+    font-size: 1.2vw;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0 0 2vh 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
+}
+
+.vod-summary-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2vh;
+}
+
+.vod-summary-details > .vod-detail-item {
+    margin-right: 3vw;
+    margin-bottom: 1.5vh;
+}
+
+.vod-summary-details > .vod-detail-item:last-child {
+    margin-right: 0;
+}
+
+.vod-detail-item {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 40%;
+}
+
+.vod-detail-item:only-child {
+    max-width: 100%;
+}
+
+.vod-detail-item:only-child .vod-detail-value {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.vod-detail-label {
+    font-size: 1.1vw;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5vh;
+}
+
+.vod-detail-value {
+    font-size: 1.2vw;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.vod-detail-value:empty {
+    display: none;
+}
+
+.vod-detail-item:has(.vod-detail-value:empty) {
+    display: none;
+}
+
+.vod-summary-actions {
+    display: flex;
+    margin-top: auto;
+    padding-bottom: 0;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.vod-summary-actions > .vod-action-btn-new {
+    margin-right: 1.5vw;
+}
+
+.vod-summary-actions > .vod-action-btn-new:last-child {
+    margin-right: 0;
+}
+
+.vod-action-btn-new {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2vh 3vw;
+    font-size: 1.5vw;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255,255,255,0.15);
+    border: 3px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.vod-action-btn-new i {
+    margin-right: 0.8vw;
+    font-size: 1.5vw;
+}
+
+.vod-action-btn-new:hover,
+.vod-action-btn-new.active {
+    background: rgba(255,255,255,0.25);
+    border-color: #ffc800;
+    color: #fff;
+}
+
+#vod-watch-movie-button:hover,
+#vod-watch-movie-button.active,
+#vod-add-favourite-button:hover,
+#vod-add-favourite-button.active {
+    background: #ffc800;
+    border-color: #ffc800;
+    color: #000;
+}
+
+.vod-summary-similar {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+    padding-bottom: 10px;
+}
+
+.similar-movies-title {
+    font-size: 1.4vw;
+    color: #888;
+    margin-bottom: 1.5vh;
+    font-weight: 500;
+}
+
+#similar-movies-container {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1vh 0.5vw;
+    margin: -1vh -0.5vw;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+#similar-movies-container::-webkit-scrollbar {
+    display: none;
+}
+
+.similar-movie-item {
+    flex-shrink: 0;
+    width: 8vw;
+    cursor: pointer;
+    margin-right: 1.2vw;
+}
+
+.similar-movie-item:last-child {
+    margin-right: 0;
+}
+
+.similar-movie-item img {
+    width: 8vw;
+    height: 22vh;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    background: #333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.similar-movie-item.active img {
+    border-color: #ffc800;
+    box-shadow: 0 0 15px rgba(255, 200, 0, 0.5);
+}
+
+.similar-movie-item .similar-movie-name {
+    display: block;
+    font-size: 0.75vw;
+    color: #ccc;
+    text-align: center;
+    margin-top: 0.8vh;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 8vw;
+    line-height: 1.3;
+}
+
+.similar-movie-item.active .similar-movie-name {
+    color: #ffc800;
+}
+
+.similar-movie-item.active .similar-movie-name.marquee {
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.similar-movie-item.active .similar-movie-name.marquee .marquee-content {
+    display: inline-block;
+    -webkit-animation: marquee-scroll 8s linear infinite;
+    animation: marquee-scroll 8s linear infinite;
+}
+
+@-webkit-keyframes marquee-scroll {
+    0%, 5% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    95%, 100% {
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marquee-scroll {
+    0%, 5% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    95%, 100% {
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+}
+
+#vod-summary-content-container,
+#series-summary-content-container {
+    margin: 0 auto !important;
+    color: white;
+    white-space: nowrap;
+}
+
+.vod-series-summary-page-contents-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px 80px;
+}
+
+.season-episode-page-contents-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.vod-summary-information-container {
+    padding-left: 0;
+    height: auto;
+    padding-top: 0;
+}
+
+.vod-summary-item {
+    margin-bottom: 0;
+    font-size: 30px;
+}
+
+.vod-summary-item-text {
+    white-space: normal;
+}
+
+.vod-summary-item-label {
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+
+.max-line-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.max-line-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+
+#series-summary-page .vod-summary-info {
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    min-height: 62vh;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+#vod-summary-page .vod-summary-info {
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    min-height: 62vh;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+#series-summary-page .vod-summary-redesign #series-summary-action-container {
+    display: flex;
+    margin-top: auto;
+    padding-bottom: 0;
+    overflow: visible;
+    justify-content: flex-start;
+    z-index: 10;
+}
+
+#series-summary-page .vod-summary-redesign #series-summary-action-container > * {
+    margin-right: 1.5vw;
+}
+
+#series-summary-page .vod-summary-redesign #series-summary-action-container > *:last-child {
+    margin-right: 0;
+}
+
+.vod-series-action-btn {
+    width: 300px;
+    font-size: 25px;
+    border-radius: 40px !important;
+    padding: 15px 0;
+    margin-right: 10px;
+    background: #8060FF;
+    color: #ddd !important;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.vod-series-action-btn i,
+.vod-series-action-btn span {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.vod-series-action-btn-txt {
+    margin-left: 10px;
+}
+
+.vod-series-action-btn.active {
+    border: 3px solid yellow !important;
+    color: #fff !important;
+}
+
+.vod-action-btn,
+.series-action-btn {
+    pointer-events: auto !important;
+    cursor: pointer;
+    justify-content: flex-start !important;
+    text-align: left !important;
+}
+
+#series-season-dropdown-btn,
+#series-add-favourite-button,
+#series-watch-trailer-button {
+    justify-content: flex-start !important;
+    text-align: left !important;
+}
+
+.vod-line {
+    width: 400px;
+    border: 2px solid #f800b2;
+    margin-top: 20px;
+}
+
+.vod-series-rating-container {
+    bottom: 20px;
+    right: 20px;
+    position: fixed;
+    display: inline-block;
+    vertical-align: middle;
+    z-index: 50;
+}
+
+.category-rating-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.category-rating-wrapper #current-series-category {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 0;
+}
+
+/* ============================================
+   Netflix Style Seasons & Episodes Pages
+   Responsive Design with CSS Variables
+   ============================================ */
+
+:root {
+    --season-card-width: 220px;
+    --season-card-gap: 20px;
+    --episode-thumb-width: 280px;
+    --episode-thumb-height: 158px;
+    --page-padding: 40px;
+    --header-font: 32px;
+    --title-font: 24px;
+    --body-font: 18px;
+    --small-font: 14px;
+    --focus-color: #ffc800;
+    --card-bg: rgba(40, 40, 40, 0.9);
+    --card-bg-hover: rgba(60, 60, 60, 0.95);
+}
+
+/* Dynamic Background for Seasons Page */
+.seasons-dynamic-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: opacity 0.5s ease;
+}
+
+.seasons-dynamic-bg-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(20,20,20,0.95) 0%, rgba(20,20,20,0.7) 50%, rgba(20,20,20,0.95) 100%);
+    z-index: 2;
+}
+
+/* Seasons Page Container */
+.netflix-seasons-container,
+.netflix-episodes-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--page-padding);
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+/* Header Section */
+.netflix-seasons-header,
+.netflix-episodes-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    flex-shrink: 0;
+}
+
+/* Back Button */
+.netflix-back-btn {
+    display: flex;
+    align-items: center;
+    color: #aaa;
+    font-size: var(--body-font);
+    cursor: pointer;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid transparent;
+    flex-shrink: 0;
+    margin-right: 30px;
+}
+
+.netflix-back-btn i {
+    margin-right: 12px;
+}
+
+.netflix-back-btn:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+}
+
+.netflix-back-btn.active {
+    color: #fff;
+    background: rgba(255,200,0,0.15);
+    border-color: var(--focus-color);
+}
+
+.netflix-back-btn i {
+    font-size: 20px;
+}
+
+/* Series/Episode Info in Header */
+.netflix-series-info,
+.netflix-episode-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.netflix-series-info > *,
+.netflix-episode-info > * {
+    margin-bottom: 8px;
+}
+
+.netflix-series-info > *:last-child,
+.netflix-episode-info > *:last-child {
+    margin-bottom: 0;
+}
+
+.netflix-series-info h2,
+.netflix-episode-info h2 {
+    font-size: var(--header-font);
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.netflix-series-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.netflix-series-meta > * {
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+.netflix-series-meta > *:last-child {
+    margin-right: 0;
+}
+
+#season-rating {
+    color: var(--focus-color);
+    font-size: var(--body-font);
+    display: flex;
+    align-items: center;
+}
+
+#season-rating > * {
+    margin-right: 6px;
+}
+
+#season-rating > *:last-child {
+    margin-right: 0;
+}
+
+#season-count-badge,
+#episode-count-badge {
+    background: rgba(255,255,255,0.12);
+    color: #ddd;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: var(--small-font);
+    font-weight: 500;
+}
+
+/* Seasons Content Area - Centered */
+.netflix-seasons-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Season Grid - Horizontal Scroll Rail */
+.netflix-season-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Season Card */
+.netflix-season-card {
+    width: var(--season-card-width);
+    background: var(--card-bg);
+    border-radius: 10px;
+    margin-right: var(--season-card-gap);
+}
+
+.netflix-season-card:last-child {
+    margin-right: 0;
+}
+
+.netflix-season-card-inner {
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 3px solid transparent;
+    flex-shrink: 0;
+}
+
+.netflix-season-card:hover {
+    background: var(--card-bg-hover);
+}
+
+.netflix-season-card.active {
+    border-color: var(--focus-color);
+    transform: scale(1.02);
+    box-shadow: 0 6px 25px rgba(255,200,0,0.25);
+}
+
+.netflix-season-poster {
+    width: 100%;
+    height: 124px;
+    object-fit: cover;
+    background: #222;
+}
+
+.netflix-season-info {
+    padding: 14px 16px;
+}
+
+.netflix-season-name {
+    font-size: var(--body-font);
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 6px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.netflix-season-episodes {
+    font-size: var(--small-font);
+    color: #888;
+    margin: 0;
+}
+
+/* ============================================
+   Episodes Page - Split Layout Design
+   ============================================ */
+
+.episode-dynamic-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: opacity 0.4s ease;
+}
+
+.episode-dynamic-bg-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(20,20,20,0.98) 0%, rgba(20,20,20,0.85) 40%, rgba(20,20,20,0.6) 100%);
+    z-index: 2;
+}
+
+.episode-split-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--page-padding);
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.episode-header-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-shrink: 0;
+}
+
+.episode-header-bar > * {
+    margin-right: 30px;
+}
+
+.episode-header-bar > *:last-child {
+    margin-right: 0;
+}
+
+.episode-header-info {
+    display: flex;
+    align-items: center;
+}
+
+.episode-header-info > * {
+    margin-right: 20px;
+}
+
+.episode-header-info > *:last-child {
+    margin-right: 0;
+}
+
+.episode-header-info h2 {
+    font-size: var(--header-font);
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.episode-split-content {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.episode-split-content > .episode-detail-pane {
+    margin-right: 60px;
+}
+
+/* Left Pane - Episode Details */
+.episode-detail-pane {
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 40px;
+}
+
+.episode-detail-number {
+    font-size: var(--body-font);
+    color: var(--focus-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.episode-detail-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.episode-detail-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.episode-detail-meta > * {
+    margin-right: 20px;
+}
+
+.episode-detail-meta > *:last-child {
+    margin-right: 0;
+}
+
+.episode-detail-duration {
+    font-size: var(--body-font);
+    color: #aaa;
+    display: flex;
+    align-items: center;
+}
+
+.episode-detail-duration > * {
+    margin-right: 8px;
+}
+
+.episode-detail-duration > *:last-child {
+    margin-right: 0;
+}
+
+.episode-detail-description {
+    font-size: var(--body-font);
+    color: #bbb;
+    line-height: 1.6;
+    margin: 0 0 35px 0;
+    max-height: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.episode-watch-button {
+    display: inline-flex;
+    align-items: center;
+    background: #fff;
+    color: #000;
+    padding: 16px 40px;
+    border-radius: 6px;
+    font-size: var(--body-font);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 3px solid transparent;
+    width: fit-content;
+}
+
+.episode-watch-button i {
+    margin-right: 12px;
+}
+
+.episode-watch-button:hover {
+    background: #e5e5e5;
+}
+
+.episode-watch-button.active {
+    background: var(--focus-color);
+    color: #000;
+    border-color: #fff;
+}
+
+.episode-watch-button i {
+    font-size: 20px;
+}
+
+/* Right Pane - Episode Rail */
+.episode-rail-container {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.episode-vertical-rail {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+}
+
+.episode-vertical-rail > .episode-rail-card {
+    margin-bottom: 12px;
+}
+
+.episode-vertical-rail > .episode-rail-card:last-child {
+    margin-bottom: 0;
+}
+
+/* Episode Card - Compact Style */
+.episode-rail-card {
+    display: flex;
+    background: rgba(40, 40, 40, 0.6);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    padding: 10px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.episode-rail-card > .episode-rail-thumb {
+    margin-right: 16px;
+}
+
+.episode-rail-card:hover {
+    background: rgba(60, 60, 60, 0.7);
+}
+
+.episode-rail-card.active {
+    border-color: var(--focus-color);
+    background: rgba(255, 200, 0, 0.1);
+}
+
+.episode-rail-thumb {
+    flex-shrink: 0;
+    width: 120px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #222;
+}
+
+.episode-rail-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.episode-rail-number {
+    font-size: 12px;
+    color: #888;
+    margin: 0 0 4px 0;
+}
+
+.episode-rail-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.episode-rail-card.active .episode-rail-title {
+    color: var(--focus-color);
+}
+
+/* ============================================
+   Unified Series Page - Seasons & Episodes
+   ============================================ */
+
+.series-episodes-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.series-season-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.series-season-tabs > .season-tab {
+    margin-right: 8px;
+}
+
+.series-season-tabs > .season-tab:last-child {
+    margin-right: 0;
+}
+
+.season-tab {
+    padding: 10px 24px;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid transparent;
+    border-radius: 6px;
+    color: #aaa;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.season-tab:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+}
+
+.season-tab.active {
+    background: var(--focus-color);
+    color: #000;
+    border-color: var(--focus-color);
+}
+
+.season-tab.focused {
+    border-color: #fff;
+    box-shadow: 0 0 0 2px rgba(255,200,0,0.3);
+}
+
+.season-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.season-dropdown-container .dropdown-arrow {
+    margin-left: 8px;
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+
+.season-dropdown-container.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.season-dropdown-container.open #series-season-dropdown-btn {
+    border: 2px solid #ffc800;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    background: #1e1e1e;
+    position: relative;
+    z-index: 10000;
+}
+
+.season-dropdown-container.open #series-season-dropdown-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 2px;
+    right: 2px;
+    height: 4px;
+    background: #1e1e1e;
+    z-index: 10001;
+}
+
+.season-dropdown-menu {
+    position: absolute;
+    top: calc(100% - 4px);
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #1e1e1e;
+    border-left: 2px solid #ffc800;
+    border-right: 2px solid #ffc800;
+    border-bottom: 2px solid #ffc800;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    z-index: 9999;
+    margin-top: 0;
+}
+
+.season-dropdown-item {
+    display: block;
+    padding: 12px 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+}
+
+.season-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.season-dropdown-item:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+.season-dropdown-item.active {
+    color: #ffc800;
+    font-weight: 600;
+}
+
+.season-dropdown-item.active::after {
+    content: ' ✓';
+    color: #ffc800;
+}
+
+.season-dropdown-item.focused {
+    background: #ffc800;
+    color: #000;
+    font-weight: 600;
+}
+
+.season-dropdown-item.focused.active::after {
+    color: #000;
+}
+
+.series-episode-rail {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 10px 50px 10px;
+    margin-left: -10px;
+    scroll-behavior: smooth;
+}
+
+.series-episode-rail > .series-ep-card {
+    margin-right: 16px;
+}
+
+.series-episode-rail > .series-ep-card:last-child {
+    margin-right: 0;
+}
+
+.series-ep-card {
+    flex-shrink: 0;
+    width: 240px;
+    background: rgba(40,40,40,0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.series-ep-card:hover {
+    background: rgba(60,60,60,0.9);
+}
+
+.series-ep-card.active {
+    border-color: var(--focus-color);
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(255,200,0,0.25);
+}
+
+.series-ep-thumb-container {
+    position: relative;
+    width: 100%;
+    height: 135px;
+    overflow: hidden;
+}
+
+.series-ep-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    background: #222;
+}
+
+.series-ep-duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 6px;
+    border-radius: 4px;
+    margin: 0;
+}
+
+.series-ep-info {
+    padding: 12px;
+}
+
+.series-ep-number {
+    font-size: 12px;
+    color: var(--focus-color);
+    margin: 0 0 4px 0;
+    font-weight: 600;
+}
+
+.series-ep-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* ============================================
+   Responsive Breakpoints
+   ============================================ */
+
+/* 720p TVs (max-width: 1281px) */
+@media screen and (max-width: 1281px) {
+    :root {
+        --season-card-width: 180px;
+        --season-card-gap: 15px;
+        --episode-thumb-width: 200px;
+        --episode-thumb-height: 113px;
+        --page-padding: 30px;
+        --header-font: 26px;
+        --title-font: 20px;
+        --body-font: 16px;
+        --small-font: 13px;
+    }
+    
+    .netflix-series-poster {
+        width: 200px;
+    }
+    
+    .netflix-series-poster img {
+        max-height: calc(100vh - 160px);
+    }
+    
+    .netflix-season-poster {
+        height: 100px;
+    }
+    
+    .netflix-back-btn {
+        padding: 10px 18px;
+    }
+    
+    .netflix-back-btn i {
+        margin-right: 8px;
+        font-size: 18px;
+    }
+    
+    .episode-detail-title {
+        font-size: 32px;
+    }
+    
+    .episode-detail-pane {
+        flex: 0 0 40%;
+        padding-right: 25px;
+    }
+    
+    .episode-rail-container {
+        flex: 0 0 55%;
+    }
+    
+    .episode-split-content > .episode-detail-pane {
+        margin-right: 40px;
+    }
+    
+    .episode-rail-thumb {
+        width: 100px;
+        height: 56px;
+    }
+    
+    .episode-watch-button {
+        padding: 12px 30px;
+    }
+    
+    /* Series Summary Page - 720p */
+    .series-ep-card {
+        width: 180px;
+    }
+    
+    .series-ep-thumb-container {
+        height: 101px;
+    }
+    
+    .series-ep-duration {
+        font-size: 9px;
+        padding: 2px 5px;
+    }
+    
+    .series-ep-info {
+        padding: 8px;
+    }
+    
+    .series-ep-number {
+        font-size: 10px;
+    }
+    
+    .series-ep-title {
+        font-size: 12px;
+    }
+    
+    .series-ep-duration {
+        font-size: 10px;
+    }
+    
+    .series-episode-rail > .series-ep-card {
+        margin-right: 12px;
+    }
+    
+    .season-dropdown-menu {
+        max-height: 200px;
+    }
+    
+    .vod-summary-description {
+        font-size: 14px;
+        -webkit-line-clamp: 3;
+    }
+    
+    .vod-summary-actions > .vod-action-btn-new {
+        margin-right: 10px;
+    }
+    
+    .vod-summary-actions > .vod-action-btn-new:last-child {
+        margin-right: 0;
+    }
+    
+    /* Series Summary Page - 720p responsive */
+    /* Poster aspect ratio 2:3: 21vw:55vh */
+    .vod-summary-hero {
+        height: auto;
+    }
+    
+    #series-summary-page #series-summary-image-wrapper img,
+    #vod-summary-page #vod-summary-image-wrapper img {
+        width: 21vw;
+        height: 55vh;
+    }
+    
+    #series-summary-page .vod-summary-info,
+    #vod-summary-page .vod-summary-info {
+        min-height: 55vh;
+    }
+    
+    .vod-summary-poster {
+        width: 21vw;
+    }
+    
+    #series-summary-page #series-summary-image-wrapper,
+    #vod-summary-page #vod-summary-image-wrapper {
+        width: 21vw;
+    }
+    
+    .vod-action-btn-new {
+        padding: 1.5vh 2vw;
+        font-size: 1.3vw;
+    }
+}
+
+/* 1080p TVs (1282px - 1919px) - Default styles apply */
+
+/* Large displays - only apply to TRUE 4K (both width AND height are large) */
+/* LG TVs report 1920px width but only 1080px height, so use height check */
+@media screen and (min-width: 1920px) and (min-height: 1200px) {
+    :root {
+        --season-card-width: 280px;
+        --season-card-gap: 30px;
+        --episode-thumb-width: 360px;
+        --episode-thumb-height: 202px;
+        --page-padding: 60px;
+        --header-font: 42px;
+        --title-font: 30px;
+        --body-font: 22px;
+        --small-font: 18px;
+    }
+    
+    .netflix-series-poster {
+        width: 380px;
+    }
+    
+    .netflix-season-poster {
+        height: 158px;
+    }
+    
+    .netflix-back-btn {
+        padding: 16px 32px;
+    }
+    
+    .netflix-back-btn i {
+        margin-right: 16px;
+        font-size: 26px;
+    }
+    
+    .netflix-season-info {
+        padding: 18px 20px;
+    }
+    
+    .episode-detail-title {
+        font-size: 56px;
+    }
+    
+    .episode-split-content > .episode-detail-pane {
+        margin-right: 80px;
+    }
+    
+    .episode-rail-thumb {
+        width: 160px;
+        height: 90px;
+    }
+    
+    .episode-rail-card {
+        padding: 14px;
+    }
+    
+    .episode-rail-card > .episode-rail-thumb {
+        margin-right: 20px;
+    }
+    
+    .episode-rail-number {
+        font-size: 14px;
+    }
+    
+    .episode-rail-title {
+        font-size: 20px;
+    }
+    
+    .episode-watch-button {
+        padding: 20px 50px;
+        font-size: 20px;
+    }
+    
+    .episode-detail-description {
+        max-height: 160px;
+        -webkit-line-clamp: 5;
+    }
+    
+    /* Series Summary Page - 4K */
+    .series-ep-card {
+        width: 280px;
+    }
+    
+    .series-ep-thumb-container {
+        height: 158px;
+    }
+    
+    .series-ep-duration {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+    
+    .series-ep-info {
+        padding: 16px;
+    }
+    
+    .series-ep-number {
+        font-size: 14px;
+    }
+    
+    .series-ep-title {
+        font-size: 18px;
+    }
+    
+    .series-ep-duration {
+        font-size: 14px;
+    }
+    
+    .series-episode-rail > .series-ep-card {
+        margin-right: 24px;
+    }
+    
+    .season-dropdown-menu {
+        max-height: 400px;
+    }
+    
+    .vod-summary-description {
+        font-size: 22px;
+        -webkit-line-clamp: 5;
+    }
+    
+    .vod-summary-actions > * {
+        margin-right: 20px;
+    }
+    
+    .vod-summary-actions > *:last-child {
+        margin-right: 0;
+    }
+    
+    .series-episode-rail {
+        padding-bottom: 60px;
+    }
+    
+    .episode-vertical-rail {
+        padding-bottom: 40px;
+    }
+    
+    /* 4K adjustments - Poster aspect ratio 2:3: 25vw:65vh */
+    .vod-summary-hero {
+        height: auto;
+    }
+    
+    #series-summary-page #series-summary-image-wrapper img,
+    #vod-summary-page #vod-summary-image-wrapper img {
+        width: 25vw;
+        height: 65vh;
+    }
+    
+    #series-summary-page .vod-summary-info,
+    #vod-summary-page .vod-summary-info {
+        min-height: 65vh;
+    }
+    
+    .vod-summary-poster {
+        width: 25vw;
+    }
+    
+    #series-summary-page #series-summary-image-wrapper,
+    #vod-summary-page #vod-summary-image-wrapper {
+        width: 25vw;
+    }
+    
+    #series-summary-page .vod-summary-redesign #series-summary-action-container {
+        left: 0;
+    }
+    
+    .vod-action-btn-new {
+        padding: 2vh 3vw;
+        font-size: 1.4vw;
+    }
+}

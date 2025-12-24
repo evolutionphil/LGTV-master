@@ -1,0 +1,839 @@
+.loader.small {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(102, 126, 234, 0.2);
+    border-top: 4px solid #667eea;
+    border-right: 4px solid #764ba2;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.loader.small:before,
+.loader.small:after {
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loader.small:before {
+    left: -2em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+.loader.small:after {
+    left: 2em;
+}
+
+@-webkit-keyframes small-loader {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 1em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 1em 0 0;
+    }
+}
+@keyframes small-loader {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 1em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 1em 0 0;
+    }
+}
+
+
+#app.samsung #subtitle-loader-container {
+    display: none;
+}
+#subtitle-loader-container {
+    background: rgba(18, 24, 38, 0.96);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    gap: 15px;
+}
+
+
+#subtitle-loader-container .loading-text {
+    color: #e2e8f0;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+#subtitle-modal-body {
+    position: relative;
+    min-height: 200px;
+    padding-bottom: 100px;
+}
+#subtitle-modal-body .modal-button-wrapper {
+    padding: 0 20px;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom:0px;
+}
+
+/* 
+ * SUBTITLE STYLE REFERENCE (hardcoded for 2016-2017 TV compatibility)
+ * CSS custom properties (var()) are NOT supported on Samsung 2016-2017 TVs
+ * Default values used throughout this file:
+ * - subtitle-size: 24px
+ * - subtitle-bg: rgba(0, 0, 0, 0.8)
+ * - subtitle-color: white
+ * - subtitle-outline: 1px 1px 2px rgba(0, 0, 0, 0.8)
+ */
+
+/* Enhanced subtitle display styling from exo app */
+.subtitle-container {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    max-width: 80%;
+    pointer-events: none;
+}
+
+.subtitle-text {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 24px;
+    line-height: 1.4;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    word-wrap: break-word;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Platform-specific subtitle styling */
+#app.samsung .subtitle-container {
+    bottom: 80px;
+    font-size: 26px;
+}
+
+#app.lg .subtitle-container {
+    bottom: 60px;
+    font-size: 24px;
+}
+
+/* Responsive subtitle sizing */
+@media (max-width: 1280px) {
+    .subtitle-text {
+        font-size: 20px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .subtitle-text {
+        font-size: 18px;
+        padding: 4px 8px;
+    }
+    
+    .subtitle-container {
+        max-width: 90%;
+        bottom: 40px;
+    }
+}
+
+/* Optimized subtitle modal styling - Fast TV Design */
+#subtitle-selection-modal .modal-content {
+    background: #121826;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 150ms ease, transform 150ms ease;
+}
+
+#subtitle-selection-modal.show .modal-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#subtitle-selection-modal .modal-header {
+    background: #1e2642;
+    border: none;
+    border-radius: 14px 14px 0 0;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+
+#subtitle-selection-modal .modal-title {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+
+
+#subtitle-modal-body {
+    background: transparent;
+    padding: 20px 24px;
+    position: relative;
+    min-height: 200px;
+    padding-bottom: 80px;
+}
+
+#subtitle-selection-container {
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 8px;
+    margin-bottom: 16px;
+}
+
+#subtitle-selection-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#subtitle-selection-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 3px;
+}
+
+#subtitle-selection-container::-webkit-scrollbar-thumb {
+    background: #4f46e5;
+    border-radius: 3px;
+}
+
+#subtitle-selection-container::-webkit-scrollbar-thumb:hover {
+    background: #3730a3;
+}
+
+.subtitle-option {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    margin: 4px 0;
+    padding: 16px 24px;
+    color: #f1f5f9;
+    font-size: 22px;
+    font-weight: 500;
+    transition: transform 120ms ease, border-color 120ms ease, opacity 120ms ease;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 60px;
+}
+
+
+.subtitle-option:focus,
+.subtitle-option.focused {
+    border-color: #4f46e5;
+    outline: 2px solid #4f46e5;
+    outline-offset: 1px;
+    transform: scale(1.02);
+}
+
+
+.subtitle-option.selected {
+    background: rgba(79, 70, 229, 0.2);
+    border-color: #4f46e5;
+    color: #ffffff;
+}
+
+.subtitle-option.selected::after {
+    content: '✓';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4ade80;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+#subtitle-modal-body .modal-button-wrapper {
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px 20px 16px 20px;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+}
+
+#subtitle-modal-body .modal-btn-1 {
+    background: #4f46e5;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 16px 32px;
+    min-width: 120px;
+    transition: transform 120ms ease, background-color 120ms ease;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#subtitle-modal-body .modal-btn-1:focus,
+#subtitle-modal-body .modal-btn-1.focused {
+    outline: 2px solid #4f46e5;
+    outline-offset: 2px;
+    background: #3730a3;
+    transform: scale(1.05);
+}
+
+#subtitle-modal-body .modal-btn-1.selected {
+    background: #22c55e;
+    border-color: #4ade80;
+    outline: 2px solid #22c55e;
+    outline-offset: 2px;
+}
+
+
+#subtitle-modal-body .modal-btn-1:active {
+    transform: scale(0.98);
+}
+
+/* Selected state indicator */
+.subtitle-option-button.selected::after,
+.subtitle-color-button.selected::after,
+.subtitle-action-btn.selected::after {
+    content: "✓";
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    color: #4ade80;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle-option-button,
+.subtitle-color-button {
+    position: relative;
+}
+
+/* Fix radio button and label alignment */
+.subtitle-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.subtitle-option .magic-radio {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.subtitle-option .magic-radio + label {
+    display: inline-block;
+    padding-left: 0;
+    padding-right: 35px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: inherit;
+    flex-grow: 1;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+/* Empty subtitle state styling */
+.no-subtitles-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #94a3b8;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.no-subtitles-message::before {
+    content: "🎬";
+    display: block;
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+.no-subtitles-icon {
+    font-size: 48px;
+    color: #64748b;
+    margin-bottom: 15px;
+    opacity: 0.6;
+}
+
+/* Subtitle quality indicators */
+.subtitle-option .quality-badge {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+    margin-right: 30px;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+}
+
+.subtitle-option .quality-badge.hearing-impaired {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+}
+
+.subtitle-option .quality-badge.auto-generated {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+    box-shadow: 0 2px 4px rgba(107, 114, 128, 0.3);
+}
+
+/* Language flag indicators */
+.subtitle-option .language-flag {
+    font-size: 20px;
+    margin-right: 8px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.subtitle-option .magic-radio + label:before {
+    display: none;
+}
+
+.subtitle-option .magic-radio + label:after {
+    display: none;
+}
+
+/* Loading indicator for subtitle fetch */
+.subtitle-loading-indicator {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.subtitle-loading-indicator::after {
+    content: "⏳";
+    animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Subtitle Settings Modal Styles */
+#subtitle-preview-container {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border-radius: 12px;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subtitle-preview-background {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><rect width="60" height="60" fill="%23ffffff" opacity="0.05"/><rect x="10" y="10" width="40" height="40" fill="%23000000" opacity="0.1"/></svg>');
+    background-size: 60px 60px;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+}
+
+.subtitle-preview-text {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 24px;
+    line-height: 1.4;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    word-wrap: break-word;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+}
+
+.subtitle-setting-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.subtitle-setting-title {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle-size-options, 
+.subtitle-bg-color-options, 
+.subtitle-text-color-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.subtitle-option-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 12px 20px;
+    color: #e2e8f0;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    text-align: center;
+    min-width: 80px;
+}
+
+.subtitle-option-button:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(102, 126, 234, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+/* Selected state - only checkmark, no green styling */
+.subtitle-option-button.active,
+.subtitle-option-button.selected {
+    /* No special styling, just the checkmark from ::after */
+}
+
+/* Focused state - green styling when navigating */
+.subtitle-option-button.focused {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.3) 0%, rgba(22, 163, 74, 0.3) 100%);
+    border-color: #22c55e;
+    color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3), 0 8px 25px rgba(34, 197, 94, 0.4);
+}
+
+.subtitle-color-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: #e2e8f0;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 90px;
+}
+
+.subtitle-color-button:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(102, 126, 234, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+/* Selected state - only checkmark, no green styling */
+.subtitle-color-button.active,
+.subtitle-color-button.selected {
+    /* No special styling, just the checkmark from ::after */
+}
+
+/* Focused state - green styling when navigating */
+.subtitle-color-button.focused {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.3) 0%, rgba(22, 163, 74, 0.3) 100%);
+    border-color: #22c55e;
+    color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3), 0 8px 25px rgba(34, 197, 94, 0.4);
+}
+
+.color-preview {
+    width: 30px;
+    height: 20px;
+    border-radius: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+}
+
+/* Background Color Previews */
+.transparent-bg {
+    background: transparent;
+    border: none; /* Remove dashed border completely */
+}
+
+.black-bg {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.red-bg {
+    background: rgba(255, 0, 0, 0.8);
+}
+
+.white-bg {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.blue-bg {
+    background: rgba(0, 0, 255, 0.8);
+}
+
+/* Text Color Previews */
+.white-text {
+    background: #ffffff;
+}
+
+.black-text {
+    background: #000000;
+}
+
+.yellow-text {
+    background: #ffff00;
+}
+
+.red-text {
+    background: #ff0000;
+}
+
+.green-text {
+    background: #00ff00;
+}
+
+.subtitle-modal-buttons {
+    margin-top: 30px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.subtitle-modal-buttons .btn-wrapper-1 {
+    flex: 0 0 auto;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.subtitle-modal-buttons .subtitle-action-btn {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 120px;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    white-space: nowrap;
+}
+
+.subtitle-modal-buttons .subtitle-action-btn:hover,
+.subtitle-modal-buttons .subtitle-action-btn.focused {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+}
+
+.subtitle-modal-buttons .subtitle-action-btn.active {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+    border: 2px solid #4ade80 !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.5);
+}
+
+.subtitle-action-btn {
+    min-width: 120px;
+}
+
+/* Position Action Buttons - Save and Cancel in subtitle position overlay */
+.position-action-btn {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border: 2px solid #4facfe;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    white-space: nowrap;
+    min-width: 120px;
+}
+
+.position-action-btn:hover {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+}
+
+.position-action-btn.active {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+    border: 2px solid #4ade80 !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.5);
+}
+
+/* Subtitle Position Modal Styling */
+#subtitle-position-modal .modal-content {
+    background: linear-gradient(145deg, #1a1f2e 0%, #16191e 50%, #0f1419 100%);
+    border: 2px solid #2d3748;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+#subtitle-position-preview-container {
+    background: linear-gradient(135deg, #2a2d3a 0%, #212328 100%);
+    border: 2px solid #3d4250;
+    border-radius: 12px;
+    height: 150px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.subtitle-position-preview-background {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #000428 0%, #004e92 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subtitle-position-preview-text {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 16px;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.subtitle-position-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+    gap: 20px;
+}
+
+.position-button {
+    background: rgba(102, 126, 234, 0.1);
+    border: 2px solid #667eea;
+    border-radius: 10px;
+    padding: 12px 20px;
+    color: #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.position-button:hover,
+.position-button.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.position-display {
+    text-align: center;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 150px;
+}
+
+.position-presets {
+    display: flex;
+    gap: 12px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.preset-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: #cbd5e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 80px;
+    text-align: center;
+}
+
+.preset-button:hover,
+.preset-button.active {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-color: #00f2fe;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+}
