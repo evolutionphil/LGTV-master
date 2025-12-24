@@ -1,6 +1,6 @@
 {
-  "version": "1.0.5",
-  "lastUpdate": "2025-12-24T15:31:52.825Z",
+  "version": "1.0.6",
+  "lastUpdate": "2025-12-24T15:32:54.477Z",
   "killSwitch": false,
   "baseUrl": "https://flixapp.pages.dev/",
   "cachePrefix": "flix_remote_",
@@ -265,9 +265,9 @@
       "priority": 3
     },
     "js/trailer.js": {
-      "version": "1.0.1",
-      "size": 7839,
-      "hash": "0bfac5e1",
+      "version": "1.0.2",
+      "size": 6613,
+      "hash": "beb2b763",
       "priority": 2
     },
     "js/srt_operation.js": {
