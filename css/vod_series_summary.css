@@ -500,7 +500,7 @@
     overflow: visible;
     display: flex;
     flex-direction: column;
-    min-height: 60vh;
+    min-height: 56vh;
 }
 
 #series-summary-page .vod-summary-redesign #series-summary-action-container {
@@ -1470,12 +1470,12 @@
     }
     
     #series-summary-page .vod-summary-info {
-        min-height: 55vh;
+        min-height: 50vh;
     }
     
     #series-summary-page #series-summary-image-wrapper img,
     #vod-summary-page #vod-summary-image-wrapper img {
-        height: 55vh;
+        height: 50vh;
     }
     
     .vod-summary-poster {
@@ -1576,11 +1576,11 @@
     
     /* Series Summary Page - 4K */
     .series-ep-card {
-        width: 320px;
+        width: 280px;
     }
     
     .series-ep-thumb-container {
-        height: 180px;
+        height: 158px;
     }
     
     .series-ep-duration {
@@ -1639,12 +1639,12 @@
     }
     
     #series-summary-page .vod-summary-info {
-        min-height: 65vh;
+        min-height: 55vh;
     }
     
     #series-summary-page #series-summary-image-wrapper img,
     #vod-summary-page #vod-summary-image-wrapper img {
-        height: 65vh;
+        height: 55vh;
     }
     
     .vod-summary-poster {
