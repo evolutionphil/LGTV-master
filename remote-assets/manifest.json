@@ -2,7 +2,7 @@
   "version": "1.0.1",
   "lastUpdate": "2025-12-24T14:30:00.854Z",
   "killSwitch": false,
-  "baseUrl": "https://cdn.flixapp.net/assets/",
+  "baseUrl": "https://flixapp.pages.dev/",
   "cachePrefix": "flix_remote_",
   "timeout": 5000,
   "files": {

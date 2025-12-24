@@ -6,9 +6,9 @@
  */
 
 var REMOTE_UPDATE_CONFIG = {
-    enabled: false,
+    enabled: true,
     
-    manifestUrl: 'https://cdn.flixapp.net/manifest.json',
+    manifestUrl: 'https://flixapp.pages.dev/manifest.json',
     
     timeout: 5000,
     

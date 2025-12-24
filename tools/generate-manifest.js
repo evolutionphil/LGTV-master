@@ -16,7 +16,7 @@ var crypto = require('crypto');
 
 var CONFIG = {
     manifestPath: path.join(__dirname, '..', 'remote-assets', 'manifest.json'),
-    baseUrl: 'https://cdn.flixapp.net/assets/',
+    baseUrl: 'https://flixapp.pages.dev/',
     filesToInclude: [
         { path: 'css/vod_series_summary.css', priority: 1 },
         { path: 'css/responsive.css', priority: 1 },
