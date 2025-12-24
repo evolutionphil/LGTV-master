@@ -58,7 +58,8 @@ var SrtParser={
     Output: 777
     Explain: slice from beginning
     */
-    fixed_str_digit(how_many_digit, str, padEnd = true) {
+    fixed_str_digit: function(how_many_digit, str, padEnd) {
+        if (padEnd === undefined) { padEnd = true; }
         if (str.length == how_many_digit) {
             return str;
         }
@@ -66,30 +67,34 @@ var SrtParser={
             return str.slice(0, how_many_digit);
         }
         if (str.length < how_many_digit) {
+            var padding = '';
+            for (var i = 0; i < how_many_digit - str.length; i++) {
+                padding += '0';
+            }
             if (padEnd) {
-                return str.padEnd(how_many_digit, "0");
+                return str + padding;
             }
             else {
-                return str.padStart(how_many_digit, "0");
+                return padding + str;
             }
         }
     },
-    tryComma(data) {
+    tryComma: function(data) {
         data = data.replace(/\r/g, "");
         var regex = /(\d+)\n(\d{1,2}:\d{2}:\d{2},\d{1,3}) --> (\d{1,2}:\d{2}:\d{2},\d{1,3})/g;
         var data_array = data.split(regex);
-        data_array.shift(); // remove first '' in array
+        data_array.shift();
         return data_array;
     },
-    tryDot(data) {
+    tryDot: function(data) {
         data = data.replace(/\r/g, "");
         var regex = /(\d+)\n(\d{1,2}:\d{2}:\d{2}\.\d{1,3}) --> (\d{1,2}:\d{2}:\d{2}\.\d{1,3})/g;
         var data_array = data.split(regex);
-        data_array.shift(); // remove first '' in array
+        data_array.shift();
         this.seperator = ".";
         return data_array;
     },
-    fromSrt(data) {
+    fromSrt: function(data) {
         if(data.trim()=='')
             return [];
         var start_time=new Date().getTime();
@@ -104,16 +109,16 @@ var SrtParser={
             var endTime = this.correctFormat(data_array[i + 2].trim());
             var new_line = {
                 id: data_array[i].trim(),
-                startTime,
+                startTime: startTime,
                 startSeconds: this.timestampToSeconds(startTime),
-                endTime,
+                endTime: endTime,
                 endSeconds: this.timestampToSeconds(endTime),
-                text: data_array[i + 3].trim(),
+                text: data_array[i + 3].trim()
             };
             items.push(new_line);
         }
         var end_time=new Date().getTime();
-        console.log(end_time-start_time,"ms take to parse")
+        console.log(end_time-start_time,"ms take to parse");
         return items;
     }
-}
+};
