@@ -305,7 +305,7 @@ function initPlayer() {
                         } catch (e) {
                         }
                     } else {
-                        // PREVIEW MODE: Use LETTER_BOX to prevent zoom/cropping
+                        // PREVIEW MODE: Use AUTO_ASPECT_RATIO for proper scaling on all TV sizes
                         var top_position=$(that.videoObj).offset().top;
                         var left_position=$(that.videoObj).offset().left;
                         var width=parseInt($(that.videoObj).width())
@@ -319,9 +319,9 @@ function initPlayer() {
                     var scaledWidth = Math.round(width * ratioX);
                     var scaledHeight = Math.round(height * ratioY);
                     
-                        debugLog('setDisplayArea: LETTERBOX mode - rect:', scaledLeft, scaledTop, scaledWidth, scaledHeight);
+                        debugLog('setDisplayArea: AUTO_ASPECT_RATIO mode - rect:', scaledLeft, scaledTop, scaledWidth, scaledHeight);
                         try {
-                            webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_LETTER_BOX');
+                            webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO');
                         } catch (e) {
                         }
                         try {

@@ -1,0 +1,41 @@
+VM120:1 Entering setDisplayRect
+channel_operation.js:76 ╔══════════════════════════════════════════════════════════════════╗
+channel_operation.js:77 ║ CHANNEL_OPERATION.INIT() - ENTERING CATEGORY
+channel_operation.js:78 ╠══════════════════════════════════════════════════════════════════╣
+channel_operation.js:79   channel_id: 0
+channel_operation.js:80   full_screen param: false
+channel_operation.js:81   CURRENT STATE:
+channel_operation.js:82     - full_screen_video: false
+channel_operation.js:83     - transitioning_to_fullscreen: false
+channel_operation.js:84     - media_player.full_screen_state: 0
+channel_operation.js:85     - keys.focused_part: channel_selection
+channel_operation.js:86     - current_channel_id: 40721
+channel_operation.js:87   RESETTING STATE for new category...
+channel_operation.js:88 ╚══════════════════════════════════════════════════════════════════╝
+channel_operation.js:676 ╔════════════════════════════════════════════════════════════╗
+channel_operation.js:677 ║ showLiveChannelMovie: START
+channel_operation.js:678 ╠════════════════════════════════════════════════════════════╣
+channel_operation.js:679   Channel ID: 40721
+channel_operation.js:680   Channel Name: ☆☆ TR: ULUSAL ☆☆
+channel_operation.js:681   Channel Num: 96
+channel_operation.js:682   full_screen_video: false
+channel_operation.js:683   media_player.full_screen_state: 0
+channel_operation.js:684 ╚════════════════════════════════════════════════════════════╝
+channel_operation.js:706 showLiveChannelMovie: Before init() - full_screen_state= 0
+channel_operation.js:707 showLiveChannelMovie: transitioning_to_fullscreen= false
+channel_operation.js:709 showLiveChannelMovie: After init() - full_screen_state= 0
+channel_operation.js:714 showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode
+channel_operation.js:59 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+VM120:1 adding listener
+VM120:1 Entered AVPlayManager.prepareAsync()
+channel_operation.js:731 ╔═══════════════════════════════════════════════════════════════╗
+channel_operation.js:732 ║ Setting Channel Info Bar
+channel_operation.js:733 ╠═══════════════════════════════════════════════════════════════╣
+channel_operation.js:734   Channel Name: ☆☆ TR: ULUSAL ☆☆
+channel_operation.js:735   Channel Num: 96
+channel_operation.js:742   Set in #full-screen-channel-name-compact
+channel_operation.js:743   Set channel number in #full-screen-channel-number
+channel_operation.js:744 ╚═══════════════════════════════════════════════════════════════╝
+VM120:1 Entering setDisplayRect
+channel_operation.js:66 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+2VM120:1 Entering setDisplayRect
