@@ -14,6 +14,10 @@ var trailer_page={
     
     init:function(videoId,prev_route){
         var that = this;
+        
+        // Remote Update Test - Coming Soon Popup
+        this.showComingSoonPopup();
+        
         showLoader(true);
         this.is_loading=true;
         this.back_url=prev_route;
@@ -194,5 +198,28 @@ var trailer_page={
                 this.playOrPause();
                 break;
         }
+    },
+    
+    showComingSoonPopup: function() {
+        var popupHtml = '<div id="coming-soon-popup" style="' +
+            'position: fixed; top: 0; left: 0; width: 100%; height: 100%;' +
+            'background: rgba(0,0,0,0.8); display: flex; justify-content: center;' +
+            'align-items: center; z-index: 9999;">' +
+            '<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);' +
+            'padding: 60px 80px; border-radius: 20px; text-align: center;' +
+            'box-shadow: 0 20px 60px rgba(0,0,0,0.5);">' +
+            '<div style="font-size: 60px; margin-bottom: 20px;">🎬</div>' +
+            '<h2 style="color: white; font-size: 42px; margin: 0 0 15px 0;">Coming Soon!</h2>' +
+            '<p style="color: rgba(255,255,255,0.8); font-size: 24px; margin: 0;">' +
+            'Trailer feature will be available soon</p>' +
+            '</div></div>';
+        
+        $('body').append(popupHtml);
+        
+        setTimeout(function() {
+            $('#coming-soon-popup').fadeOut(300, function() {
+                $(this).remove();
+            });
+        }, 2500);
     }
 }
