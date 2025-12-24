@@ -283,7 +283,7 @@
 .vod-summary-actions {
     display: flex;
     margin-top: auto;
-    padding-bottom: 1.5vh;
+    padding-bottom: 0;
     justify-content: flex-start;
     width: 100%;
 }
@@ -506,7 +506,7 @@
 #series-summary-page .vod-summary-redesign #series-summary-action-container {
     display: flex;
     margin-top: auto;
-    padding-bottom: 1.5vh;
+    padding-bottom: 0;
     overflow: visible;
     justify-content: flex-start;
     z-index: 10;
