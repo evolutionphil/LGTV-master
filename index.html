@@ -7,16 +7,15 @@
     <title>flixiptv</title>
 
     <!-- Sentry Error Tracking -->
-    <script
-      src="https://js.sentry-cdn.com/95c2065b46417f5499df0e85c25b0ce8.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://browser.sentry-cdn.com/8.42.0/bundle.min.js" crossorigin="anonymous"></script>
     <script>
-      window.testSentryError = function() {
-        myUndefinedFunction();
-      };
-      
-      Sentry.onLoad(function() {
+      try {
+        Sentry.init({
+          dsn: "https://95c2065b46417f5499df0e85c25b0ce8@o4509599510888448.ingest.us.sentry.io/4510592225443840",
+          release: "flix-iptv@1.1.8",
+          environment: "production"
+        });
+        
         var platform = 'unknown';
         try {
           if (typeof webapis !== 'undefined' && webapis.appcommon) {
@@ -31,9 +30,14 @@
         } catch(e) {}
         
         Sentry.setTag('tv_platform', platform);
-        Sentry.setTag('app_version', '1.1.8');
         console.log('Sentry initialized with platform:', platform);
-      });
+      } catch(e) {
+        console.log('Sentry init error:', e);
+      }
+      
+      window.testSentryError = function() {
+        myUndefinedFunction();
+      };
     </script>
 
     <link rel="preload" href="https://flixapp.net/images/activation-qr-code.svg" as="image" type="image/svg+xml">
