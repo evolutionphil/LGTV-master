@@ -609,6 +609,16 @@ function initPlayer() {
                         }
                     }
                 });
+                this.videoObj.addEventListener('playing', function(event){
+                    if(current_route==='channel-page'){
+                        setTimeout(function(){
+                            if(videoObj.videoWidth && videoObj.videoHeight){
+                                var resolution = videoObj.videoWidth + ' * ' + videoObj.videoHeight;
+                                $('.video-resolution').text(resolution);
+                            }
+                        }, 500);
+                    }
+                });
                 this.videoObj.addEventListener('waiting', function(event){
                     // console.log('Video is waiting for more data.',event);
                 });
