@@ -34,7 +34,7 @@
     flex: 0 0 auto;
     min-height: 0;
     flex-wrap: nowrap;
-    align-items: flex-start;
+    align-items: stretch;
     position: relative;
     height: calc(60vh + 2vh);
 }
@@ -497,15 +497,14 @@
 
 #series-summary-page .vod-summary-info {
     overflow: visible;
-    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 #series-summary-page .vod-summary-redesign #series-summary-action-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     display: flex;
-    padding-bottom: 0;
+    margin-top: auto;
+    padding-bottom: 1.5vh;
     overflow: visible;
     justify-content: flex-start;
     z-index: 10;
@@ -1485,10 +1484,6 @@
     #series-summary-page #series-summary-image-wrapper img,
     #vod-summary-page #vod-summary-image-wrapper img {
         width: 20vw;
-    }
-    
-    #series-summary-page .vod-summary-redesign #series-summary-action-container {
-        left: 0;
     }
     
     .vod-action-btn-new {
