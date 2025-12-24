@@ -12,6 +12,10 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      window.testSentryError = function() {
+        myUndefinedFunction();
+      };
+      
       Sentry.onLoad(function() {
         var platform = 'unknown';
         try {
@@ -28,15 +32,7 @@
         
         Sentry.setTag('tv_platform', platform);
         Sentry.setTag('app_version', '1.1.8');
-        
-        window.testSentryError = function() {
-          try {
-            myUndefinedFunction();
-          } catch(e) {
-            Sentry.captureException(e);
-            console.log('Test error sent to Sentry!');
-          }
-        };
+        console.log('Sentry initialized with platform:', platform);
       });
     </script>
 
