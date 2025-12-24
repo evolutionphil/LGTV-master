@@ -37,6 +37,7 @@
     align-items: stretch;
     position: relative;
     height: auto;
+    margin-bottom: 3vh;
 }
 
 /* Tizen 2.4 / LG WebOS gap fallback - use margin instead of gap */
