@@ -31,12 +31,12 @@
 
 .vod-summary-hero {
     display: flex;
-    flex: 0 0 auto;
+    flex: 1;
     min-height: 0;
     flex-wrap: nowrap;
     align-items: stretch;
     position: relative;
-    height: calc(60vh + 2vh);
+    height: auto;
 }
 
 /* Tizen 2.4 / LG WebOS gap fallback - use margin instead of gap */
@@ -1263,7 +1263,7 @@
 .series-episode-rail {
     display: flex;
     overflow-x: auto;
-    padding: 10px 10px 30px 10px;
+    padding: 10px 10px 50px 10px;
     margin-left: -10px;
     scroll-behavior: smooth;
 }
@@ -1464,7 +1464,7 @@
     
     /* Series Summary Page - 720p responsive */
     .vod-summary-hero {
-        height: calc(55vh + 2vh);
+        height: auto;
     }
     
     #series-summary-page #series-summary-image-wrapper img,
@@ -1620,16 +1620,16 @@
     }
     
     .series-episode-rail {
-        padding-bottom: 40px;
+        padding-bottom: 60px;
     }
     
     .episode-vertical-rail {
-        padding-bottom: 30px;
+        padding-bottom: 40px;
     }
     
     /* Series Summary Page - 4K responsive */
     .vod-summary-hero {
-        height: calc(65vh + 2vh);
+        height: auto;
     }
     
     #series-summary-page #series-summary-image-wrapper img,
