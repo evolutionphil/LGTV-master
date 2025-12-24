@@ -119,6 +119,14 @@
 
 .vod-summary-header {
     margin-bottom: 1.5vh;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#vod-summary-page .vod-summary-header h3,
+#series-summary-page .vod-summary-header h3 {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 #vod-summary-page #vod-summary-name {
@@ -507,6 +515,8 @@
     display: flex;
     flex-direction: column;
     min-height: 62vh;
+    padding-top: 0;
+    margin-top: 0;
 }
 
 #vod-summary-page .vod-summary-info {
@@ -514,6 +524,8 @@
     display: flex;
     flex-direction: column;
     min-height: 62vh;
+    padding-top: 0;
+    margin-top: 0;
 }
 
 #series-summary-page .vod-summary-redesign #series-summary-action-container {
