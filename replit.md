@@ -50,17 +50,21 @@ Preferred communication style: Simple, everyday language.
 -   **Development Tools**: Build scripts for packaging and deployment to both platforms.
 -   **Power Management**: Handles TV power off/on events during buffering to prevent auto-resume of content.
 
-## Remote Update System
+## Remote Update System v2.0
 -   **OTA Updates**: Push CSS/JS updates to TVs without app store resubmission.
--   **Manifest-Based Versioning**: JSON manifest tracks file versions and hashes.
--   **Cloudflare CDN**: Recommended hosting for global distribution and caching.
--   **LocalStorage Cache**: Downloaded files cached locally for offline fallback.
+-   **Background Download Mode**: Updates download silently in background, applied on next app launch for seamless UX.
+-   **Asset Bootstrapper**: `FlixBootstrapper.writeCSS/JS()` loads files from cache or local using `document.write()`.
+-   **Manifest-Based Versioning**: JSON manifest (v1.1.1) tracks 49 files with hashes.
+-   **Cloudflare CDN**: Hosted at `flixapp.pages.dev` for global distribution.
+-   **LocalStorage Cache**: Downloaded files cached locally (~5MB limit respected).
 -   **Kill Switch**: Emergency fallback to local files if remote update has issues.
 -   **ES5 Compatible**: Works on Tizen 2.4+ and WebOS 3.0+.
+-   **Update Flow**: App starts with local/cached files → Background downloads updates → Next launch uses cached updates.
 -   **Files**:
-    -   `js/remote-loader.js`: Core loading logic
-    -   `js/remote-config.js`: Configuration (disabled by default)
-    -   `remote-assets/manifest.json`: Version manifest
+    -   `js/asset-bootstrapper.js`: Cache/local file loading with document.write()
+    -   `js/remote-loader.js`: Core update logic (background download mode)
+    -   `js/remote-config.js`: Configuration (enabled: true, debug: true)
+    -   `remote-assets/manifest.json`: Version manifest (49 files)
     -   `tools/generate-manifest.js`: Manifest generator
     -   `tools/copy-to-remote.js`: File copy helper
     -   `docs/REMOTE_UPDATE_SYSTEM.md`: Full documentation
