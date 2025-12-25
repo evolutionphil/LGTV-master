@@ -336,7 +336,7 @@ var vod_series_player={
         if(keys.focused_part==="subtitle_audio_selection_modal"){
             $('#subtitle-loader-container').hide();
             keys.focused_part=keys.prev_focus;
-            $('#subtitle-selection-modal').modal('hide');
+            this.closeSubtitleDrawer();
         }
         if(keys.focused_part==="subtitle_position_overlay"){
             this.cancelSubtitlePosition();
@@ -674,6 +674,14 @@ var vod_series_player={
         
         return htmlContent;
     },
+    openSubtitleDrawer: function() {
+        document.body.setAttribute('data-subtitle-drawer-open', 'true');
+        $('#subtitle-selection-modal').modal('show');
+    },
+    closeSubtitleDrawer: function() {
+        document.body.removeAttribute('data-subtitle-drawer-open');
+        $('#subtitle-selection-modal').modal('hide');
+    },
     showSubtitleAudioModal:function(kind){
         this.hideControlBar();
         var keys=this.keys;
@@ -694,7 +702,7 @@ var vod_series_player={
                     
                     var that = this;
                     this.subtitle_loading = true;
-                    $('#subtitle-selection-modal').modal('show');
+                    this.openSubtitleDrawer();
                     this.hoverSubtitleAudioModal(-2);
                     $('#subtitle-loader-container').show();
                     
@@ -774,7 +782,7 @@ var vod_series_player={
     renderSubtitles: function (kind, subtitles){
         var keys=this.keys;
         if(keys.focused_part==='resume_bar') { // if already showing resume bar, subtitles should not be displayed
-            $('#subtitle-selection-modal').modal('hide');
+            this.closeSubtitleDrawer();
             return;
         }
         if(kind=="TEXT")
@@ -785,7 +793,7 @@ var vod_series_player={
         $('#subtitle-selection-modal .modal-operation-menu-type-2').removeClass('active');
         var htmlContent=this.makeMediaTrackElement(subtitles, kind);
         $("#subtitle-selection-container").html(htmlContent);
-        $('#subtitle-selection-modal').modal('show');
+        this.openSubtitleDrawer();
         var subtitle_menus=$('#subtitle-selection-modal .subtitle-option');
         this.subtitle_audio_menus=subtitle_menus;
         $(subtitle_menus[0]).addClass('active');
@@ -845,7 +853,7 @@ var vod_series_player={
     renderEnhancedSubtitles: function(kind, subtitles, contentId) {
         var keys = this.keys;
         if(keys.focused_part === 'resume_bar') {
-            $('#subtitle-selection-modal').modal('hide');
+            this.closeSubtitleDrawer();
             return;
         }
         
@@ -893,8 +901,9 @@ var vod_series_player={
             // Setup event delegation instead of individual handlers
             that.setupSubtitleEventDelegation();
             
-            // Initialize modal with animation
-            $('#subtitle-selection-modal').addClass('show').modal('show');
+            // Initialize drawer with animation
+            that.openSubtitleDrawer();
+            $('#subtitle-selection-modal').addClass('show');
             
             var subtitle_menus = $('.subtitle-option');
             that.subtitle_audio_menus = subtitle_menus;
@@ -967,7 +976,7 @@ var vod_series_player={
         });
     },
     showEmptySubtitleMessage: function (kind) {
-        $('#subtitle-selection-modal').modal('hide');
+        this.closeSubtitleDrawer();
         if(kind==="TEXT")
             showToast("Sorry","No Subtitles exists");
         else
@@ -1073,11 +1082,11 @@ var vod_series_player={
         },10000)
     },
     cancelSubtitle:function(){
-        $('#subtitle-selection-modal').modal('hide');
+        this.closeSubtitleDrawer();
         this.keys.focused_part="control_bar";
     },
     confirmSubtitle:function(){
-        $('#subtitle-selection-modal').modal('hide');
+        this.closeSubtitleDrawer();
         this.keys.focused_part="control_bar";
         var modal_title=$("#subtitle-modal-title").text();
         
