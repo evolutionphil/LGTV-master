@@ -5,6 +5,7 @@ var channel_page={
     full_screen_video:false,
     full_screen_timer:null,
     transitioning_to_fullscreen:false,
+    transitioning_to_preview:false,
     progressbar_timer:null,
     player:null,
     channel_number_timer:null,
@@ -582,6 +583,13 @@ var channel_page={
         }
     },
     zoomInOut:function(){
+        // CRITICAL: Block ALL zoom operations while transitioning back to preview
+        // This prevents race conditions where hover autoplay could set fullscreen state
+        if(this.transitioning_to_preview){
+            console.log('zoomInOut() BLOCKED - transitioning_to_preview is true, ignoring request');
+            return;
+        }
+        
         if(!this.full_screen_video){
             $('#live_channels_home .player-container').css({
                 position:'relative',
@@ -593,17 +601,59 @@ var channel_page={
             $('#channel-page-video').removeClass('video-fullscreen');
             $('#channel-page-video-lg').removeClass('video-fullscreen');
             
+            // CRITICAL: Set transitioning flag to block other code from changing fullscreen state
+            this.transitioning_to_preview = true;
+            
             this.keys.focused_part="channel_selection";
             media_player.full_screen_state=0;
             console.log('========================================');
             console.log('zoomInOut() ZOOM OUT - set full_screen_state to 0');
             console.log('full_screen_video:', this.full_screen_video);
             console.log('focused_part:', this.keys.focused_part);
+            console.log('transitioning_to_preview:', this.transitioning_to_preview);
             console.log('========================================');
-            this.lockUI(400);
-            this.scheduleSetDisplayArea(function() {
-                media_player.setDisplayArea();
-            }, 250);
+            
+            // CRITICAL: Immediately reset display method for 4K TVs to prevent zoom
+            // This must happen BEFORE the delayed setDisplayArea call
+            try {
+                var capabilities = media_player.detectTVCapabilities();
+                var isUHD = capabilities.resolution.height > 1080;
+                var previewMode = isUHD ? 'PLAYER_DISPLAY_MODE_LETTER_BOX' : 'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO';
+                console.log('zoomInOut() ZOOM OUT: Resetting display method to', previewMode, '(isUHD:', isUHD + ')');
+                webapis.avplay.setDisplayMethod(previewMode);
+            } catch(e) {
+                console.log('zoomInOut() ZOOM OUT: setDisplayMethod error:', e);
+            }
+            
+            this.lockUI(500);
+            var that = this;
+            
+            // Use multiple requestAnimationFrames to ensure DOM layout is fully settled
+            // This is more reliable than fixed timeouts for different TV hardware
+            var waitForLayout = function(callback, framesRemaining) {
+                if (framesRemaining <= 0) {
+                    callback();
+                } else {
+                    requestAnimationFrame(function() {
+                        waitForLayout(callback, framesRemaining - 1);
+                    });
+                }
+            };
+            
+            // Wait 10 animation frames (~166ms at 60fps) for layout to settle
+            waitForLayout(function() {
+                // Double-check state before calling setDisplayArea
+                console.log('zoomInOut() ZOOM OUT: waitForLayout complete, full_screen_state:', media_player.full_screen_state);
+                // CRITICAL: Use forcePreview=true to ensure preview mode is used regardless of full_screen_state
+                // This prevents the zoom issue when returning from fullscreen on 4K TVs
+                media_player.setDisplayArea(true);
+                
+                // Clear transition flag after preview is set
+                requestAnimationFrame(function() {
+                    that.transitioning_to_preview = false;
+                    console.log('zoomInOut() ZOOM OUT: Cleared transitioning_to_preview flag');
+                });
+            }, 10);
             $('#full-screen-information').removeClass('visible');
             $('#live_channels_home').find('.channel-information-container').show();
             $('#live-channel-button-container').show();
@@ -705,11 +755,16 @@ var channel_page={
         try{
             console.log('showLiveChannelMovie: Before init() - full_screen_state=', media_player.full_screen_state);
             console.log('showLiveChannelMovie: transitioning_to_fullscreen=', this.transitioning_to_fullscreen);
+            console.log('showLiveChannelMovie: transitioning_to_preview=', this.transitioning_to_preview);
             media_player.init("channel-page-video","channel-page");
             console.log('showLiveChannelMovie: After init() - full_screen_state=', media_player.full_screen_state);
             
             if(this.transitioning_to_fullscreen){
                 console.log('showLiveChannelMovie: ⚠️ TRANSITIONING TO FULLSCREEN - skipping setDisplayArea, zoomInOut will handle it');
+            } else if(this.transitioning_to_preview){
+                // CRITICAL: Don't interfere while transitioning back to preview mode
+                // The zoomInOut callback will handle setDisplayArea with forcePreview=true
+                console.log('showLiveChannelMovie: ⚠️ TRANSITIONING TO PREVIEW - skipping setDisplayArea, zoomInOut will handle it');
             } else if(media_player.full_screen_state !== 1){
                 console.log('showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode');
                 var that = this;

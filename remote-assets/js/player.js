@@ -281,17 +281,21 @@ function initPlayer() {
                     that.playAsync(that.url);
                 }, 4000)
             },
-            setDisplayArea:function() {
+            setDisplayArea:function(forcePreview) {
                 var that = this;
                 var capabilities = this.detectTVCapabilities();
                 var avplayBaseWidth = capabilities.resolution.width;
                 var avplayBaseHeight = capabilities.resolution.height;
                 
-                debugLog('setDisplayArea() called - full_screen_state:', this.full_screen_state, 'parent_id:', this.parent_id, 'route:', current_route);
+                // forcePreview=true forces preview mode regardless of full_screen_state
+                // This is used when returning from fullscreen to prevent race conditions
+                var useFullscreen = (that.full_screen_state === 1) && !forcePreview;
+                
+                debugLog('setDisplayArea() called - full_screen_state:', this.full_screen_state, 'forcePreview:', forcePreview, 'useFullscreen:', useFullscreen);
                 
                 // Use requestAnimationFrame to wait for CSS to apply
                 requestAnimationFrame(function() {
-                    if (that.full_screen_state === 1) {
+                    if (useFullscreen) {
                         debugLog('setDisplayArea: FULLSCREEN mode - rect:', 0, 0, avplayBaseWidth, avplayBaseHeight);
                         try {
                             // CRITICAL: Force fullscreen display mode
