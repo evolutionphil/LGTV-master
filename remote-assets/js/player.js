@@ -305,7 +305,9 @@ function initPlayer() {
                         } catch (e) {
                         }
                     } else {
-                        // PREVIEW MODE: Use AUTO_ASPECT_RATIO for proper scaling on all TV sizes
+                        // PREVIEW MODE: Different display modes for different TV resolutions
+                        // - 720p/1080p TVs: Use AUTO_ASPECT_RATIO (fixes small TV scaling issues)
+                        // - 4K/UHD TVs: Use LETTER_BOX (prevents zoom/crop on UHD panels)
                         var top_position=$(that.videoObj).offset().top;
                         var left_position=$(that.videoObj).offset().left;
                         var width=parseInt($(that.videoObj).width())
@@ -319,9 +321,15 @@ function initPlayer() {
                     var scaledWidth = Math.round(width * ratioX);
                     var scaledHeight = Math.round(height * ratioY);
                     
-                        debugLog('setDisplayArea: AUTO_ASPECT_RATIO mode - rect:', scaledLeft, scaledTop, scaledWidth, scaledHeight);
+                        // Choose display mode based on TV resolution
+                        var isUHD = avplayBaseHeight > 1080;
+                        var displayMode = isUHD ? 'PLAYER_DISPLAY_MODE_LETTER_BOX' : 'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO';
+                        
+                        debugLog('setDisplayArea: PREVIEW mode - resolution:', avplayBaseWidth + 'x' + avplayBaseHeight, 'isUHD:', isUHD, 'displayMode:', displayMode);
+                        debugLog('setDisplayArea: rect:', scaledLeft, scaledTop, scaledWidth, scaledHeight, 'ratioX:', ratioX.toFixed(2), 'ratioY:', ratioY.toFixed(2));
+                        
                         try {
-                            webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO');
+                            webapis.avplay.setDisplayMethod(displayMode);
                         } catch (e) {
                         }
                         try {
