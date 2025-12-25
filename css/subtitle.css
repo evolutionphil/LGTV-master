@@ -190,25 +190,27 @@ body[data-subtitle-drawer-open="true"] .modal-backdrop {
 }
 
 /* Side drawer panel - slides from right */
+/* Using !important to override generic .modal-dialog styles in style.css */
 #subtitle-selection-modal .modal-dialog {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: auto !important;
+    margin: 0 !important;
     width: 38%;
     min-width: 380px;
     max-width: 520px;
     height: 100%;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
+    -webkit-transform: translate3d(100%, 0, 0) !important;
+    transform: translate3d(100%, 0, 0) !important;
     -webkit-transition: -webkit-transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition: transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 #subtitle-selection-modal.show .modal-dialog {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
 }
 
 /* Panel content wrapper */
