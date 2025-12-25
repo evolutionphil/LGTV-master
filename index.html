@@ -36,7 +36,17 @@
       }
       
       window.testSentryError = function() {
-        myUndefinedFunction();
+        try {
+          myUndefinedFunction();
+        } catch(e) {
+          Sentry.captureException(e);
+          console.log('Error sent to Sentry:', e.message);
+        }
+      };
+      
+      window.testSentryMessage = function() {
+        Sentry.captureMessage('Test message from FLIX IPTV');
+        console.log('Test message sent to Sentry');
       };
     </script>
 

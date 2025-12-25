@@ -1,0 +1,42 @@
+Adding Performance to your Browser JavaScript project is simple. Make sure you've got these basics down.
+Install
+Install our JavaScript browser SDK using either yarn or npm:
+npm
+yarn
+pnpm
+
+npm install --save @sentry/browser
+Configure SDK
+Configuration should happen as early as possible in your application's lifecycle.
+
+import * as Sentry from "@sentry/browser";
+
+Sentry.init({
+  dsn: "https://95c2065b46417f5499df0e85c25b0ce8@o4509599510888448.ingest.us.sentry.io/4510592225443840",
+  integrations: [Sentry.browserTracingIntegration()],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+  // Set `tracePropagationTargets` to control for which URLs distributed tracing should be enabled
+  tracePropagationTargets: ["localhost", /^https:\/\/yourserver\.io\/api/],
+  // Setting this option to true will send default PII data to Sentry.
+  // For example, automatic IP address collection on events
+  sendDefaultPii: true,
+});
+We recommend adjusting the value of tracesSampleRate in production. Learn more about tracing options, how to use the traces_sampler function, or how to do sampling.
+Add Distributed Tracing (Optional)
+If you're using the current version of our JavaScript SDK and have enabled the  BrowserTracing integration, distributed tracing will work out of the box. To get around possible Browser CORS issues, define your tracePropagationTargets.
+
+Sentry.init({
+  dsn: "https://95c2065b46417f5499df0e85c25b0ce8@o4509599510888448.ingest.us.sentry.io/4510592225443840",
+  integrations: [Sentry.browserTracingIntegration()],
+  tracePropagationTargets: ["localhost", /^https:\/\/yourserver\.io\/api/],
+  // Setting this option to true will send default PII data to Sentry.
+  // For example, automatic IP address collection on events
+  sendDefaultPii: true,
+});
+Verify
+Verify that performance monitoring is working correctly with our automatic instrumentation by simply using your JavaScript application.
+Waiting for this project's first transaction event
