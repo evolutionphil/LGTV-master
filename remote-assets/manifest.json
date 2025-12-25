@@ -1,6 +1,6 @@
 {
-  "version": "1.1.23",
-  "lastUpdate": "2025-12-25T23:16:33.757Z",
+  "version": "1.1.24",
+  "lastUpdate": "2025-12-25T23:42:30.119Z",
   "killSwitch": false,
   "baseUrl": "https://flixapp.pages.dev/",
   "cachePrefix": "flix_remote_",
@@ -73,9 +73,9 @@
       "priority": 3
     },
     "css/subtitle.css": {
-      "version": "1.0.5",
-      "size": 24421,
-      "hash": "2ad6dee6",
+      "version": "1.0.6",
+      "size": 25254,
+      "hash": "ff478d1a",
       "priority": 2
     },
     "css/movie_grid.css": {
