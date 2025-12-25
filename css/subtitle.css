@@ -190,7 +190,8 @@ body[data-subtitle-drawer-open="true"] .modal-backdrop {
 }
 
 /* Side drawer panel - slides from right */
-/* Using !important to override generic .modal-dialog styles in style.css */
+/* Custom class .subtitle-drawer-panel avoids conflicts with generic .modal-dialog */
+.subtitle-drawer-panel,
 #subtitle-selection-modal .modal-dialog {
     position: fixed !important;
     top: 0 !important;
@@ -208,6 +209,7 @@ body[data-subtitle-drawer-open="true"] .modal-backdrop {
     transition: transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+#subtitle-selection-modal.show .subtitle-drawer-panel,
 #subtitle-selection-modal.show .modal-dialog {
     -webkit-transform: translate3d(0, 0, 0) !important;
     transform: translate3d(0, 0, 0) !important;
