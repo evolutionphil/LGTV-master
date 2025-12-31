@@ -895,6 +895,10 @@ var vod_series_player={
         
         // Batch DOM updates in requestAnimationFrame
         var that = this;
+        
+        // Reset lastHoveredIndex so navigation works correctly on fresh open
+        that.lastHoveredIndex = -1;
+        
         requestAnimationFrame(function() {
             container.style.display = ''; // Show after update
             
@@ -908,17 +912,21 @@ var vod_series_player={
             var subtitle_menus = $('.subtitle-option');
             that.subtitle_audio_menus = subtitle_menus;
             
-            // Set default selection (Off/None) - batch class updates
-            that.setActiveSubtitleOption(0, subtitle_menus);
-            keys.subtitle_audio_selection_modal = 0;
-            
-            // Find and set current selection if applicable
+            // Find current selection index
             var current_selected_index = kind === "TEXT" ? that.current_subtitle_index : that.current_audio_track_index;
             
+            // Validate and set initial selection
             if(current_selected_index !== undefined && current_selected_index !== null && 
                current_selected_index >= 0 && current_selected_index < subtitle_menus.length) {
+                // Set focus on the currently selected item
                 that.setActiveSubtitleOption(current_selected_index, subtitle_menus);
                 keys.subtitle_audio_selection_modal = current_selected_index;
+                that.lastHoveredIndex = current_selected_index;
+            } else {
+                // Default to first item (Off/None)
+                that.setActiveSubtitleOption(0, subtitle_menus);
+                keys.subtitle_audio_selection_modal = 0;
+                that.lastHoveredIndex = 0;
             }
         });
     },
