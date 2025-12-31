@@ -628,32 +628,43 @@ var channel_page={
             this.lockUI(500);
             var that = this;
             
-            // Use multiple requestAnimationFrames to ensure DOM layout is fully settled
-            // This is more reliable than fixed timeouts for different TV hardware
-            var waitForLayout = function(callback, framesRemaining) {
-                if (framesRemaining <= 0) {
-                    callback();
-                } else {
-                    requestAnimationFrame(function() {
-                        waitForLayout(callback, framesRemaining - 1);
-                    });
-                }
-            };
+            // CRITICAL FIX: Use setTimeout instead of requestAnimationFrame
+            // requestAnimationFrame is paused during AVPlay transitions on Samsung 4K TVs
+            // causing the callback to never fire and transitioning_to_preview to stay true forever
             
-            // Wait 10 animation frames (~166ms at 60fps) for layout to settle
-            waitForLayout(function() {
+            // Fallback safety timeout - ensures flag is ALWAYS cleared even if something goes wrong
+            var fallbackTimeout = setTimeout(function() {
+                if (that.transitioning_to_preview) {
+                    console.log('⚠️ zoomInOut() FALLBACK: transitioning_to_preview was still true after 600ms, forcing clear');
+                    that.transitioning_to_preview = false;
+                    // Also try to set display area as fallback
+                    try {
+                        media_player.setDisplayArea(true);
+                    } catch(e) {
+                        console.log('⚠️ zoomInOut() FALLBACK: setDisplayArea error:', e);
+                    }
+                }
+            }, 600);
+            
+            // Primary timeout - wait for DOM layout to settle (150ms is sufficient for most TVs)
+            setTimeout(function() {
                 // Double-check state before calling setDisplayArea
-                console.log('zoomInOut() ZOOM OUT: waitForLayout complete, full_screen_state:', media_player.full_screen_state);
+                console.log('zoomInOut() ZOOM OUT: setTimeout complete, full_screen_state:', media_player.full_screen_state);
                 // CRITICAL: Use forcePreview=true to ensure preview mode is used regardless of full_screen_state
                 // This prevents the zoom issue when returning from fullscreen on 4K TVs
-                media_player.setDisplayArea(true);
+                try {
+                    media_player.setDisplayArea(true);
+                } catch(e) {
+                    console.log('zoomInOut() ZOOM OUT: setDisplayArea error:', e);
+                }
                 
                 // Clear transition flag after preview is set
-                requestAnimationFrame(function() {
+                setTimeout(function() {
                     that.transitioning_to_preview = false;
+                    clearTimeout(fallbackTimeout); // Cancel fallback since we succeeded
                     console.log('zoomInOut() ZOOM OUT: Cleared transitioning_to_preview flag');
-                });
-            }, 10);
+                }, 50);
+            }, 150);
             $('#full-screen-information').removeClass('visible');
             $('#live_channels_home').find('.channel-information-container').show();
             $('#live-channel-button-container').show();
