@@ -583,14 +583,26 @@ var channel_page={
         }
     },
     zoomInOut:function(){
-        // CRITICAL: Block ALL zoom operations while transitioning back to preview
-        // This prevents race conditions where hover autoplay could set fullscreen state
-        if(this.transitioning_to_preview){
-            console.log('zoomInOut() BLOCKED - transitioning_to_preview is true, ignoring request');
+        // Guard against race conditions during preview transition
+        // Only block if transitioning AND we're trying to zoom OUT (prevents duplicate zoom outs)
+        // Allow zoom IN to proceed even during transition (user wants fullscreen)
+        if(this.transitioning_to_preview && !this.full_screen_video){
+            console.log('zoomInOut() BLOCKED - already transitioning to preview, ignoring duplicate request');
             return;
         }
         
         if(!this.full_screen_video){
+            // ZOOM OUT - returning to preview mode
+            
+            // Clear any pending fallback timeout from previous zoom out
+            if(this.zoomOutFallbackTimeout) {
+                clearTimeout(this.zoomOutFallbackTimeout);
+                this.zoomOutFallbackTimeout = null;
+            }
+            
+            // Set transitioning flag to prevent duplicate zoom outs
+            this.transitioning_to_preview = true;
+            
             $('#live_channels_home .player-container').css({
                 position:'relative',
                 height:'58.3vh',
@@ -600,9 +612,6 @@ var channel_page={
             // Reset video element for preview mode
             $('#channel-page-video').removeClass('video-fullscreen');
             $('#channel-page-video-lg').removeClass('video-fullscreen');
-            
-            // CRITICAL: Set transitioning flag to block other code from changing fullscreen state
-            this.transitioning_to_preview = true;
             
             this.keys.focused_part="channel_selection";
             media_player.full_screen_state=0;
@@ -628,55 +637,75 @@ var channel_page={
             this.lockUI(500);
             var that = this;
             
-            // CRITICAL FIX: Use setTimeout instead of requestAnimationFrame
-            // requestAnimationFrame is paused during AVPlay transitions on Samsung 4K TVs
-            // causing the callback to never fire and transitioning_to_preview to stay true forever
-            
-            // Fallback safety timeout - ensures flag is ALWAYS cleared even if something goes wrong
-            // Set to 700ms to give buffer after the 450ms primary timeout + 50ms clear delay
-            var fallbackTimeout = setTimeout(function() {
-                if (that.transitioning_to_preview) {
-                    console.log('⚠️ zoomInOut() FALLBACK: transitioning_to_preview was still true after 700ms, forcing clear');
-                    that.transitioning_to_preview = false;
-                    // Also try to set display area as fallback
+            // Fallback safety timeout - ensures flag is cleared even if primary timeout fails
+            // CRITICAL: Only runs if still in preview mode (full_screen_state === 0)
+            this.zoomOutFallbackTimeout = setTimeout(function() {
+                // GUARD: Only execute if still in preview mode
+                if(media_player.full_screen_state === 0) {
+                    console.log('⚠️ zoomInOut() FALLBACK: Running after 700ms (still in preview mode)');
                     try {
                         media_player.setDisplayArea(true);
                     } catch(e) {
                         console.log('⚠️ zoomInOut() FALLBACK: setDisplayArea error:', e);
                     }
+                } else {
+                    console.log('⚠️ zoomInOut() FALLBACK: Skipped - already in fullscreen');
                 }
+                // ALWAYS clear transitioning flag in fallback
+                that.transitioning_to_preview = false;
+                that.zoomOutFallbackTimeout = null;
             }, 700);
             
             // Primary timeout - wait for CSS transition to complete before setting display area
             // CSS transition is ~350ms, so we use 450ms to ensure layout has fully settled
-            // CRITICAL: Using shorter delays causes AVPlay to capture fullscreen coordinates
+            // CRITICAL: Using shorter delays causes AVPlay to capture fullscreen coordinates on 4K TVs
             setTimeout(function() {
-                // Double-check state before calling setDisplayArea
-                console.log('zoomInOut() ZOOM OUT: setTimeout complete (450ms), full_screen_state:', media_player.full_screen_state);
-                // CRITICAL: Use forcePreview=true to ensure preview mode is used regardless of full_screen_state
-                // This prevents the zoom issue when returning from fullscreen on 4K TVs
-                try {
-                    media_player.setDisplayArea(true);
-                } catch(e) {
-                    console.log('zoomInOut() ZOOM OUT: setDisplayArea error:', e);
-                }
-                
-                // Clear transition flag after preview is set
-                setTimeout(function() {
+                // GUARD: Only execute if still in preview mode
+                if(media_player.full_screen_state === 0) {
+                    console.log('zoomInOut() ZOOM OUT: setTimeout complete (450ms), calling setDisplayArea');
+                    try {
+                        media_player.setDisplayArea(true);
+                    } catch(e) {
+                        console.log('zoomInOut() ZOOM OUT: setDisplayArea error:', e);
+                    }
+                    
+                    // Clear fallback timeout since primary succeeded
+                    if(that.zoomOutFallbackTimeout) {
+                        clearTimeout(that.zoomOutFallbackTimeout);
+                        that.zoomOutFallbackTimeout = null;
+                    }
+                    
+                    // Clear transitioning flag - zoom out complete
                     that.transitioning_to_preview = false;
-                    clearTimeout(fallbackTimeout); // Cancel fallback since we succeeded
                     console.log('zoomInOut() ZOOM OUT: Cleared transitioning_to_preview flag');
-                }, 50);
+                } else {
+                    console.log('zoomInOut() ZOOM OUT: Skipped setDisplayArea - already in fullscreen');
+                    // Clear transitioning flag even if skipped
+                    that.transitioning_to_preview = false;
+                }
             }, 450);
+            
             $('#full-screen-information').removeClass('visible');
             $('#live_channels_home').find('.channel-information-container').show();
             $('#live-channel-button-container').show();
             $('#live_channels_home').find('.video-skin').show();
         }
         else{
+            // ZOOM IN - entering fullscreen mode
+            
+            // CRITICAL: Cancel any pending zoom out operations
+            // This prevents the fallback from firing and setting preview coordinates while in fullscreen
+            if(this.zoomOutFallbackTimeout) {
+                console.log('zoomInOut() ZOOM IN: Clearing pending fallback timeout');
+                clearTimeout(this.zoomOutFallbackTimeout);
+                this.zoomOutFallbackTimeout = null;
+            }
+            
+            // Clear transitioning_to_preview since we're now going to fullscreen
+            this.transitioning_to_preview = false;
+            
             console.log('========================================');
             console.log('zoomInOut() ZOOM IN START');
-            console.log('  transitioning_to_fullscreen:', this.transitioning_to_fullscreen);
             console.log('  full_screen_video (before):', this.full_screen_video);
             console.log('  focused_part (before):', this.keys.focused_part);
             console.log('========================================');
@@ -706,12 +735,14 @@ var channel_page={
             
             // CRITICAL: Call setDisplayArea SYNCHRONOUSLY - no delay!
             // Samsung AVPlay must receive setDisplayRect while video is playing
-            console.log('🔥 ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state:', media_player.full_screen_state);
+            console.log('zoomInOut() ZOOM IN: Calling setDisplayArea with full_screen_state:', media_player.full_screen_state);
             media_player.setDisplayArea();
             
+            // Reset transitioning_to_fullscreen flag after a short delay
+            // This allows other code paths that check this flag to proceed
             setTimeout(function() {
                 that.transitioning_to_fullscreen = false;
-                console.log('🔥 ZOOM IN: Cleared transitioning flag');
+                console.log('zoomInOut() ZOOM IN: Cleared transitioning_to_fullscreen flag');
             }, 100);
             
             $('#live_channels_home').find('.channel-information-container').hide();
@@ -721,16 +752,8 @@ var channel_page={
             clearTimeout(this.full_screen_timer);
             $('#full-screen-information').addClass('visible');
             
-            console.log('╔════════════════════════════════════════════════════════╗');
-            console.log('║ Showing fullscreen info bar');
-            console.log('╠════════════════════════════════════════════════════════╣');
-            console.log('  #full-screen-information will show with .visible class');
-            console.log('  Channel name is in #full-screen-channel-name-compact');
-            console.log('╚════════════════════════════════════════════════════════╝');
-            
-            var that = this;
             this.full_screen_timer=setTimeout(function(){
-                console.log('Hiding fullscreen info bar after 5 seconds');
+                console.log('zoomInOut() ZOOM IN: Hiding fullscreen info bar after 5 seconds');
                 $('#full-screen-information').removeClass('visible');
             },5000)
         }
