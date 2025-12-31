@@ -924,16 +924,30 @@ var vod_series_player={
     },
     
     // Optimized batch selection update
+    // Sets both selected (permanent choice) and focused (current navigation) states
     setActiveSubtitleOption: function(index, options) {
         // Batch DOM updates to minimize reflow
         var that = this;
         requestAnimationFrame(function() {
+            // Remove all state classes first
             options.removeClass('active selected focused');
             options.find('input').prop('checked', false);
             
             if(index >= 0 && index < options.length) {
-                $(options[index]).addClass('active focused');
+                // Add both selected (for checkmark) and focused (for highlight)
+                $(options[index]).addClass('selected focused');
                 $(options[index]).find('input').prop('checked', true);
+            }
+        });
+    },
+    
+    // Focus on specific index without changing selected state
+    focusSubtitleOption: function(index, options) {
+        var that = this;
+        requestAnimationFrame(function() {
+            options.removeClass('focused');
+            if(index >= 0 && index < options.length) {
+                $(options[index]).addClass('focused');
             }
         });
     },
@@ -1086,19 +1100,45 @@ var vod_series_player={
         this.keys.focused_part="control_bar";
     },
     confirmSubtitle:function(){
+        var keys = this.keys;
+        
+        // Use the focused item from navigation state (keyboard/remote navigation)
+        var focusedIndex = keys.subtitle_audio_selection_modal;
+        
+        // Validate - if undefined, try to get from checked radio, else default to 0
+        if(focusedIndex === undefined || focusedIndex === null || isNaN(parseInt(focusedIndex))) {
+            var checkedVal = $('#subtitle-selection-modal').find('input[type=radio]:checked').val();
+            focusedIndex = (checkedVal !== undefined && checkedVal !== null) ? parseInt(checkedVal) : 0;
+        } else {
+            focusedIndex = parseInt(focusedIndex);
+        }
+        
+        // Bounds check
+        if(this.subtitle_audio_menus && this.subtitle_audio_menus.length > 0) {
+            if(focusedIndex < 0) focusedIndex = 0;
+            if(focusedIndex >= this.subtitle_audio_menus.length) focusedIndex = this.subtitle_audio_menus.length - 1;
+            
+            // Update selected state on the confirmed item
+            $(this.subtitle_audio_menus).removeClass('selected active');
+            $(this.subtitle_audio_menus).find('input').prop('checked', false);
+            $(this.subtitle_audio_menus[focusedIndex]).addClass('selected');
+            $(this.subtitle_audio_menus[focusedIndex]).find('input').prop('checked', true);
+        }
+        
+        // Sync the key for next open
+        keys.subtitle_audio_selection_modal = focusedIndex;
+        
         this.closeSubtitleDrawer();
-        this.keys.focused_part="control_bar";
+        keys.focused_part="control_bar";
         var modal_title=$("#subtitle-modal-title").text();
         
         if(modal_title.toLowerCase().includes('subtitle')){
             // Enhanced subtitle selection with workflow integration
-            this.current_subtitle_index=$('#subtitle-selection-modal').find('input[type=radio]:checked').val();
-            var selectedIndex = parseInt(this.current_subtitle_index);
-            
+            this.current_subtitle_index = focusedIndex;
             
             // Use enhanced subtitle workflow for selection
             var that = this;
-            EnhancedSubtitleWorkflow.selectSubtitle(selectedIndex,
+            EnhancedSubtitleWorkflow.selectSubtitle(focusedIndex,
                 function() {
                     // Loading callback
                 },
@@ -1113,10 +1153,10 @@ var vod_series_player={
             );
         }
         else{
-            // Audio track selection (unchanged)
-            this.current_audio_track_index=$('#subtitle-selection-modal').find('input[type=radio]:checked').val();
+            // Audio track selection
+            this.current_audio_track_index = focusedIndex;
             try{
-                media_player.setSubtitleOrAudioTrack("AUDIO",parseInt(this.current_audio_track_index))
+                media_player.setSubtitleOrAudioTrack("AUDIO", focusedIndex);
             }catch(e){
             }
         }
@@ -1511,9 +1551,10 @@ var vod_series_player={
             var that = this;
             requestAnimationFrame(function() {
                 if(that.subtitle_audio_menus && that.subtitle_audio_menus.length > 0) {
-                    $(that.subtitle_audio_menus).removeClass('active focused');
+                    // Only remove focused class, preserve selected/active for checkmark
+                    $(that.subtitle_audio_menus).removeClass('focused');
                     if(index < that.subtitle_audio_menus.length) {
-                        $(that.subtitle_audio_menus[index]).addClass('active focused');
+                        $(that.subtitle_audio_menus[index]).addClass('focused');
                         // Only scroll if needed - throttled
                         moveScrollPosition($('#subtitle-selection-container'), that.subtitle_audio_menus[index], 'vertical', false);
                     }
@@ -1525,10 +1566,11 @@ var vod_series_player={
             var that = this;
             requestAnimationFrame(function() {
                 if(that.subtitle_audio_menus) {
-                    $(that.subtitle_audio_menus).removeClass('active focused');
+                    // Only remove focused class, preserve selected/active for checkmark
+                    $(that.subtitle_audio_menus).removeClass('focused');
                     var targetIndex = that.subtitle_audio_menus.length + index;
                     if(targetIndex >= 0 && targetIndex < that.subtitle_audio_menus.length) {
-                        $(that.subtitle_audio_menus[targetIndex]).addClass('active focused');
+                        $(that.subtitle_audio_menus[targetIndex]).addClass('focused');
                     }
                 }
             });
