@@ -49,6 +49,7 @@ Preferred communication style: Simple, everyday language.
 -   **Cross-Platform Design**: Unified codebase with platform-specific adaptations for Samsung Tizen and LG WebOS.
 -   **Development Tools**: Build scripts for packaging and deployment to both platforms.
 -   **Power Management**: Handles TV power off/on events during buffering to prevent auto-resume of content.
+-   **Samsung 4K AVPlay Timing**: zoomInOut uses 450ms delay for setDisplayArea to wait for CSS transitions (~350ms) to complete; prevents AVPlay from capturing fullscreen coordinates during mid-transition.
 
 ## Remote Update System v2.0
 -   **OTA Updates**: Push CSS/JS updates to TVs without app store resubmission.

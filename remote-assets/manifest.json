@@ -1,6 +1,6 @@
 {
   "version": "1.1.27",
-  "lastUpdate": "2025-12-31T13:15:38.166Z",
+  "lastUpdate": "2025-12-31T13:43:55.178Z",
   "killSwitch": false,
   "baseUrl": "https://flixapp.pages.dev/",
   "cachePrefix": "flix_remote_",
@@ -211,9 +211,9 @@
       "priority": 1
     },
     "js/channel_operation.js": {
-      "version": "1.0.7",
-      "size": 65757,
-      "hash": "88957552",
+      "version": "1.0.8",
+      "size": 66044,
+      "hash": "843337a2",
       "priority": 2
     },
     "js/login_operation.js": {

@@ -633,9 +633,10 @@ var channel_page={
             // causing the callback to never fire and transitioning_to_preview to stay true forever
             
             // Fallback safety timeout - ensures flag is ALWAYS cleared even if something goes wrong
+            // Set to 700ms to give buffer after the 450ms primary timeout + 50ms clear delay
             var fallbackTimeout = setTimeout(function() {
                 if (that.transitioning_to_preview) {
-                    console.log('⚠️ zoomInOut() FALLBACK: transitioning_to_preview was still true after 600ms, forcing clear');
+                    console.log('⚠️ zoomInOut() FALLBACK: transitioning_to_preview was still true after 700ms, forcing clear');
                     that.transitioning_to_preview = false;
                     // Also try to set display area as fallback
                     try {
@@ -644,12 +645,14 @@ var channel_page={
                         console.log('⚠️ zoomInOut() FALLBACK: setDisplayArea error:', e);
                     }
                 }
-            }, 600);
+            }, 700);
             
-            // Primary timeout - wait for DOM layout to settle (150ms is sufficient for most TVs)
+            // Primary timeout - wait for CSS transition to complete before setting display area
+            // CSS transition is ~350ms, so we use 450ms to ensure layout has fully settled
+            // CRITICAL: Using shorter delays causes AVPlay to capture fullscreen coordinates
             setTimeout(function() {
                 // Double-check state before calling setDisplayArea
-                console.log('zoomInOut() ZOOM OUT: setTimeout complete, full_screen_state:', media_player.full_screen_state);
+                console.log('zoomInOut() ZOOM OUT: setTimeout complete (450ms), full_screen_state:', media_player.full_screen_state);
                 // CRITICAL: Use forcePreview=true to ensure preview mode is used regardless of full_screen_state
                 // This prevents the zoom issue when returning from fullscreen on 4K TVs
                 try {
@@ -664,7 +667,7 @@ var channel_page={
                     clearTimeout(fallbackTimeout); // Cancel fallback since we succeeded
                     console.log('zoomInOut() ZOOM OUT: Cleared transitioning_to_preview flag');
                 }, 50);
-            }, 150);
+            }, 450);
             $('#full-screen-information').removeClass('visible');
             $('#live_channels_home').find('.channel-information-container').show();
             $('#live-channel-button-container').show();
