@@ -1049,3 +1049,481 @@ body[data-subtitle-drawer-open="true"] .modal-backdrop {
     transform: translateY(-1px);
     box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
 }
+
+/* =====================================================
+   SUBTITLE SETTINGS MODAL - Netflix-style Drawer
+   Same pattern as subtitle selection drawer
+   ===================================================== */
+
+/* Hide Bootstrap backdrop for settings drawer too */
+body[data-subtitle-settings-open="true"] .modal-backdrop {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    background: transparent !important;
+}
+
+#subtitle-settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1050;
+    display: none;
+    background: rgba(0, 0, 0, 0);
+    -webkit-transition: background 300ms ease;
+    transition: background 300ms ease;
+    overflow: hidden;
+}
+
+#subtitle-settings-modal.show {
+    display: block;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+/* Settings drawer panel - slides from right */
+#subtitle-settings-modal .subtitle-drawer-panel,
+#subtitle-settings-modal .modal-dialog {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: auto !important;
+    margin: 0 !important;
+    width: 42%;
+    min-width: 420px;
+    max-width: 580px;
+    height: 100%;
+    -webkit-transform: translate3d(100%, 0, 0) !important;
+    transform: translate3d(100%, 0, 0) !important;
+    -webkit-transition: -webkit-transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#subtitle-settings-modal.show .subtitle-drawer-panel,
+#subtitle-settings-modal.show .modal-dialog {
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+}
+
+/* Settings panel content wrapper */
+#subtitle-settings-modal .modal-content {
+    background: linear-gradient(180deg, #1a1d29 0%, #141620 100%);
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.6);
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Settings header section */
+#subtitle-settings-modal .modal-header {
+    background: rgba(255, 255, 255, 0.03);
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0;
+    padding: 28px 32px;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+}
+
+#subtitle-settings-modal .modal-title {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
+
+/* Settings body - flex column layout */
+#subtitle-settings-body {
+    background: transparent;
+    padding: 0;
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+/* Scrollable settings container */
+#subtitle-settings-container {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 24px 32px;
+    padding-bottom: 20px;
+}
+
+#subtitle-settings-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#subtitle-settings-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 3px;
+}
+
+#subtitle-settings-container::-webkit-scrollbar-thumb {
+    background: #4f46e5;
+    border-radius: 3px;
+}
+
+/* Settings preview area - compact version for drawer */
+#subtitle-settings-modal #subtitle-preview-container,
+#subtitle-settings-modal .settings-preview-area {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-radius: 10px;
+    padding: 24px 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    min-height: 80px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#subtitle-settings-modal .subtitle-preview-background {
+    padding: 12px;
+    width: 100%;
+}
+
+#subtitle-settings-modal .subtitle-preview-text {
+    font-size: 20px;
+    padding: 6px 14px;
+}
+
+/* Settings sections - drawer optimized */
+#subtitle-settings-modal .subtitle-setting-section {
+    margin-bottom: 16px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#subtitle-settings-modal .subtitle-setting-title {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-shadow: none;
+    letter-spacing: 0.3px;
+}
+
+/* Drawer-specific option button overrides */
+#subtitle-settings-modal .subtitle-size-options,
+#subtitle-settings-modal .subtitle-bg-color-options,
+#subtitle-settings-modal .subtitle-text-color-options {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: -4px;
+}
+
+#subtitle-settings-modal .subtitle-option-button {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin: 4px;
+    padding: 12px 16px;
+    font-size: 15px;
+    border-radius: 6px;
+    min-width: 80px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #b3b3b3;
+    -webkit-transition: all 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#subtitle-settings-modal .subtitle-option-button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #e5e7eb;
+}
+
+#subtitle-settings-modal .subtitle-option-button.active,
+#subtitle-settings-modal .subtitle-option-button.selected {
+    background: rgba(229, 9, 20, 0.08);
+    border-color: rgba(229, 9, 20, 0.4);
+    color: #ffffff;
+}
+
+#subtitle-settings-modal .subtitle-option-button.focused {
+    background: rgba(229, 9, 20, 0.12);
+    border-color: #e50914;
+    color: #ffffff;
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+}
+
+#subtitle-settings-modal .subtitle-color-button {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin: 4px;
+    padding: 10px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    min-width: 80px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #b3b3b3;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-transition: all 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#subtitle-settings-modal .subtitle-color-button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #e5e7eb;
+}
+
+#subtitle-settings-modal .subtitle-color-button.active,
+#subtitle-settings-modal .subtitle-color-button.selected {
+    background: rgba(229, 9, 20, 0.08);
+    border-color: rgba(229, 9, 20, 0.4);
+    color: #ffffff;
+}
+
+#subtitle-settings-modal .subtitle-color-button.focused {
+    background: rgba(229, 9, 20, 0.12);
+    border-color: #e50914;
+    color: #ffffff;
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+}
+
+#subtitle-settings-modal .color-preview {
+    width: 26px;
+    height: 16px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Settings footer button wrapper */
+#subtitle-settings-body .modal-button-wrapper {
+    position: relative;
+    width: 100%;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    z-index: 100;
+    padding: 24px 32px;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background: rgba(20, 22, 32, 0.92);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#subtitle-settings-body .modal-button-wrapper .btn-wrapper-1 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+#subtitle-settings-body .modal-button-wrapper .btn-wrapper-1 + .btn-wrapper-1 {
+    margin-left: 20px;
+}
+
+/* Settings buttons - Netflix style */
+#subtitle-settings-body .modal-btn-1 {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #e5e7eb;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 12px 32px;
+    width: auto;
+    min-width: 120px;
+    -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+#subtitle-settings-body .modal-btn-1:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Save button - Netflix red */
+#subtitle-settings-body .modal-btn-1[data-action="save"] {
+    background: #e50914;
+    border-color: #e50914;
+    color: #ffffff;
+}
+
+#subtitle-settings-body .modal-btn-1[data-action="save"]:hover {
+    background: #f40612;
+    border-color: #f40612;
+}
+
+#subtitle-settings-body .modal-btn-1:focus,
+#subtitle-settings-body .modal-btn-1.focused {
+    background: #e50914;
+    border-color: #e50914;
+    color: #ffffff;
+    outline: none;
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+}
+
+/* =====================================================
+   SETTINGS DRAWER RESPONSIVE - TV Screen Sizes
+   ===================================================== */
+
+/* 720p TVs */
+@media (max-height: 720px) {
+    #subtitle-settings-modal .subtitle-drawer-panel,
+    #subtitle-settings-modal .modal-dialog {
+        width: 48%;
+        min-width: 360px;
+        max-width: 500px;
+    }
+    
+    #subtitle-settings-modal .modal-header {
+        padding: 18px 24px;
+    }
+    
+    #subtitle-settings-modal .modal-title {
+        font-size: 22px;
+    }
+    
+    #subtitle-settings-container {
+        padding: 18px 24px;
+    }
+    
+    #subtitle-settings-modal .subtitle-setting-section {
+        margin-bottom: 12px;
+        padding: 12px;
+    }
+    
+    #subtitle-settings-modal .subtitle-setting-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .subtitle-options-grid > .subtitle-option {
+        padding: 10px 12px;
+        font-size: 14px;
+        min-width: 70px;
+    }
+    
+    #subtitle-settings-body .modal-button-wrapper {
+        padding: 18px 24px;
+    }
+    
+    #subtitle-settings-body .modal-btn-1 {
+        font-size: 14px;
+        padding: 10px 24px;
+        min-width: 100px;
+    }
+}
+
+/* 4K UHD TVs */
+@media (min-height: 1440px) {
+    #subtitle-settings-modal .subtitle-drawer-panel,
+    #subtitle-settings-modal .modal-dialog {
+        width: 36%;
+        min-width: 540px;
+        max-width: 720px;
+    }
+    
+    #subtitle-settings-modal .modal-header {
+        padding: 36px 40px;
+    }
+    
+    #subtitle-settings-modal .modal-title {
+        font-size: 34px;
+    }
+    
+    #subtitle-settings-container {
+        padding: 32px 40px;
+    }
+    
+    #subtitle-settings-modal .subtitle-setting-section {
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+    
+    #subtitle-settings-modal .subtitle-setting-title {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .subtitle-options-grid > .subtitle-option {
+        padding: 16px 22px;
+        font-size: 20px;
+        min-width: 110px;
+        border-radius: 8px;
+    }
+    
+    .subtitle-options-grid.color-grid .color-preview {
+        width: 36px;
+        height: 24px;
+    }
+    
+    #subtitle-settings-body .modal-button-wrapper {
+        padding: 32px 40px;
+    }
+    
+    #subtitle-settings-body .modal-btn-1 {
+        font-size: 20px;
+        padding: 16px 40px;
+        min-width: 150px;
+    }
+}
