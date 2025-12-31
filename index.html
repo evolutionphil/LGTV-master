@@ -1561,104 +1561,109 @@
         </div>
     </div>
     
-    <!-- Subtitle Settings Modal -->
-    <div class="modal" id="subtitle-settings-modal" data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered1 modal-lg">
+    <!-- Subtitle Settings Modal - Netflix-style drawer -->
+    <div class="modal subtitle-drawer-modal" id="subtitle-settings-modal" data-backdrop="false">
+        <div class="modal-dialog subtitle-drawer-panel">
             <div class="modal-content">
-                <div class="modal-header modal-header-bg-img-1">
-                    <h5 class="modal-title modal-title-text-2 text-center" data-word_code="subtitle_settings">Subtitle Settings</h5>
+                <div class="modal-header">
+                    <h5 class="modal-title" data-word_code="subtitle_settings">Subtitle Settings</h5>
                 </div>
-                <div class="modal-body modal-body-bg-img-1 p-20" style="padding:20px 20px;">
-                    <!-- Live Preview Area -->
-                    <div id="subtitle-preview-container">
-                        <div class="subtitle-preview-background">
-                            <div class="subtitle-preview-text">Sample subtitle text for preview</div>
+                <div class="modal-body" id="subtitle-settings-body">
+                    <!-- Scrollable Settings Container -->
+                    <div id="subtitle-settings-container">
+                        <!-- Live Preview Area -->
+                        <div id="subtitle-preview-container" class="settings-preview-area">
+                            <div class="subtitle-preview-background">
+                                <div class="subtitle-preview-text">Sample subtitle text</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Settings -->
+                        <div class="subtitle-setting-section">
+                            <h6 class="subtitle-setting-title" data-word_code="subtitel_size">Size</h6>
+                            <div class="subtitle-options-grid">
+                                <div class="subtitle-option" data-size="small" onclick="home_page.changeSubtitleSize('small')" onmouseenter="home_page.hoverSubtitleOption(0)">
+                                    <span data-word_code="small">Small</span>
+                                </div>
+                                <div class="subtitle-option selected" data-size="medium" onclick="home_page.changeSubtitleSize('medium')" onmouseenter="home_page.hoverSubtitleOption(1)">
+                                    <span data-word_code="medium">Medium</span>
+                                </div>
+                                <div class="subtitle-option" data-size="large" onclick="home_page.changeSubtitleSize('large')" onmouseenter="home_page.hoverSubtitleOption(2)">
+                                    <span data-word_code="large">Large</span>
+                                </div>
+                                <div class="subtitle-option" data-size="extra-large" onclick="home_page.changeSubtitleSize('extra-large')" onmouseenter="home_page.hoverSubtitleOption(3)">
+                                    <span data-word_code="extra_large">Extra Large</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Background Color Settings -->
+                        <div class="subtitle-setting-section">
+                            <h6 class="subtitle-setting-title" data-word_code="background_color">Background Color</h6>
+                            <div class="subtitle-options-grid color-grid">
+                                <div class="subtitle-option color-option" data-bg="transparent" onclick="home_page.changeSubtitleBgColor('transparent')" onmouseenter="home_page.hoverSubtitleOption(4)">
+                                    <div class="color-preview transparent-bg"></div>
+                                    <span data-word_code="transparent">Transparent</span>
+                                </div>
+                                <div class="subtitle-option color-option selected" data-bg="black" onclick="home_page.changeSubtitleBgColor('black')" onmouseenter="home_page.hoverSubtitleOption(5)">
+                                    <div class="color-preview black-bg"></div>
+                                    <span data-word_code="black">Black</span>
+                                </div>
+                                <div class="subtitle-option color-option" data-bg="red" onclick="home_page.changeSubtitleBgColor('red')" onmouseenter="home_page.hoverSubtitleOption(6)">
+                                    <div class="color-preview red-bg"></div>
+                                    <span data-word_code="red">Red</span>
+                                </div>
+                                <div class="subtitle-option color-option" data-bg="white" onclick="home_page.changeSubtitleBgColor('white')" onmouseenter="home_page.hoverSubtitleOption(7)">
+                                    <div class="color-preview white-bg"></div>
+                                    <span data-word_code="white">White</span>
+                                </div>
+                                <div class="subtitle-option color-option" data-bg="blue" onclick="home_page.changeSubtitleBgColor('blue')" onmouseenter="home_page.hoverSubtitleOption(8)">
+                                    <div class="color-preview blue-bg"></div>
+                                    <span data-word_code="blue">Blue</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Text Color Settings -->
+                        <div class="subtitle-setting-section">
+                            <h6 class="subtitle-setting-title" data-word_code="text_color">Text Color</h6>
+                            <div class="subtitle-options-grid color-grid">
+                                <div class="subtitle-option color-option selected" data-text="white" onclick="home_page.changeSubtitleTextColor('white')" onmouseenter="home_page.hoverSubtitleOption(9)">
+                                    <div class="color-preview white-text"></div>
+                                    <span data-word_code="white">White</span>
+                                </div>
+                                <div class="subtitle-option color-option" data-text="black" onclick="home_page.changeSubtitleTextColor('black')" onmouseenter="home_page.hoverSubtitleOption(10)">
+                                    <div class="color-preview black-text"></div>
+                                    <span data-word_code="black">Black</span>
+                                </div>
+                                <div class="subtitle-option color-option" data-text="yellow" onclick="home_page.changeSubtitleTextColor('yellow')" onmouseenter="home_page.hoverSubtitleOption(11)">
+                                    <div class="color-preview yellow-text"></div>
+                                    <span data-word_code="yellow">Yellow</span>
+                                </div>
+                                <div class="subtitle-option color-option" data-text="red" onclick="home_page.changeSubtitleTextColor('red')" onmouseenter="home_page.hoverSubtitleOption(12)">
+                                    <div class="color-preview red-text"></div>
+                                    <span data-word_code="red">Red</span>
+                                </div>
+                                <div class="subtitle-option color-option" data-text="green" onclick="home_page.changeSubtitleTextColor('green')" onmouseenter="home_page.hoverSubtitleOption(13)">
+                                    <div class="color-preview green-text"></div>
+                                    <span data-word_code="green">Green</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- Settings Controls -->
-                    <div class="subtitle-setting-section">
-                        <h6 class="subtitle-setting-title" data-word_code="subtitel_size">Size</h6>
-                        <div class="subtitle-size-options">
-                            <div class="subtitle-option-button" data-size="small" onclick="home_page.changeSubtitleSize('small')" onmouseenter="home_page.hoverSubtitleOption(0)">
-                                <span data-word_code="small">Small</span>
-                            </div>
-                            <div class="subtitle-option-button active" data-size="medium" onclick="home_page.changeSubtitleSize('medium')" onmouseenter="home_page.hoverSubtitleOption(1)">
-                                <span data-word_code="medium">Medium</span>
-                            </div>
-                            <div class="subtitle-option-button" data-size="large" onclick="home_page.changeSubtitleSize('large')" onmouseenter="home_page.hoverSubtitleOption(2)">
-                                <span data-word_code="large">Large</span>
-                            </div>
-                            <div class="subtitle-option-button" data-size="extra-large" onclick="home_page.changeSubtitleSize('extra-large')" onmouseenter="home_page.hoverSubtitleOption(3)">
-                                <span data-word_code="extra_large">Extra Large</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="subtitle-setting-section">
-                        <h6 class="subtitle-setting-title" data-word_code="background_color">Background Color</h6>
-                        <div class="subtitle-bg-color-options">
-                            <div class="subtitle-color-button" data-bg="transparent" onclick="home_page.changeSubtitleBgColor('transparent')" onmouseenter="home_page.hoverSubtitleOption(4)">
-                                <div class="color-preview transparent-bg"></div>
-                                <span data-word_code="transparent">Transparent</span>
-                            </div>
-                            <div class="subtitle-color-button active" data-bg="black" onclick="home_page.changeSubtitleBgColor('black')" onmouseenter="home_page.hoverSubtitleOption(5)">
-                                <div class="color-preview black-bg"></div>
-                                <span data-word_code="black">Black</span>
-                            </div>
-                            <div class="subtitle-color-button" data-bg="red" onclick="home_page.changeSubtitleBgColor('red')" onmouseenter="home_page.hoverSubtitleOption(6)">
-                                <div class="color-preview red-bg"></div>
-                                <span data-word_code="red">Red</span>
-                            </div>
-                            <div class="subtitle-color-button" data-bg="white" onclick="home_page.changeSubtitleBgColor('white')" onmouseenter="home_page.hoverSubtitleOption(7)">
-                                <div class="color-preview white-bg"></div>
-                                <span data-word_code="white">White</span>
-                            </div>
-                            <div class="subtitle-color-button" data-bg="blue" onclick="home_page.changeSubtitleBgColor('blue')" onmouseenter="home_page.hoverSubtitleOption(8)">
-                                <div class="color-preview blue-bg"></div>
-                                <span data-word_code="blue">Blue</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="subtitle-setting-section">
-                        <h6 class="subtitle-setting-title" data-word_code="text_color">Text Color</h6>
-                        <div class="subtitle-text-color-options">
-                            <div class="subtitle-color-button active" data-text="white" onclick="home_page.changeSubtitleTextColor('white')" onmouseenter="home_page.hoverSubtitleOption(9)">
-                                <div class="color-preview white-text"></div>
-                                <span data-word_code="white">White</span>
-                            </div>
-                            <div class="subtitle-color-button" data-text="black" onclick="home_page.changeSubtitleTextColor('black')" onmouseenter="home_page.hoverSubtitleOption(10)">
-                                <div class="color-preview black-text"></div>
-                                <span data-word_code="black">Black</span>
-                            </div>
-                            <div class="subtitle-color-button" data-text="yellow" onclick="home_page.changeSubtitleTextColor('yellow')" onmouseenter="home_page.hoverSubtitleOption(11)">
-                                <div class="color-preview yellow-text"></div>
-                                <span data-word_code="yellow">Yellow</span>
-                            </div>
-                            <div class="subtitle-color-button" data-text="red" onclick="home_page.changeSubtitleTextColor('red')" onmouseenter="home_page.hoverSubtitleOption(12)">
-                                <div class="color-preview red-text"></div>
-                                <span data-word_code="red">Red</span>
-                            </div>
-                            <div class="subtitle-color-button" data-text="green" onclick="home_page.changeSubtitleTextColor('green')" onmouseenter="home_page.hoverSubtitleOption(13)">
-                                <div class="color-preview green-text"></div>
-                                <span data-word_code="green">Green</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Action Buttons -->
-                    <div class="modal-button-wrapper subtitle-modal-buttons">
+                    <!-- Action Buttons - Fixed Footer -->
+                    <div class="modal-button-wrapper">
                         <div class="btn-wrapper-1">
-                            <button type="button" class="btn modal-btn-1 subtitle-action-btn" data-word_code="save" data-action="save"
-                                onmouseenter="home_page.hoverSubtitleOption(14)" onclick="home_page.saveSubtitleSettings()">
-                                Save
-                            </button>
-                        </div>
-                        <div class="btn-wrapper-1 text-right">
-                            <button type="button" class="btn modal-btn-1 subtitle-action-btn" data-word_code="cancel" data-action="cancel"
+                            <button type="button" class="btn modal-btn-1" data-word_code="cancel" data-action="cancel"
                                 onmouseenter="home_page.hoverSubtitleOption(15)" onclick="home_page.cancelSubtitleSettings()">
                                 Cancel
+                            </button>
+                        </div>
+                        <div class="btn-wrapper-1">
+                            <button type="button" class="btn modal-btn-1" data-word_code="save" data-action="save"
+                                onmouseenter="home_page.hoverSubtitleOption(14)" onclick="home_page.saveSubtitleSettings()">
+                                Save
                             </button>
                         </div>
                     </div>
