@@ -49,12 +49,7 @@ Preferred communication style: Simple, everyday language.
 -   **Cross-Platform Design**: Unified codebase with platform-specific adaptations for Samsung Tizen and LG WebOS.
 -   **Development Tools**: Build scripts for packaging and deployment to both platforms.
 -   **Power Management**: Handles TV power off/on events during buffering to prevent auto-resume of content.
--   **Samsung 4K AVPlay Timing**: zoomInOut uses 450ms delay for setDisplayArea to wait for CSS transitions (~350ms) to complete; prevents AVPlay from capturing fullscreen coordinates during mid-transition.
--   **Cross-Resolution Zoom Logic**: zoomInOut function handles 720p/1080p/4K/8K displays with smart guards:
-    -   `transitioning_to_preview` flag prevents duplicate zoom out requests
-    -   `full_screen_state === 0` guard ensures setDisplayArea only runs in preview mode
-    -   Fallback timeout (700ms) cleared when entering fullscreen to prevent preview overlay
-    -   Zoom IN always allowed even during preview transition (user intent)
+-   **Samsung 4K AVPlay Timing**: zoomInOut uses scheduleSetDisplayArea with 250ms delay for preview mode; fullscreen uses synchronous setDisplayArea call.
 
 ## Remote Update System v2.0
 -   **OTA Updates**: Push CSS/JS updates to TVs without app store resubmission.
