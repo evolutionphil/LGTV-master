@@ -5,6 +5,7 @@ FLIX IPTV is a cross-platform TV application for LG WebOS and Samsung Tizen smar
 # User Preferences
 
 Preferred communication style: Simple, everyday language.
+Remote Update Workflow: After every code change, automatically copy all changed files to remote-assets/ folder and run `node tools/generate-manifest.js` to update versions.
 
 # System Architecture
 
