@@ -664,6 +664,19 @@ var home_page={
         $('#user-account-modal').modal('show');
         $('input[name="lock_account"][value="'+lock+'"]').prop('checked',true);
         this.hoverLockAccountBtn(lock==0 ? 0 : 1);
+        
+        // Display app version
+        var versionText = 'vlocal (local)';
+        try {
+            var cachedManifest = localStorage.getItem('flix_remote_manifest');
+            if (cachedManifest) {
+                var manifest = JSON.parse(cachedManifest);
+                if (manifest && manifest.version) {
+                    versionText = 'v' + manifest.version + ' (remote)';
+                }
+            }
+        } catch (e) {}
+        $('#flix-version-display').text(versionText);
     },
     showFeaturedSetting:function () {
         $('#settings-modal').modal('hide');
