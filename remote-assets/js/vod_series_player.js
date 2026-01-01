@@ -1655,12 +1655,13 @@ var vod_series_player={
         else if(keys.focused_part==="subtitle_audio_selection_modal"){
             if(this.subtitle_loading)
                 return;
-            if(keys.subtitle_audio_selection_modal>=this.subtitle_audio_menus.length-2){  // this means ok, or cancel button cliced in subtitle selection modal
+            if(keys.subtitle_audio_selection_modal>=this.subtitle_audio_menus.length-2){  // this means ok, or cancel button clicked in subtitle selection modal
                 $(this.subtitle_audio_menus[keys.subtitle_audio_selection_modal]).trigger('click');
             }
             else{
-                $(this.subtitle_audio_menus).find('input').prop('checked',false);
-                $(this.subtitle_audio_menus[keys.subtitle_audio_selection_modal]).find('input').prop('checked',true);
+                // Update visual state with setActiveSubtitleOption
+                this.setActiveSubtitleOption(keys.subtitle_audio_selection_modal, this.subtitle_audio_menus);
+                this.lastHoveredIndex = keys.subtitle_audio_selection_modal;
             }
         }
         else if(keys.focused_part==="subtitle_position_overlay"){
