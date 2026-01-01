@@ -239,6 +239,8 @@ var channel_page={
             case "full_screen":
                 this.keys.focused_part="channel_selection";
                 this.full_screen_video=false;
+                this.transitioning_to_fullscreen=false;
+                this.transitioning_to_preview=true;
                 this.zoomInOut();
                 break;
             case "channel_selection":

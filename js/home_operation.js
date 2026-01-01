@@ -758,6 +758,19 @@ var home_page={
         $('#settings-modal').modal('hide');
         $('#clear-cache-modal').modal('show');
         this.hoverCacheConfirmModal(0);
+        
+        // Show remote assets version
+        var versionText = '';
+        try {
+            var cachedManifest = localStorage.getItem('flix_remote_manifest');
+            if (cachedManifest) {
+                var manifest = JSON.parse(cachedManifest);
+                if (manifest && manifest.version) {
+                    versionText = 'Remote Assets: v' + manifest.version;
+                }
+            }
+        } catch (e) {}
+        $('#clear-cache-version').text(versionText);
     },
     clearCache: function (){
         current_route = 'login-page';
