@@ -42,39 +42,6 @@ $(document).ready(function () {
         $('#version-txt').text(lg_version);
     }
     $('#app').addClass(platform);
-    
-    // Show version indicator on main page
-    (function() {
-        try {
-            var baseVersion = platform === 'samsung' ? samsung_version : lg_version;
-            var isRemote = false;
-            var remoteVersion = baseVersion;
-            
-            // Check if we have cached manifest (means remote update is active)
-            var cachedManifest = localStorage.getItem('flix_remote_manifest');
-            if (cachedManifest) {
-                try {
-                    var manifest = JSON.parse(cachedManifest);
-                    if (manifest.version) {
-                        remoteVersion = manifest.version;
-                        isRemote = true;
-                    }
-                } catch(e) {}
-            }
-            
-            // Check if FlixBootstrapper loaded any files from cache
-            if (typeof FlixBootstrapper !== 'undefined' && FlixBootstrapper.loadedFromCache && FlixBootstrapper.loadedFromCache.length > 0) {
-                isRemote = true;
-            }
-            
-            var versionText = 'v' + remoteVersion + (isRemote ? ' (remote)' : ' (local)');
-            $('#app-version-indicator').text(versionText);
-            console.log('[VersionIndicator] ' + versionText);
-        } catch(e) {
-            console.log('[VersionIndicator] Error:', e);
-            $('#app-version-indicator').text('v? (error)');
-        }
-    })();
     setTimeout(function (){
         login_page.getPlayListDetail();
     },200)
