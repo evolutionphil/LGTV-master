@@ -1887,20 +1887,31 @@
             
             try {
                 var manifestStr = localStorage.getItem('flix_remote_manifest');
+                console.log('[VersionDisplay] Manifest in cache: ' + (manifestStr ? 'YES (' + manifestStr.length + ' bytes)' : 'NO'));
                 if(manifestStr) {
                     var manifest = JSON.parse(manifestStr);
                     if(manifest && manifest.version) {
                         cachedVersion = manifest.version;
                         cacheStatus = 'remote';
+                        console.log('[VersionDisplay] Found version: ' + cachedVersion);
                     }
                 }
-            } catch(e) {}
+            } catch(e) {
+                console.log('[VersionDisplay] Error: ' + e.message);
+            }
             
             var versionText = 'v' + cachedVersion + ' (' + cacheStatus + ')';
             
             var versionEl = document.getElementById('flix-version-display');
+            var cacheVersionEl = document.getElementById('clear-cache-version');
+            
+            console.log('[VersionDisplay] Setting text: ' + versionText + ', Element found: ' + (versionEl ? 'YES' : 'NO'));
+            
             if(versionEl) {
                 versionEl.textContent = versionText;
+            }
+            if(cacheVersionEl) {
+                cacheVersionEl.textContent = cacheStatus === 'remote' ? 'Remote Assets: v' + cachedVersion : '';
             }
         }
         
@@ -1914,6 +1925,9 @@
         
         // Update after 5 seconds (after remote loader might have finished)
         setTimeout(updateVersionDisplay, 5000);
+        
+        // Also update after 15 seconds for slower Samsung devices
+        setTimeout(updateVersionDisplay, 15000);
         
         // Expose globally so it can be called after remote update
         window.updateFlixVersionDisplay = updateVersionDisplay;

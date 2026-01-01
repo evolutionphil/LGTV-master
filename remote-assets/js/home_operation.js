@@ -665,18 +665,10 @@ var home_page={
         $('input[name="lock_account"][value="'+lock+'"]').prop('checked',true);
         this.hoverLockAccountBtn(lock==0 ? 0 : 1);
         
-        // Display app version
-        var versionText = 'vlocal (local)';
-        try {
-            var cachedManifest = localStorage.getItem('flix_remote_manifest');
-            if (cachedManifest) {
-                var manifest = JSON.parse(cachedManifest);
-                if (manifest && manifest.version) {
-                    versionText = 'v' + manifest.version + ' (remote)';
-                }
-            }
-        } catch (e) {}
-        $('#flix-version-display').text(versionText);
+        // Display app version - call global function if available
+        if (typeof window.updateFlixVersionDisplay === 'function') {
+            window.updateFlixVersionDisplay();
+        }
     },
     showFeaturedSetting:function () {
         $('#settings-modal').modal('hide');
@@ -759,18 +751,10 @@ var home_page={
         $('#clear-cache-modal').modal('show');
         this.hoverCacheConfirmModal(0);
         
-        // Show remote assets version
-        var versionText = '';
-        try {
-            var cachedManifest = localStorage.getItem('flix_remote_manifest');
-            if (cachedManifest) {
-                var manifest = JSON.parse(cachedManifest);
-                if (manifest && manifest.version) {
-                    versionText = 'Remote Assets: v' + manifest.version;
-                }
-            }
-        } catch (e) {}
-        $('#clear-cache-version').text(versionText);
+        // Show remote assets version - call global function if available
+        if (typeof window.updateFlixVersionDisplay === 'function') {
+            window.updateFlixVersionDisplay();
+        }
     },
     clearCache: function (){
         current_route = 'login-page';

@@ -147,6 +147,12 @@
             try {
                 localStorage.setItem(this.config.cachePrefix + 'manifest', JSON.stringify(manifest));
                 localStorage.setItem(this.config.cachePrefix + 'manifest_time', Date.now().toString());
+                this.log('Manifest saved to cache: v' + manifest.version);
+                // Update version display if function exists
+                if (typeof window.updateFlixVersionDisplay === 'function') {
+                    window.updateFlixVersionDisplay();
+                    this.log('Version display updated');
+                }
             } catch (e) {
                 this.log('Cache write error: ' + e.message);
             }
