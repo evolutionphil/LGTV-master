@@ -583,26 +583,7 @@ var channel_page={
         }
     },
     zoomInOut:function(){
-        // Guard against race conditions during preview transition
-        // Only block if transitioning AND we're trying to zoom OUT (prevents duplicate zoom outs)
-        // Allow zoom IN to proceed even during transition (user wants fullscreen)
-        if(this.transitioning_to_preview && !this.full_screen_video){
-            console.log('zoomInOut() BLOCKED - already transitioning to preview, ignoring duplicate request');
-            return;
-        }
-        
         if(!this.full_screen_video){
-            // ZOOM OUT - returning to preview mode
-            
-            // Clear any pending fallback timeout from previous zoom out
-            if(this.zoomOutFallbackTimeout) {
-                clearTimeout(this.zoomOutFallbackTimeout);
-                this.zoomOutFallbackTimeout = null;
-            }
-            
-            // Set transitioning flag to prevent duplicate zoom outs
-            this.transitioning_to_preview = true;
-            
             $('#live_channels_home .player-container').css({
                 position:'relative',
                 height:'58.3vh',
@@ -619,93 +600,20 @@ var channel_page={
             console.log('zoomInOut() ZOOM OUT - set full_screen_state to 0');
             console.log('full_screen_video:', this.full_screen_video);
             console.log('focused_part:', this.keys.focused_part);
-            console.log('transitioning_to_preview:', this.transitioning_to_preview);
             console.log('========================================');
-            
-            // CRITICAL: Immediately reset display method for 4K TVs to prevent zoom
-            // This must happen BEFORE the delayed setDisplayArea call
-            try {
-                var capabilities = media_player.detectTVCapabilities();
-                var isUHD = capabilities.resolution.height > 1080;
-                var previewMode = isUHD ? 'PLAYER_DISPLAY_MODE_LETTER_BOX' : 'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO';
-                console.log('zoomInOut() ZOOM OUT: Resetting display method to', previewMode, '(isUHD:', isUHD + ')');
-                webapis.avplay.setDisplayMethod(previewMode);
-            } catch(e) {
-                console.log('zoomInOut() ZOOM OUT: setDisplayMethod error:', e);
-            }
-            
-            this.lockUI(500);
-            var that = this;
-            
-            // Fallback safety timeout - ensures flag is cleared even if primary timeout fails
-            // CRITICAL: Only runs if still in preview mode (full_screen_state === 0)
-            this.zoomOutFallbackTimeout = setTimeout(function() {
-                // GUARD: Only execute if still in preview mode
-                if(media_player.full_screen_state === 0) {
-                    console.log('⚠️ zoomInOut() FALLBACK: Running after 700ms (still in preview mode)');
-                    try {
-                        media_player.setDisplayArea(true);
-                    } catch(e) {
-                        console.log('⚠️ zoomInOut() FALLBACK: setDisplayArea error:', e);
-                    }
-                } else {
-                    console.log('⚠️ zoomInOut() FALLBACK: Skipped - already in fullscreen');
-                }
-                // ALWAYS clear transitioning flag in fallback
-                that.transitioning_to_preview = false;
-                that.zoomOutFallbackTimeout = null;
-            }, 700);
-            
-            // Primary timeout - wait for CSS transition to complete before setting display area
-            // CSS transition is ~350ms, so we use 450ms to ensure layout has fully settled
-            // CRITICAL: Using shorter delays causes AVPlay to capture fullscreen coordinates on 4K TVs
-            setTimeout(function() {
-                // GUARD: Only execute if still in preview mode
-                if(media_player.full_screen_state === 0) {
-                    console.log('zoomInOut() ZOOM OUT: setTimeout complete (450ms), calling setDisplayArea');
-                    try {
-                        media_player.setDisplayArea(true);
-                    } catch(e) {
-                        console.log('zoomInOut() ZOOM OUT: setDisplayArea error:', e);
-                    }
-                    
-                    // Clear fallback timeout since primary succeeded
-                    if(that.zoomOutFallbackTimeout) {
-                        clearTimeout(that.zoomOutFallbackTimeout);
-                        that.zoomOutFallbackTimeout = null;
-                    }
-                    
-                    // Clear transitioning flag - zoom out complete
-                    that.transitioning_to_preview = false;
-                    console.log('zoomInOut() ZOOM OUT: Cleared transitioning_to_preview flag');
-                } else {
-                    console.log('zoomInOut() ZOOM OUT: Skipped setDisplayArea - already in fullscreen');
-                    // Clear transitioning flag even if skipped
-                    that.transitioning_to_preview = false;
-                }
-            }, 450);
-            
+            this.lockUI(400);
+            this.scheduleSetDisplayArea(function() {
+                media_player.setDisplayArea();
+            }, 250);
             $('#full-screen-information').removeClass('visible');
             $('#live_channels_home').find('.channel-information-container').show();
             $('#live-channel-button-container').show();
             $('#live_channels_home').find('.video-skin').show();
         }
         else{
-            // ZOOM IN - entering fullscreen mode
-            
-            // CRITICAL: Cancel any pending zoom out operations
-            // This prevents the fallback from firing and setting preview coordinates while in fullscreen
-            if(this.zoomOutFallbackTimeout) {
-                console.log('zoomInOut() ZOOM IN: Clearing pending fallback timeout');
-                clearTimeout(this.zoomOutFallbackTimeout);
-                this.zoomOutFallbackTimeout = null;
-            }
-            
-            // Clear transitioning_to_preview since we're now going to fullscreen
-            this.transitioning_to_preview = false;
-            
             console.log('========================================');
             console.log('zoomInOut() ZOOM IN START');
+            console.log('  transitioning_to_fullscreen:', this.transitioning_to_fullscreen);
             console.log('  full_screen_video (before):', this.full_screen_video);
             console.log('  focused_part (before):', this.keys.focused_part);
             console.log('========================================');
@@ -735,14 +643,12 @@ var channel_page={
             
             // CRITICAL: Call setDisplayArea SYNCHRONOUSLY - no delay!
             // Samsung AVPlay must receive setDisplayRect while video is playing
-            console.log('zoomInOut() ZOOM IN: Calling setDisplayArea with full_screen_state:', media_player.full_screen_state);
+            console.log('zoomInOut() ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state:', media_player.full_screen_state);
             media_player.setDisplayArea();
             
-            // Reset transitioning_to_fullscreen flag after a short delay
-            // This allows other code paths that check this flag to proceed
             setTimeout(function() {
                 that.transitioning_to_fullscreen = false;
-                console.log('zoomInOut() ZOOM IN: Cleared transitioning_to_fullscreen flag');
+                console.log('zoomInOut() ZOOM IN: Cleared transitioning flag');
             }, 100);
             
             $('#live_channels_home').find('.channel-information-container').hide();
@@ -752,8 +658,16 @@ var channel_page={
             clearTimeout(this.full_screen_timer);
             $('#full-screen-information').addClass('visible');
             
+            console.log('╔════════════════════════════════════════════════════════╗');
+            console.log('║ Showing fullscreen info bar');
+            console.log('╠════════════════════════════════════════════════════════╣');
+            console.log('  #full-screen-information will show with .visible class');
+            console.log('  Channel name is in #full-screen-channel-name-compact');
+            console.log('╚════════════════════════════════════════════════════════╝');
+            
+            var that = this;
             this.full_screen_timer=setTimeout(function(){
-                console.log('zoomInOut() ZOOM IN: Hiding fullscreen info bar after 5 seconds');
+                console.log('Hiding fullscreen info bar after 5 seconds');
                 $('#full-screen-information').removeClass('visible');
             },5000)
         }
@@ -792,16 +706,11 @@ var channel_page={
         try{
             console.log('showLiveChannelMovie: Before init() - full_screen_state=', media_player.full_screen_state);
             console.log('showLiveChannelMovie: transitioning_to_fullscreen=', this.transitioning_to_fullscreen);
-            console.log('showLiveChannelMovie: transitioning_to_preview=', this.transitioning_to_preview);
             media_player.init("channel-page-video","channel-page");
             console.log('showLiveChannelMovie: After init() - full_screen_state=', media_player.full_screen_state);
             
             if(this.transitioning_to_fullscreen){
                 console.log('showLiveChannelMovie: ⚠️ TRANSITIONING TO FULLSCREEN - skipping setDisplayArea, zoomInOut will handle it');
-            } else if(this.transitioning_to_preview){
-                // CRITICAL: Don't interfere while transitioning back to preview mode
-                // The zoomInOut callback will handle setDisplayArea with forcePreview=true
-                console.log('showLiveChannelMovie: ⚠️ TRANSITIONING TO PREVIEW - skipping setDisplayArea, zoomInOut will handle it');
             } else if(media_player.full_screen_state !== 1){
                 console.log('showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode');
                 var that = this;
