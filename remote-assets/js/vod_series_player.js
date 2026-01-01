@@ -936,14 +936,16 @@ var vod_series_player={
     setActiveSubtitleOption: function(index, options) {
         // Batch DOM updates to minimize reflow
         var that = this;
+        var numSubtitleOptions = options ? options.length - 2 : 0; // Exclude OK/Cancel buttons
         requestAnimationFrame(function() {
             // Remove all state classes first
             options.removeClass('active selected focused');
             options.find('input').prop('checked', false);
             
-            if(index >= 0 && index < options.length) {
-                // Add both selected (for checkmark) and focused (for highlight)
-                $(options[index]).addClass('selected focused');
+            // Only set active on actual subtitle options, not OK/Cancel buttons
+            if(index >= 0 && index < numSubtitleOptions) {
+                // Add active, selected and focused for proper visual feedback
+                $(options[index]).addClass('active selected focused');
                 $(options[index]).find('input').prop('checked', true);
             }
         });
