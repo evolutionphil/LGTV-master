@@ -1,9 +1,9 @@
 {
   "version": "1.1.27",
-  "lastUpdate": "2026-01-01T13:39:13.325Z",
+  "lastUpdate": "2026-01-01T13:54:01.978Z",
   "killSwitch": false,
   "forceRefresh": true,
-  "cacheGeneration": 2,
+  "cacheGeneration": 3,
   "maxAgeHours": 24,
   "baseUrl": "https://flixapp.pages.dev/",
   "cachePrefix": "flix_remote_",

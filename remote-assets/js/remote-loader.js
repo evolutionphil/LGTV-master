@@ -166,6 +166,7 @@
 
         processManifest: function(manifest) {
             var self = this;
+            var needsClear = false;
 
             if (manifest.killSwitch === true) {
                 this.log('Kill switch active - clearing cache');
@@ -176,18 +177,17 @@
             
             // Check forceRefresh flag - clear all cache and re-download everything
             if (manifest.forceRefresh === true) {
-                this.log('Force refresh flag active - clearing all cache');
-                this.clearAllCache();
+                this.log('Force refresh flag active - will clear cache');
+                needsClear = true;
             }
             
             // Check cacheGeneration - if changed, clear all cache
             var cachedGeneration = this.getCachedCacheGeneration();
             var newGeneration = manifest.cacheGeneration || 1;
             if (cachedGeneration && cachedGeneration !== newGeneration) {
-                this.log('Cache generation changed (' + cachedGeneration + ' -> ' + newGeneration + ') - clearing all cache');
-                this.clearAllCache();
+                this.log('Cache generation changed (' + cachedGeneration + ' -> ' + newGeneration + ') - will clear cache');
+                needsClear = true;
             }
-            this.saveCacheGeneration(newGeneration);
             
             // Check maxAgeHours - if cache is too old, clear it
             var maxAgeHours = manifest.maxAgeHours || 24;
@@ -195,10 +195,22 @@
             if (cacheTime) {
                 var ageHours = (Date.now() - cacheTime) / (1000 * 60 * 60);
                 if (ageHours > maxAgeHours) {
-                    this.log('Cache expired (' + Math.round(ageHours) + 'h > ' + maxAgeHours + 'h) - clearing all cache');
-                    this.clearAllCache();
+                    this.log('Cache expired (' + Math.round(ageHours) + 'h > ' + maxAgeHours + 'h) - will clear cache');
+                    needsClear = true;
                 }
             }
+            
+            // Clear cache FIRST, then re-save manifest so it persists
+            if (needsClear) {
+                this.log('Clearing all cache...');
+                this.clearAllCache();
+                // Re-save manifest AFTER clearing cache so it persists for next boot
+                this.saveManifestToCache(manifest);
+                this.log('Manifest re-saved after cache clear');
+            }
+            
+            // Always save cache generation after any clear
+            this.saveCacheGeneration(newGeneration);
 
             var filesToDownload = [];
             var files = manifest.files;
