@@ -137,7 +137,7 @@ var platform='samsung', app_loading=false;
 var storage_id='qDXvQBVmtf_';
 var lock=0;
 var playlist_succeed=true;
-var samsung_version='1.1.8', lg_version='1.1.8';
+var samsung_version='1.1.27', lg_version='1.1.27';
 
 var youtube_playlists=[
     {

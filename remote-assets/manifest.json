@@ -1,9 +1,9 @@
 {
   "version": "1.1.27",
-  "lastUpdate": "2026-01-01T14:03:05.504Z",
+  "lastUpdate": "2026-01-01T14:10:53.743Z",
   "killSwitch": false,
   "forceRefresh": true,
-  "cacheGeneration": 4,
+  "cacheGeneration": 5,
   "maxAgeHours": 24,
   "baseUrl": "https://flixapp.pages.dev/",
   "cachePrefix": "flix_remote_",
@@ -136,9 +136,9 @@
       "priority": 1
     },
     "js/common.js": {
-      "version": "1.0.0",
-      "size": 36574,
-      "hash": "45dbbba0",
+      "version": "1.0.1",
+      "size": 36576,
+      "hash": "050ee059",
       "priority": 1
     },
     "js/common_with_encrypt.js": {
@@ -148,9 +148,9 @@
       "priority": 1
     },
     "js/main.js": {
-      "version": "1.0.0",
-      "size": 8250,
-      "hash": "be9e1a24",
+      "version": "1.0.1",
+      "size": 9648,
+      "hash": "fbad3b9f",
       "priority": 1
     },
     "js/keyTizen.js": {
