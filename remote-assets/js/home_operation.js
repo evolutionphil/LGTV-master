@@ -665,9 +665,12 @@ var home_page={
         $('input[name="lock_account"][value="'+lock+'"]').prop('checked',true);
         this.hoverLockAccountBtn(lock==0 ? 0 : 1);
         
-        // Display app version - call global function if available
+        // Display app version - call global function if available with delay for Samsung
         if (typeof window.updateFlixVersionDisplay === 'function') {
             window.updateFlixVersionDisplay();
+            setTimeout(function() {
+                window.updateFlixVersionDisplay();
+            }, 100);
         }
     },
     showFeaturedSetting:function () {
@@ -751,9 +754,12 @@ var home_page={
         $('#clear-cache-modal').modal('show');
         this.hoverCacheConfirmModal(0);
         
-        // Show remote assets version - call global function if available
+        // Show remote assets version - call global function if available with delay for Samsung
         if (typeof window.updateFlixVersionDisplay === 'function') {
             window.updateFlixVersionDisplay();
+            setTimeout(function() {
+                window.updateFlixVersionDisplay();
+            }, 100);
         }
     },
     clearCache: function (){
