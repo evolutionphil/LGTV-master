@@ -918,13 +918,15 @@ var vod_series_player={
             // Validate and set initial selection
             if(current_selected_index !== undefined && current_selected_index !== null && 
                current_selected_index >= 0 && current_selected_index < subtitle_menus.length) {
-                // Set focus on the currently selected item
+                // Set checkmark and focus on the currently selected item
                 that.setActiveSubtitleOption(current_selected_index, subtitle_menus);
+                that.focusSubtitleOption(current_selected_index, subtitle_menus);
                 keys.subtitle_audio_selection_modal = current_selected_index;
                 that.lastHoveredIndex = current_selected_index;
             } else {
                 // Default to first item (Off/None)
                 that.setActiveSubtitleOption(0, subtitle_menus);
+                that.focusSubtitleOption(0, subtitle_menus);
                 keys.subtitle_audio_selection_modal = 0;
                 that.lastHoveredIndex = 0;
             }
@@ -932,20 +934,20 @@ var vod_series_player={
     },
     
     // Optimized batch selection update
-    // Sets both selected (permanent choice) and focused (current navigation) states
+    // Sets selected (permanent choice with checkmark) - focused is handled separately by hoverSubtitleAudioModal
     setActiveSubtitleOption: function(index, options) {
         // Batch DOM updates to minimize reflow
         var that = this;
         var numSubtitleOptions = options ? options.length - 2 : 0; // Exclude OK/Cancel buttons
         requestAnimationFrame(function() {
-            // Remove all state classes first
-            options.removeClass('active selected focused');
+            // Remove selection classes, but preserve focused for navigation
+            options.removeClass('active selected');
             options.find('input').prop('checked', false);
             
             // Only set active on actual subtitle options, not OK/Cancel buttons
             if(index >= 0 && index < numSubtitleOptions) {
-                // Add active, selected and focused for proper visual feedback
-                $(options[index]).addClass('active selected focused');
+                // Add active and selected for checkmark, focused handled by hover function
+                $(options[index]).addClass('active selected');
                 $(options[index]).find('input').prop('checked', true);
             }
         });
@@ -991,12 +993,13 @@ var vod_series_player={
             });
         });
         
-        // Handle click events - only update selection, don't confirm (user must press OK)
+        // Handle click events - update selection and focus, don't confirm (user must press OK)
         container.on('click', '.subtitle-option', function(e) {
             e.preventDefault();
             var index = $('.subtitle-option').index(this);
             var options = $('.subtitle-option');
             that.setActiveSubtitleOption(index, options);
+            that.focusSubtitleOption(index, options);
             keys.subtitle_audio_selection_modal = index;
             that.lastHoveredIndex = index;
         });
@@ -1659,8 +1662,9 @@ var vod_series_player={
                 $(this.subtitle_audio_menus[keys.subtitle_audio_selection_modal]).trigger('click');
             }
             else{
-                // Update visual state with setActiveSubtitleOption
+                // Update visual state with setActiveSubtitleOption and focus
                 this.setActiveSubtitleOption(keys.subtitle_audio_selection_modal, this.subtitle_audio_menus);
+                this.focusSubtitleOption(keys.subtitle_audio_selection_modal, this.subtitle_audio_menus);
                 this.lastHoveredIndex = keys.subtitle_audio_selection_modal;
             }
         }
