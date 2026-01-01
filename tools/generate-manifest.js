@@ -143,11 +143,19 @@ function generateManifest(args) {
         version: existing.version,
         lastUpdate: new Date().toISOString(),
         killSwitch: false,
+        forceRefresh: args['force-refresh'] === 'true' || false,
+        cacheGeneration: existing.cacheGeneration || 1,
+        maxAgeHours: 24,
         baseUrl: baseUrl,
         cachePrefix: 'flix_remote_',
         timeout: 5000,
         files: {}
     };
+    
+    if (args['force-refresh'] === 'true') {
+        manifest.cacheGeneration = (existing.cacheGeneration || 0) + 1;
+        console.log('Force refresh enabled - cache generation bumped to ' + manifest.cacheGeneration);
+    }
 
     if (args.bump) {
         manifest.version = bumpVersion(existing.version, args.bump);
