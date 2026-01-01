@@ -1575,11 +1575,13 @@ var vod_series_player={
         }
         this.lastHoveredIndex = index;
         
+        var that = this;
+        var numSubtitleOptions = this.subtitle_audio_menus ? this.subtitle_audio_menus.length - 2 : 0;
+        
         if(index >= 0) {
             keys.subtitle_audio_selection_modal = index;
             
             // Batch DOM updates for better performance
-            var that = this;
             requestAnimationFrame(function() {
                 if(that.subtitle_audio_menus && that.subtitle_audio_menus.length > 0) {
                     // Only remove focused class, preserve selected/active for checkmark
@@ -1589,12 +1591,17 @@ var vod_series_player={
                         // Only scroll if needed - throttled
                         moveScrollPosition($('#subtitle-selection-container'), that.subtitle_audio_menus[index], 'vertical', false);
                     }
+                    
+                    // Check the radio button when navigating to subtitle options (not OK/Cancel buttons)
+                    if(index < numSubtitleOptions) {
+                        $(that.subtitle_audio_menus).find('input[type="radio"]').prop('checked', false);
+                        $(that.subtitle_audio_menus[index]).find('input[type="radio"]').prop('checked', true);
+                    }
                 }
             });
         } else {
             // Handle negative indexes (buttons)
             keys.subtitle_audio_selection_modal = this.subtitle_audio_menus.length + index;
-            var that = this;
             requestAnimationFrame(function() {
                 if(that.subtitle_audio_menus) {
                     // Only remove focused class, preserve selected/active for checkmark
