@@ -584,6 +584,9 @@ var channel_page={
     },
     zoomInOut:function(){
         if(!this.full_screen_video){
+            // CRITICAL: Clear transitioning flag first to ensure preview setDisplayArea runs
+            this.transitioning_to_fullscreen = false;
+            
             $('#live_channels_home .player-container').css({
                 position:'relative',
                 height:'58.3vh',
@@ -600,6 +603,7 @@ var channel_page={
             console.log('zoomInOut() ZOOM OUT - set full_screen_state to 0');
             console.log('full_screen_video:', this.full_screen_video);
             console.log('focused_part:', this.keys.focused_part);
+            console.log('transitioning_to_fullscreen: CLEARED');
             console.log('========================================');
             this.lockUI(400);
             this.scheduleSetDisplayArea(function() {
