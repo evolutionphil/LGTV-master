@@ -1880,14 +1880,42 @@
     <!-- Version Display in User Account Modal -->
     <script>
     (function(){
-        var cachedVersion = localStorage.getItem('flix_remote_manifest_version') || 'local';
-        var cacheStatus = localStorage.getItem('flix_remote_manifest_version') ? 'remote' : 'local';
-        var versionText = 'v' + cachedVersion + ' (' + cacheStatus + ')';
-        
-        var versionEl = document.getElementById('flix-version-display');
-        if(versionEl) {
-            versionEl.textContent = versionText;
+        function updateVersionDisplay() {
+            var cachedVersion = 'local';
+            var cacheStatus = 'local';
+            
+            try {
+                var manifestStr = localStorage.getItem('flix_remote_manifest');
+                if(manifestStr) {
+                    var manifest = JSON.parse(manifestStr);
+                    if(manifest && manifest.version) {
+                        cachedVersion = manifest.version;
+                        cacheStatus = 'remote';
+                    }
+                }
+            } catch(e) {}
+            
+            var versionText = 'v' + cachedVersion + ' (' + cacheStatus + ')';
+            
+            var versionEl = document.getElementById('flix-version-display');
+            if(versionEl) {
+                versionEl.textContent = versionText;
+            }
         }
+        
+        // Update immediately
+        updateVersionDisplay();
+        
+        // Also update when DOM is ready and after remote loader finishes
+        if(document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', updateVersionDisplay);
+        }
+        
+        // Update after 5 seconds (after remote loader might have finished)
+        setTimeout(updateVersionDisplay, 5000);
+        
+        // Expose globally so it can be called after remote update
+        window.updateFlixVersionDisplay = updateVersionDisplay;
     })();
     </script>
 </body>
