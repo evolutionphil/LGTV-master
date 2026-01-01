@@ -1110,31 +1110,54 @@ var vod_series_player={
     confirmSubtitle:function(){
         var keys = this.keys;
         
-        // Use the focused item from navigation state (keyboard/remote navigation)
-        var focusedIndex = keys.subtitle_audio_selection_modal;
-        
-        // Validate - if undefined, try to get from checked radio, else default to 0
-        if(focusedIndex === undefined || focusedIndex === null || isNaN(parseInt(focusedIndex))) {
-            var checkedVal = $('#subtitle-selection-modal').find('input[type=radio]:checked').val();
-            focusedIndex = (checkedVal !== undefined && checkedVal !== null) ? parseInt(checkedVal) : 0;
-        } else {
-            focusedIndex = parseInt(focusedIndex);
+        // PRIORITY: Get selected index from checked radio button (user's actual selection)
+        // This is more reliable than navigation index which changes when moving to OK button
+        var selectedIndex = -1;
+        var checkedRadio = $('#subtitle-selection-modal').find('input[type=radio]:checked');
+        if(checkedRadio.length > 0) {
+            var checkedVal = checkedRadio.val();
+            if(checkedVal !== undefined && checkedVal !== null) {
+                selectedIndex = parseInt(checkedVal);
+            }
         }
         
-        // Bounds check
+        // Fallback to navigation index if no radio is checked
+        if(selectedIndex < 0 || isNaN(selectedIndex)) {
+            var navIndex = keys.subtitle_audio_selection_modal;
+            if(navIndex !== undefined && navIndex !== null && !isNaN(parseInt(navIndex))) {
+                // Make sure it's not the OK/Cancel button index
+                var numSubtitles = this.subtitle_audio_menus ? this.subtitle_audio_menus.length - 2 : 0;
+                if(parseInt(navIndex) < numSubtitles) {
+                    selectedIndex = parseInt(navIndex);
+                }
+            }
+        }
+        
+        // Final fallback to 0 (turn off subtitles)
+        if(selectedIndex < 0 || isNaN(selectedIndex)) {
+            selectedIndex = 0;
+        }
+        
+        // Bounds check against actual subtitle options (not including OK/Cancel buttons)
+        var numSubtitleOptions = this.subtitle_audio_menus ? this.subtitle_audio_menus.length - 2 : 0;
+        if(selectedIndex >= numSubtitleOptions) {
+            selectedIndex = 0;
+        }
+        
+        console.log('confirmSubtitle: selectedIndex from radio =', selectedIndex);
+        
+        // Update selected state on the confirmed item
         if(this.subtitle_audio_menus && this.subtitle_audio_menus.length > 0) {
-            if(focusedIndex < 0) focusedIndex = 0;
-            if(focusedIndex >= this.subtitle_audio_menus.length) focusedIndex = this.subtitle_audio_menus.length - 1;
-            
-            // Update selected state on the confirmed item
             $(this.subtitle_audio_menus).removeClass('selected active');
             $(this.subtitle_audio_menus).find('input').prop('checked', false);
-            $(this.subtitle_audio_menus[focusedIndex]).addClass('selected');
-            $(this.subtitle_audio_menus[focusedIndex]).find('input').prop('checked', true);
+            if(selectedIndex >= 0 && selectedIndex < numSubtitleOptions) {
+                $(this.subtitle_audio_menus[selectedIndex]).addClass('selected');
+                $(this.subtitle_audio_menus[selectedIndex]).find('input').prop('checked', true);
+            }
         }
         
-        // Sync the key for next open
-        keys.subtitle_audio_selection_modal = focusedIndex;
+        // Sync the key for next open (use actual selection, not button index)
+        keys.subtitle_audio_selection_modal = selectedIndex;
         
         this.closeSubtitleDrawer();
         keys.focused_part="control_bar";
@@ -1142,11 +1165,11 @@ var vod_series_player={
         
         if(modal_title.toLowerCase().includes('subtitle')){
             // Enhanced subtitle selection with workflow integration
-            this.current_subtitle_index = focusedIndex;
+            this.current_subtitle_index = selectedIndex;
             
             // Use enhanced subtitle workflow for selection
             var that = this;
-            EnhancedSubtitleWorkflow.selectSubtitle(focusedIndex,
+            EnhancedSubtitleWorkflow.selectSubtitle(selectedIndex,
                 function() {
                     // Loading callback
                 },
@@ -1162,9 +1185,9 @@ var vod_series_player={
         }
         else{
             // Audio track selection
-            this.current_audio_track_index = focusedIndex;
+            this.current_audio_track_index = selectedIndex;
             try{
-                media_player.setSubtitleOrAudioTrack("AUDIO", focusedIndex);
+                media_player.setSubtitleOrAudioTrack("AUDIO", selectedIndex);
             }catch(e){
             }
         }
