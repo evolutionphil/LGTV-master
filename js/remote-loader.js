@@ -324,6 +324,30 @@
                 return '';
             }
         },
+        
+        getCachedCacheGeneration: function() {
+            try {
+                var val = localStorage.getItem(this.config.cachePrefix + 'cache_generation');
+                return val ? parseInt(val, 10) : null;
+            } catch (e) {
+                return null;
+            }
+        },
+        
+        saveCacheGeneration: function(generation) {
+            try {
+                localStorage.setItem(this.config.cachePrefix + 'cache_generation', generation.toString());
+            } catch (e) {}
+        },
+        
+        getCacheTime: function() {
+            try {
+                var val = localStorage.getItem(this.config.cachePrefix + 'manifest_time');
+                return val ? parseInt(val, 10) : null;
+            } catch (e) {
+                return null;
+            }
+        },
 
         getCachedContent: function(filePath) {
             try {

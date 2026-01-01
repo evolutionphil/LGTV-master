@@ -173,6 +173,32 @@
                 this.complete(false);
                 return;
             }
+            
+            // Check forceRefresh flag - clear all cache and re-download everything
+            if (manifest.forceRefresh === true) {
+                this.log('Force refresh flag active - clearing all cache');
+                this.clearAllCache();
+            }
+            
+            // Check cacheGeneration - if changed, clear all cache
+            var cachedGeneration = this.getCachedCacheGeneration();
+            var newGeneration = manifest.cacheGeneration || 1;
+            if (cachedGeneration && cachedGeneration !== newGeneration) {
+                this.log('Cache generation changed (' + cachedGeneration + ' -> ' + newGeneration + ') - clearing all cache');
+                this.clearAllCache();
+            }
+            this.saveCacheGeneration(newGeneration);
+            
+            // Check maxAgeHours - if cache is too old, clear it
+            var maxAgeHours = manifest.maxAgeHours || 24;
+            var cacheTime = this.getCacheTime();
+            if (cacheTime) {
+                var ageHours = (Date.now() - cacheTime) / (1000 * 60 * 60);
+                if (ageHours > maxAgeHours) {
+                    this.log('Cache expired (' + Math.round(ageHours) + 'h > ' + maxAgeHours + 'h) - clearing all cache');
+                    this.clearAllCache();
+                }
+            }
 
             var filesToDownload = [];
             var files = manifest.files;
@@ -296,6 +322,30 @@
                 return localStorage.getItem(key) || '';
             } catch (e) {
                 return '';
+            }
+        },
+        
+        getCachedCacheGeneration: function() {
+            try {
+                var val = localStorage.getItem(this.config.cachePrefix + 'cache_generation');
+                return val ? parseInt(val, 10) : null;
+            } catch (e) {
+                return null;
+            }
+        },
+        
+        saveCacheGeneration: function(generation) {
+            try {
+                localStorage.setItem(this.config.cachePrefix + 'cache_generation', generation.toString());
+            } catch (e) {}
+        },
+        
+        getCacheTime: function() {
+            try {
+                var val = localStorage.getItem(this.config.cachePrefix + 'manifest_time');
+                return val ? parseInt(val, 10) : null;
+            } catch (e) {
+                return null;
             }
         },
 
