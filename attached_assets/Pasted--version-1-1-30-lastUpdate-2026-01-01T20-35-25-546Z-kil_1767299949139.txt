@@ -1,0 +1,307 @@
+{
+  "version": "1.1.30",
+  "lastUpdate": "2026-01-01T20:35:25.546Z",
+  "killSwitch": false,
+  "forceRefresh": true,
+  "cacheGeneration": 11,
+  "maxAgeHours": 24,
+  "baseUrl": "https://flixapp.pages.dev/",
+  "cachePrefix": "flix_remote_",
+  "timeout": 5000,
+  "files": {
+    "css/style.css": {
+      "version": "1.0.0",
+      "size": 18256,
+      "hash": "c89cf79d",
+      "priority": 1
+    },
+    "css/variables.css": {
+      "version": "1.0.0",
+      "size": 150,
+      "hash": "eaf8f40b",
+      "priority": 1
+    },
+    "css/responsive.css": {
+      "version": "1.0.0",
+      "size": 20797,
+      "hash": "fcfc2276",
+      "priority": 1
+    },
+    "css/vod_series_summary.css": {
+      "version": "1.0.0",
+      "size": 32874,
+      "hash": "96f79d18",
+      "priority": 1
+    },
+    "css/vod_series_player_page.css": {
+      "version": "1.0.0",
+      "size": 5421,
+      "hash": "d0a63a17",
+      "priority": 2
+    },
+    "css/channel_page.css": {
+      "version": "1.0.0",
+      "size": 20930,
+      "hash": "bc65df49",
+      "priority": 2
+    },
+    "css/homepage.css": {
+      "version": "1.0.0",
+      "size": 11400,
+      "hash": "e64eea58",
+      "priority": 2
+    },
+    "css/login.css": {
+      "version": "1.0.0",
+      "size": 12733,
+      "hash": "84dee7cc",
+      "priority": 1
+    },
+    "css/guide.css": {
+      "version": "1.0.0",
+      "size": 5790,
+      "hash": "becc9c24",
+      "priority": 3
+    },
+    "css/catchup.css": {
+      "version": "1.0.0",
+      "size": 3836,
+      "hash": "fff1b4dc",
+      "priority": 3
+    },
+    "css/search_page.css": {
+      "version": "1.0.0",
+      "size": 3247,
+      "hash": "fa45bd9b",
+      "priority": 3
+    },
+    "css/subtitle.css": {
+      "version": "1.0.12",
+      "size": 38910,
+      "hash": "eb5e7e67",
+      "priority": 2
+    },
+    "css/movie_grid.css": {
+      "version": "1.0.0",
+      "size": 2099,
+      "hash": "aab732a5",
+      "priority": 2
+    },
+    "css/rating.css": {
+      "version": "1.0.0",
+      "size": 700,
+      "hash": "e794ded2",
+      "priority": 2
+    },
+    "css/loader.css": {
+      "version": "1.0.0",
+      "size": 1343,
+      "hash": "b30f0c3f",
+      "priority": 1
+    },
+    "css/storage_page.css": {
+      "version": "1.0.0",
+      "size": 1492,
+      "hash": "9af653b6",
+      "priority": 3
+    },
+    "css/youtube_page.css": {
+      "version": "1.0.0",
+      "size": 1849,
+      "hash": "9bd11c0d",
+      "priority": 3
+    },
+    "css/gallary.css": {
+      "version": "1.0.0",
+      "size": 2107,
+      "hash": "f5eea9a5",
+      "priority": 3
+    },
+    "js/Models/VodModel.js": {
+      "version": "1.0.0",
+      "size": 15684,
+      "hash": "b1b94f7b",
+      "priority": 1
+    },
+    "js/Models/LiveModel.js": {
+      "version": "1.0.0",
+      "size": 17515,
+      "hash": "7368a155",
+      "priority": 1
+    },
+    "js/Models/SeriesModel.js": {
+      "version": "1.0.0",
+      "size": 13022,
+      "hash": "9eca2f6e",
+      "priority": 1
+    },
+    "js/common.js": {
+      "version": "1.0.0",
+      "size": 36574,
+      "hash": "45dbbba0",
+      "priority": 1
+    },
+    "js/common_with_encrypt.js": {
+      "version": "1.0.3",
+      "size": 23191,
+      "hash": "6773f955",
+      "priority": 1
+    },
+    "js/main.js": {
+      "version": "1.0.0",
+      "size": 8250,
+      "hash": "be9e1a24",
+      "priority": 1
+    },
+    "js/keyTizen.js": {
+      "version": "1.0.0",
+      "size": 4817,
+      "hash": "3a444b2d",
+      "priority": 1
+    },
+    "js/time_helper.js": {
+      "version": "1.0.0",
+      "size": 325,
+      "hash": "724737e1",
+      "priority": 1
+    },
+    "js/language_codes.js": {
+      "version": "1.0.0",
+      "size": 40051,
+      "hash": "31bed6af",
+      "priority": 1
+    },
+    "js/seasons_variable.js": {
+      "version": "1.0.0",
+      "size": 10001,
+      "hash": "5af291ef",
+      "priority": 2
+    },
+    "js/episode_variable.js": {
+      "version": "1.0.0",
+      "size": 6594,
+      "hash": "c761eaa4",
+      "priority": 2
+    },
+    "js/vod_summary.js": {
+      "version": "1.0.0",
+      "size": 37741,
+      "hash": "cb96ff90",
+      "priority": 2
+    },
+    "js/series_summary.js": {
+      "version": "1.0.0",
+      "size": 34871,
+      "hash": "2d21328e",
+      "priority": 2
+    },
+    "js/player.js": {
+      "version": "1.0.3",
+      "size": 36514,
+      "hash": "f1dead6c",
+      "priority": 2
+    },
+    "js/vod_series_player.js": {
+      "version": "1.0.8",
+      "size": 90191,
+      "hash": "e722f5de",
+      "priority": 2
+    },
+    "js/home_operation.js": {
+      "version": "1.0.3",
+      "size": 95921,
+      "hash": "f31c2a88",
+      "priority": 1
+    },
+    "js/channel_operation.js": {
+      "version": "1.0.14",
+      "size": 62167,
+      "hash": "91d733b9",
+      "priority": 2
+    },
+    "js/login_operation.js": {
+      "version": "1.0.5",
+      "size": 53199,
+      "hash": "bd4ae689",
+      "priority": 1
+    },
+    "js/guide_page.js": {
+      "version": "1.0.0",
+      "size": 29029,
+      "hash": "ec93ded0",
+      "priority": 3
+    },
+    "js/catchup.js": {
+      "version": "1.0.0",
+      "size": 17972,
+      "hash": "4b3143ae",
+      "priority": 3
+    },
+    "js/search_page.js": {
+      "version": "1.0.0",
+      "size": 12597,
+      "hash": "4498bcd6",
+      "priority": 3
+    },
+    "js/youtube_page.js": {
+      "version": "1.0.0",
+      "size": 11613,
+      "hash": "a49101b1",
+      "priority": 3
+    },
+    "js/storage_operation.js": {
+      "version": "1.0.0",
+      "size": 13648,
+      "hash": "f15f525f",
+      "priority": 3
+    },
+    "js/image_page.js": {
+      "version": "1.0.0",
+      "size": 2524,
+      "hash": "a480d794",
+      "priority": 3
+    },
+    "js/settings.js": {
+      "version": "1.0.0",
+      "size": 2850,
+      "hash": "024bce43",
+      "priority": 3
+    },
+    "js/trailer.js": {
+      "version": "1.0.2",
+      "size": 6613,
+      "hash": "beb2b763",
+      "priority": 2
+    },
+    "js/srt_operation.js": {
+      "version": "1.0.0",
+      "size": 12361,
+      "hash": "510e2d59",
+      "priority": 2
+    },
+    "js/srt_parser.js": {
+      "version": "1.0.1",
+      "size": 4277,
+      "hash": "2ae277ff",
+      "priority": 2
+    },
+    "js/subtitle_fetcher.js": {
+      "version": "1.0.0",
+      "size": 22757,
+      "hash": "ced5b366",
+      "priority": 2
+    },
+    "js/enhanced_subtitle_workflow.js": {
+      "version": "1.0.0",
+      "size": 13635,
+      "hash": "b0039d46",
+      "priority": 2
+    },
+    "js/asset-bootstrapper.js": {
+      "version": "1.0.0",
+      "size": 6799,
+      "hash": "763259b6",
+      "priority": 1
+    }
+  }
+}
