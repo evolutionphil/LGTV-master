@@ -991,15 +991,14 @@ var vod_series_player={
             });
         });
         
-        // Handle click events
+        // Handle click events - only update selection, don't confirm (user must press OK)
         container.on('click', '.subtitle-option', function(e) {
             e.preventDefault();
             var index = $('.subtitle-option').index(this);
             var options = $('.subtitle-option');
             that.setActiveSubtitleOption(index, options);
             keys.subtitle_audio_selection_modal = index;
-            that.hoverSubtitleAudioModal(index);
-            that.confirmSubtitle();
+            that.lastHoveredIndex = index;
         });
     },
     showEmptySubtitleMessage: function (kind) {
