@@ -1876,17 +1876,23 @@
         FlixBootstrapper.writeJS('js/image_page.js');
     </script>
     
-    <!-- Version Display -->
-    <div id="flix-version-display" style="position:fixed;bottom:5px;right:10px;font-size:10px;color:rgba(255,255,255,0.4);z-index:9999;pointer-events:none;font-family:Arial,sans-serif;"></div>
+    <!-- Version Display - Only on home page -->
     <script>
     (function(){
-        var versionEl = document.getElementById('flix-version-display');
-        if(!versionEl) return;
-        
         var cachedVersion = localStorage.getItem('flix_remote_manifest_version') || 'local';
         var cacheStatus = localStorage.getItem('flix_remote_manifest_version') ? 'remote' : 'local';
+        var versionText = 'v' + cachedVersion + ' (' + cacheStatus + ')';
         
-        versionEl.textContent = 'v' + cachedVersion + ' (' + cacheStatus + ')';
+        var versionEl = document.createElement('div');
+        versionEl.id = 'flix-version-display';
+        versionEl.textContent = versionText;
+        versionEl.style.cssText = 'position:absolute;bottom:5px;right:10px;font-size:10px;color:rgba(255,255,255,0.4);pointer-events:none;font-family:Arial,sans-serif;';
+        
+        var homePage = document.getElementById('home-page');
+        if(homePage) {
+            homePage.style.position = 'relative';
+            homePage.appendChild(versionEl);
+        }
     })();
     </script>
 </body>
