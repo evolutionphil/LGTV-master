@@ -281,18 +281,20 @@ function initPlayer() {
                     that.playAsync(that.url);
                 }, 4000)
             },
-            setDisplayArea:function(forcePreview) {
+            setDisplayArea:function(forcePreview, retryCount) {
                 var that = this;
+                retryCount = retryCount || 0;
+                var maxRetries = 5;
+                
                 var capabilities = this.detectTVCapabilities();
                 var avplayBaseWidth = capabilities.resolution.width;
                 var avplayBaseHeight = capabilities.resolution.height;
                 
                 // forcePreview=true forces preview mode regardless of full_screen_state
-                // This is used when returning from fullscreen to prevent race conditions
                 var useFullscreen = (that.full_screen_state === 1) && !forcePreview;
                 
                 console.log('┌─────────────────────────────────────────────┐');
-                console.log('│ setDisplayArea() CALLED');
+                console.log('│ setDisplayArea() CALLED (retry:', retryCount + ')');
                 console.log('├─────────────────────────────────────────────┤');
                 console.log('  full_screen_state:', this.full_screen_state);
                 console.log('  forcePreview:', forcePreview);
@@ -306,7 +308,6 @@ function initPlayer() {
                         console.log('  rect: 0,0 ' + avplayBaseWidth + 'x' + avplayBaseHeight);
                         console.log('└─────────────────────────────────────────────┘');
                         try {
-                            // CRITICAL: Force fullscreen display mode
                             webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
                             console.log('  ✓ setDisplayMethod OK');
                         } catch (e) {
@@ -314,34 +315,50 @@ function initPlayer() {
                         }
                         
                         try {
-                            // Use detected resolution (works on 1080p, 4K, 8K)
                             webapis.avplay.setDisplayRect(0, 0, avplayBaseWidth, avplayBaseHeight);
                             console.log('  ✓ setDisplayRect OK');
                         } catch (e) {
                             console.log('  ✗ setDisplayRect ERROR:', e.message || e);
                         }
                     } else {
-                        // PREVIEW MODE: Use AUTO_ASPECT_RATIO for 1080p, LETTER_BOX for UHD
+                        // PREVIEW MODE
                         var top_position=$(that.videoObj).offset().top;
                         var left_position=$(that.videoObj).offset().left;
-                        var width=parseInt($(that.videoObj).width())
+                        var width=parseInt($(that.videoObj).width());
                         var height=parseInt($(that.videoObj).height());
-                    
-                    var ratioX = avplayBaseWidth / window.document.documentElement.clientWidth;
-                    var ratioY = avplayBaseHeight / window.document.documentElement.clientHeight;
-                    
-                    var scaledLeft = Math.round(left_position * ratioX);
-                    var scaledTop = Math.round(top_position * ratioY);
-                    var scaledWidth = Math.round(width * ratioX);
-                    var scaledHeight = Math.round(height * ratioY);
-                    
-                        // Original logic: AUTO for 1080p (works on most TVs), LETTER_BOX for UHD
-                        var isUHD = avplayBaseHeight > 1080;
-                        var displayMode = isUHD ? 'PLAYER_DISPLAY_MODE_LETTER_BOX' : 'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO';
+                        
+                        // GEOMETRY VALIDATION: Check if DOM is ready
+                        // Preview container should be on the right side (offset > 100px)
+                        // If offset is 0,0 - DOM hasn't repositioned yet, wait and retry
+                        var isValidGeometry = (left_position > 100 || top_position > 50) && width > 0 && height > 0;
                         
                         console.log('  MODE: PREVIEW');
                         console.log('  videoObj offset:', left_position + ',' + top_position);
                         console.log('  videoObj size:', width + 'x' + height);
+                        console.log('  isValidGeometry:', isValidGeometry);
+                        
+                        if (!isValidGeometry && retryCount < maxRetries) {
+                            console.log('  ⚠️ INVALID GEOMETRY - DOM not ready, retry in 100ms (attempt ' + (retryCount + 1) + '/' + maxRetries + ')');
+                            console.log('└─────────────────────────────────────────────┘');
+                            setTimeout(function() {
+                                if (that.full_screen_state === 0) {
+                                    that.setDisplayArea(forcePreview, retryCount + 1);
+                                }
+                            }, 100);
+                            return;
+                        }
+                        
+                        var ratioX = avplayBaseWidth / window.document.documentElement.clientWidth;
+                        var ratioY = avplayBaseHeight / window.document.documentElement.clientHeight;
+                        
+                        var scaledLeft = Math.round(left_position * ratioX);
+                        var scaledTop = Math.round(top_position * ratioY);
+                        var scaledWidth = Math.round(width * ratioX);
+                        var scaledHeight = Math.round(height * ratioY);
+                        
+                        var isUHD = avplayBaseHeight > 1080;
+                        var displayMode = isUHD ? 'PLAYER_DISPLAY_MODE_LETTER_BOX' : 'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO';
+                        
                         console.log('  ratio:', ratioX.toFixed(2) + 'x' + ratioY.toFixed(2));
                         console.log('  scaled rect:', scaledLeft + ',' + scaledTop + ' ' + scaledWidth + 'x' + scaledHeight);
                         console.log('  isUHD:', isUHD, 'displayMode:', displayMode);
@@ -355,21 +372,18 @@ function initPlayer() {
                         }
                         try {
                             webapis.avplay.setDisplayRect(scaledLeft, scaledTop, scaledWidth, scaledHeight);
-                            console.log('  ✓ setDisplayRect OK (initial)');
+                            console.log('  ✓ setDisplayRect OK');
                         } catch (e) {
                             console.log('  ✗ setDisplayRect ERROR:', e.message || e);
                         }
                         
-                        // Retry after 100ms - handles InvalidStateError race condition
-                        // Some TVs reject first rect change while player is preparing
+                        // One more retry after 100ms for stubborn firmware
                         setTimeout(function() {
                             if (that.full_screen_state === 0) {
                                 try {
                                     webapis.avplay.setDisplayRect(scaledLeft, scaledTop, scaledWidth, scaledHeight);
-                                    console.log('  ✓ setDisplayRect RETRY OK');
-                                } catch (e) {
-                                    console.log('  ✗ setDisplayRect RETRY ERROR:', e.message || e);
-                                }
+                                    console.log('  ✓ setDisplayRect FINAL RETRY OK');
+                                } catch (e) {}
                             }
                         }, 100);
                     }
