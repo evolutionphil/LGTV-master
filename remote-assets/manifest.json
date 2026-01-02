@@ -1,9 +1,9 @@
 {
-  "version": "1.2.4",
-  "lastUpdate": "2026-01-02T15:03:29.084Z",
+  "version": "1.2.5",
+  "lastUpdate": "2026-01-02T22:18:12.836Z",
   "killSwitch": false,
   "forceRefresh": true,
-  "cacheGeneration": 27,
+  "cacheGeneration": 28,
   "maxAgeHours": 24,
   "baseUrl": "https://flixapp.pages.dev/",
   "cachePrefix": "flix_remote_",
@@ -196,9 +196,9 @@
       "priority": 2
     },
     "js/player.js": {
-      "version": "1.0.12",
-      "size": 35195,
-      "hash": "4180dc0a",
+      "version": "1.0.13",
+      "size": 35152,
+      "hash": "e3b91acf",
       "priority": 2
     },
     "js/vod_series_player.js": {
@@ -214,9 +214,9 @@
       "priority": 1
     },
     "js/channel_operation.js": {
-      "version": "1.0.17",
-      "size": 49309,
-      "hash": "0c3e08a5",
+      "version": "1.0.18",
+      "size": 49445,
+      "hash": "27891285",
       "priority": 2
     },
     "js/login_operation.js": {

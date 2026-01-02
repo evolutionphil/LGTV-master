@@ -57,7 +57,6 @@ function initPlayer() {
                 try{
                     webapis.avplay.open(url);
                     this.setupEventListeners();
-                    this.setDisplayArea();
                     // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_BYTE", 1000); // 5 is in seconds
                     // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_SECOND", 4); // 5 is in seconds
 

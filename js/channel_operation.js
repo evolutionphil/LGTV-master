@@ -598,6 +598,11 @@ var channel_page={
         }catch (e) {
             console.log(e);
         }
+        setTimeout(function(){
+            try{
+                media_player.setDisplayArea();
+            }catch(e){}
+        }, 100);
         var current_movie=getCurrentMovieFromId(movie_id, this.movies,'stream_id');
         $('#full-screen-channel-name').html(
             current_movie.num+' : '+current_movie.name
