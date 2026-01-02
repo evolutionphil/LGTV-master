@@ -578,7 +578,7 @@ var channel_page={
                 media_player.setDisplayArea();
             }catch (e) {
             }
-        },0)
+        },250)
     },
     showLiveChannelMovie:function(movie_id){
         var url
@@ -592,7 +592,13 @@ var channel_page={
         }
         try{
             media_player.init("channel-page-video","channel-page");
-            media_player.setDisplayArea();
+            setTimeout(function(){
+                try{
+                    media_player.setDisplayArea();
+                }catch(e){
+                    console.log(e);
+                }
+            }, 250);
         }catch (e) {
             console.log(e);
         }
