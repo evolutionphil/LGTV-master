@@ -57,7 +57,9 @@ function initPlayer() {
                 try{
                     webapis.avplay.open(url);
                     this.setupEventListeners();
-                    this.setDisplayArea();
+                    setTimeout(function(){
+                        that.setDisplayArea();
+                    }, 250);
                     // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_BYTE", 1000); // 5 is in seconds
                     // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_SECOND", 4); // 5 is in seconds
 
@@ -259,7 +261,7 @@ function initPlayer() {
                         // Reapply display area after buffering for proper sizing
                         setTimeout(function() {
                             that.setDisplayArea();
-                        }, 100);
+                        }, 250);
                         // console.log('Buffering Complete, Can play now!');
                         // console.log("Buffereing complete time "+(new Date()).getTime()/1000)
                     },
