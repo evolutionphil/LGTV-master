@@ -1,0 +1,1819 @@
+console.js:36 Sentry initialized with platform: tizen
+console.js:36 {errorCode: -1, errorText: "PalmServiceBridge is not found.", returnValue: false}
+console.js:36 PalmServiceBridge is not found.
+(anonymous) @ console.js:36
+value @ webOSTV.js:126
+request @ webOSTV.js:158
+(anonymous) @ VM300:1001
+writeJS @ asset-bootstrapper.js:138
+(anonymous) @ index.html:1856
+console.js:36 PalmServiceBridge is not found.
+(anonymous) @ console.js:36
+value @ webOSTV.js:126
+request @ webOSTV.js:158
+(anonymous) @ VM300:1018
+writeJS @ asset-bootstrapper.js:138
+(anonymous) @ index.html:1856
+console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
+console.js:36 [VersionDisplay] Found version: 1.1.40
+console.js:36 [VersionDisplay] Setting text: v1.1.40 (remote), Element found: YES
+console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
+console.js:36 [VersionDisplay] Found version: 1.1.40
+console.js:36 [VersionDisplay] Setting text: v1.1.40 (remote), Element found: YES
+console.js:36 Samsung Tizen platform detected
+console.js:36 Samsung: Using Ethernet MAC address: a4:30:7a:37:c8:98
+console.js:36 {mac_registered: true, epg_urls: Array(0), youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE", themes: Array(3), adverts: Array(1), …}
+console.js:36 ✅ BLOCKED CHANNELS RECEIVED FROM API: []
+console.js:36 ✅ TERMS OF USE RECEIVED FROM API: {version: "1.0", content: "FLIX IPTV - TERMS OF USE↵↵Last Updated: October …ation↵↵© 2025 FLIX IPTV. All rights reserved.↵", updated_date: "2025-10-12"}
+console.js:36 ✅ TERMS ALREADY ACCEPTED (Version: 1.0)
+console.js:36 {mac_registered: true, epg_urls: Array(0), youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE", themes: Array(3), adverts: Array(1), …}
+console.js:36 [RemoteLoader] RemoteLoader v2.0 initialized on tizen
+console.js:36 [RemoteLoader] Network status: online
+The resource https://flixapp.net/images/activation-qr-code.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+console.js:36 [RemoteLoader] Starting background update check...
+console.js:36 [RemoteLoader] Manifest saved to cache: v1.1.40
+console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
+console.js:36 [VersionDisplay] Found version: 1.1.40
+console.js:36 [VersionDisplay] Setting text: v1.1.40 (remote), Element found: YES
+console.js:36 [RemoteLoader] Version display updated
+console.js:36 [RemoteLoader] Force refresh flag active - will clear cache
+console.js:36 [RemoteLoader] Clearing all cache...
+console.js:36 [RemoteLoader] Cleared all cache
+console.js:36 [RemoteLoader] Manifest saved to cache: v1.1.40
+console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
+console.js:36 [VersionDisplay] Found version: 1.1.40
+console.js:36 [VersionDisplay] Setting text: v1.1.40 (remote), Element found: YES
+console.js:36 [RemoteLoader] Version display updated
+console.js:36 [RemoteLoader] Manifest re-saved after cache clear
+console.js:36 [RemoteLoader] Downloading 49 updated files in background...
+console.js:36 [RemoteLoader] Downloaded: css/style.css
+console.js:36 [RemoteUpdate] Downloading: 1/49 - css/style.css
+console.js:36 [RemoteLoader] Downloaded: css/variables.css
+console.js:36 [RemoteUpdate] Downloading: 2/49 - css/variables.css
+console.js:36 [RemoteLoader] Downloaded: css/responsive.css
+console.js:36 [RemoteUpdate] Downloading: 3/49 - css/responsive.css
+console.js:36 [RemoteLoader] Downloaded: css/vod_series_summary.css
+console.js:36 [RemoteUpdate] Downloading: 4/49 - css/vod_series_summary.css
+console.js:36 [RemoteLoader] Downloaded: css/login.css
+console.js:36 [RemoteUpdate] Downloading: 5/49 - css/login.css
+console.js:36 [RemoteLoader] Downloaded: css/loader.css
+console.js:36 [RemoteUpdate] Downloading: 6/49 - css/loader.css
+console.js:36 [RemoteLoader] Downloaded: js/Models/VodModel.js
+console.js:36 [RemoteUpdate] Downloading: 7/49 - js/Models/VodModel.js
+console.js:36 [RemoteLoader] Downloaded: js/Models/LiveModel.js
+console.js:36 [RemoteUpdate] Downloading: 8/49 - js/Models/LiveModel.js
+console.js:36 [RemoteLoader] Downloaded: js/Models/SeriesModel.js
+console.js:36 [RemoteUpdate] Downloading: 9/49 - js/Models/SeriesModel.js
+console.js:36 [RemoteLoader] Downloaded: js/common.js
+console.js:36 [RemoteUpdate] Downloading: 10/49 - js/common.js
+console.js:36 [RemoteLoader] Downloaded: js/common_with_encrypt.js
+console.js:36 [RemoteUpdate] Downloading: 11/49 - js/common_with_encrypt.js
+console.js:36 [RemoteLoader] Downloaded: js/main.js
+console.js:36 [RemoteUpdate] Downloading: 12/49 - js/main.js
+console.js:36 [RemoteLoader] Downloaded: js/keyTizen.js
+console.js:36 [RemoteUpdate] Downloading: 13/49 - js/keyTizen.js
+console.js:36 [RemoteLoader] Downloaded: js/time_helper.js
+console.js:36 [RemoteUpdate] Downloading: 14/49 - js/time_helper.js
+console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
+console.js:36 [VersionDisplay] Found version: 1.1.40
+console.js:36 [VersionDisplay] Setting text: v1.1.40 (remote), Element found: YES
+console.js:36 [RemoteLoader] Downloaded: js/language_codes.js
+console.js:36 [RemoteUpdate] Downloading: 15/49 - js/language_codes.js
+console.js:36 [RemoteLoader] Downloaded: js/home_operation.js
+console.js:36 [RemoteUpdate] Downloading: 16/49 - js/home_operation.js
+console.js:36 [RemoteLoader] Downloaded: js/login_operation.js
+console.js:36 [RemoteUpdate] Downloading: 17/49 - js/login_operation.js
+console.js:36 [RemoteLoader] Downloaded: js/asset-bootstrapper.js
+console.js:36 [RemoteUpdate] Downloading: 18/49 - js/asset-bootstrapper.js
+console.js:36 [RemoteLoader] Downloaded: css/vod_series_player_page.css
+console.js:36 [RemoteUpdate] Downloading: 19/49 - css/vod_series_player_page.css
+console.js:36 [RemoteLoader] Downloaded: css/channel_page.css
+console.js:36 [RemoteUpdate] Downloading: 20/49 - css/channel_page.css
+console.js:36 [RemoteLoader] Downloaded: css/homepage.css
+console.js:36 [RemoteUpdate] Downloading: 21/49 - css/homepage.css
+console.js:36 [RemoteLoader] Downloaded: css/subtitle.css
+console.js:36 [RemoteUpdate] Downloading: 22/49 - css/subtitle.css
+console.js:36 [RemoteLoader] Downloaded: css/movie_grid.css
+console.js:36 [RemoteUpdate] Downloading: 23/49 - css/movie_grid.css
+console.js:36 [RemoteLoader] Downloaded: css/rating.css
+console.js:36 [RemoteUpdate] Downloading: 24/49 - css/rating.css
+console.js:36 [RemoteLoader] Downloaded: js/seasons_variable.js
+console.js:36 [RemoteUpdate] Downloading: 25/49 - js/seasons_variable.js
+console.js:36 [RemoteLoader] Downloaded: js/episode_variable.js
+console.js:36 [RemoteUpdate] Downloading: 26/49 - js/episode_variable.js
+console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+console.js:36 [RemoteLoader] Downloaded: js/vod_summary.js
+console.js:36 [RemoteUpdate] Downloading: 27/49 - js/vod_summary.js
+console.js:36 adding listener
+console.js:36 setDisplayArea: 0 0 639 359
+console.js:36 Entering setDisplayRect
+console.js:36 Entered AVPlayManager.prepareAsync()
+console.js:36 [RemoteLoader] Downloaded: js/series_summary.js
+console.js:36 [RemoteUpdate] Downloading: 28/49 - js/series_summary.js
+console.js:36 setDisplayArea: 0 0 639 359
+console.js:36 Entering setDisplayRect
+console.js:36 [RemoteLoader] Downloaded: js/player.js
+console.js:36 [RemoteUpdate] Downloading: 29/49 - js/player.js
+console.js:36 [RemoteLoader] Downloaded: js/vod_series_player.js
+console.js:36 [RemoteUpdate] Downloading: 30/49 - js/vod_series_player.js
+console.js:36 [RemoteLoader] Downloaded: js/channel_operation.js
+console.js:36 [RemoteUpdate] Downloading: 31/49 - js/channel_operation.js
+console.js:36 [RemoteLoader] Downloaded: js/trailer.js
+console.js:36 [RemoteUpdate] Downloading: 32/49 - js/trailer.js
+console.js:36 [RemoteLoader] Downloaded: js/srt_operation.js
+console.js:36 [RemoteUpdate] Downloading: 33/49 - js/srt_operation.js
+console.js:36 [RemoteLoader] Downloaded: js/srt_parser.js
+console.js:36 [RemoteUpdate] Downloading: 34/49 - js/srt_parser.js
+console.js:36 [RemoteLoader] Downloaded: js/subtitle_fetcher.js
+console.js:36 [RemoteUpdate] Downloading: 35/49 - js/subtitle_fetcher.js
+console.js:36 [RemoteLoader] Downloaded: js/enhanced_subtitle_workflow.js
+console.js:36 [RemoteUpdate] Downloading: 36/49 - js/enhanced_subtitle_workflow.js
+console.js:36 [RemoteLoader] Downloaded: css/guide.css
+console.js:36 [RemoteUpdate] Downloading: 37/49 - css/guide.css
+console.js:36 [RemoteLoader] Downloaded: css/catchup.css
+console.js:36 [RemoteUpdate] Downloading: 38/49 - css/catchup.css
+console.js:36 [RemoteLoader] Downloaded: css/search_page.css
+console.js:36 [RemoteUpdate] Downloading: 39/49 - css/search_page.css
+console.js:36 [RemoteLoader] Downloaded: css/storage_page.css
+console.js:36 [RemoteUpdate] Downloading: 40/49 - css/storage_page.css
+console.js:36 [RemoteLoader] Downloaded: css/youtube_page.css
+console.js:36 [RemoteUpdate] Downloading: 41/49 - css/youtube_page.css
+console.js:36 [RemoteLoader] Downloaded: css/gallary.css
+console.js:36 [RemoteUpdate] Downloading: 42/49 - css/gallary.css
+console.js:36 [RemoteLoader] Downloaded: js/guide_page.js
+console.js:36 [RemoteUpdate] Downloading: 43/49 - js/guide_page.js
+console.js:36 [RemoteLoader] Downloaded: js/catchup.js
+console.js:36 [RemoteUpdate] Downloading: 44/49 - js/catchup.js
+console.js:36 [RemoteLoader] Downloaded: js/search_page.js
+console.js:36 [RemoteUpdate] Downloading: 45/49 - js/search_page.js
+console.js:36 [RemoteLoader] Downloaded: js/youtube_page.js
+console.js:36 [RemoteUpdate] Downloading: 46/49 - js/youtube_page.js
+console.js:36 [RemoteLoader] Downloaded: js/storage_operation.js
+console.js:36 [RemoteUpdate] Downloading: 47/49 - js/storage_operation.js
+console.js:36 [RemoteLoader] Downloaded: js/image_page.js
+console.js:36 [RemoteUpdate] Downloading: 48/49 - js/image_page.js
+console.js:36 [RemoteLoader] Downloaded: js/settings.js
+console.js:36 [RemoteUpdate] Downloading: 49/49 - js/settings.js
+console.js:36 [RemoteLoader] Background update complete. 49 files updated.
+console.js:36 [RemoteLoader] Updates will be applied on next app launch.
+console.js:36 [RemoteUpdate] Background update complete: {success: true, hasUpdates: true, downloadedFiles: Array(49), failedFiles: Array(0), manifest: {…}}
+console.js:36 [RemoteUpdate] 49 files updated. Restart app to apply.
+console.js:36 setDisplayArea: 0 0 639 359
+console.js:36 Entering setDisplayRect
+console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
+console.js:36 [VersionDisplay] Found version: 1.1.40
+console.js:36 [VersionDisplay] Setting text: v1.1.40 (remote), Element found: YES
+console.js:36 Entering setDisplayRect
+console.js:36 ╔══════════════════════════════════════════════════════════════════╗
+console.js:36 ║ CHANNEL_OPERATION.INIT() - ENTERING CATEGORY
+console.js:36 ╠══════════════════════════════════════════════════════════════════╣
+console.js:36   channel_id: 0
+console.js:36   full_screen param: false
+console.js:36   CURRENT STATE:
+console.js:36     - full_screen_video: false
+console.js:36     - transitioning_to_fullscreen: false
+console.js:36     - media_player.full_screen_state: 0
+console.js:36     - keys.focused_part: channel_selection
+console.js:36     - current_channel_id: 0
+console.js:36   RESETTING STATE for new category...
+console.js:36 ╚══════════════════════════════════════════════════════════════════╝
+console.js:36 ╔════════════════════════════════════════════════════════════╗
+console.js:36 ║ showLiveChannelMovie: START
+console.js:36 ╠════════════════════════════════════════════════════════════╣
+console.js:36   Channel ID: 40721
+console.js:36   Channel Name: ☆☆ TR: ULUSAL ☆☆
+console.js:36   Channel Num: 96
+console.js:36   full_screen_video: false
+console.js:36   media_player.full_screen_state: 0
+console.js:36 ╚════════════════════════════════════════════════════════════╝
+console.js:36 showLiveChannelMovie: Before init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: transitioning_to_fullscreen= false
+console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+console.js:36 showLiveChannelMovie: After init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 adding listener
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 Entered AVPlayManager.prepareAsync()
+console.js:36 ╔═══════════════════════════════════════════════════════════════╗
+console.js:36 ║ Setting Channel Info Bar
+console.js:36 ╠═══════════════════════════════════════════════════════════════╣
+console.js:36   Channel Name: ☆☆ TR: ULUSAL ☆☆
+console.js:36   Channel Num: 96
+console.js:36   Set in #full-screen-channel-name-compact
+console.js:36   Set channel number in #full-screen-channel-number
+console.js:36 ╚═══════════════════════════════════════════════════════════════╝
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[0]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: ☆☆ TR: ULUSAL ☆☆
+console.js:36   stream_id: 40721
+console.js:36   current_channel_id: 40721
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: SAME CHANNEL - checking if should zoom
+console.js:36 channelItemClick: Not fullscreen - ZOOMING IN
+console.js:36 🔒 UI LOCKED for 800ms until: 1767360873462
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN START
+console.js:36   transitioning_to_fullscreen: true
+console.js:36   full_screen_video (before): true
+console.js:36   focused_part (before): full_screen
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN: Updated flags IMMEDIATELY
+console.js:36   focused_part (after): full_screen
+console.js:36   full_screen_video (after): true
+console.js:36   full_screen_state: 1
+console.js:36 zoomInOut() ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state: 1
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 ╔════════════════════════════════════════════════════════╗
+console.js:36 ║ Showing fullscreen info bar
+console.js:36 ╠════════════════════════════════════════════════════════╣
+console.js:36   #full-screen-information will show with .visible class
+console.js:36   Channel name is in #full-screen-channel-name-compact
+console.js:36 ╚════════════════════════════════════════════════════════╝
+console.js:36 zoomInOut() ZOOM IN: Cleared transitioning flag
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: full_screen
+console.js:36     full_screen_video: true
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 1
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: full_screen
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: true
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → full_screen
+console.js:36 handleMenuClick: ⬅ Exiting fullscreen - calling zoomInOut()
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM OUT - set full_screen_state to 0
+console.js:36 full_screen_video: false
+console.js:36 focused_part: channel_selection
+console.js:36 transitioning_to_fullscreen: CLEARED
+console.js:36 ========================================
+console.js:36 🔒 UI LOCKED for 400ms until: 1767360874065
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 Hiding fullscreen info bar after 5 seconds
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[3]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: TR: TRT 1 HD
+console.js:36   stream_id: 51387
+console.js:36   current_channel_id: 40721
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: DIFFERENT CHANNEL - showing new channel, full_screen_state before= 0
+console.js:36 ╔════════════════════════════════════════════════════════════╗
+console.js:36 ║ showLiveChannelMovie: START
+console.js:36 ╠════════════════════════════════════════════════════════════╣
+console.js:36   Channel ID: 51387
+console.js:36   Channel Name: TR: TRT 1 HD
+console.js:36   Channel Num: 99
+console.js:36   full_screen_video: false
+console.js:36   media_player.full_screen_state: 0
+console.js:36 ╚════════════════════════════════════════════════════════════╝
+console.js:36 Entering setDisplayRect
+console.js:36 showLiveChannelMovie: Before init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: transitioning_to_fullscreen= false
+console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+console.js:36 showLiveChannelMovie: After init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 adding listener
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 Entered AVPlayManager.prepareAsync()
+console.js:36 ╔═══════════════════════════════════════════════════════════════╗
+console.js:36 ║ Setting Channel Info Bar
+console.js:36 ╠═══════════════════════════════════════════════════════════════╣
+console.js:36   Channel Name: TR: TRT 1 HD
+console.js:36   Channel Num: 99
+console.js:36   Set in #full-screen-channel-name-compact
+console.js:36   Set channel number in #full-screen-channel-number
+console.js:36 ╚═══════════════════════════════════════════════════════════════╝
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 51387
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[3]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: TR: TRT 1 HD
+console.js:36   stream_id: 51387
+console.js:36   current_channel_id: 51387
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: SAME CHANNEL - checking if should zoom
+console.js:36 channelItemClick: Not fullscreen - ZOOMING IN
+console.js:36 🔒 UI LOCKED for 800ms until: 1767360879001
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN START
+console.js:36   transitioning_to_fullscreen: true
+console.js:36   full_screen_video (before): true
+console.js:36   focused_part (before): full_screen
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN: Updated flags IMMEDIATELY
+console.js:36   focused_part (after): full_screen
+console.js:36   full_screen_video (after): true
+console.js:36   full_screen_state: 1
+console.js:36 zoomInOut() ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state: 1
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 ╔════════════════════════════════════════════════════════╗
+console.js:36 ║ Showing fullscreen info bar
+console.js:36 ╠════════════════════════════════════════════════════════╣
+console.js:36   #full-screen-information will show with .visible class
+console.js:36   Channel name is in #full-screen-channel-name-compact
+console.js:36 ╚════════════════════════════════════════════════════════╝
+console.js:36 zoomInOut() ZOOM IN: Cleared transitioning flag
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: full_screen
+console.js:36     full_screen_video: true
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 1
+console.js:36     current_channel_id: 51387
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: full_screen
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: true
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → full_screen
+console.js:36 handleMenuClick: ⬅ Exiting fullscreen - calling zoomInOut()
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM OUT - set full_screen_state to 0
+console.js:36 full_screen_video: false
+console.js:36 focused_part: channel_selection
+console.js:36 transitioning_to_fullscreen: CLEARED
+console.js:36 ========================================
+console.js:36 🔒 UI LOCKED for 400ms until: 1767360880289
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 51387
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 51387
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 Hiding fullscreen info bar after 5 seconds
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: BACK
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 51387
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM OUT - set full_screen_state to 0
+console.js:36 full_screen_video: false
+console.js:36 focused_part: channel_selection
+console.js:36 transitioning_to_fullscreen: CLEARED
+console.js:36 ========================================
+console.js:36 🔒 UI LOCKED for 400ms until: 1767360884642
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 []
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 0 639 359
+console.js:36 Entering setDisplayRect
+console.js:36 Entering setDisplayRect
+console.js:36 ╔══════════════════════════════════════════════════════════════════╗
+console.js:36 ║ CHANNEL_OPERATION.INIT() - ENTERING CATEGORY
+console.js:36 ╠══════════════════════════════════════════════════════════════════╣
+console.js:36   channel_id: 0
+console.js:36   full_screen param: false
+console.js:36   CURRENT STATE:
+console.js:36     - full_screen_video: false
+console.js:36     - transitioning_to_fullscreen: false
+console.js:36     - media_player.full_screen_state: 0
+console.js:36     - keys.focused_part: channel_selection
+console.js:36     - current_channel_id: 51387
+console.js:36   RESETTING STATE for new category...
+console.js:36 ╚══════════════════════════════════════════════════════════════════╝
+console.js:36 ╔════════════════════════════════════════════════════════════╗
+console.js:36 ║ showLiveChannelMovie: START
+console.js:36 ╠════════════════════════════════════════════════════════════╣
+console.js:36   Channel ID: 40721
+console.js:36   Channel Name: ☆☆ TR: ULUSAL ☆☆
+console.js:36   Channel Num: 96
+console.js:36   full_screen_video: false
+console.js:36   media_player.full_screen_state: 0
+console.js:36 ╚════════════════════════════════════════════════════════════╝
+console.js:36 showLiveChannelMovie: Before init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: transitioning_to_fullscreen= false
+console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+console.js:36 showLiveChannelMovie: After init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 adding listener
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 Entered AVPlayManager.prepareAsync()
+console.js:36 ╔═══════════════════════════════════════════════════════════════╗
+console.js:36 ║ Setting Channel Info Bar
+console.js:36 ╠═══════════════════════════════════════════════════════════════╣
+console.js:36   Channel Name: ☆☆ TR: ULUSAL ☆☆
+console.js:36   Channel Num: 96
+console.js:36   Set in #full-screen-channel-name-compact
+console.js:36   Set channel number in #full-screen-channel-number
+console.js:36 ╚═══════════════════════════════════════════════════════════════╝
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40721
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[13]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: TR: KANAL D HD
+console.js:36   stream_id: 40705
+console.js:36   current_channel_id: 40721
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: DIFFERENT CHANNEL - showing new channel, full_screen_state before= 0
+console.js:36 ╔════════════════════════════════════════════════════════════╗
+console.js:36 ║ showLiveChannelMovie: START
+console.js:36 ╠════════════════════════════════════════════════════════════╣
+console.js:36   Channel ID: 40705
+console.js:36   Channel Name: TR: KANAL D HD
+console.js:36   Channel Num: 109
+console.js:36   full_screen_video: false
+console.js:36   media_player.full_screen_state: 0
+console.js:36 ╚════════════════════════════════════════════════════════════╝
+console.js:36 Entering setDisplayRect
+console.js:36 showLiveChannelMovie: Before init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: transitioning_to_fullscreen= false
+console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+console.js:36 showLiveChannelMovie: After init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 adding listener
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 Entered AVPlayManager.prepareAsync()
+console.js:36 ╔═══════════════════════════════════════════════════════════════╗
+console.js:36 ║ Setting Channel Info Bar
+console.js:36 ╠═══════════════════════════════════════════════════════════════╣
+console.js:36   Channel Name: TR: KANAL D HD
+console.js:36   Channel Num: 109
+console.js:36   Set in #full-screen-channel-name-compact
+console.js:36   Set channel number in #full-screen-channel-number
+console.js:36 ╚═══════════════════════════════════════════════════════════════╝
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40705
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[13]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: TR: KANAL D HD
+console.js:36   stream_id: 40705
+console.js:36   current_channel_id: 40705
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: SAME CHANNEL - checking if should zoom
+console.js:36 channelItemClick: Not fullscreen - ZOOMING IN
+console.js:36 🔒 UI LOCKED for 800ms until: 1767360892768
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN START
+console.js:36   transitioning_to_fullscreen: true
+console.js:36   full_screen_video (before): true
+console.js:36   focused_part (before): full_screen
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN: Updated flags IMMEDIATELY
+console.js:36   focused_part (after): full_screen
+console.js:36   full_screen_video (after): true
+console.js:36   full_screen_state: 1
+console.js:36 zoomInOut() ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state: 1
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 ╔════════════════════════════════════════════════════════╗
+console.js:36 ║ Showing fullscreen info bar
+console.js:36 ╠════════════════════════════════════════════════════════╣
+console.js:36   #full-screen-information will show with .visible class
+console.js:36   Channel name is in #full-screen-channel-name-compact
+console.js:36 ╚════════════════════════════════════════════════════════╝
+console.js:36 zoomInOut() ZOOM IN: Cleared transitioning flag
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: full_screen
+console.js:36     full_screen_video: true
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 1
+console.js:36     current_channel_id: 40705
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: full_screen
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: true
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → full_screen
+console.js:36 handleMenuClick: ⬅ Exiting fullscreen - calling zoomInOut()
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM OUT - set full_screen_state to 0
+console.js:36 full_screen_video: false
+console.js:36 focused_part: channel_selection
+console.js:36 transitioning_to_fullscreen: CLEARED
+console.js:36 ========================================
+console.js:36 🔒 UI LOCKED for 400ms until: 1767360893823
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40705
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40705
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40705
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40705
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[16]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: TR: TV 8.5 FHD
+console.js:36   stream_id: 40713
+console.js:36   current_channel_id: 40705
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: DIFFERENT CHANNEL - showing new channel, full_screen_state before= 0
+console.js:36 ╔════════════════════════════════════════════════════════════╗
+console.js:36 ║ showLiveChannelMovie: START
+console.js:36 ╠════════════════════════════════════════════════════════════╣
+console.js:36   Channel ID: 40713
+console.js:36   Channel Name: TR: TV 8.5 FHD
+console.js:36   Channel Num: 112
+console.js:36   full_screen_video: false
+console.js:36   media_player.full_screen_state: 0
+console.js:36 ╚════════════════════════════════════════════════════════════╝
+console.js:36 Entering setDisplayRect
+console.js:36 showLiveChannelMovie: Before init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: transitioning_to_fullscreen= false
+console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+console.js:36 showLiveChannelMovie: After init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 adding listener
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 Entered AVPlayManager.prepareAsync()
+console.js:36 ╔═══════════════════════════════════════════════════════════════╗
+console.js:36 ║ Setting Channel Info Bar
+console.js:36 ╠═══════════════════════════════════════════════════════════════╣
+console.js:36   Channel Name: TR: TV 8.5 FHD
+console.js:36   Channel Num: 112
+console.js:36   Set in #full-screen-channel-name-compact
+console.js:36   Set channel number in #full-screen-channel-number
+console.js:36 ╚═══════════════════════════════════════════════════════════════╝
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 Hiding fullscreen info bar after 5 seconds
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40713
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[16]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: TR: TV 8.5 FHD
+console.js:36   stream_id: 40713
+console.js:36   current_channel_id: 40713
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: SAME CHANNEL - checking if should zoom
+console.js:36 channelItemClick: Not fullscreen - ZOOMING IN
+console.js:36 🔒 UI LOCKED for 800ms until: 1767360899041
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN START
+console.js:36   transitioning_to_fullscreen: true
+console.js:36   full_screen_video (before): true
+console.js:36   focused_part (before): full_screen
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN: Updated flags IMMEDIATELY
+console.js:36   focused_part (after): full_screen
+console.js:36   full_screen_video (after): true
+console.js:36   full_screen_state: 1
+console.js:36 zoomInOut() ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state: 1
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 ╔════════════════════════════════════════════════════════╗
+console.js:36 ║ Showing fullscreen info bar
+console.js:36 ╠════════════════════════════════════════════════════════╣
+console.js:36   #full-screen-information will show with .visible class
+console.js:36   Channel name is in #full-screen-channel-name-compact
+console.js:36 ╚════════════════════════════════════════════════════════╝
+console.js:36 zoomInOut() ZOOM IN: Cleared transitioning flag
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: full_screen
+console.js:36     full_screen_video: true
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 1
+console.js:36     current_channel_id: 40713
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: full_screen
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: true
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → full_screen
+console.js:36 handleMenuClick: ⬅ Exiting fullscreen - calling zoomInOut()
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM OUT - set full_screen_state to 0
+console.js:36 full_screen_video: false
+console.js:36 focused_part: channel_selection
+console.js:36 transitioning_to_fullscreen: CLEARED
+console.js:36 ========================================
+console.js:36 🔒 UI LOCKED for 400ms until: 1767360900069
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40713
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40713
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40713
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40713
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40713
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40713
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[11]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: TR: NOW TV HD
+console.js:36   stream_id: 40716
+console.js:36   current_channel_id: 40713
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: DIFFERENT CHANNEL - showing new channel, full_screen_state before= 0
+console.js:36 ╔════════════════════════════════════════════════════════════╗
+console.js:36 ║ showLiveChannelMovie: START
+console.js:36 ╠════════════════════════════════════════════════════════════╣
+console.js:36   Channel ID: 40716
+console.js:36   Channel Name: TR: NOW TV HD
+console.js:36   Channel Num: 107
+console.js:36   full_screen_video: false
+console.js:36   media_player.full_screen_state: 0
+console.js:36 ╚════════════════════════════════════════════════════════════╝
+console.js:36 Entering setDisplayRect
+console.js:36 showLiveChannelMovie: Before init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: transitioning_to_fullscreen= false
+console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+console.js:36 showLiveChannelMovie: After init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 adding listener
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 Entered AVPlayManager.prepareAsync()
+console.js:36 ╔═══════════════════════════════════════════════════════════════╗
+console.js:36 ║ Setting Channel Info Bar
+console.js:36 ╠═══════════════════════════════════════════════════════════════╣
+console.js:36   Channel Name: TR: NOW TV HD
+console.js:36   Channel Num: 107
+console.js:36   Set in #full-screen-channel-name-compact
+console.js:36   Set channel number in #full-screen-channel-number
+console.js:36 ╚═══════════════════════════════════════════════════════════════╝
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[11]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: TR: NOW TV HD
+console.js:36   stream_id: 40716
+console.js:36   current_channel_id: 40716
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: SAME CHANNEL - checking if should zoom
+console.js:36 channelItemClick: Not fullscreen - ZOOMING IN
+console.js:36 🔒 UI LOCKED for 800ms until: 1767360902589
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN START
+console.js:36   transitioning_to_fullscreen: true
+console.js:36   full_screen_video (before): true
+console.js:36   focused_part (before): full_screen
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN: Updated flags IMMEDIATELY
+console.js:36   focused_part (after): full_screen
+console.js:36   full_screen_video (after): true
+console.js:36   full_screen_state: 1
+console.js:36 zoomInOut() ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state: 1
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 ╔════════════════════════════════════════════════════════╗
+console.js:36 ║ Showing fullscreen info bar
+console.js:36 ╠════════════════════════════════════════════════════════╣
+console.js:36   #full-screen-information will show with .visible class
+console.js:36   Channel name is in #full-screen-channel-name-compact
+console.js:36 ╚════════════════════════════════════════════════════════╝
+console.js:36 zoomInOut() ZOOM IN: Cleared transitioning flag
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: full_screen
+console.js:36     full_screen_video: true
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 1
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: full_screen
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: true
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → full_screen
+console.js:36 handleMenuClick: ⬅ Exiting fullscreen - calling zoomInOut()
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM OUT - set full_screen_state to 0
+console.js:36 full_screen_video: false
+console.js:36 focused_part: channel_selection
+console.js:36 transitioning_to_fullscreen: CLEARED
+console.js:36 ========================================
+console.js:36 🔒 UI LOCKED for 400ms until: 1767360904043
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 Hiding fullscreen info bar after 5 seconds
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: UP
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↑ Calling handleMenusUpDown(-1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: BACK
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 40716
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM OUT - set full_screen_state to 0
+console.js:36 full_screen_video: false
+console.js:36 focused_part: channel_selection
+console.js:36 transitioning_to_fullscreen: CLEARED
+console.js:36 ========================================
+console.js:36 🔒 UI LOCKED for 400ms until: 1767360908137
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 []
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 0 639 359
+console.js:36 Entering setDisplayRect
+console.js:36 setDisplayArea: 0 0 639 359
+console.js:36 Entering setDisplayRect
+console.js:36 adding listener
+console.js:36 setDisplayArea: 0 0 639 359
+console.js:36 Entering setDisplayRect
+console.js:36 Entered AVPlayManager.prepareAsync()
+console.js:36 setDisplayArea: 0 0 639 359
+console.js:36 Entering setDisplayRect
+console.js:36 Entering setDisplayRect
+console.js:36 ╔══════════════════════════════════════════════════════════════════╗
+console.js:36 ║ CHANNEL_OPERATION.INIT() - ENTERING CATEGORY
+console.js:36 ╠══════════════════════════════════════════════════════════════════╣
+console.js:36   channel_id: 0
+console.js:36   full_screen param: false
+console.js:36   CURRENT STATE:
+console.js:36     - full_screen_video: false
+console.js:36     - transitioning_to_fullscreen: false
+console.js:36     - media_player.full_screen_state: 0
+console.js:36     - keys.focused_part: channel_selection
+console.js:36     - current_channel_id: 40716
+console.js:36   RESETTING STATE for new category...
+console.js:36 ╚══════════════════════════════════════════════════════════════════╝
+console.js:36 ╔════════════════════════════════════════════════════════════╗
+console.js:36 ║ showLiveChannelMovie: START
+console.js:36 ╠════════════════════════════════════════════════════════════╣
+console.js:36   Channel ID: 64571
+console.js:36   Channel Name: ☆☆  TR: 4K KANALLAR ☆☆ 
+console.js:36   Channel Num: 132
+console.js:36   full_screen_video: false
+console.js:36   media_player.full_screen_state: 0
+console.js:36 ╚════════════════════════════════════════════════════════════╝
+console.js:36 showLiveChannelMovie: Before init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: transitioning_to_fullscreen= false
+console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+console.js:36 showLiveChannelMovie: After init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 adding listener
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 Entered AVPlayManager.prepareAsync()
+console.js:36 ╔═══════════════════════════════════════════════════════════════╗
+console.js:36 ║ Setting Channel Info Bar
+console.js:36 ╠═══════════════════════════════════════════════════════════════╣
+console.js:36   Channel Name: ☆☆  TR: 4K KANALLAR ☆☆ 
+console.js:36   Channel Num: 132
+console.js:36   Set in #full-screen-channel-name-compact
+console.js:36   Set channel number in #full-screen-channel-number
+console.js:36 ╚═══════════════════════════════════════════════════════════════╝
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 64571
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[0]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: ☆☆  TR: 4K KANALLAR ☆☆ 
+console.js:36   stream_id: 64571
+console.js:36   current_channel_id: 64571
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: SAME CHANNEL - checking if should zoom
+console.js:36 channelItemClick: Not fullscreen - ZOOMING IN
+console.js:36 🔒 UI LOCKED for 800ms until: 1767360914784
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN START
+console.js:36   transitioning_to_fullscreen: true
+console.js:36   full_screen_video (before): true
+console.js:36   focused_part (before): full_screen
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN: Updated flags IMMEDIATELY
+console.js:36   focused_part (after): full_screen
+console.js:36   full_screen_video (after): true
+console.js:36   full_screen_state: 1
+console.js:36 zoomInOut() ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state: 1
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 ╔════════════════════════════════════════════════════════╗
+console.js:36 ║ Showing fullscreen info bar
+console.js:36 ╠════════════════════════════════════════════════════════╣
+console.js:36   #full-screen-information will show with .visible class
+console.js:36   Channel name is in #full-screen-channel-name-compact
+console.js:36 ╚════════════════════════════════════════════════════════╝
+console.js:36 zoomInOut() ZOOM IN: Cleared transitioning flag
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: full_screen
+console.js:36     full_screen_video: true
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 1
+console.js:36     current_channel_id: 64571
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: full_screen
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: true
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → full_screen
+console.js:36 handleMenuClick: ⬅ Exiting fullscreen - calling zoomInOut()
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM OUT - set full_screen_state to 0
+console.js:36 full_screen_video: false
+console.js:36 focused_part: channel_selection
+console.js:36 transitioning_to_fullscreen: CLEARED
+console.js:36 ========================================
+console.js:36 🔒 UI LOCKED for 400ms until: 1767360915381
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 64571
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 64571
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: DOWN
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 64571
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ↓ Calling handleMenusUpDown(1)
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 64571
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[3]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: TR: SHOW TV 4K
+console.js:36   stream_id: 170646
+console.js:36   current_channel_id: 64571
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: DIFFERENT CHANNEL - showing new channel, full_screen_state before= 0
+console.js:36 ╔════════════════════════════════════════════════════════════╗
+console.js:36 ║ showLiveChannelMovie: START
+console.js:36 ╠════════════════════════════════════════════════════════════╣
+console.js:36   Channel ID: 170646
+console.js:36   Channel Name: TR: SHOW TV 4K
+console.js:36   Channel Num: 135
+console.js:36   full_screen_video: false
+console.js:36   media_player.full_screen_state: 0
+console.js:36 ╚════════════════════════════════════════════════════════════╝
+console.js:36 Entering setDisplayRect
+console.js:36 showLiveChannelMovie: Before init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: transitioning_to_fullscreen= false
+console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+console.js:36 showLiveChannelMovie: After init() - full_screen_state= 0
+console.js:36 showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 adding listener
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 Entered AVPlayManager.prepareAsync()
+console.js:36 ╔═══════════════════════════════════════════════════════════════╗
+console.js:36 ║ Setting Channel Info Bar
+console.js:36 ╠═══════════════════════════════════════════════════════════════╣
+console.js:36   Channel Name: TR: SHOW TV 4K
+console.js:36   Channel Num: 135
+console.js:36   Set in #full-screen-channel-name-compact
+console.js:36   Set channel number in #full-screen-channel-number
+console.js:36 ╚═══════════════════════════════════════════════════════════════╝
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: channel_selection
+console.js:36     full_screen_video: false
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 0
+console.js:36     current_channel_id: 170646
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: channel_selection
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: false
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → channel_selection
+console.js:36   Triggering click on menu_items[3]
+console.js:36 ┌─────────────────────────────────────────────────────────┐
+console.js:36 │ channelItemClick
+console.js:36 ├─────────────────────────────────────────────────────────┤
+console.js:36   Selected Channel: TR: SHOW TV 4K
+console.js:36   stream_id: 170646
+console.js:36   current_channel_id: 170646
+console.js:36   full_screen_video: false
+console.js:36 └─────────────────────────────────────────────────────────┘
+console.js:36 channelItemClick: SAME CHANNEL - checking if should zoom
+console.js:36 channelItemClick: Not fullscreen - ZOOMING IN
+console.js:36 🔒 UI LOCKED for 800ms until: 1767360917536
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN START
+console.js:36   transitioning_to_fullscreen: true
+console.js:36   full_screen_video (before): true
+console.js:36   focused_part (before): full_screen
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM IN: Updated flags IMMEDIATELY
+console.js:36   focused_part (after): full_screen
+console.js:36   full_screen_video (after): true
+console.js:36   full_screen_state: 1
+console.js:36 zoomInOut() ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state: 1
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 ╔════════════════════════════════════════════════════════╗
+console.js:36 ║ Showing fullscreen info bar
+console.js:36 ╠════════════════════════════════════════════════════════╣
+console.js:36   #full-screen-information will show with .visible class
+console.js:36   Channel name is in #full-screen-channel-name-compact
+console.js:36 ╚════════════════════════════════════════════════════════╝
+console.js:36 zoomInOut() ZOOM IN: Cleared transitioning flag
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 setDisplayArea: 0 0 1920 1080
+console.js:36 Entering setDisplayRect
+console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+console.js:36 ┃ KEY PRESS: OK/ENTER
+console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+console.js:36   State Snapshot:
+console.js:36     focused_part: full_screen
+console.js:36     full_screen_video: true
+console.js:36     transitioning_to_fullscreen: false
+console.js:36     media_player.full_screen_state: 1
+console.js:36     current_channel_id: 170646
+console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+console.js:36 ⏎ Calling handleMenuClick()
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick START
+console.js:36   focused_part: full_screen
+console.js:36   transitioning_to_fullscreen: false
+console.js:36   full_screen_video: true
+console.js:36 ═══════════════════════════════════════════════════════
+console.js:36 handleMenuClick: Branch → full_screen
+console.js:36 handleMenuClick: ⬅ Exiting fullscreen - calling zoomInOut()
+console.js:36 ========================================
+console.js:36 zoomInOut() ZOOM OUT - set full_screen_state to 0
+console.js:36 full_screen_video: false
+console.js:36 focused_part: channel_selection
+console.js:36 transitioning_to_fullscreen: CLEARED
+console.js:36 ========================================
+console.js:36 🔒 UI LOCKED for 400ms until: 1767360919141
+console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
+console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
+console.js:36 setDisplayArea: 0 804.234375 1119 629
+console.js:36 Entering setDisplayRect
+console.js:36 Hiding fullscreen info bar after 5 seconds
