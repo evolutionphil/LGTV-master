@@ -291,22 +291,34 @@ function initPlayer() {
                 // This is used when returning from fullscreen to prevent race conditions
                 var useFullscreen = (that.full_screen_state === 1) && !forcePreview;
                 
-                debugLog('setDisplayArea() called - full_screen_state:', this.full_screen_state, 'forcePreview:', forcePreview, 'useFullscreen:', useFullscreen);
+                console.log('┌─────────────────────────────────────────────┐');
+                console.log('│ setDisplayArea() CALLED');
+                console.log('├─────────────────────────────────────────────┤');
+                console.log('  full_screen_state:', this.full_screen_state);
+                console.log('  forcePreview:', forcePreview);
+                console.log('  useFullscreen:', useFullscreen);
+                console.log('  avplayBase:', avplayBaseWidth + 'x' + avplayBaseHeight);
                 
                 // Use requestAnimationFrame to wait for CSS to apply
                 requestAnimationFrame(function() {
                     if (useFullscreen) {
-                        debugLog('setDisplayArea: FULLSCREEN mode - rect:', 0, 0, avplayBaseWidth, avplayBaseHeight);
+                        console.log('  MODE: FULLSCREEN');
+                        console.log('  rect: 0,0 ' + avplayBaseWidth + 'x' + avplayBaseHeight);
+                        console.log('└─────────────────────────────────────────────┘');
                         try {
                             // CRITICAL: Force fullscreen display mode
                             webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                            console.log('  ✓ setDisplayMethod OK');
                         } catch (e) {
+                            console.log('  ✗ setDisplayMethod ERROR:', e.message || e);
                         }
                         
                         try {
                             // Use detected resolution (works on 1080p, 4K, 8K)
                             webapis.avplay.setDisplayRect(0, 0, avplayBaseWidth, avplayBaseHeight);
+                            console.log('  ✓ setDisplayRect OK');
                         } catch (e) {
+                            console.log('  ✗ setDisplayRect ERROR:', e.message || e);
                         }
                     } else {
                         // PREVIEW MODE: Different display modes for different TV resolutions
@@ -329,16 +341,25 @@ function initPlayer() {
                         var isUHD = avplayBaseHeight > 1080;
                         var displayMode = isUHD ? 'PLAYER_DISPLAY_MODE_LETTER_BOX' : 'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO';
                         
-                        debugLog('setDisplayArea: PREVIEW mode - resolution:', avplayBaseWidth + 'x' + avplayBaseHeight, 'isUHD:', isUHD, 'displayMode:', displayMode);
-                        debugLog('setDisplayArea: rect:', scaledLeft, scaledTop, scaledWidth, scaledHeight, 'ratioX:', ratioX.toFixed(2), 'ratioY:', ratioY.toFixed(2));
+                        console.log('  MODE: PREVIEW');
+                        console.log('  videoObj offset:', left_position + ',' + top_position);
+                        console.log('  videoObj size:', width + 'x' + height);
+                        console.log('  ratio:', ratioX.toFixed(2) + 'x' + ratioY.toFixed(2));
+                        console.log('  scaled rect:', scaledLeft + ',' + scaledTop + ' ' + scaledWidth + 'x' + scaledHeight);
+                        console.log('  isUHD:', isUHD, 'displayMode:', displayMode);
+                        console.log('└─────────────────────────────────────────────┘');
                         
                         try {
                             webapis.avplay.setDisplayMethod(displayMode);
+                            console.log('  ✓ setDisplayMethod OK');
                         } catch (e) {
+                            console.log('  ✗ setDisplayMethod ERROR:', e.message || e);
                         }
                         try {
                             webapis.avplay.setDisplayRect(scaledLeft, scaledTop, scaledWidth, scaledHeight);
+                            console.log('  ✓ setDisplayRect OK');
                         } catch (e) {
+                            console.log('  ✗ setDisplayRect ERROR:', e.message || e);
                         }
                     }
                     
