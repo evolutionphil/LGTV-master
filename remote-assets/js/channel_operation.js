@@ -573,12 +573,10 @@ var channel_page={
             },5000)
             this.keys.focused_part="full_screen";
         }
-        setTimeout(function () {
-            try{
-                media_player.setDisplayArea();
-            }catch (e) {
-            }
-        },250)
+        try{
+            media_player.setDisplayArea();
+        }catch (e) {
+        }
     },
     showLiveChannelMovie:function(movie_id){
         var url
@@ -592,13 +590,6 @@ var channel_page={
         }
         try{
             media_player.init("channel-page-video","channel-page");
-            setTimeout(function(){
-                try{
-                    media_player.setDisplayArea();
-                }catch(e){
-                    console.log(e);
-                }
-            }, 250);
         }catch (e) {
             console.log(e);
         }
