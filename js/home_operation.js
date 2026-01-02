@@ -24,7 +24,9 @@ var home_page={
         lock_account_selection:0,
         clear_cache_selection:0,
         featured_setting_selection:0,
-        epg_setting_selection:0
+        epg_setting_selection:0,
+        subtitle_settings_section:0,
+        subtitle_settings_item:0
     },
     submenu_opened:false,
 
@@ -67,12 +69,24 @@ var home_page={
     init:function(){
         this.slider_items=[];
         $('#app').show();
+        
+        // Initialize subtitle settings event handlers and apply current styles
+        this.initSubtitleEventHandlers();
+        this.applySubtitleStyles();
+        
+        // Display MAC address at the top of home page
+        if(typeof mac_address !== 'undefined' && mac_address) {
+            $('#bottom-right-mac-address').text(mac_address);
+        }
         var  htmlContents="";
         var live_favourite_movie=LiveModel.getRecentOrFavouriteMovies('favourite');
         live_favourite_movie.map(function(movie, index){
             htmlContents+=home_page.makeSliderMovieItemElement(movie,'live',0, index)
         })
         $('#favourite_tv_wrapper').html(htmlContents);
+
+        // Clean up invalid favorites
+        VodModel.pruneInvalidFavorites();
 
         var vod_featured_movies=[];
         if(settings.show_featured_movies==='on')
@@ -106,13 +120,7 @@ var home_page={
         });
         try{
             media_player.init("home-page-video-preview",'home-page');
-            setTimeout(function(){
-                try{
-                    media_player.setDisplayArea();
-                }catch(e){
-                    console.log(e);
-                }
-            }, 250);
+            media_player.setDisplayArea();
         }catch (e) {
         }
         if(first_play_video!==''){
@@ -240,7 +248,6 @@ var home_page={
             if(this.preview_url){
                 media_player.init("home-page-video-preview",'home-page');
                 setTimeout(function () {
-                    if(current_route !== "home-page") return;
                     try{
                         media_player.setDisplayArea();
                     }catch (e) {
@@ -285,22 +292,22 @@ var home_page={
         }
         var channel_class=movie_type=='live' ? ' channel' : '';
         
-        // Show NEW badge on first 10 featured movies (they're already sorted by "added")
-        var show_new_badge = (movie_type === 'movie' && grid_index < 10);
+        // Featured movies are latest movies, so show NEW badge for featured movies
+        var is_featured_new = (movie_type === 'movie' && slider_index === 1);
         
         var htmlContent=
             '<div class="movie-item-container">\
-                <div class="movie-item-wrapper '+channel_class+' position-relative"\
+                <div class="movie-item-wrapper '+channel_class+'"\
                     data-movie_type="'+movie_type+'"\
                     data-stream_id="'+movie.stream_id+'" data-extension="'+extension+'"\
                     data-slider_index="'+slider_index+'"\
                     data-slider_item_index="'+grid_index+'"\
                     onmouseenter="home_page.changeMovieGridItem(this)"\
                     onclick="home_page.showPreviewVideo(this)"\
-                >'+
-                (show_new_badge ? '<div class="new-badge">NEW</div>' : '')+
-                    '<div class="movie-item-thumbernail">\
-                        <div class="movie-item-thumbernail-img-wrapper">\
+                >\
+                    <div class="movie-item-thumbernail">\
+                        <div class="movie-item-thumbernail-img-wrapper position-relative">\
+                            '+(is_featured_new ? '<div class="new-badge">NEW</div>' : '')+'\
                             <img class="movie-item-thumbernail-img" src="'+movie.stream_icon+'" onerror="this.src=\''+fall_back_image+'\'"> \
                         </div> \
                         <div class="movie-thumbernail-title-wrapper">\
@@ -325,9 +332,24 @@ var home_page={
         }
         var current_render_count=this.current_render_count;
         
-        // Show NEW badge on first 10 items when sorted by "added"
-        var current_sort_key = current_movie_type==='movies' ? settings.vod_sort : settings.series_sort;
-        var show_new_badge = (current_sort_key === 'added' && (current_render_count + index) < 10);
+        // Check if we should show NEW badge for last 10 added items
+        var current_sort_key=current_movie_type==='movies' ? settings.vod_sort : settings.series_sort;
+        var is_new_item = false;
+        
+        if(current_sort_key === 'added' && this.movies && this.movies.length > 0) {
+            // Find the 10 highest "added" values from all movies  
+            var allAddedValues = this.movies.map(function(m) { 
+                return parseFloat(m.added) || 0; 
+            }).sort(function(a, b) { 
+                return b - a; 
+            }); // Sort descending to get highest values first
+            
+            var top10Threshold = allAddedValues.length >= 10 ? allAddedValues[9] : allAddedValues[allAddedValues.length - 1];
+            var currentMovieAdded = parseFloat(movie.added) || 0;
+            
+            // Item is "new" if its added value is in the top 10 highest
+            is_new_item = currentMovieAdded >= top10Threshold && currentMovieAdded > 0;
+        }
         
         var htmlContent=
             '<div class="movie-item-container">\
@@ -337,7 +359,7 @@ var home_page={
                     onclick="home_page.clickMovieGridItem(this)"\
                 >'+
                 (current_model.favourite_ids.includes(movie[id_key]) ? '<div class="favourite-badge"><i class="fa fa-star"></i></div>' : '')+
-                (show_new_badge ? '<div class="new-badge">NEW</div>' : '')+
+                (is_new_item ? '<div class="new-badge">NEW</div>' : '')+
                     '<img class="movie-grid-item-image movie-grid-item-image-'+current_render_count+'" src="'+img+'" onerror="this.src=\''+fall_back_image+'\'">\
                     <div class="movie-grid-item-title-wrapper position-relative">\
                         <p class="movie-thumbernail-title position-absolute">'+movie.name+'</p>\
@@ -386,28 +408,15 @@ var home_page={
         }
 
         var htmlContents='';
-        var hideBlocked = localStorage.getItem('hide_blocked_content') === 'true';
-        
         if(movie_type!='youtube') {
             current_movie_categories.map(function(category, index){
-                var displayCount = category.movies.length;
-                
-                // Calculate filtered count if hide_blocked_content is enabled
-                if(hideBlocked) {
-                    var contentType = movie_type === 'movies' ? 'movie' : (movie_type === 'series' ? 'series' : 'channel');
-                    var filteredMovies = category.movies.filter(function(movie) {
-                        return !isContentBlocked(movie.name, contentType);
-                    });
-                    displayCount = filteredMovies.length;
-                }
-                
                 htmlContents+=
                     '<div class="menu-item home-category-menu-item" data-category_id="'+category.category_id+'"\
                         onclick="home_page.submenuClick('+index+')"\
                         onmouseenter="home_page.hoverToSubMenu('+index+')"\
                     >\
                         <span class="menu-item-category-name">'+category.category_name+'</span>\
-                        <span class="menu-item-movies-count">'+displayCount+'</span>\
+                        <span class="menu-item-movies-count">'+category.movies.length+'</span>\
                     </div>'
             });
         }
@@ -440,31 +449,6 @@ var home_page={
     showSetting:function () {
         $('#settings-modal').modal('show');
         this.hoverSettingModal(0);
-        // Update hide blocked content indicator
-        this.updateHideBlockedIndicator();
-    },
-    toggleHideBlockedContent: function() {
-        var currentSetting = localStorage.getItem('hide_blocked_content');
-        var newSetting = currentSetting === 'true' ? 'false' : 'true';
-        localStorage.setItem('hide_blocked_content', newSetting);
-        
-        // Update indicator
-        this.updateHideBlockedIndicator();
-        
-        // Show feedback
-        var message = newSetting === 'true' ? 'Blocked content will be hidden' : 'Blocked content will be shown';
-        showToast('Hide Blocked Content', message);
-        
-        console.log('Hide blocked content:', newSetting === 'true' ? 'ON' : 'OFF');
-    },
-    updateHideBlockedIndicator: function() {
-        var isEnabled = localStorage.getItem('hide_blocked_content') === 'true';
-        var indicator = $('#hide-blocked-toggle-indicator');
-        if(isEnabled) {
-            indicator.css('color', '#4CAF50').text('ON');
-        } else {
-            indicator.css('color', '#f44336').text('OFF');
-        }
     },
     showRefreshModal:function(){
         $('#refresh-modal').modal('show');
@@ -664,14 +648,6 @@ var home_page={
         $('#user-account-modal').modal('show');
         $('input[name="lock_account"][value="'+lock+'"]').prop('checked',true);
         this.hoverLockAccountBtn(lock==0 ? 0 : 1);
-        
-        // Display app version - call global function if available with delay for Samsung
-        if (typeof window.updateFlixVersionDisplay === 'function') {
-            window.updateFlixVersionDisplay();
-            setTimeout(function() {
-                window.updateFlixVersionDisplay();
-            }, 100);
-        }
     },
     showFeaturedSetting:function () {
         $('#settings-modal').modal('hide');
@@ -753,14 +729,6 @@ var home_page={
         $('#settings-modal').modal('hide');
         $('#clear-cache-modal').modal('show');
         this.hoverCacheConfirmModal(0);
-        
-        // Show remote assets version - call global function if available with delay for Samsung
-        if (typeof window.updateFlixVersionDisplay === 'function') {
-            window.updateFlixVersionDisplay();
-            setTimeout(function() {
-                window.updateFlixVersionDisplay();
-            }, 100);
-        }
     },
     clearCache: function (){
         current_route = 'login-page';
@@ -832,12 +800,7 @@ var home_page={
         doms_translated.map(function (index, item) {
             var word_code=$(item).data('word_code');
             if(typeof current_words[word_code]!='undefined'){
-                var content = current_words[word_code];
-                if(content.includes('<br>') || content.includes('<') && content.includes('>')){
-                    $(item).html(content);
-                } else {
-                    $(item).text(content);
-                }
+                $(item).text(current_words[word_code]);
             }
         })
     },
@@ -850,6 +813,255 @@ var home_page={
             }
         }
         current_words=words;
+    },
+    
+    // Subtitle Settings Functions
+    showSubtitleSettings:function(){
+        $('#settings-modal').modal('hide');
+        $('#subtitle-settings-modal').modal('show');
+        this.initSubtitleSettings();
+        this.keys.focused_part = "subtitle_settings_modal";
+        this.keys.subtitle_settings_section = 0; // 0=size, 1=bg_color, 2=text_color, 3=buttons
+        this.keys.subtitle_settings_item = 1; // Start at "Medium" (index 1 in size section)
+        this.hoverSubtitleOptionGrid(0, 1);
+    },
+    
+    initSubtitleSettings:function(){
+        // Initialize subtitle settings with current values
+        this.current_subtitle_size = settings.subtitle_size || 'medium';
+        this.current_subtitle_bg_color = settings.subtitle_bg_color || 'black';
+        this.current_subtitle_text_color = settings.subtitle_text_color || 'white';
+        this.subtitle_option_index = 0;
+        
+        // Update UI to reflect current settings
+        this.updateSubtitleUI();
+        this.updateSubtitlePreview();
+    },
+    
+    updateSubtitleUI:function(){
+        // Update size buttons - use 'selected' for chosen options, keep 'active' for backward compatibility  
+        $('.subtitle-option-button').removeClass('active selected');
+        $('.subtitle-option-button[data-size="' + this.current_subtitle_size + '"]').addClass('active selected');
+        
+        // Update background color buttons
+        $('.subtitle-bg-color-options .subtitle-color-button').removeClass('active selected');
+        $('.subtitle-bg-color-options .subtitle-color-button[data-bg="' + this.current_subtitle_bg_color + '"]').addClass('active selected');
+        
+        // Update text color buttons
+        $('.subtitle-text-color-options .subtitle-color-button').removeClass('active selected');
+        $('.subtitle-text-color-options .subtitle-color-button[data-text="' + this.current_subtitle_text_color + '"]').addClass('active selected');
+    },
+    
+    hoverSubtitleOptionGrid:function(section, item){
+        // Handle focus styling for grid-based navigation
+        $('.subtitle-option-button, .subtitle-color-button, .subtitle-action-btn').removeClass('focused');
+        
+        var selector = '';
+        
+        if(section === 0) { // Size section
+            var sizes = ['small', 'medium', 'large', 'extra-large'];
+            selector = '.subtitle-option-button[data-size="' + sizes[item] + '"]';
+        }
+        else if(section === 1) { // Background color section
+            var bgColors = ['transparent', 'black', 'red', 'white', 'blue'];
+            selector = '.subtitle-color-button[data-bg="' + bgColors[item] + '"]';
+        }
+        else if(section === 2) { // Text color section
+            var textColors = ['white', 'black', 'yellow', 'red', 'green'];
+            selector = '.subtitle-color-button[data-text="' + textColors[item] + '"]';
+        }
+        else if(section === 3) { // Buttons section
+            var actions = ['save', 'cancel'];
+            selector = '.subtitle-action-btn[data-action="' + actions[item] + '"]';
+        }
+        
+        if(selector) {
+            $(selector).addClass('focused');
+        }
+    },
+    
+    // Keep old function for backward compatibility but update to use new grid system
+    hoverSubtitleOption:function(index){
+        // Convert linear index to grid coordinates for compatibility
+        var section = 0, item = 0;
+        if(index <= 3) { // Size section
+            section = 0; item = index;
+        } else if(index <= 8) { // Background section  
+            section = 1; item = index - 4;
+        } else if(index <= 13) { // Text section
+            section = 2; item = index - 9;
+        } else { // Buttons section
+            section = 3; item = index - 14;
+        }
+        this.hoverSubtitleOptionGrid(section, item);
+    },
+    
+    handleSubtitleSettingsGridClick:function(){
+        var section = this.keys.subtitle_settings_section;
+        var item = this.keys.subtitle_settings_item;
+        
+        if(section === 0) { // Size options
+            var sizes = ['small', 'medium', 'large', 'extra-large'];
+            this.changeSubtitleSize(sizes[item]);
+        }
+        else if(section === 1) { // Background colors
+            var bgColors = ['transparent', 'black', 'red', 'white', 'blue'];
+            this.changeSubtitleBgColor(bgColors[item]);
+        }
+        else if(section === 2) { // Text colors
+            var textColors = ['white', 'black', 'yellow', 'red', 'green'];
+            this.changeSubtitleTextColor(textColors[item]);
+        }
+        else if(section === 3) { // Action buttons
+            if(item === 0) { // Save button
+                this.saveSubtitleSettings();
+            } else if(item === 1) { // Cancel button
+                this.cancelSubtitleSettings();
+            }
+        }
+    },
+    
+    // Keep old function for backward compatibility
+    handleSubtitleSettingsClick:function(){
+        this.handleSubtitleSettingsGridClick();
+    },
+    
+    changeSubtitleSize:function(size){
+        this.current_subtitle_size = size;
+        this.updateSubtitleUI();
+        this.updateSubtitlePreview();
+    },
+    
+    changeSubtitleBgColor:function(color){
+        this.current_subtitle_bg_color = color;
+        this.updateSubtitleUI();
+        this.updateSubtitlePreview();
+    },
+    
+    changeSubtitleTextColor:function(color){
+        this.current_subtitle_text_color = color;
+        this.updateSubtitleUI();
+        this.updateSubtitlePreview();
+    },
+    
+    updateSubtitlePreview:function(){
+        var preview = $('.subtitle-preview-text');
+        var size = this.getSizeValue(this.current_subtitle_size);
+        var bgColor = this.getBackgroundValue(this.current_subtitle_bg_color);
+        var textColor = this.getTextColorValue(this.current_subtitle_text_color);
+        
+        // Update preview element directly
+        preview.css({
+            'font-size': size,
+            'background': bgColor,
+            'color': textColor,
+            'text-shadow': this.getOutlineValue(this.current_subtitle_text_color)
+        });
+    },
+    
+    getSizeValue:function(size){
+        var sizes = {
+            'small': '18px',
+            'medium': '24px', 
+            'large': '32px',
+            'extra-large': '40px'
+        };
+        return sizes[size] || '24px';
+    },
+    
+    getBackgroundValue:function(color){
+        var backgrounds = {
+            'transparent': 'transparent',
+            'black': 'rgba(0, 0, 0, 0.8)',
+            'red': 'rgba(255, 0, 0, 0.8)',
+            'white': 'rgba(255, 255, 255, 0.8)',
+            'blue': 'rgba(0, 0, 255, 0.8)'
+        };
+        return backgrounds[color] || 'rgba(0, 0, 0, 0.8)';
+    },
+    
+    getTextColorValue:function(color){
+        var colors = {
+            'white': '#ffffff',
+            'black': '#000000',
+            'yellow': '#ffff00',
+            'red': '#ff0000',
+            'green': '#00ff00'
+        };
+        return colors[color] || '#ffffff';
+    },
+    
+    getOutlineValue:function(textColor){
+        // Provide contrast outline based on text color
+        if(textColor === 'white' || textColor === 'yellow') {
+            return '1px 1px 2px rgba(0, 0, 0, 0.8)';
+        } else {
+            return '1px 1px 2px rgba(255, 255, 255, 0.8)';
+        }
+    },
+    
+    saveSubtitleSettings:function(){
+        // Save all subtitle settings to localStorage
+        settings.saveSettings('subtitle_size', this.current_subtitle_size);
+        settings.saveSettings('subtitle_bg_color', this.current_subtitle_bg_color);
+        settings.saveSettings('subtitle_text_color', this.current_subtitle_text_color);
+        
+        // Apply to global subtitle system
+        this.applySubtitleStyles();
+        
+        $('#subtitle-settings-modal').modal('hide');
+        this.keys.focused_part = "menu_selection";
+    },
+    
+    cancelSubtitleSettings:function(){
+        $('#subtitle-settings-modal').modal('hide');
+        this.keys.focused_part = "menu_selection";
+    },
+    
+    applySubtitleStyles:function(){
+        // Update CSS custom properties for global subtitle styling
+        var size = this.getSizeValue(settings.subtitle_size || 'medium');
+        var bgColor = this.getBackgroundValue(settings.subtitle_bg_color || 'black');
+        var textColor = this.getTextColorValue(settings.subtitle_text_color || 'white');
+        var outline = this.getOutlineValue(settings.subtitle_text_color || 'white');
+        
+        document.documentElement.style.setProperty('--subtitle-size', size);
+        document.documentElement.style.setProperty('--subtitle-bg', bgColor);
+        document.documentElement.style.setProperty('--subtitle-color', textColor);
+        document.documentElement.style.setProperty('--subtitle-outline', outline);
+    },
+    
+    // Add event handlers for subtitle settings modal after DOM is ready
+    initSubtitleEventHandlers:function(){
+        var that = this;
+        
+        // Size button handlers
+        $('.subtitle-option-button').off('click').on('click', function(e){
+            var size = $(this).data('size');
+            that.changeSubtitleSize(size);
+        });
+        
+        // Background color button handlers  
+        $('.subtitle-bg-color-options .subtitle-color-button').off('click').on('click', function(e){
+            var bgColor = $(this).data('bg');
+            that.changeSubtitleBgColor(bgColor);
+        });
+        
+        // Text color button handlers
+        $('.subtitle-text-color-options .subtitle-color-button').off('click').on('click', function(e){
+            var textColor = $(this).data('text');
+            that.changeSubtitleTextColor(textColor);
+        });
+        
+        // Action button handlers
+        $('.subtitle-action-btn').off('click').on('click', function(e){
+            var action = $(this).data('action');
+            if(action === 'save') {
+                that.saveSubtitleSettings();
+            } else if(action === 'cancel') {
+                that.cancelSubtitleSettings();
+            }
+        });
     },
     goToMainPage:function(){
         $(this.slider_items[0]).removeClass('active');
@@ -905,39 +1117,48 @@ var home_page={
         var keys=this.keys;
         var current_sort_key=current_movie_type==='movies' ? 'vod_sort' : 'series_sort';
         $('#sort-modal-container').hide();
-        if(settings[current_sort_key]!=key){
-            settings.saveSettings(current_sort_key,key,'');
-            
-            // Sort the already loaded movies array (don't rebuild from categories)
-            this.movies=getSortedMovies(this.movies,key)
-            
-            // Re-apply blocked content filter if hide_blocked_content is enabled
-            var hideBlocked = localStorage.getItem('hide_blocked_content') === 'true';
-            if(hideBlocked) {
-                var contentType = current_movie_type === 'movies' ? 'movie' : 'series';
-                this.movies = this.movies.filter(function(movie) {
-                    return !isContentBlocked(movie.name, contentType);
-                });
-            }
-            
-            $('#movie-grids-container').html('');
-            this.current_render_count=0;
-            
-            if(this.movies.length>0){
-                this.renderCategoryContent();
-                keys.focused_part="grid_selection";
-                keys.grid_selection=0;
-                $('#sort-button-container').removeClass('active');
-            } else {
-                // Show empty state when all content is blocked
-                var contentType = current_movie_type === 'movies' ? 'movies' : 'series';
-                var emptyMessage = 'No ' + contentType + ' available in this category';
-                $('#movie-grids-container').html('<div class="empty-movie-text">' + emptyMessage + '</div>');
-                console.log('⚠️ No ' + contentType + ' available after filtering');
-            }
-            $('#sort-button').text($(this.sort_selection_doms[keys.sort_selection]).text());
-            $('#movie-grids-container').scrollTop(0);
-        }else{
+        var category=current_movie_categories[keys.submenu_selection];
+        
+        
+        // Always save the new sort preference
+        settings.saveSettings(current_sort_key, key, '');
+        
+        // Get movies to sort based on category
+        var movies = [];
+        if(category.category_id === 'all'){
+            // "All" category: get all movies from non-adult categories
+            current_movie_categories.map(function(item) {
+                if(item.category_id !== 'all' && !checkForAdult(item, 'category', [])) {
+                    movies = movies.concat(item.movies);
+                }
+            });
+        } else {
+            // Regular category: use category movies
+            movies = current_category.movies;
+        }
+        
+        // Apply sorting
+        this.movies = getSortedMovies(movies, key);
+        console.log('✅ Applied sort "' + key + '" to ' + this.movies.length + ' movies');
+        
+        // Refresh the content display
+        $('#movie-grids-container').html('');
+        this.current_render_count = 0;
+        this.renderCategoryContent();
+        
+        // Update UI state
+        if(this.movies.length > 0){
+            keys.focused_part = "grid_selection";
+            keys.grid_selection = 0;
+            $('#sort-button-container').removeClass('active');
+        }
+        
+        // Update sort button text
+        $('#sort-button').text($(this.sort_selection_doms[keys.sort_selection]).text());
+        $('#movie-grids-container').scrollTop(0);
+        
+        // Focus on first movie if available
+        if(this.movie_grid_doms && this.movie_grid_doms.length > 0) {
             this.hoverMovieGridItem(this.movie_grid_doms[0]);
         }
     },
@@ -982,17 +1203,6 @@ var home_page={
                 $(this.submenu_items[0]).find('.menu-item-movies-count').text(movies.length);
             }
             this.movies=getSortedMovies(movies, current_sort_key);
-            
-            // Filter blocked content if hide_blocked_content is enabled
-            var hideBlocked = localStorage.getItem('hide_blocked_content') === 'true';
-            if(hideBlocked) {
-                var contentType = current_movie_type === 'movies' ? 'movie' : 'series';
-                this.movies = this.movies.filter(function(movie) {
-                    return !isContentBlocked(movie.name, contentType);
-                });
-                console.log('🔒 Filtered blocked ' + contentType + ', remaining:', this.movies.length);
-            }
-            
             if(this.movies.length>0){
                 this.renderCategoryContent();
                 $('#movie-grids-container').scrollTop(0);
@@ -1001,12 +1211,6 @@ var home_page={
                 // keys.grid_selection=0;
                 // var movie_grids=$('#movie-grids-container .movie-item-wrapper');
                 // $(movie_grids[0]).addClass('active');
-            } else {
-                // Show empty state when all content is blocked
-                var contentType = current_movie_type === 'movies' ? 'movies' : 'series';
-                var emptyMessage = 'No ' + contentType + ' available in this category';
-                $('#movie-grids-container').html('<div class="empty-movie-text">' + emptyMessage + '</div>');
-                console.log('⚠️ No ' + contentType + ' available after filtering');
             }
             this.sort_selection_doms.map(function (index, item) {
                 var sort_key=$(item).data('sort_key');
@@ -1141,39 +1345,17 @@ var home_page={
         storage_page.init();
     },
     updateRecentFavouriteMoviesCount: function () {
-        var hideBlocked = localStorage.getItem('hide_blocked_content') === 'true';
-        var contentType = current_movie_type === 'movies' ? 'movie' : (current_movie_type === 'series' ? 'series' : 'channel');
-        
         var favourite_category_index=1, recent_category_index=current_movie_categories.length-1;
         if(current_movie_type==='live-tv')
             favourite_category_index=0;
-        
         var favourite_count=current_movie_categories[favourite_category_index].movies.length;
         var recent_count=current_movie_categories[recent_category_index].movies.length;
-        
-        // Apply filtering if hide_blocked_content is enabled
-        if(hideBlocked) {
-            favourite_count = current_movie_categories[favourite_category_index].movies.filter(function(movie) {
-                return !isContentBlocked(movie.name, contentType);
-            }).length;
-            recent_count = current_movie_categories[recent_category_index].movies.filter(function(movie) {
-                return !isContentBlocked(movie.name, contentType);
-            }).length;
-        }
-        
         $(this.submenu_items[favourite_category_index]).find('.menu-item-movies-count').text(favourite_count);
         $(this.submenu_items[recent_category_index]).find('.menu-item-movies-count').text(recent_count);
-        
         if(current_movie_type==='movies' || current_movie_type==='series') {
             for(var i=0;i<2;i++) {
                 if(current_movie_categories[i].category_id==='resume') {
-                    var resume_count = current_movie_categories[i].movies.length;
-                    if(hideBlocked) {
-                        resume_count = current_movie_categories[i].movies.filter(function(movie) {
-                            return !isContentBlocked(movie.name, contentType);
-                        }).length;
-                    }
-                    $(this.submenu_items[i]).find('.menu-item-movies-count').text(resume_count);
+                    $(this.submenu_items[i]).find('.menu-item-movies-count').text(current_movie_categories[i].movies.length);
                     break;
                 }
             }
@@ -1485,13 +1667,7 @@ var home_page={
             }
             try{
                 media_player.init("home-page-video-preview",'home-page');
-                setTimeout(function(){
-                    try{
-                        media_player.setDisplayArea();
-                    }catch(e){
-                        console.log(e);
-                    }
-                }, 250);
+                media_player.setDisplayArea();
             }catch (e) {
             }
             try{
@@ -1526,16 +1702,10 @@ var home_page={
                 current_model.removeRecentOrFavouriteMovie(movie[movie_key], 'favourite');
                 if(current_category.category_id==='favourite'){
                     $(domElement).remove();
-                    this.movies.splice(keys.grid_selection, 1);
                     var grid_doms=$('#movie-grids-container .movie-item-wrapper');
-                    grid_doms.each(function(index, item) {
-                        $(item).data('index', index);
-                    });
-                    this.movie_grid_doms = grid_doms;
                     if(grid_doms.length==0){
                         keys.focused_part="search_back_selection";
                         keys.search_back_selection=1;
-                        keys.grid_selection = -1;
                         $('#search-button-wrapper').addClass('active');
                     }else{
                         if(keys.grid_selection>=grid_doms.length)
@@ -1738,6 +1908,28 @@ var home_page={
                 if(keys.hide_category_modal==item_length)
                     $(hide_category_btns[0]).addClass('active');
             }
+        }
+        else if(keys.focused_part==="subtitle_settings_modal"){
+            // UP/DOWN moves between sections
+            keys.subtitle_settings_section += increment;
+            if(keys.subtitle_settings_section < 0)
+                keys.subtitle_settings_section = 3; // Wrap to buttons section
+            if(keys.subtitle_settings_section > 3)
+                keys.subtitle_settings_section = 0; // Wrap to size section
+            
+            // Adjust item index if current item doesn't exist in new section
+            var sectionSizes = [4, 5, 5, 2]; // Size, BG, Text, Buttons
+            var maxItems = sectionSizes[keys.subtitle_settings_section];
+            if(keys.subtitle_settings_item >= maxItems) {
+                keys.subtitle_settings_item = maxItems - 1;
+            }
+            
+            // Set initial focus to Save button (index 0) when entering buttons section
+            if(keys.subtitle_settings_section === 3) {
+                keys.subtitle_settings_item = 0; // Focus on Save button (Speichern)
+            }
+            
+            this.hoverSubtitleOptionGrid(keys.subtitle_settings_section, keys.subtitle_settings_item);
         }
         else if(keys.focused_part==="parent_confirm_modal"){
             if(keys.parent_confirm_modal<=1 || (keys.parent_confirm_modal>1 && increment<0)){
@@ -1971,6 +2163,19 @@ var home_page={
                 keys.clear_cache_selection=increment>0 ? 1 : 0;
                 this.hoverCacheConfirmModal(keys.clear_cache_selection);
                 break;
+            case "subtitle_settings_modal":
+                // LEFT/RIGHT moves within current section
+                keys.subtitle_settings_item += increment;
+                var sectionSizes = [4, 5, 5, 2]; // Size, BG, Text, Buttons
+                var maxItems = sectionSizes[keys.subtitle_settings_section];
+                
+                if(keys.subtitle_settings_item < 0)
+                    keys.subtitle_settings_item = maxItems - 1; // Wrap to end
+                if(keys.subtitle_settings_item >= maxItems)
+                    keys.subtitle_settings_item = 0; // Wrap to beginning
+                
+                this.hoverSubtitleOptionGrid(keys.subtitle_settings_section, keys.subtitle_settings_item);
+                break;
         }
     },
     handleMenuClick:function(){
@@ -2030,6 +2235,9 @@ var home_page={
                 else{
                     $($(hide_category_btns[keys.hide_category_modal-item_length]).find('button')[0]).trigger('click');
                 }
+                break;
+            case "subtitle_settings_modal":
+                this.handleSubtitleSettingsGridClick();
                 break;
             case "parent_confirm_modal":
                 if(keys.parent_confirm_modal==0){
@@ -2099,7 +2307,11 @@ var home_page={
                     this.moveToOtherCategory();
                     break;
                 case tvKey.RETURN:
-                    this.goBack();
+                    if(this.keys.focused_part === "subtitle_settings_modal") {
+                        this.cancelSubtitleSettings();
+                    } else {
+                        this.goBack();
+                    }
             }
         }
     }

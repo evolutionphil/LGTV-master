@@ -57,6 +57,7 @@ function initPlayer() {
                 try{
                     webapis.avplay.open(url);
                     this.setupEventListeners();
+                    this.setDisplayArea();
                     // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_BYTE", 1000); // 5 is in seconds
                     // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_SECOND", 4); // 5 is in seconds
 
@@ -186,43 +187,6 @@ function initPlayer() {
                     that.playAsync(that.url);
                 }, 4000)
             },
-            waitForDisplayRect:function(callback, maxWait) {
-                var that = this;
-                var startTime = Date.now();
-                var maxTimeout = maxWait || 120;
-                var lastWidth = 0;
-                var lastHeight = 0;
-                var stableCount = 0;
-                
-                function checkGeometry() {
-                    var offset = $(that.videoObj).offset();
-                    var width = parseInt($(that.videoObj).width());
-                    var height = parseInt($(that.videoObj).height());
-                    
-                    if (width > 0 && height > 0 && offset && (offset.left > 0 || offset.top > 0)) {
-                        if (width === lastWidth && height === lastHeight) {
-                            stableCount++;
-                        } else {
-                            stableCount = 0;
-                        }
-                        lastWidth = width;
-                        lastHeight = height;
-                        
-                        if (stableCount >= 2) {
-                            if (callback) callback();
-                            return;
-                        }
-                    }
-                    
-                    if (Date.now() - startTime < maxTimeout) {
-                        setTimeout(checkGeometry, 16);
-                    } else {
-                        if (callback) callback();
-                    }
-                }
-                
-                setTimeout(checkGeometry, 16);
-            },
             setDisplayArea:function() {
                 var top_position=$(this.videoObj).offset().top;
                 var left_position=$(this.videoObj).offset().left;
@@ -292,6 +256,10 @@ function initPlayer() {
                     },
                     onbufferingcomplete: function() {
                         $('#'+that.parent_id).find('.video-loader').hide();
+                        // Reapply display area after buffering for proper sizing
+                        setTimeout(function() {
+                            that.setDisplayArea();
+                        }, 100);
                         // console.log('Buffering Complete, Can play now!');
                         // console.log("Buffereing complete time "+(new Date()).getTime()/1000)
                     },
