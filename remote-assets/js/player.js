@@ -281,115 +281,14 @@ function initPlayer() {
                     that.playAsync(that.url);
                 }, 4000)
             },
-            setDisplayArea:function(forcePreview, retryCount) {
-                var that = this;
-                retryCount = retryCount || 0;
-                var maxRetries = 5;
-                
-                var capabilities = this.detectTVCapabilities();
-                var avplayBaseWidth = capabilities.resolution.width;
-                var avplayBaseHeight = capabilities.resolution.height;
-                
-                // forcePreview=true forces preview mode regardless of full_screen_state
-                var useFullscreen = (that.full_screen_state === 1) && !forcePreview;
-                
-                console.log('┌─────────────────────────────────────────────┐');
-                console.log('│ setDisplayArea() CALLED (retry:', retryCount + ')');
-                console.log('├─────────────────────────────────────────────┤');
-                console.log('  full_screen_state:', this.full_screen_state);
-                console.log('  forcePreview:', forcePreview);
-                console.log('  useFullscreen:', useFullscreen);
-                console.log('  avplayBase:', avplayBaseWidth + 'x' + avplayBaseHeight);
-                
-                // Use requestAnimationFrame to wait for CSS to apply
-                requestAnimationFrame(function() {
-                    if (useFullscreen) {
-                        console.log('  MODE: FULLSCREEN');
-                        console.log('  rect: 0,0 ' + avplayBaseWidth + 'x' + avplayBaseHeight);
-                        console.log('└─────────────────────────────────────────────┘');
-                        try {
-                            webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
-                            console.log('  ✓ setDisplayMethod OK');
-                        } catch (e) {
-                            console.log('  ✗ setDisplayMethod ERROR:', e.message || e);
-                        }
-                        
-                        try {
-                            webapis.avplay.setDisplayRect(0, 0, avplayBaseWidth, avplayBaseHeight);
-                            console.log('  ✓ setDisplayRect OK');
-                        } catch (e) {
-                            console.log('  ✗ setDisplayRect ERROR:', e.message || e);
-                        }
-                    } else {
-                        // PREVIEW MODE
-                        var top_position=$(that.videoObj).offset().top;
-                        var left_position=$(that.videoObj).offset().left;
-                        var width=parseInt($(that.videoObj).width());
-                        var height=parseInt($(that.videoObj).height());
-                        
-                        // GEOMETRY VALIDATION: Check if DOM is ready
-                        // Preview container should be on the right side (offset > 100px)
-                        // If offset is 0,0 - DOM hasn't repositioned yet, wait and retry
-                        var isValidGeometry = (left_position > 100 || top_position > 50) && width > 0 && height > 0;
-                        
-                        console.log('  MODE: PREVIEW');
-                        console.log('  videoObj offset:', left_position + ',' + top_position);
-                        console.log('  videoObj size:', width + 'x' + height);
-                        console.log('  isValidGeometry:', isValidGeometry);
-                        
-                        if (!isValidGeometry && retryCount < maxRetries) {
-                            console.log('  ⚠️ INVALID GEOMETRY - DOM not ready, retry in 100ms (attempt ' + (retryCount + 1) + '/' + maxRetries + ')');
-                            console.log('└─────────────────────────────────────────────┘');
-                            setTimeout(function() {
-                                if (that.full_screen_state === 0) {
-                                    that.setDisplayArea(forcePreview, retryCount + 1);
-                                }
-                            }, 100);
-                            return;
-                        }
-                        
-                        var ratioX = avplayBaseWidth / window.document.documentElement.clientWidth;
-                        var ratioY = avplayBaseHeight / window.document.documentElement.clientHeight;
-                        
-                        var scaledLeft = Math.round(left_position * ratioX);
-                        var scaledTop = Math.round(top_position * ratioY);
-                        var scaledWidth = Math.round(width * ratioX);
-                        var scaledHeight = Math.round(height * ratioY);
-                        
-                        var isUHD = avplayBaseHeight > 1080;
-                        var displayMode = isUHD ? 'PLAYER_DISPLAY_MODE_LETTER_BOX' : 'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO';
-                        
-                        console.log('  ratio:', ratioX.toFixed(2) + 'x' + ratioY.toFixed(2));
-                        console.log('  scaled rect:', scaledLeft + ',' + scaledTop + ' ' + scaledWidth + 'x' + scaledHeight);
-                        console.log('  isUHD:', isUHD, 'displayMode:', displayMode);
-                        console.log('└─────────────────────────────────────────────┘');
-                        
-                        try {
-                            webapis.avplay.setDisplayMethod(displayMode);
-                            console.log('  ✓ setDisplayMethod OK');
-                        } catch (e) {
-                            console.log('  ✗ setDisplayMethod ERROR:', e.message || e);
-                        }
-                        try {
-                            webapis.avplay.setDisplayRect(scaledLeft, scaledTop, scaledWidth, scaledHeight);
-                            console.log('  ✓ setDisplayRect OK');
-                        } catch (e) {
-                            console.log('  ✗ setDisplayRect ERROR:', e.message || e);
-                        }
-                        
-                        // One more retry after 100ms for stubborn firmware
-                        setTimeout(function() {
-                            if (that.full_screen_state === 0) {
-                                try {
-                                    webapis.avplay.setDisplayRect(scaledLeft, scaledTop, scaledWidth, scaledHeight);
-                                    console.log('  ✓ setDisplayRect FINAL RETRY OK');
-                                } catch (e) {}
-                            }
-                        }, 100);
-                    }
-                    
-                    channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
-                });
+            setDisplayArea:function() {
+                var top_position=$(this.videoObj).offset().top;
+                var left_position=$(this.videoObj).offset().left;
+                var width=parseInt($(this.videoObj).width());
+                var height=parseInt($(this.videoObj).height());
+                console.log('setDisplayArea:', top_position, left_position, width, height);
+                webapis.avplay.setDisplayRect(left_position, top_position, width, height);
+                channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
             },
             toggleScreenRatio:function(){
                 try{
