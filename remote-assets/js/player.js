@@ -321,8 +321,7 @@ function initPlayer() {
                             console.log('  ✗ setDisplayRect ERROR:', e.message || e);
                         }
                     } else {
-                        // PREVIEW MODE: Always use LETTER_BOX
-                        // AUTO_ASPECT_RATIO can ignore setDisplayRect on some Samsung firmware
+                        // PREVIEW MODE: Use AUTO_ASPECT_RATIO for 1080p, LETTER_BOX for UHD
                         var top_position=$(that.videoObj).offset().top;
                         var left_position=$(that.videoObj).offset().left;
                         var width=parseInt($(that.videoObj).width())
@@ -336,15 +335,16 @@ function initPlayer() {
                     var scaledWidth = Math.round(width * ratioX);
                     var scaledHeight = Math.round(height * ratioY);
                     
-                        // FIX: Always use LETTER_BOX - AUTO_ASPECT_RATIO ignores rect on some TVs
-                        var displayMode = 'PLAYER_DISPLAY_MODE_LETTER_BOX';
+                        // Original logic: AUTO for 1080p (works on most TVs), LETTER_BOX for UHD
+                        var isUHD = avplayBaseHeight > 1080;
+                        var displayMode = isUHD ? 'PLAYER_DISPLAY_MODE_LETTER_BOX' : 'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO';
                         
                         console.log('  MODE: PREVIEW');
                         console.log('  videoObj offset:', left_position + ',' + top_position);
                         console.log('  videoObj size:', width + 'x' + height);
                         console.log('  ratio:', ratioX.toFixed(2) + 'x' + ratioY.toFixed(2));
                         console.log('  scaled rect:', scaledLeft + ',' + scaledTop + ' ' + scaledWidth + 'x' + scaledHeight);
-                        console.log('  displayMode:', displayMode);
+                        console.log('  isUHD:', isUHD, 'displayMode:', displayMode);
                         console.log('└─────────────────────────────────────────────┘');
                         
                         try {
@@ -360,7 +360,7 @@ function initPlayer() {
                             console.log('  ✗ setDisplayRect ERROR:', e.message || e);
                         }
                         
-                        // FIX: Retry after 100ms to handle InvalidStateError race condition
+                        // Retry after 100ms - handles InvalidStateError race condition
                         // Some TVs reject first rect change while player is preparing
                         setTimeout(function() {
                             if (that.full_screen_state === 0) {
