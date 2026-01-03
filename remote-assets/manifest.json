@@ -1,8 +1,8 @@
 {
   "version": "1.4.0",
-  "lastUpdate": "2026-01-03T19:14:50.080Z",
+  "lastUpdate": "2026-01-03T20:06:29.568Z",
   "killSwitch": false,
-  "forceRefresh": true,
+  "forceRefresh": false,
   "cacheGeneration": 30,
   "maxAgeHours": 24,
   "baseUrl": "https://flixapp.pages.dev/",
@@ -28,9 +28,9 @@
       "priority": 1
     },
     "css/vod_series_summary.css": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "size": 32874,
-      "hash": "96f79d18",
+      "hash": "112f5bef",
       "priority": 1
     },
     "css/vod_series_player_page.css": {
