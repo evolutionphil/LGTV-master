@@ -4,6 +4,7 @@ var channel_page={
     hover_channel_id:0,
     full_screen_video:false,
     full_screen_timer:null,
+    transitioning_to_fullscreen:false,
     progressbar_timer:null,
     player:null,
     channel_number_timer:null,
@@ -36,7 +37,56 @@ var channel_page={
     rearrange_timeout:300,
     rearrange_origin_position:0,
     removed_favourite_ids:[],
+    ui_lock_until: 0,
+    display_area_timeout: null,
+    
+    lockUI: function(ms) {
+        ms = ms || 800;
+        this.ui_lock_until = Date.now() + ms;
+        console.log('🔒 UI LOCKED for ' + ms + 'ms until:', this.ui_lock_until);
+    },
+    
+    uiLocked: function() {
+        var locked = Date.now() < this.ui_lock_until;
+        if (locked) {
+            console.log('🔒 UI is LOCKED, remaining:', this.ui_lock_until - Date.now(), 'ms');
+        }
+        return locked;
+    },
+    
+    scheduleSetDisplayArea: function(callback, delay) {
+        delay = delay || 250;
+        console.log('📅 scheduleSetDisplayArea: delay=' + delay + 'ms, clearing previous timeout');
+        if (this.display_area_timeout) {
+            clearTimeout(this.display_area_timeout);
+            console.log('  ⚠️ CANCELLED previous setDisplayArea timeout');
+        }
+        var that = this;
+        this.display_area_timeout = setTimeout(function() {
+            console.log('⏰ scheduleSetDisplayArea: timeout fired, executing callback');
+            that.display_area_timeout = null;
+            try {
+                if (callback) callback();
+            } catch (e) {
+                console.log('❌ setDisplayArea error:', e);
+            }
+        }, delay);
+    },
     init:function (channel_id, full_screen) {
+        console.log('╔══════════════════════════════════════════════════════════════════╗');
+        console.log('║ CHANNEL_OPERATION.INIT() - ENTERING CATEGORY');
+        console.log('╠══════════════════════════════════════════════════════════════════╣');
+        console.log('  channel_id:', channel_id);
+        console.log('  full_screen param:', full_screen);
+        console.log('  CURRENT STATE:');
+        console.log('    - full_screen_video:', this.full_screen_video);
+        console.log('    - transitioning_to_fullscreen:', this.transitioning_to_fullscreen);
+        console.log('    - media_player.full_screen_state:', media_player.full_screen_state);
+        console.log('    - keys.focused_part:', this.keys.focused_part);
+        console.log('    - current_channel_id:', this.current_channel_id);
+        console.log('  RESETTING STATE for new category...');
+        console.log('╚══════════════════════════════════════════════════════════════════╝');
+        
         this.is_drawing=false;
         $("#channel-page").show();
         var category=current_category;
@@ -90,6 +140,14 @@ var channel_page={
                 height:'100vh',
                 width:'100vw'
             });
+            media_player.full_screen_state=1;
+            setTimeout(function () {
+                try{
+                    media_player.setDisplayArea();
+                }catch (e) {
+                    console.log('setDisplayArea error on zoom in:', e);
+                }
+            }, 250);
             that.full_screen_video=true;
             clearTimeout(that.full_screen_timer);
             $('#full-screen-information').addClass('visible');
@@ -102,9 +160,17 @@ var channel_page={
             that.keys.focused_part="full_screen";
         }
         else{
+            $('#live_channels_home .player-container').css({
+                position:'relative',
+                height:'58.3vh',
+                width:'58.3vw'
+            });
+            media_player.full_screen_state=0;
             that.full_screen_video=false;
             that.keys.focused_part="channel_selection";
             $('#live-channel-button-container').show();
+            $('#live_channels_home').find('.channel-information-container').show();
+            $('#live_channels_home').find('.video-skin').show();
         }
         this.current_channel_id=current_movie.stream_id;
         this.hover_channel_id=current_movie.stream_id;
@@ -192,10 +258,10 @@ var channel_page={
                         that.hover_channel_id=current_movie.stream_id;
                         that.hoverMenuItem(i);
                         if(that.full_screen_video){
-                            $('#full-screen-information').addClass('visible');
+                            $('#full-screen-information').slideDown(400);
                             $('#full-screen-channel-name').slideDown(400);
                             that.full_screen_timer=setTimeout(function(){
-                                $('#full-screen-information').removeClass('visible');
+                                $('#full-screen-information').slideUp(400);
                                 $('#full-screen-channel-name').slideUp(400);
                             },5000)
                             that.keys.focused_part="full_screen";
@@ -233,12 +299,31 @@ var channel_page={
     channelItemClick:function(index){
         var menus=this.menu_items;
         var stream_id=$(menus[index]).data('channel_id');
+        var movie_info = getCurrentMovieFromId(stream_id, this.movies,'stream_id');
+        console.log('┌─────────────────────────────────────────────────────────┐');
+        console.log('│ channelItemClick');
+        console.log('├─────────────────────────────────────────────────────────┤');
+        console.log('  Selected Channel:', movie_info ? movie_info.name : 'UNKNOWN');
+        console.log('  stream_id:', stream_id);
+        console.log('  current_channel_id:', this.current_channel_id);
+        console.log('  full_screen_video:', this.full_screen_video);
+        console.log('└─────────────────────────────────────────────────────────┘');
+        
         if(this.current_channel_id==stream_id){
-            this.full_screen_video=true;
-            this.zoomInOut();
-            this.keys.focused_part="full_screen";
+            console.log('channelItemClick: SAME CHANNEL - checking if should zoom');
+            if(!this.full_screen_video){
+                console.log('channelItemClick: Not fullscreen - ZOOMING IN');
+                this.keys.focused_part = "full_screen";
+                this.full_screen_video=true;
+                this.transitioning_to_fullscreen=true;
+                this.lockUI(800);
+                this.zoomInOut();
+            } else {
+                console.log('channelItemClick: Already fullscreen - doing nothing');
+            }
         }
         else{
+            console.log('channelItemClick: DIFFERENT CHANNEL - showing new channel, full_screen_state before=', media_player.full_screen_state);
             this.showLiveChannelMovie(stream_id);
             this.changeActiveChannel();
         }
@@ -344,7 +429,7 @@ var channel_page={
     changeFavouriteButton:function(current_menu){
         var movie_id=$(current_menu).data('channel_id');
         var movie=getCurrentMovieFromId(movie_id,this.movies,'stream_id');
-        var action_buttons=[$('.channel-action-btn')[1],$('#channel-operation-modal').find('.modal-operation-menu-type-1')[0]];
+        var action_buttons=[$('.channel-action-btn')[2],$('#channel-operation-modal').find('.modal-operation-menu-type-1')[0]];
         if(movie!=null){
             if(!LiveModel.favourite_ids.includes(movie.stream_id)){
                 $(action_buttons).text("Add Fav");
@@ -380,8 +465,8 @@ var channel_page={
         else
             $('#'+id).hide().html('');
 
-        var current_program,next_program, current_program_title="",
-            current_program_time='', next_program_title="", next_program_time='',program_desc='';
+        var current_program,next_program, current_program_title="No Information",
+            current_program_time='', next_program_title="No Information", next_program_time='',program_desc='No Information';
         if(current_program_exist){
             current_program=programmes[0];
             if(programmes.length>1)
@@ -401,99 +486,26 @@ var channel_page={
             next_program_time=next_program.start.substring(11)+' ~ '+next_program.stop.substring(11);
         }
 
-        var elements=[$('#full-screen-information-progress').find('.progress-fill')[0],$('#channel-page-right-part').find('.progress-amount')[0]]
+        var elements=[$('#full-screen-information-progress').find('span')[0],$('#channel-page-right-part').find('.progress-amount')[0]]
         clearInterval(this.progressbar_timer);
-        var that = this;
-        
         if(current_program_exist){
-            // Use robust date parsing with EPG offset
-            var epg_offset_hours = settings.epg_time_difference || 0;
-            var start_time = moment(current_program.start, 'YYYY-MM-DD HH:mm').add(epg_offset_hours, 'hours');
-            var end_time = moment(current_program.stop, 'YYYY-MM-DD HH:mm').add(epg_offset_hours, 'hours');
-            
-            // Validate dates and calculate progress
-            if(start_time.isValid() && end_time.isValid()){
-                var time_length = end_time.valueOf() - start_time.valueOf();
-                var now = moment();
-                var elapsed = now.valueOf() - start_time.valueOf();
-                var percentage = Math.max(0, Math.min(100, (elapsed / time_length) * 100));
-                
-                // Safely update progress elements
-                elements.map(function(item,index){
-                    if(item) $(item).css({width: percentage + '%'});
-                })
-                
-                // Update EPG time labels
-                $('#full-screen-program-start-time').text(start_time.format('HH:mm'));
-                $('#full-screen-program-end-time').text(end_time.format('HH:mm'));
-                
-                // Update current time indicator position
-                $('#full-screen-current-time-indicator').css({left: percentage + '%'});
-                
-                // Start real-time timer for progress updates
-                this.progressbar_timer = setInterval(function(){
-                    var current_moment = moment();
-                    var current_elapsed = current_moment.valueOf() - start_time.valueOf();
-                    var current_percentage = Math.max(0, Math.min(100, (current_elapsed / time_length) * 100));
-                    
-                    elements.map(function(item,index){
-                        if(item) $(item).css({width: current_percentage + '%'});
-                    })
-                    $('#full-screen-current-time-indicator').css({left: current_percentage + '%'});
-                }, 5000); // Update every 5 seconds
-            } else {
-                // Invalid dates - show no progress
-                elements.map(function(item,index){
-                    if(item) $(item).css({width: '0%'});
-                })
-                $('#full-screen-program-start-time').text('--:--');
-                $('#full-screen-program-end-time').text('--:--');
-                $('#full-screen-current-time-indicator').css({left: '0%'});
-            }
+            var time_length=(new Date(current_program.stop)).getTime()-(new Date(current_program.start)).getTime();
+            var current_time=(new Date()).getTime();
+            var percentage=(current_time-(new Date(current_program.start).getTime()))*100/time_length;
+            elements.map(function(item,index){
+                $(item).css({width:percentage+'%'});
+            })
         }
         else{
+            $('#full-screen-current-program').text("No Information");
             elements.map(function(item,index){
                 $(item).css({width:0});
             })
-            // Clear EPG labels when no program
-            $('#full-screen-program-start-time').text('--:--');
-            $('#full-screen-program-end-time').text('--:--');
-            $('#full-screen-current-time-indicator').css({left: '0%'});
         }
-        
-        // Show/hide elements based on whether we have EPG data
-        if(current_program_title && current_program_title.trim() !== '') {
-            $('#full-screen-current-program').text(current_program_title).show();
-            $('#full-screen-program-name').text(current_program_title).show();
-        } else {
-            $('#full-screen-current-program').hide();
-            $('#full-screen-program-name').hide();
-        }
-        
-        if(next_program_title && next_program_title.trim() !== '') {
-            $('#full-screen-next-program').text(next_program_title).show();
-        } else {
-            $('#full-screen-next-program').hide();
-        }
-        
-        if(program_desc && program_desc.trim() !== '') {
-            $('#full-screen-program-description').text(program_desc).show();
-        } else {
-            $('#full-screen-program-description').hide();
-        }
-        
-        // Hide programs container if no current or next program
-        if((!current_program_title || current_program_title.trim() === '') && 
-           (!next_program_title || next_program_title.trim() === '')) {
-            $('#full-screen-programs-container').hide();
-        } else {
-            $('#full-screen-programs-container').show();
-        }
-        
-        // Update current time display
-        var now = new Date();
-        var timeString = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
-        $('#full-screen-current-time').text(timeString);
+        $('#full-screen-current-program').text(current_program_title);
+        $('#full-screen-program-name').text(current_program_title);
+        $('#full-screen-next-program').text(next_program_title);
+        $('#full-screen-program-description').text(program_desc);
     },
     updateNextProgrammes:function(){
         this.showNextProgrammes();
@@ -537,18 +549,44 @@ var channel_page={
                 height:'58.3vh',
                 width:'58.3vw'
             });
+            
+            // Reset video element for preview mode
+            $('#channel-page-video').removeClass('video-fullscreen');
+            $('#channel-page-video-lg').removeClass('video-fullscreen');
+            
             this.keys.focused_part="channel_selection";
-            // try{
-            //     media_player.setDisplayArea();
-            // }catch (e) {
-            // }
+            media_player.full_screen_state=0;
+            console.log('========================================');
+            console.log('zoomInOut() ZOOM OUT - set full_screen_state to 0');
+            console.log('full_screen_video:', this.full_screen_video);
+            console.log('focused_part:', this.keys.focused_part);
+            console.log('========================================');
+            this.lockUI(400);
+            this.scheduleSetDisplayArea(function() {
+                media_player.setDisplayArea();
+            }, 250);
             $('#full-screen-information').removeClass('visible');
-            $('#full-screen-channel-name').hide();
             $('#live_channels_home').find('.channel-information-container').show();
             $('#live-channel-button-container').show();
             $('#live_channels_home').find('.video-skin').show();
         }
         else{
+            console.log('========================================');
+            console.log('zoomInOut() ZOOM IN START');
+            console.log('  transitioning_to_fullscreen:', this.transitioning_to_fullscreen);
+            console.log('  full_screen_video (before):', this.full_screen_video);
+            console.log('  focused_part (before):', this.keys.focused_part);
+            console.log('========================================');
+            
+            this.keys.focused_part="full_screen";
+            this.full_screen_video=true;
+            media_player.full_screen_state=1;
+            
+            console.log('zoomInOut() ZOOM IN: Updated flags IMMEDIATELY');
+            console.log('  focused_part (after):', this.keys.focused_part);
+            console.log('  full_screen_video (after):', this.full_screen_video);
+            console.log('  full_screen_state:', media_player.full_screen_state);
+            
             $('#live_channels_home .player-container').css({
                 position:'fixed',
                 left:0,
@@ -556,43 +594,85 @@ var channel_page={
                 height:'100vh',
                 width:'100vw'
             });
-            // try{
-            //     media_player.setDisplayArea();
-            // }catch (e) {
-            // }
+            
+            // CRITICAL: Add fullscreen class to escape container constraints
+            $('#channel-page-video').addClass('video-fullscreen');
+            $('#channel-page-video-lg').addClass('video-fullscreen');
+            
+            var that = this;
+            
+            // CRITICAL: Call setDisplayArea SYNCHRONOUSLY - no delay!
+            // Samsung AVPlay must receive setDisplayRect while video is playing
+            console.log('🔥 ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state:', media_player.full_screen_state);
+            media_player.setDisplayArea();
+            
+            setTimeout(function() {
+                that.transitioning_to_fullscreen = false;
+                console.log('🔥 ZOOM IN: Cleared transitioning flag');
+            }, 100);
+            
             $('#live_channels_home').find('.channel-information-container').hide();
             $('#live-channel-button-container').hide();
             $('#live_channels_home').find('.video-skin').hide();
-            this.full_screen_video=true;
+            
             clearTimeout(this.full_screen_timer);
             $('#full-screen-information').addClass('visible');
-            $('#full-screen-channel-name').slideDown(400);
+            
+            console.log('╔════════════════════════════════════════════════════════╗');
+            console.log('║ Showing fullscreen info bar');
+            console.log('╠════════════════════════════════════════════════════════╣');
+            console.log('  #full-screen-information will show with .visible class');
+            console.log('  Channel name is in #full-screen-channel-name-compact');
+            console.log('╚════════════════════════════════════════════════════════╝');
+            
+            var that = this;
             this.full_screen_timer=setTimeout(function(){
+                console.log('Hiding fullscreen info bar after 5 seconds');
                 $('#full-screen-information').removeClass('visible');
-                $('#full-screen-channel-name').slideUp(400);
             },5000)
-            this.keys.focused_part="full_screen";
         }
-        setTimeout(function () {
-            try{
-                media_player.setDisplayArea();
-            }catch (e) {
-            }
-        },0)
     },
     showLiveChannelMovie:function(movie_id){
+        var current_movie=getCurrentMovieFromId(movie_id, this.movies,'stream_id');
+        console.log('╔════════════════════════════════════════════════════════════╗');
+        console.log('║ showLiveChannelMovie: START');
+        console.log('╠════════════════════════════════════════════════════════════╣');
+        console.log('  Channel ID:', movie_id);
+        console.log('  Channel Name:', current_movie ? current_movie.name : 'NOT FOUND');
+        console.log('  Channel Num:', current_movie ? current_movie.num : 'N/A');
+        console.log('  full_screen_video:', this.full_screen_video);
+        console.log('  media_player.full_screen_state:', media_player.full_screen_state);
+        console.log('╚════════════════════════════════════════════════════════════╝');
+        
         var url
         if(settings.playlist_type==="xtreme")
             url=getMovieUrl(movie_id,'live','ts');
         else if(settings.playlist_type==="type1")
             url=LiveModel.getMovieFromId(movie_id)['url'];
         try{
-            media_player.close();
+            if(media_player.state && media_player.state !== media_player.STATES.STOPPED){
+                media_player.close();
+            }
         }catch (e) {
+            console.log('close() error (ignored):', e);
         }
         try{
+            console.log('showLiveChannelMovie: Before init() - full_screen_state=', media_player.full_screen_state);
+            console.log('showLiveChannelMovie: transitioning_to_fullscreen=', this.transitioning_to_fullscreen);
             media_player.init("channel-page-video","channel-page");
-            media_player.setDisplayArea();
+            console.log('showLiveChannelMovie: After init() - full_screen_state=', media_player.full_screen_state);
+            
+            if(this.transitioning_to_fullscreen){
+                console.log('showLiveChannelMovie: ⚠️ TRANSITIONING TO FULLSCREEN - skipping setDisplayArea, zoomInOut will handle it');
+            } else if(media_player.full_screen_state !== 1){
+                console.log('showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode');
+                var that = this;
+                this.scheduleSetDisplayArea(function() {
+                    media_player.setDisplayArea();
+                }, 250);
+            } else {
+                console.log('showLiveChannelMovie: full_screen_state === 1, SKIPPING preview setDisplayArea()');
+            }
         }catch (e) {
             console.log(e);
         }
@@ -601,62 +681,24 @@ var channel_page={
         }catch (e) {
             console.log(e);
         }
-        var current_movie=getCurrentMovieFromId(movie_id, this.movies,'stream_id');
-        $('#full-screen-channel-name').html(
-            current_movie.num+' : '+current_movie.name
-        );
+        
+        console.log('╔═══════════════════════════════════════════════════════════════╗');
+        console.log('║ Setting Channel Info Bar');
+        console.log('╠═══════════════════════════════════════════════════════════════╣');
+        console.log('  Channel Name:', current_movie.name);
+        console.log('  Channel Num:', current_movie.num);
+        
+        // Set channel name in the COMPACT header (new design)
+        $('#full-screen-channel-name-compact').html(current_movie.name);
+        $('#full-screen-channel-number').html(current_movie.num);
         $('#full-screen-channel-logo').attr('src',current_movie.stream_icon);
         
-        // Update new channel identity elements
-        $('#full-screen-channel-number').text(current_movie.num);
-        
-        // Add channel name to compact header
-        $('#full-screen-channel-name-compact').text(current_movie.name);
-        
-        // Extract resolution from channel name and show detailed format
-        var resolution = this.extractResolution(current_movie.name);
-        var detailedResolution = this.getDetailedResolution(resolution);
-        $('#full-screen-resolution').text(detailedResolution);
+        console.log('  Set in #full-screen-channel-name-compact');
+        console.log('  Set channel number in #full-screen-channel-number');
+        console.log('╚═══════════════════════════════════════════════════════════════╝');
         this.current_channel_id=movie_id;
         if(!LiveModel.checkForAdult(current_category)){
             LiveModel.addRecentOrFavouriteMovie(current_movie,'recent');   // add to recent live channels
-        }
-    },
-    extractResolution:function(channelName){
-        // Extract resolution information from channel name
-        var name = channelName.toUpperCase();
-        
-        // Check for various resolution formats
-        if(name.includes('4K') || name.includes('UHD')) {
-            return '4K';
-        } else if(name.includes('8K')) {
-            return '8K';
-        } else if(name.includes('FHD') || name.includes('1080P')) {
-            return 'FHD';
-        } else if(name.includes('HD') || name.includes('720P')) {
-            return 'HD';
-        } else if(name.includes('SD') || name.includes('480P')) {
-            return 'SD';
-        } else {
-            // Default to HD if no resolution indicator found
-            return 'HD';
-        }
-    },
-    getDetailedResolution:function(resolution){
-        // Convert resolution type to detailed format with dimensions
-        switch(resolution) {
-            case '8K':
-                return '7680x4320 8K';
-            case '4K':
-                return '3840x2160 4K';
-            case 'FHD':
-                return '1920x1080 FHD';
-            case 'HD':
-                return '1280x720 HD';
-            case 'SD':
-                return '720x480 SD';
-            default:
-                return '1280x720 HD';
         }
     },
     showNextChannel:function(increment){
@@ -674,7 +716,6 @@ var channel_page={
             if(current_channel_index>=0 && current_channel_index<menus.length){
                 var stream_id=$(menus[current_channel_index]).data('channel_id');
                 $('#full-screen-information').removeClass('visible');
-                $('#full-screen-channel-name').slideUp(400);
                 this.current_channel_id=stream_id;
                 clearTimeout(this.next_channel_timer);
                 clearTimeout(this.full_screen_timer);
@@ -682,17 +723,13 @@ var channel_page={
                 this.hoverMenuItem(current_channel_index);
                 keys.focused_part="full_screen";
                 this.hover_channel_id=stream_id;
-                this.next_channel_timer=setTimeout(function () {
-                    that.showLiveChannelMovie(stream_id);
-                    clearTimeout(that.full_screen_timer);
-                    $('#full-screen-information').addClass('visible');
-                    $('#full-screen-channel-name').slideDown(400);
-                    that.full_screen_timer=setTimeout(function(){
-                        $('#full-screen-information').removeClass('visible');
-                        $('#full-screen-channel-name').slideUp(400);
-                    },5000)
-                    that.changeActiveChannel();
-                },400)
+                that.showLiveChannelMovie(stream_id);
+                clearTimeout(that.full_screen_timer);
+                $('#full-screen-information').addClass('visible');
+                that.full_screen_timer=setTimeout(function(){
+                    $('#full-screen-information').removeClass('visible');
+                },5000)
+                that.changeActiveChannel();
             }
         }else
             this.handleMenusUpDown(10*increment);
@@ -723,8 +760,7 @@ var channel_page={
     },
     toggleRearrangeMode:function(condition){
         var keys=this.keys;
-        if(current_category.category_id!=='favourite' || keys.focused_part!="channel_selection")
-            return;
+        
         if(this.rearrange_mode){
             this.rearrange_mode=false;
             $(this.prev_dom).removeClass('rearrange');
@@ -732,15 +768,15 @@ var channel_page={
         }
         if(!condition)
             return;
-        var keys=this.keys;
-        if(keys.focused_part==='channel_selection'){
-            this.rearrange_mode=true;
-            $(this.prev_dom).addClass('rearrange');
-            var real_prev_selection=0;
-            if(keys.focused_part==='channel_selection')
-                real_prev_selection=keys.channel_selection;
-            this.rearrange_origin_position=real_prev_selection;
+        
+        if(keys.focused_part!=="channel_selection"){
+            this.hoverMenuItem(keys.channel_selection);
         }
+        
+        this.rearrange_mode=true;
+        $(this.prev_dom).addClass('rearrange');
+        var real_prev_selection=keys.channel_selection;
+        this.rearrange_origin_position=real_prev_selection;
     },
     changeChannelDomContent:function(targetElement, channel, index){
         $(targetElement).find('.channel-number').text(channel.num);
@@ -910,33 +946,69 @@ var channel_page={
         }
     },
     handleMenuClick:function(){
+        console.log('═══════════════════════════════════════════════════════');
+        console.log('handleMenuClick START');
+        console.log('  focused_part:', this.keys.focused_part);
+        console.log('  transitioning_to_fullscreen:', this.transitioning_to_fullscreen);
+        console.log('  full_screen_video:', this.full_screen_video);
+        console.log('═══════════════════════════════════════════════════════');
+        
+        if(this.uiLocked()){
+            console.log('handleMenuClick: 🔒 BLOCKED BY UI LOCK');
+            return;
+        }
+        
+        if(this.transitioning_to_fullscreen){
+            console.log('handleMenuClick: *** BLOCKED BY DEBOUNCE FLAG ***');
+            return;
+        }
+        
         var keys=this.keys;
         if(keys.focused_part==="search_back_selection"){
+            console.log('handleMenuClick: Branch → search_back_selection');
             $(this.search_back_buttons[keys.search_back_selection]).trigger('click');
+            return;
         }
-        else if(keys.focused_part==="channel_selection"){  // if channel item clicked
+        if(keys.focused_part==="channel_selection"){  // if channel item clicked
+            console.log('handleMenuClick: Branch → channel_selection');
+            console.log('  Triggering click on menu_items[' + keys.channel_selection + ']');
             $(this.menu_items[keys.channel_selection]).trigger('click');
+            return;
         }
-        else if(keys.focused_part==="full_screen"){ // if full screen mode, if click ok button,                                                                // then show full screen information
+        if(keys.focused_part==="full_screen"){ // if full screen mode, if click ok button,                                                                // then show full screen information
+            console.log('handleMenuClick: Branch → full_screen');
+            if(this.transitioning_to_fullscreen){
+                console.log('handleMenuClick: ⚠️ Ignoring OK press - transition in progress');
+                return;
+            }
+            console.log('handleMenuClick: ⬅ Exiting fullscreen - calling zoomInOut()');
             this.keys.focused_part="channel_selection";
             this.full_screen_video=false;
             this.zoomInOut();
+            return;
         }
-        else if(keys.focused_part==="search_selection"){
+        if(keys.focused_part==="search_selection"){
+            console.log('handleMenuClick: Branch → search_selection');
             var current_search_element=$('.search-item-wrapper')[keys.search_selection];
             $(current_search_element).trigger('click');
+            return;
         }
-        else if(keys.focused_part==="right_screen_part"){  // in
+        if(keys.focused_part==="right_screen_part"){  // in
+            console.log('handleMenuClick: Branch → right_screen_part');
             $(this.channel_action_items[keys.right_screen_part]).trigger('click');
+            return;
         }
-        else if(keys.focused_part==="operation_modal"){
+        if(keys.focused_part==="operation_modal"){
+            console.log('handleMenuClick: Branch → operation_modal');
             var buttons=$('#channel-operation-modal').find('.modal-operation-menu-type-1');
             $(buttons[keys.operation_modal]).trigger('click');
             if(keys.operation_modal==0){   // if clicked fav icon, after removing modal, focus to channel
                 $('#channel-operation-modal').modal('hide');
                 this.hoverMenuItem(keys.channel_selection);
             }
+            return;
         }
+        console.log('handleMenuClick: ⚠️ NO BRANCH MATCHED - focused_part:', keys.focused_part);
     },
     handleMenusUpDown:function(increment) {
         var keys=this.keys;
@@ -1080,29 +1152,58 @@ var channel_page={
                     this.hoverMenuItem(keys.channel_selection);
                     return;
                 }
-                if(keys.right_screen_part>1)
-                    keys.right_screen_part=1;
+                if(keys.right_screen_part>2)
+                    keys.right_screen_part=2;
                 this.hoverChannelActionBtns(keys.right_screen_part);
                 break;
         }
     },
     HandleKey:function(e) {
+        var keyName = '';
+        switch(e.keyCode) {
+            case tvKey.RIGHT: keyName = 'RIGHT'; break;
+            case tvKey.LEFT: keyName = 'LEFT'; break;
+            case tvKey.DOWN: keyName = 'DOWN'; break;
+            case tvKey.UP: keyName = 'UP'; break;
+            case tvKey.ENTER: keyName = 'OK/ENTER'; break;
+            case tvKey.CH_UP: keyName = 'PAGE UP'; break;
+            case tvKey.CH_DOWN: keyName = 'PAGE DOWN'; break;
+            case tvKey.RETURN: keyName = 'BACK'; break;
+            default: keyName = 'KEY_' + e.keyCode;
+        }
+        
+        console.log('┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓');
+        console.log('┃ KEY PRESS: ' + keyName);
+        console.log('┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫');
+        console.log('  State Snapshot:');
+        console.log('    focused_part: ' + this.keys.focused_part);
+        console.log('    full_screen_video: ' + this.full_screen_video);
+        console.log('    transitioning_to_fullscreen: ' + this.transitioning_to_fullscreen);
+        console.log('    media_player.full_screen_state: ' + media_player.full_screen_state);
+        console.log('    current_channel_id: ' + this.current_channel_id);
+        console.log('┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛');
+        
         if(this.is_drawing)
             return;
         switch (e.keyCode) {
             case tvKey.RIGHT:
+                console.log('→ Calling handleMenuLeftRight(1)');
                 this.handleMenuLeftRight(1)
                 break;
             case tvKey.LEFT:
+                console.log('← Calling handleMenuLeftRight(-1)');
                 this.handleMenuLeftRight(-1)
                 break;
             case tvKey.DOWN:
+                console.log('↓ Calling handleMenusUpDown(1)');
                 this.handleMenusUpDown(1);
                 break;
             case tvKey.UP:
+                console.log('↑ Calling handleMenusUpDown(-1)');
                 this.handleMenusUpDown(-1);
                 break;
             case tvKey.ENTER:
+                console.log('⏎ Calling handleMenuClick()');
                 this.handleMenuClick();
                 break;
             case tvKey.CH_UP:
