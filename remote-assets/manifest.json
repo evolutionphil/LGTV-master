@@ -1,8 +1,8 @@
 {
   "version": "1.0.0",
-  "lastUpdate": "2026-01-05T22:08:15.067Z",
+  "lastUpdate": "2026-01-05T22:51:27.727Z",
   "killSwitch": false,
-  "forceRefresh": true,
+  "forceRefresh": false,
   "cacheGeneration": 1,
   "maxAgeHours": 24,
   "baseUrl": "https://flixapp.pages.dev/",
