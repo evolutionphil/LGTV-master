@@ -182,6 +182,46 @@
                 console.error('[Bootstrapper] Clear cache error:', e);
                 return 0;
             }
+        },
+        
+        applyCachedStyles: function() {
+            var self = this;
+            var links = document.querySelectorAll('link[data-flix-css]');
+            var appliedCount = 0;
+            
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i];
+                var filePath = link.getAttribute('data-flix-css');
+                var cached = getCachedContent(filePath);
+                
+                if (cached) {
+                    var style = document.createElement('style');
+                    style.type = 'text/css';
+                    style.setAttribute('data-file', filePath);
+                    style.setAttribute('data-source', 'cache');
+                    style.setAttribute('data-version', getCachedVersion(filePath) || 'unknown');
+                    
+                    try {
+                        style.appendChild(document.createTextNode(cached));
+                    } catch (e) {
+                        style.cssText = cached;
+                    }
+                    
+                    link.parentNode.insertBefore(style, link);
+                    link.disabled = true;
+                    link.setAttribute('data-replaced', 'true');
+                    
+                    self.loadedFromCache.push(filePath);
+                    appliedCount++;
+                    log('CSS replaced from cache: ' + filePath);
+                } else {
+                    self.loadedFromLocal.push(filePath);
+                    log('CSS kept local (no cache): ' + filePath);
+                }
+            }
+            
+            log('Applied ' + appliedCount + ' cached CSS files');
+            return appliedCount;
         }
     };
     

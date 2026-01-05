@@ -17,25 +17,35 @@
     <link rel="stylesheet" type="text/css" href="css/libs/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="css/libs/photobox.css">
 
-    <!--    Pages Css    -->
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/variables.css"/>
-    <link rel="stylesheet" href="css/guide.css">
-    <link rel="stylesheet" href="css/homepage.css">
-    <link rel="stylesheet" href="css/vod_series_summary.css">
-    <link rel="stylesheet" href="css/vod_series_player_page.css">
-    <link rel="stylesheet" href="css/channel_page.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/movie_grid.css">
-    <link rel="stylesheet" href="css/catchup.css">
-    <link rel="stylesheet" href="css/rating.css">
-    <link rel="stylesheet" href="css/loader.css">
-    <link rel="stylesheet" href="css/search_page.css">
-    <link rel="stylesheet" href="css/subtitle.css">
-    <link rel="stylesheet" href="css/youtube_page.css">
-    <link rel="stylesheet" href="css/storage_page.css">
-    <link rel="stylesheet" href="css/gallary.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Asset Bootstrapper -->
+    <script src="js/asset-bootstrapper.js"></script>
+
+    <!--    Pages Css (with remote update support)    -->
+    <link rel="stylesheet" href="css/style.css" data-flix-css="css/style.css"/>
+    <link rel="stylesheet" href="css/variables.css" data-flix-css="css/variables.css"/>
+    <link rel="stylesheet" href="css/guide.css" data-flix-css="css/guide.css">
+    <link rel="stylesheet" href="css/homepage.css" data-flix-css="css/homepage.css">
+    <link rel="stylesheet" href="css/vod_series_summary.css" data-flix-css="css/vod_series_summary.css">
+    <link rel="stylesheet" href="css/vod_series_player_page.css" data-flix-css="css/vod_series_player_page.css">
+    <link rel="stylesheet" href="css/channel_page.css" data-flix-css="css/channel_page.css">
+    <link rel="stylesheet" href="css/login.css" data-flix-css="css/login.css">
+    <link rel="stylesheet" href="css/movie_grid.css" data-flix-css="css/movie_grid.css">
+    <link rel="stylesheet" href="css/catchup.css" data-flix-css="css/catchup.css">
+    <link rel="stylesheet" href="css/rating.css" data-flix-css="css/rating.css">
+    <link rel="stylesheet" href="css/loader.css" data-flix-css="css/loader.css">
+    <link rel="stylesheet" href="css/search_page.css" data-flix-css="css/search_page.css">
+    <link rel="stylesheet" href="css/subtitle.css" data-flix-css="css/subtitle.css">
+    <link rel="stylesheet" href="css/youtube_page.css" data-flix-css="css/youtube_page.css">
+    <link rel="stylesheet" href="css/storage_page.css" data-flix-css="css/storage_page.css">
+    <link rel="stylesheet" href="css/gallary.css" data-flix-css="css/gallary.css">
+    <link rel="stylesheet" href="css/responsive.css" data-flix-css="css/responsive.css">
+
+    <!-- Apply cached CSS (non-blocking) -->
+    <script>
+        if (typeof FlixBootstrapper !== 'undefined') {
+            FlixBootstrapper.applyCachedStyles();
+        }
+    </script>
 </head>
 <body>
     <div id="login-container" class="height-100">
