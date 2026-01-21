@@ -1,0 +1,125 @@
+Object
+2
+webOSTV.js:126 PalmServiceBridge is not found.
+index.html:1840 [VersionDisplay] Manifest in cache: NO
+index.html:1858 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+index.html:1840 [VersionDisplay] Manifest in cache: NO
+index.html:1858 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+main.js:8 Samsung Tizen platform detected
+login_operation.js:319 Samsung: Using Ethernet MAC address: a4:30:7a:37:c8:98
+remote-loader.js:443 [RemoteLoader] RemoteLoader v2.0 initialized on tizen
+remote-loader.js:443 [RemoteLoader] Network status: online
+login_operation.js:187 
+Object
+login_operation.js:191 ✅ BLOCKED CHANNELS RECEIVED FROM API: 
+Array(0)
+login_operation.js:214 ✅ TERMS OF USE RECEIVED FROM API: 
+Object
+login_operation.js:1144 📜 SHOWING TERMS OF USE (Version: 1.0)
+The resource https://flixapp.net/images/activation-qr-code.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+remote-loader.js:443 [RemoteLoader] Starting background update check...
+remote-loader.js:443 [RemoteLoader] Manifest saved to cache: v1.0.0
+index.html:1840 [VersionDisplay] Manifest in cache: YES (4393 bytes)
+index.html:1846 [VersionDisplay] Found version: 1.0.0
+index.html:1858 [VersionDisplay] Setting text: v1.0.0 (remote), Element found: YES
+remote-loader.js:443 [RemoteLoader] Version display updated
+remote-loader.js:443 [RemoteLoader] Downloading 49 updated files in background...
+remote-loader.js:443 [RemoteLoader] Downloaded: css/style.css
+remote-config.js:21 [RemoteUpdate] Downloading: 1/49 - css/style.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/variables.css
+remote-config.js:21 [RemoteUpdate] Downloading: 2/49 - css/variables.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/responsive.css
+remote-config.js:21 [RemoteUpdate] Downloading: 3/49 - css/responsive.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/vod_series_summary.css
+remote-config.js:21 [RemoteUpdate] Downloading: 4/49 - css/vod_series_summary.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/login.css
+remote-config.js:21 [RemoteUpdate] Downloading: 5/49 - css/login.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/loader.css
+remote-config.js:21 [RemoteUpdate] Downloading: 6/49 - css/loader.css
+remote-loader.js:443 [RemoteLoader] Downloaded: js/Models/VodModel.js
+remote-config.js:21 [RemoteUpdate] Downloading: 7/49 - js/Models/VodModel.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/Models/LiveModel.js
+remote-config.js:21 [RemoteUpdate] Downloading: 8/49 - js/Models/LiveModel.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/Models/SeriesModel.js
+remote-config.js:21 [RemoteUpdate] Downloading: 9/49 - js/Models/SeriesModel.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/common.js
+remote-config.js:21 [RemoteUpdate] Downloading: 10/49 - js/common.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/common_with_encrypt.js
+remote-config.js:21 [RemoteUpdate] Downloading: 11/49 - js/common_with_encrypt.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/main.js
+remote-config.js:21 [RemoteUpdate] Downloading: 12/49 - js/main.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/keyTizen.js
+remote-config.js:21 [RemoteUpdate] Downloading: 13/49 - js/keyTizen.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/time_helper.js
+remote-config.js:21 [RemoteUpdate] Downloading: 14/49 - js/time_helper.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/language_codes.js
+remote-config.js:21 [RemoteUpdate] Downloading: 15/49 - js/language_codes.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/home_operation.js
+remote-config.js:21 [RemoteUpdate] Downloading: 16/49 - js/home_operation.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/login_operation.js
+remote-config.js:21 [RemoteUpdate] Downloading: 17/49 - js/login_operation.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/asset-bootstrapper.js
+remote-config.js:21 [RemoteUpdate] Downloading: 18/49 - js/asset-bootstrapper.js
+remote-loader.js:443 [RemoteLoader] Downloaded: css/vod_series_player_page.css
+remote-config.js:21 [RemoteUpdate] Downloading: 19/49 - css/vod_series_player_page.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/channel_page.css
+remote-config.js:21 [RemoteUpdate] Downloading: 20/49 - css/channel_page.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/homepage.css
+remote-config.js:21 [RemoteUpdate] Downloading: 21/49 - css/homepage.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/subtitle.css
+remote-config.js:21 [RemoteUpdate] Downloading: 22/49 - css/subtitle.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/movie_grid.css
+remote-config.js:21 [RemoteUpdate] Downloading: 23/49 - css/movie_grid.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/rating.css
+remote-config.js:21 [RemoteUpdate] Downloading: 24/49 - css/rating.css
+remote-loader.js:443 [RemoteLoader] Downloaded: js/seasons_variable.js
+remote-config.js:21 [RemoteUpdate] Downloading: 25/49 - js/seasons_variable.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/episode_variable.js
+remote-config.js:21 [RemoteUpdate] Downloading: 26/49 - js/episode_variable.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/vod_summary.js
+remote-config.js:21 [RemoteUpdate] Downloading: 27/49 - js/vod_summary.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/series_summary.js
+remote-config.js:21 [RemoteUpdate] Downloading: 28/49 - js/series_summary.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/player.js
+remote-config.js:21 [RemoteUpdate] Downloading: 29/49 - js/player.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/vod_series_player.js
+remote-config.js:21 [RemoteUpdate] Downloading: 30/49 - js/vod_series_player.js
+index.html:1840 [VersionDisplay] Manifest in cache: YES (4393 bytes)
+index.html:1846 [VersionDisplay] Found version: 1.0.0
+index.html:1858 [VersionDisplay] Setting text: v1.0.0 (remote), Element found: YES
+remote-loader.js:443 [RemoteLoader] Downloaded: js/channel_operation.js
+remote-config.js:21 [RemoteUpdate] Downloading: 31/49 - js/channel_operation.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/trailer.js
+remote-config.js:21 [RemoteUpdate] Downloading: 32/49 - js/trailer.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/srt_operation.js
+remote-config.js:21 [RemoteUpdate] Downloading: 33/49 - js/srt_operation.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/srt_parser.js
+remote-config.js:21 [RemoteUpdate] Downloading: 34/49 - js/srt_parser.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/subtitle_fetcher.js
+remote-config.js:21 [RemoteUpdate] Downloading: 35/49 - js/subtitle_fetcher.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/enhanced_subtitle_workflow.js
+remote-config.js:21 [RemoteUpdate] Downloading: 36/49 - js/enhanced_subtitle_workflow.js
+remote-loader.js:443 [RemoteLoader] Downloaded: css/guide.css
+remote-config.js:21 [RemoteUpdate] Downloading: 37/49 - css/guide.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/catchup.css
+remote-config.js:21 [RemoteUpdate] Downloading: 38/49 - css/catchup.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/search_page.css
+remote-config.js:21 [RemoteUpdate] Downloading: 39/49 - css/search_page.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/storage_page.css
+remote-config.js:21 [RemoteUpdate] Downloading: 40/49 - css/storage_page.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/youtube_page.css
+remote-config.js:21 [RemoteUpdate] Downloading: 41/49 - css/youtube_page.css
+remote-loader.js:443 [RemoteLoader] Downloaded: css/gallary.css
+remote-config.js:21 [RemoteUpdate] Downloading: 42/49 - css/gallary.css
+remote-loader.js:443 [RemoteLoader] Downloaded: js/guide_page.js
+remote-config.js:21 [RemoteUpdate] Downloading: 43/49 - js/guide_page.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/catchup.js
+remote-config.js:21 [RemoteUpdate] Downloading: 44/49 - js/catchup.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/search_page.js
+remote-config.js:21 [RemoteUpdate] Downloading: 45/49 - js/search_page.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/youtube_page.js
+remote-config.js:21 [RemoteUpdate] Downloading: 46/49 - js/youtube_page.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/storage_operation.js
+remote-config.js:21 [RemoteUpdate] Downloading: 47/49 - js/storage_operation.js
+remote-loader.js:443 [RemoteLoader] Downloaded: js/image_page.js
+﻿
