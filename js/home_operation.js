@@ -106,6 +106,8 @@ var home_page={
         });
         try{
             media_player.init("home-page-video-preview",'home-page');
+            // CRITICAL: setDisplayArea MUST complete before playAsync starts
+            // Older Samsung TVs lock the first rect value per session
             setTimeout(function(){
                 try{
                     media_player.setDisplayArea();
@@ -116,10 +118,11 @@ var home_page={
         }catch (e) {
         }
         if(first_play_video!==''){
-            this.preview_url=first_play_video
+            this.preview_url=first_play_video;
+            // CRITICAL: Start playback AFTER setDisplayArea (250ms + 100ms buffer)
             setTimeout(function () {
                 media_player.playAsync(first_play_video);
-            },0)
+            }, 400);
         }
         else{
             // $('#home-page .video-error').show();
@@ -823,14 +826,18 @@ var home_page={
         if(current_movie_type==="series" || current_movie_type==="movies"){
             if(this.preview_url){
                 var that=this;
+                // CRITICAL: setDisplayArea must complete before playAsync
                 setTimeout(function () {
                     media_player.init("home-page-video-preview",'home-page');
                     try{
                         media_player.setDisplayArea();
                     }catch (e) {
                     }
-                    media_player.playAsync(that.preview_url);
-                },500)
+                    // Add 150ms buffer after setDisplayArea
+                    setTimeout(function() {
+                        media_player.playAsync(that.preview_url);
+                    }, 150);
+                },500);
             }
         }
     },
@@ -1375,6 +1382,7 @@ var home_page={
             }
             try{
                 media_player.init("home-page-video-preview",'home-page');
+                // CRITICAL: setDisplayArea must complete before playAsync
                 setTimeout(function(){
                     try{
                         media_player.setDisplayArea();
@@ -1384,11 +1392,13 @@ var home_page={
                 }, 250);
             }catch (e) {
             }
-            try{
-                media_player.playAsync(url);
-            }catch (e) {
-
-            }
+            // CRITICAL: Start playback AFTER setDisplayArea (250ms + 150ms buffer)
+            setTimeout(function() {
+                try{
+                    media_player.playAsync(url);
+                }catch (e) {
+                }
+            }, 400);
         }
     },
     showVodSummary:function(){

@@ -50,7 +50,7 @@ Remote Update Workflow: After every code change, automatically copy all changed 
 -   **Cross-Platform Design**: Unified codebase with platform-specific adaptations for Samsung Tizen and LG WebOS.
 -   **Development Tools**: Build scripts for packaging and deployment to both platforms.
 -   **Power Management**: Handles TV power off/on events during buffering to prevent auto-resume of content.
--   **Samsung 4K AVPlay Timing**: zoomInOut uses scheduleSetDisplayArea with 250ms delay for preview mode; fullscreen uses synchronous setDisplayArea call.
+-   **Samsung 4K AVPlay Timing**: CRITICAL - Older Samsung TVs lock the first rect value per session. ALL setDisplayArea calls (both preview AND fullscreen) must use 250ms delay before calling setDisplayArea. Also, playAsync must be called AFTER setDisplayArea completes (use 400ms total delay).
 
 ## Remote Update System v2.0
 -   **OTA Updates**: Push CSS/JS updates to TVs without app store resubmission.
