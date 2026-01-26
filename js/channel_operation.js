@@ -601,15 +601,14 @@ var channel_page={
             
             var that = this;
             
-            // CRITICAL: Call setDisplayArea SYNCHRONOUSLY - no delay!
-            // Samsung AVPlay must receive setDisplayRect while video is playing
-            console.log('🔥 ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state:', media_player.full_screen_state);
-            media_player.setDisplayArea();
-            
-            setTimeout(function() {
+            // CRITICAL: Use scheduleSetDisplayArea with 250ms delay for fullscreen
+            // Older Samsung TVs "lock" the first rect value - must use delay + requestAnimationFrame
+            console.log('🔥 ZOOM IN: Calling setDisplayArea with 250ms delay for Samsung compatibility');
+            this.scheduleSetDisplayArea(function() {
+                media_player.setDisplayArea();
                 that.transitioning_to_fullscreen = false;
-                console.log('🔥 ZOOM IN: Cleared transitioning flag');
-            }, 100);
+                console.log('🔥 ZOOM IN: setDisplayArea completed, cleared transitioning flag');
+            }, 250);
             
             $('#live_channels_home').find('.channel-information-container').hide();
             $('#live-channel-button-container').hide();
