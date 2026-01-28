@@ -103,6 +103,43 @@ if (!Array.prototype.findIndex) {
     };
 }
 
+// Object.assign polyfill
+if (typeof Object.assign !== 'function') {
+    Object.assign = function(target) {
+        if (target === null || target === undefined) {
+            throw new TypeError('Cannot convert undefined or null to object');
+        }
+        var to = Object(target);
+        for (var index = 1; index < arguments.length; index++) {
+            var nextSource = arguments[index];
+            if (nextSource !== null && nextSource !== undefined) {
+                for (var nextKey in nextSource) {
+                    if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                        to[nextKey] = nextSource[nextKey];
+                    }
+                }
+            }
+        }
+        return to;
+    };
+}
+
+// String.prototype.padStart polyfill
+if (!String.prototype.padStart) {
+    String.prototype.padStart = function padStart(targetLength, padString) {
+        targetLength = targetLength >> 0;
+        padString = String(typeof padString !== 'undefined' ? padString : ' ');
+        if (this.length >= targetLength) {
+            return String(this);
+        }
+        targetLength = targetLength - this.length;
+        if (targetLength > padString.length) {
+            padString += padString.repeat ? padString.repeat(Math.ceil(targetLength / padString.length)) : Array(Math.ceil(targetLength / padString.length) + 1).join(padString);
+        }
+        return padString.slice(0, targetLength) + String(this);
+    };
+}
+
 (function() {
     'use strict';
     

@@ -119,7 +119,8 @@ function initPlayer() {
                 try{
                     webapis.avplay.open(url);
                     this.setupEventListeners();
-                    this.setDisplayArea();
+                    // NOTE: setDisplayArea is now called BEFORE playAsync by the caller
+                    // Do not call setDisplayArea here to avoid Samsung 4K first-rect lock
                     // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_BYTE", 1000); // 5 is in seconds
                     // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_SECOND", 4); // 5 is in seconds
 
@@ -132,7 +133,7 @@ function initPlayer() {
                             that.state = that.STATES.PLAYING;
                             webapis.avplay.play();
                             
-                            that.setDisplayArea();
+                            // NOTE: setDisplayArea already called before playAsync, skip here
                             
                             if(current_route==='vod-series-player-video'){
                                 that.full_screen_state=1;
@@ -249,49 +250,58 @@ function initPlayer() {
                     that.playAsync(that.url);
                 }, 4000)
             },
-            setDisplayArea:function() {
+            setDisplayArea:function(callback) {
                 var that = this;
                 var capabilities = this.detectTVCapabilities();
                 var avplayBaseWidth = capabilities.resolution.width;
                 var avplayBaseHeight = capabilities.resolution.height;
                 
-                // Use requestAnimationFrame to wait for CSS to apply
-                requestAnimationFrame(function() {
-                    if (that.full_screen_state === 1) {
-                        try {
-                            // CRITICAL: Force fullscreen display mode
-                            webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
-                        } catch (e) {
+                // CRITICAL SAMSUNG 4K FIX: Use 250ms delay before setDisplayArea
+                // Older Samsung TVs lock the first rect value per session
+                // This delay ensures CSS is fully applied before setting display rect
+                setTimeout(function() {
+                    requestAnimationFrame(function() {
+                        if (that.full_screen_state === 1) {
+                            try {
+                                // CRITICAL: Force fullscreen display mode
+                                webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                            } catch (e) {
+                            }
+                            
+                            try {
+                                // Use detected resolution (works on 1080p, 4K, 8K)
+                                webapis.avplay.setDisplayRect(0, 0, avplayBaseWidth, avplayBaseHeight);
+                            } catch (e) {
+                            }
+                        } else {
+                            // PREVIEW MODE: Just set coordinates, don't change display mode
+                            var top_position=$(that.videoObj).offset().top;
+                            var left_position=$(that.videoObj).offset().left;
+                            var width=parseInt($(that.videoObj).width())
+                            var height=parseInt($(that.videoObj).height());
+                        
+                        var ratioX = avplayBaseWidth / window.document.documentElement.clientWidth;
+                        var ratioY = avplayBaseHeight / window.document.documentElement.clientHeight;
+                        
+                        var scaledLeft = Math.round(left_position * ratioX);
+                        var scaledTop = Math.round(top_position * ratioY);
+                        var scaledWidth = Math.round(width * ratioX);
+                        var scaledHeight = Math.round(height * ratioY);
+                        
+                            try {
+                                webapis.avplay.setDisplayRect(scaledLeft, scaledTop, scaledWidth, scaledHeight);
+                            } catch (e) {
+                            }
                         }
                         
-                        try {
-                            // Use detected resolution (works on 1080p, 4K, 8K)
-                            webapis.avplay.setDisplayRect(0, 0, avplayBaseWidth, avplayBaseHeight);
-                        } catch (e) {
+                        channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
+                        
+                        // Execute callback after display area is set
+                        if (typeof callback === 'function') {
+                            callback();
                         }
-                    } else {
-                        // PREVIEW MODE: Just set coordinates, don't change display mode
-                        var top_position=$(that.videoObj).offset().top;
-                        var left_position=$(that.videoObj).offset().left;
-                        var width=parseInt($(that.videoObj).width())
-                        var height=parseInt($(that.videoObj).height());
-                    
-                    var ratioX = avplayBaseWidth / window.document.documentElement.clientWidth;
-                    var ratioY = avplayBaseHeight / window.document.documentElement.clientHeight;
-                    
-                    var scaledLeft = Math.round(left_position * ratioX);
-                    var scaledTop = Math.round(top_position * ratioY);
-                    var scaledWidth = Math.round(width * ratioX);
-                    var scaledHeight = Math.round(height * ratioY);
-                    
-                        try {
-                            webapis.avplay.setDisplayRect(scaledLeft, scaledTop, scaledWidth, scaledHeight);
-                        } catch (e) {
-                        }
-                    }
-                    
-                    channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
-                });
+                    });
+                }, 250);
             },
             toggleScreenRatio:function(){
                 try{

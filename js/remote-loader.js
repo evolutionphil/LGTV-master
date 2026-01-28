@@ -125,10 +125,14 @@
                             self.processManifest(manifest);
                         } catch (e) {
                             self.log('Manifest parse error: ' + e.message);
+                            self.showUserError('Update Error', 'Invalid update data. Using local files.');
                             self.complete(false);
                         }
                     } else {
                         self.log('Manifest load failed: ' + xhr.status);
+                        if (xhr.status >= 500) {
+                            self.showUserError('Server Error', 'Update server unavailable. Using local files.');
+                        }
                         self.complete(false);
                     }
                 }
@@ -137,6 +141,7 @@
             xhr.onerror = function() {
                 clearTimeout(timeoutId);
                 self.log('Manifest network error');
+                self.showUserError('Network Error', 'Could not check for updates. Using offline mode.');
                 self.complete(false);
             };
 
@@ -294,6 +299,28 @@
 
                     if (xhr.status === 200) {
                         var content = xhr.responseText;
+                        
+                        // Validate content is not HTML error page
+                        var trimmed = content.trim();
+                        if (trimmed.charAt(0) === '<' && (trimmed.indexOf('<!DOCTYPE') === 0 || trimmed.indexOf('<html') !== -1)) {
+                            self.log('Invalid content (HTML) for: ' + file.path);
+                            self.state.failedFiles.push(file.path);
+                            callback(false);
+                            return;
+                        }
+                        
+                        // Hash validation if manifest provides hash
+                        if (file.info.hash) {
+                            var calculatedHash = self.simpleHash(content);
+                            if (calculatedHash !== file.info.hash) {
+                                self.log('Hash mismatch for: ' + file.path + ' (expected: ' + file.info.hash + ', got: ' + calculatedHash + ')');
+                                self.state.failedFiles.push(file.path);
+                                callback(false);
+                                return;
+                            }
+                            self.log('Hash verified: ' + file.path);
+                        }
+                        
                         self.cacheFile(file.path, content, file.info.version);
                         self.state.downloadedFiles.push(file.path);
                         self.log('Downloaded: ' + file.path);
@@ -314,6 +341,17 @@
             };
 
             xhr.send();
+        },
+        
+        simpleHash: function(str) {
+            var hash = 0;
+            if (str.length === 0) return hash.toString(16);
+            for (var i = 0; i < str.length; i++) {
+                var char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return (hash >>> 0).toString(16);
         },
 
         cacheFile: function(filePath, content, version) {
@@ -423,8 +461,18 @@
             if (this.state.hasUpdates && this.state.downloadedFiles.length > 0) {
                 this.log('Background update complete. ' + this.state.downloadedFiles.length + ' files updated.');
                 this.log('Updates will be applied on next app launch.');
+                
+                // Show success notification to user (optional, only if significant updates)
+                if (this.state.downloadedFiles.length >= 3 && typeof showToast === 'function') {
+                    showToast('Update', this.state.downloadedFiles.length + ' files updated. Restart for changes.');
+                }
             } else {
                 this.log('No updates needed.');
+            }
+            
+            // Show error notification if many files failed
+            if (this.state.failedFiles.length > 5) {
+                this.showUserError('Update Error', 'Some updates failed. Using local files.');
             }
 
             if (this.config.onComplete) {
@@ -435,6 +483,15 @@
                     failedFiles: this.state.failedFiles,
                     manifest: this.state.manifest
                 });
+            }
+        },
+        
+        showUserError: function(title, message) {
+            // Use showToast if available, otherwise fallback to console
+            if (typeof showToast === 'function') {
+                showToast(title, message);
+            } else {
+                console.warn('[RemoteLoader] ' + title + ': ' + message);
             }
         },
 

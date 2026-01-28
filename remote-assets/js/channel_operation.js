@@ -141,14 +141,9 @@ var channel_page={
                 width:'100vw'
             });
             media_player.full_screen_state=1;
-            setTimeout(function () {
-                try{
-                    media_player.setDisplayArea();
-                }catch (e) {
-                    console.log('setDisplayArea error on zoom in:', e);
-                }
-            }, 250);
             that.full_screen_video=true;
+            that.transitioning_to_fullscreen=true;
+            that._initFullscreenPending=true; // Flag to defer setDisplayArea after showLiveChannelMovie
             clearTimeout(that.full_screen_timer);
             $('#full-screen-information').addClass('visible');
             $('#full-screen-channel-name').slideDown(400);
@@ -158,6 +153,8 @@ var channel_page={
                 $('#full-screen-channel-name').slideUp(400);
             },5000)
             that.keys.focused_part="full_screen";
+            // NOTE: setDisplayArea is called AFTER showLiveChannelMovie registers _pendingPlayAsync
+            // See bottom of init() where _initFullscreenPending triggers setDisplayArea
         }
         else{
             $('#live_channels_home .player-container').css({
@@ -179,6 +176,22 @@ var channel_page={
         this.showLiveChannelMovie(current_movie.stream_id);
         this.changeActiveChannel();
         current_route="channel-page";
+        
+        // CRITICAL: If init was called with fullscreen, now trigger setDisplayArea
+        // _pendingPlayAsync is now registered by showLiveChannelMovie
+        if(that._initFullscreenPending){
+            that._initFullscreenPending = false;
+            console.log('init: Triggering deferred setDisplayArea after showLiveChannelMovie');
+            media_player.setDisplayArea(function() {
+                that.transitioning_to_fullscreen = false;
+                console.log('init fullscreen: setDisplayArea completed');
+                if (typeof that._pendingPlayAsync === 'function') {
+                    console.log('init fullscreen: Executing _pendingPlayAsync');
+                    that._pendingPlayAsync();
+                    that._pendingPlayAsync = null;
+                }
+            });
+        }
     },
     toggleFavoriteAndRecentBottomOptionVisbility: function () {
         var category = current_category;
@@ -542,7 +555,8 @@ var channel_page={
             });
         }
     },
-    zoomInOut:function(){
+    zoomInOut:function(callback){
+        var that = this;
         if(!this.full_screen_video){
             $('#live_channels_home .player-container').css({
                 position:'relative',
@@ -562,9 +576,9 @@ var channel_page={
             console.log('focused_part:', this.keys.focused_part);
             console.log('========================================');
             this.lockUI(400);
-            this.scheduleSetDisplayArea(function() {
-                media_player.setDisplayArea();
-            }, 250);
+            media_player.setDisplayArea(function() {
+                if (typeof callback === 'function') callback();
+            });
             $('#full-screen-information').removeClass('visible');
             $('#live_channels_home').find('.channel-information-container').show();
             $('#live-channel-button-container').show();
@@ -601,14 +615,20 @@ var channel_page={
             
             var that = this;
             
-            // CRITICAL: Use scheduleSetDisplayArea with 250ms delay for fullscreen
-            // Older Samsung TVs "lock" the first rect value - must use delay + requestAnimationFrame
-            console.log('🔥 ZOOM IN: Calling setDisplayArea with 250ms delay for Samsung compatibility');
-            this.scheduleSetDisplayArea(function() {
-                media_player.setDisplayArea();
+            // CRITICAL: Use setDisplayArea callback for Samsung 4K timing
+            // Older Samsung TVs "lock" the first rect value - 250ms delay built into setDisplayArea
+            console.log('🔥 ZOOM IN: Calling setDisplayArea with callback for Samsung compatibility');
+            media_player.setDisplayArea(function() {
                 that.transitioning_to_fullscreen = false;
                 console.log('🔥 ZOOM IN: setDisplayArea completed, cleared transitioning flag');
-            }, 250);
+                // Execute any pending playAsync from showLiveChannelMovie
+                if (typeof that._pendingPlayAsync === 'function') {
+                    console.log('🔥 ZOOM IN: Executing _pendingPlayAsync');
+                    that._pendingPlayAsync();
+                    that._pendingPlayAsync = null;
+                }
+                if (typeof callback === 'function') callback();
+            });
             
             $('#live_channels_home').find('.channel-information-container').hide();
             $('#live-channel-button-container').hide();
@@ -662,21 +682,45 @@ var channel_page={
             console.log('showLiveChannelMovie: After init() - full_screen_state=', media_player.full_screen_state);
             
             if(this.transitioning_to_fullscreen){
-                console.log('showLiveChannelMovie: ⚠️ TRANSITIONING TO FULLSCREEN - skipping setDisplayArea, zoomInOut will handle it');
+                console.log('showLiveChannelMovie: ⚠️ TRANSITIONING TO FULLSCREEN - waiting for zoomInOut setDisplayArea');
+                // Store playAsync call in pending callback - zoomInOut will trigger it when setDisplayArea completes
+                var that = this;
+                this._pendingPlayAsync = function() {
+                    console.log('showLiveChannelMovie: _pendingPlayAsync executing after zoomInOut setDisplayArea');
+                    setTimeout(function() {
+                        try{
+                            media_player.playAsync(url);
+                        }catch (e) {
+                            console.log(e);
+                        }
+                    }, 150);
+                };
             } else if(media_player.full_screen_state !== 1){
                 console.log('showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode');
                 var that = this;
-                this.scheduleSetDisplayArea(function() {
-                    media_player.setDisplayArea();
-                }, 250);
+                // CRITICAL: Use setDisplayArea callback to ensure playAsync runs after
+                media_player.setDisplayArea(function() {
+                    setTimeout(function() {
+                        try{
+                            media_player.playAsync(url);
+                        }catch (e) {
+                            console.log(e);
+                        }
+                    }, 150);
+                });
             } else {
-                console.log('showLiveChannelMovie: full_screen_state === 1, SKIPPING preview setDisplayArea()');
+                console.log('showLiveChannelMovie: full_screen_state === 1, using setDisplayArea callback');
+                // Fullscreen mode - use setDisplayArea callback for proper timing
+                media_player.setDisplayArea(function() {
+                    setTimeout(function() {
+                        try{
+                            media_player.playAsync(url);
+                        }catch (e) {
+                            console.log(e);
+                        }
+                    }, 150);
+                });
             }
-        }catch (e) {
-            console.log(e);
-        }
-        try{
-            media_player.playAsync(url);
         }catch (e) {
             console.log(e);
         }
@@ -688,8 +732,9 @@ var channel_page={
         console.log('  Channel Num:', current_movie.num);
         
         // Set channel name in the COMPACT header (new design)
-        $('#full-screen-channel-name-compact').html(current_movie.name);
-        $('#full-screen-channel-number').html(current_movie.num);
+        // Use text() instead of html() for XSS safety
+        $('#full-screen-channel-name-compact').text(current_movie.name);
+        $('#full-screen-channel-number').text(current_movie.num);
         $('#full-screen-channel-logo').attr('src',current_movie.stream_icon);
         
         console.log('  Set in #full-screen-channel-name-compact');
@@ -781,7 +826,7 @@ var channel_page={
         $(targetElement).find('.channel-number').text(channel.num);
         $(targetElement).find('.channel-icon').attr('src', channel.stream_icon);
         $(targetElement).data('index',index);
-        $(targetElement).find('.channel-name').html(channel.name);
+        $(targetElement).find('.channel-name').text(channel.name);
         $(targetElement).data('channel_id',channel.stream_id);
     },
     reArrangeFavouriteChannelPositions:function () {  // this will need when user remove favourite ids and ...

@@ -13,6 +13,45 @@ function debugLog() {
 }
 
 // ============================================================
+// XSS SANITIZATION - Escape HTML to prevent injection attacks
+// ============================================================
+function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    if (typeof str !== 'string') str = String(str);
+    var entityMap = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+        '/': '&#x2F;',
+        '`': '&#x60;',
+        '=': '&#x3D;'
+    };
+    return str.replace(/[&<>"'`=\/]/g, function(s) {
+        return entityMap[s];
+    });
+}
+
+// Sanitize object properties (useful for API responses)
+function sanitizeObject(obj, keysToSanitize) {
+    if (!obj || typeof obj !== 'object') return obj;
+    var result = Array.isArray(obj) ? [] : {};
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            if (keysToSanitize && keysToSanitize.indexOf(key) !== -1) {
+                result[key] = escapeHtml(obj[key]);
+            } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+                result[key] = sanitizeObject(obj[key], keysToSanitize);
+            } else {
+                result[key] = obj[key];
+            }
+        }
+    }
+    return result;
+}
+
+// ============================================================
 // FAVORITES DIRTY FLAG - Tracks when favorites need UI refresh
 // ============================================================
 var favourites_dirty = false;

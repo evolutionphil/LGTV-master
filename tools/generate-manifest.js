@@ -95,10 +95,23 @@ function getFileHash(filePath) {
     try {
         var fullPath = path.join(__dirname, '..', filePath);
         var content = fs.readFileSync(fullPath, 'utf8');
-        return crypto.createHash('md5').update(content).digest('hex').substring(0, 8);
+        // Use same simple hash as remote-loader.js for validation
+        return simpleHash(content);
     } catch (e) {
         return '';
     }
+}
+
+// Must match simpleHash in remote-loader.js exactly
+function simpleHash(str) {
+    var hash = 0;
+    if (str.length === 0) return hash.toString(16);
+    for (var i = 0; i < str.length; i++) {
+        var char = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+    }
+    return (hash >>> 0).toString(16);
 }
 
 function loadExistingManifest() {

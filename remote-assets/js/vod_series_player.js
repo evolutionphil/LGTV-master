@@ -106,18 +106,18 @@ var vod_series_player={
                 url=getMovieUrl(movie.stream_id,'movie',movie.container_extension);
             else if(settings.playlist_type==="type1")
                 url=movie.url;
-            $('#vod-series-video-title').html(movie.name);
+            $('#vod-series-video-title').text(movie.name);
         }
         else if(movie_type==='storage') {
             url=movie.toURI();
-            $('#vod-series-video-title').html(movie.name);
+            $('#vod-series-video-title').text(movie.name);
         }
         else{
             if(settings.playlist_type==="xtreme")
                 url=getMovieUrl(movie.id,'series',movie.container_extension)
             else if(settings.playlist_type==="type1")
                 url=movie.url;
-            $('#vod-series-video-title').html(movie.title);
+            $('#vod-series-video-title').text(movie.title);
         }
 
 
@@ -146,16 +146,22 @@ var vod_series_player={
         }
         try{
             media_player.init("vod-series-player-video","vod-series-player-page");
+            // CRITICAL: setDisplayArea MUST complete before playAsync
+            // Use callback to ensure proper timing on Samsung 4K TVs
             setTimeout(function(){
                 try{
-                    media_player.setDisplayArea();
+                    media_player.setDisplayArea(function() {
+                        // playAsync after setDisplayArea completes (additional 150ms buffer)
+                        setTimeout(function() {
+                            try{
+                                media_player.playAsync(url);
+                            }catch (e) {
+                            }
+                        }, 150);
+                    });
                 }catch(e){
                 }
             }, 250);
-        }catch (e) {
-        }
-        try{
-            media_player.playAsync(url);
         }catch (e) {
         }
         this.timeOut=setTimeout(function(){
