@@ -155,6 +155,28 @@ var home_page={
         $('#select-language-body').html(html);
         home_page.language_doms=$('.language-item');
 
+        // LG Magic Remote wheel scrolling support for language modal
+        $('#select-language-body').on('wheel', function(e) {
+            e.preventDefault();
+            var keys = home_page.keys;
+            if (keys.focused_part === 'language_selection') {
+                var delta = e.originalEvent.deltaY || e.originalEvent.detail || 0;
+                var increment = delta > 0 ? 1 : -1;
+                var language_doms = home_page.language_doms;
+                
+                keys.language_selection += increment;
+                if (keys.language_selection < 0) {
+                    keys.language_selection = language_doms.length - 1;
+                }
+                if (keys.language_selection >= language_doms.length) {
+                    keys.language_selection = 0;
+                }
+                $(language_doms).removeClass('active');
+                $(language_doms[keys.language_selection]).addClass('active');
+                moveScrollPosition($('#select-language-body'), language_doms[keys.language_selection], 'vertical', false);
+            }
+        });
+
         home_page.doms_translated = $("*").filter(function() {
             return $(this).data("word_code") !== undefined;
         });
