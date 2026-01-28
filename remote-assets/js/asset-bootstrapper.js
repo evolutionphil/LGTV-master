@@ -173,11 +173,23 @@ if (!Array.prototype.findIndex) {
             var cached = getCachedContent(filePath);
             
             if (cached) {
-                var version = getCachedVersion(filePath) || 'unknown';
-                document.write('<style type="text/css" data-file="' + filePath + '" data-source="cache" data-version="' + version + '">' + cached + '</style>');
-                this.loadedFromCache.push(filePath);
-                log('CSS from cache: ' + filePath);
-                return true;
+                // Validate cached content is CSS, not HTML error page
+                var trimmed = cached.trim();
+                if (trimmed.indexOf('<!DOCTYPE') === 0 || trimmed.indexOf('<html') === 0) {
+                    // Invalid cached content (HTML), remove and load from local
+                    log('Invalid CSS cache (HTML detected), loading from local: ' + filePath);
+                    try {
+                        var key = CACHE_PREFIX + pathToKey(filePath);
+                        localStorage.removeItem(key);
+                        localStorage.removeItem(key + '_version');
+                    } catch (e) {}
+                } else {
+                    var version = getCachedVersion(filePath) || 'unknown';
+                    document.write('<style type="text/css" data-file="' + filePath + '" data-source="cache" data-version="' + version + '">' + cached + '</style>');
+                    this.loadedFromCache.push(filePath);
+                    log('CSS from cache: ' + filePath);
+                    return true;
+                }
             }
             
             document.write('<link rel="stylesheet" href="' + filePath + '" data-source="local">');
@@ -227,11 +239,23 @@ if (!Array.prototype.findIndex) {
             var cached = getCachedContent(filePath);
             
             if (cached) {
-                var version = getCachedVersion(filePath) || 'unknown';
-                document.write('<script type="text/javascript" data-file="' + filePath + '" data-source="cache" data-version="' + version + '">' + cached + '<\/script>');
-                this.loadedFromCache.push(filePath);
-                log('JS from cache: ' + filePath);
-                return true;
+                // Validate cached content is JavaScript, not HTML error page
+                var trimmed = cached.trim();
+                if (trimmed.charAt(0) === '<' || trimmed.indexOf('<!DOCTYPE') === 0 || trimmed.indexOf('<html') === 0) {
+                    // Invalid cached content (HTML), remove and load from local
+                    log('Invalid JS cache (HTML detected), loading from local: ' + filePath);
+                    try {
+                        var key = CACHE_PREFIX + pathToKey(filePath);
+                        localStorage.removeItem(key);
+                        localStorage.removeItem(key + '_version');
+                    } catch (e) {}
+                } else {
+                    var version = getCachedVersion(filePath) || 'unknown';
+                    document.write('<script type="text/javascript" data-file="' + filePath + '" data-source="cache" data-version="' + version + '">' + cached + '<\/script>');
+                    this.loadedFromCache.push(filePath);
+                    log('JS from cache: ' + filePath);
+                    return true;
+                }
             }
             
             document.write('<script src="' + filePath + '" data-source="local"><\/script>');

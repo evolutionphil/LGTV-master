@@ -1,6 +1,6 @@
 {
-  "version": "1.0.6",
-  "lastUpdate": "2026-01-28T09:17:24.660Z",
+  "version": "1.0.7",
+  "lastUpdate": "2026-01-28T09:32:41.083Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 1,
@@ -298,9 +298,9 @@
       "priority": 2
     },
     "js/asset-bootstrapper.js": {
-      "version": "1.0.1",
-      "size": 11282,
-      "hash": "3cbe0ee3",
+      "version": "1.0.2",
+      "size": 12715,
+      "hash": "236f5a7c",
       "priority": 1
     }
   }
