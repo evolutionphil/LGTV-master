@@ -1,6 +1,6 @@
 {
-  "version": "1.0.5",
-  "lastUpdate": "2026-01-28T09:14:01.064Z",
+  "version": "1.0.6",
+  "lastUpdate": "2026-01-28T09:17:24.660Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 1,
@@ -250,9 +250,9 @@
       "priority": 3
     },
     "js/storage_operation.js": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "size": 13648,
-      "hash": "f15f525f",
+      "hash": "fb943182",
       "priority": 3
     },
     "js/image_page.js": {
@@ -274,9 +274,9 @@
       "priority": 2
     },
     "js/srt_operation.js": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "size": 12361,
-      "hash": "510e2d59",
+      "hash": "a352cca2",
       "priority": 2
     },
     "js/srt_parser.js": {
@@ -298,9 +298,9 @@
       "priority": 2
     },
     "js/asset-bootstrapper.js": {
-      "version": "1.0.0",
-      "size": 8493,
-      "hash": "474269b0",
+      "version": "1.0.1",
+      "size": 11282,
+      "hash": "3cbe0ee3",
       "priority": 1
     }
   }

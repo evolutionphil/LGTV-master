@@ -155,9 +155,9 @@ var storage_page={
         }
         this.storages.map(function (item, index) {
             var file_type=item.isFile ? 'file' : 'directory';
-            let src_image="images/folder.png";
+            var src_image="images/folder.png";
             if(file_type==='file') {
-                let ext=getExt(item.name);
+                var ext=getExt(item.name);
                 if(image_file_exts.includes(ext)) {
                     src_image=item.toURI();
                 }else

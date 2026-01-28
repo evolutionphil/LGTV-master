@@ -47,7 +47,7 @@ var SrtOperation={
         if (start > end)
             return end;
         // Find the middle index
-        let mid=Math.floor((start + end)/2);
+        var mid=Math.floor((start + end)/2);
 
         // Compare mid with given key x
         if (arr[mid].startSeconds<=time && time<arr[mid].endSeconds)
