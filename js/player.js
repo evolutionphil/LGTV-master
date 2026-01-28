@@ -215,10 +215,17 @@ function initPlayer() {
                 }
                 SrtOperation.deStruct();
                 this.subtitles=[];
-                $(this.parent_id).find('.video-error').hide();
+                try {
+                    $('#' + this.parent_id).find('.video-error').hide();
+                    $('#' + this.parent_id).find('.video-loader').hide();
+                } catch (e) {
+                }
                 this.reconnect_count = 0;
                 clearTimeout(this.reconnect_timer);
-                $('#' + this.parent_id).find('.video-reconnect-message').hide();
+                try {
+                    $('#' + this.parent_id).find('.video-reconnect-message').hide();
+                } catch (e) {
+                }
             },
             tryReconnect: function () {
                 if (current_route !== 'channel-page' && 
