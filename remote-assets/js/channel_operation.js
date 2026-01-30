@@ -558,6 +558,10 @@ var channel_page={
     zoomInOut:function(callback){
         var that = this;
         if(!this.full_screen_video){
+            console.log('========================================');
+            console.log('zoomInOut() ZOOM OUT START');
+            console.log('========================================');
+            
             $('#live_channels_home .player-container').css({
                 position:'relative',
                 height:'58.3vh',
@@ -570,19 +574,47 @@ var channel_page={
             
             this.keys.focused_part="channel_selection";
             media_player.full_screen_state=0;
-            console.log('========================================');
             console.log('zoomInOut() ZOOM OUT - set full_screen_state to 0');
             console.log('full_screen_video:', this.full_screen_video);
             console.log('focused_part:', this.keys.focused_part);
-            console.log('========================================');
+            
             this.lockUI(400);
-            media_player.setDisplayArea(function() {
-                if (typeof callback === 'function') callback();
-            });
+            
+            // CRITICAL FIX: Samsung AVPlay requires pause before setDisplayRect change
+            // Then resume after rect is applied
+            if (platform === 'tizen') {
+                try {
+                    console.log('zoomInOut() ZOOM OUT: Pausing AVPlay for rect change');
+                    webapis.avplay.pause();
+                } catch (e) {
+                    console.log('zoomInOut() pause error:', e);
+                }
+                
+                // Wait for CSS to apply, then set rect, then resume
+                setTimeout(function() {
+                    media_player.setDisplayArea(function() {
+                        try {
+                            console.log('zoomInOut() ZOOM OUT: Resuming AVPlay after rect change');
+                            webapis.avplay.play();
+                        } catch (e) {
+                            console.log('zoomInOut() resume error:', e);
+                        }
+                        if (typeof callback === 'function') callback();
+                    });
+                }, 100);
+            } else {
+                media_player.setDisplayArea(function() {
+                    if (typeof callback === 'function') callback();
+                });
+            }
+            
             $('#full-screen-information').removeClass('visible');
             $('#live_channels_home').find('.channel-information-container').show();
             $('#live-channel-button-container').show();
             $('#live_channels_home').find('.video-skin').show();
+            console.log('========================================');
+            console.log('zoomInOut() ZOOM OUT END');
+            console.log('========================================');
         }
         else{
             console.log('========================================');
