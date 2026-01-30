@@ -280,16 +280,10 @@ var home_page={
         if(current_movie_type==="live-tv"){
             if(this.preview_url){
                 media_player.init("home-page-video-preview",'home-page');
-                // CRITICAL: Use setDisplayArea callback for proper timing
-                media_player.setDisplayArea(function() {
-                    if(current_route !== "home-page") return;
-                    setTimeout(function() {
-                        try{
-                            media_player.playAsync(that.preview_url);
-                        }catch (e) {
-                        }
-                    }, 150);
-                });
+                media_player.setDisplayArea();
+                setTimeout(function () {
+                    media_player.playAsync(that.preview_url);
+                },0)
             }
         }
         if(this.submenu_opened) {  // this will be the case that live tv, movies, series, youtube play menu clicked and its categories showing., in this case, we need to update favourite, recent movies count
@@ -863,18 +857,12 @@ var home_page={
         if(current_movie_type==="series" || current_movie_type==="movies"){
             if(this.preview_url){
                 var that=this;
-                // CRITICAL: setDisplayArea must complete before playAsync
                 setTimeout(function () {
                     media_player.init("home-page-video-preview",'home-page');
-                    // Use callback for proper timing
-                    media_player.setDisplayArea(function() {
-                        setTimeout(function() {
-                            try{
-                                media_player.playAsync(that.preview_url);
-                            }catch (e) {
-                            }
-                        }, 150);
-                    });
+                    media_player.setDisplayArea();
+                    setTimeout(function () {
+                        media_player.playAsync(that.preview_url);
+                    },0)
                 },500);
             }
         }
@@ -1420,17 +1408,12 @@ var home_page={
             }
             try{
                 media_player.init("home-page-video-preview",'home-page');
-                // CRITICAL: Use setDisplayArea callback for proper timing
-                media_player.setDisplayArea(function() {
-                    setTimeout(function() {
-                        try{
-                            media_player.playAsync(url);
-                        }catch (e) {
-                        }
-                    }, 150);
-                });
+                media_player.setDisplayArea();
             }catch (e) {
             }
+            setTimeout(function () {
+                media_player.playAsync(url);
+            },0)
         }
     },
     showVodSummary:function(){

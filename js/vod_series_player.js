@@ -146,22 +146,11 @@ var vod_series_player={
         }
         try{
             media_player.init("vod-series-player-video","vod-series-player-page");
-            // CRITICAL: setDisplayArea MUST complete before playAsync
-            // Use callback to ensure proper timing on Samsung 4K TVs
-            setTimeout(function(){
-                try{
-                    media_player.setDisplayArea(function() {
-                        // playAsync after setDisplayArea completes (additional 150ms buffer)
-                        setTimeout(function() {
-                            try{
-                                media_player.playAsync(url);
-                            }catch (e) {
-                            }
-                        }, 150);
-                    });
-                }catch(e){
-                }
-            }, 250);
+            media_player.setDisplayArea();
+        }catch (e) {
+        }
+        try{
+            media_player.playAsync(url);
         }catch (e) {
         }
         this.timeOut=setTimeout(function(){
