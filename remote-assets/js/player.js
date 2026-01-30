@@ -152,10 +152,9 @@ function initPlayer() {
                 try{
                     webapis.avplay.open(url);
                     this.setupEventListeners();
-                    // NOTE: setDisplayArea is now called BEFORE playAsync by the caller
-                    // Do not call setDisplayArea here to avoid Samsung 4K first-rect lock
-                    // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_BYTE", 1000); // 5 is in seconds
-                    // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_SECOND", 4); // 5 is in seconds
+                    // RESTORED: setDisplayArea called HERE after open(), before prepareAsync()
+                    // This is the ORIGINAL working order from 10 months ago
+                    this.setDisplayArea();
 
                     webapis.avplay.prepareAsync(
                         function(){
@@ -294,42 +293,22 @@ function initPlayer() {
                     that.playAsync(that.url);
                 }, 4000)
             },
-            setDisplayArea:function(callback) {
-                // RESTORED TO ORIGINAL WORKING VERSION (from 10 months ago)
-                // Samsung Tizen apps run in 1920x1080 viewport (CSS pixels)
-                // AVPlay uses the same coordinate system - NO ratio scaling needed!
-                var that = this;
+            setDisplayArea:function() {
+                // RESTORED TO EXACT ORIGINAL VERSION (from 10 months ago - commit 94b1e97)
+                // Simple and direct - no requestAnimationFrame, no callback, no ratio scaling
+                var top_position = $(this.videoObj).offset().top;
+                var left_position = $(this.videoObj).offset().left;
+                var width = parseInt($(this.videoObj).width());
+                var height = parseInt($(this.videoObj).height());
+                console.log('setDisplayArea:', left_position, top_position, width, height);
                 
-                console.log('setDisplayArea() called - full_screen_state:', this.full_screen_state);
+                try {
+                    webapis.avplay.setDisplayRect(left_position, top_position, width, height);
+                } catch (e) {
+                    console.log('setDisplayRect error:', e);
+                }
                 
-                // Use requestAnimationFrame to wait for CSS to apply
-                requestAnimationFrame(function() {
-                    var top_position = $(that.videoObj).offset().top;
-                    var left_position = $(that.videoObj).offset().left;
-                    var width = parseInt($(that.videoObj).width());
-                    var height = parseInt($(that.videoObj).height());
-                    
-                    console.log('setDisplayArea: rect:', left_position, top_position, width, height);
-                    
-                    try {
-                        // Use AUTO_ASPECT_RATIO for consistent aspect ratio handling (original behavior)
-                        webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO');
-                    } catch (e) {
-                    }
-                    
-                    try {
-                        // Direct CSS coordinates - NO scaling (original working behavior)
-                        webapis.avplay.setDisplayRect(left_position, top_position, width, height);
-                    } catch (e) {
-                    }
-                    
-                    channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
-                    
-                    // Execute callback if provided
-                    if (typeof callback === 'function') {
-                        callback();
-                    }
-                });
+                channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
             },
             toggleScreenRatio:function(){
                 try{

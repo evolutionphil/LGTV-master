@@ -1,0 +1,306 @@
+asset-bootstrapper.js:164 [Bootstrapper] Cache clear triggered (vnull -> v2)
+asset-bootstrapper.js:189 [Bootstrapper] Cleared 0 cached files
+asset-bootstrapper.js:167 [Bootstrapper] Cache cleared, using local files
+remote-config.js:46 [RemoteUpdate] Disabled
+common.js:1051 Object
+2webOSTV.js:126 PalmServiceBridge is not found.
+value @ webOSTV.js:126
+index.html:1843 [VersionDisplay] Manifest in cache: NO
+index.html:1861 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:248 [RemoteLogger] Initialized, deviceId: tv_ja45n2o7p
+remote-logger.js:196 [VersionDisplay] Manifest in cache: NO
+remote-logger.js:196 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:196 Samsung Tizen platform detected
+remote-logger.js:196 Samsung: Using Ethernet MAC address: a4:30:7a:37:c8:98
+remote-logger.js:196 {mac_registered: true, epg_urls: Array(0), youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE", themes: Array(3), adverts: Array(1), …}
+remote-logger.js:196 ✅ BLOCKED CHANNELS RECEIVED FROM API: []
+remote-logger.js:196 ✅ TERMS OF USE RECEIVED FROM API: {version: "1.0", content: "FLIX IPTV - TERMS OF USE↵↵Last Updated: October …ation↵↵© 2025 FLIX IPTV. All rights reserved.↵", updated_date: "2025-10-12"}
+remote-logger.js:196 📜 SHOWING TERMS OF USE (Version: 1.0)
+The resource https://flixapp.net/images/activation-qr-code.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+remote-logger.js:196 [VersionDisplay] Manifest in cache: NO
+remote-logger.js:196 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:196 [VersionDisplay] Manifest in cache: NO
+remote-logger.js:196 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:196 ✅ TERMS ACCEPTED (Version: 1.0)
+remote-logger.js:196 {mac_registered: true, epg_urls: Array(0), youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE", themes: Array(3), adverts: Array(1), …}
+remote-logger.js:196 player.init() - Reset full_screen_state to 0, parent_id: home-page
+remote-logger.js:196 detectTVCapabilities: tizen.tvwindow resolution: 720 x 480
+remote-logger.js:196 detectTVCapabilities: Final resolution: 720 x 480 UHD: false
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 setDisplayArea() called - full_screen_state: 0
+remote-logger.js:196 setDisplayArea: rect: 0 0 639 359
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 adding listener
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 player.close() - Reset full_screen_state to 0
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 ╔══════════════════════════════════════════════════════════════════╗
+remote-logger.js:196 ║ CHANNEL_OPERATION.INIT() - ENTERING CATEGORY
+remote-logger.js:196 ╠══════════════════════════════════════════════════════════════════╣
+remote-logger.js:196   channel_id: 0
+remote-logger.js:196   full_screen param: false
+remote-logger.js:196   CURRENT STATE:
+remote-logger.js:196     - full_screen_video: false
+remote-logger.js:196     - transitioning_to_fullscreen: false
+remote-logger.js:196     - media_player.full_screen_state: 0
+remote-logger.js:196     - keys.focused_part: channel_selection
+remote-logger.js:196     - current_channel_id: 0
+remote-logger.js:196   RESETTING STATE for new category...
+remote-logger.js:196 ╚══════════════════════════════════════════════════════════════════╝
+remote-logger.js:196 ╔════════════════════════════════════════════════════════════╗
+remote-logger.js:196 ║ showLiveChannelMovie: START
+remote-logger.js:196 ╠════════════════════════════════════════════════════════════╣
+remote-logger.js:196   Channel ID: 40721
+remote-logger.js:196   Channel Name: ☆☆ TR: ULUSAL ☆☆
+remote-logger.js:196   Channel Num: 96
+remote-logger.js:196   full_screen_video: false
+remote-logger.js:196   media_player.full_screen_state: 0
+remote-logger.js:196 ╚════════════════════════════════════════════════════════════╝
+remote-logger.js:196 showLiveChannelMovie: Before init() - full_screen_state= 0
+remote-logger.js:196 showLiveChannelMovie: transitioning_to_fullscreen= false
+remote-logger.js:196 player.init() - Reset full_screen_state to 0, parent_id: channel-page
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 showLiveChannelMovie: After init() - full_screen_state= 0
+remote-logger.js:196 showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode
+remote-logger.js:196 setDisplayArea() called - full_screen_state: 0
+remote-logger.js:196 ╔═══════════════════════════════════════════════════════════════╗
+remote-logger.js:196 ║ Setting Channel Info Bar
+remote-logger.js:196 ╠═══════════════════════════════════════════════════════════════╣
+remote-logger.js:196   Channel Name: ☆☆ TR: ULUSAL ☆☆
+remote-logger.js:196   Channel Num: 96
+remote-logger.js:196   Set in #full-screen-channel-name-compact
+remote-logger.js:196   Set channel number in #full-screen-channel-number
+remote-logger.js:196 ╚═══════════════════════════════════════════════════════════════╝
+remote-logger.js:196 setDisplayArea: rect: 804.234375 0 1119 629
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:183 
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+(anonymous) @ player.js:312
+requestAnimationFrame (async)
+setDisplayArea @ player.js:306
+showLiveChannelMovie @ channel_operation.js:734
+init @ channel_operation.js:176
+showCategoryContent @ home_operation.js:990
+submenuClick @ home_operation.js:1011
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ home_operation.js:1929
+HandleKey @ home_operation.js:2026
+(anonymous) @ main.js:150
+remote-logger.js:196 adding listener
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+remote-logger.js:196 ┃ KEY PRESS: OK/ENTER
+remote-logger.js:196 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+remote-logger.js:196   State Snapshot:
+remote-logger.js:196     focused_part: channel_selection
+remote-logger.js:196     full_screen_video: false
+remote-logger.js:196     transitioning_to_fullscreen: false
+remote-logger.js:196     media_player.full_screen_state: 0
+remote-logger.js:196     current_channel_id: 40721
+remote-logger.js:196 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+remote-logger.js:196 ⏎ Calling handleMenuClick()
+remote-logger.js:196 ═══════════════════════════════════════════════════════
+remote-logger.js:196 handleMenuClick START
+remote-logger.js:196   focused_part: channel_selection
+remote-logger.js:196   transitioning_to_fullscreen: false
+remote-logger.js:196   full_screen_video: false
+remote-logger.js:196 ═══════════════════════════════════════════════════════
+remote-logger.js:196 handleMenuClick: Branch → channel_selection
+remote-logger.js:196   Triggering click on menu_items[0]
+remote-logger.js:196 ┌─────────────────────────────────────────────────────────┐
+remote-logger.js:196 │ channelItemClick
+remote-logger.js:196 ├─────────────────────────────────────────────────────────┤
+remote-logger.js:196   Selected Channel: ☆☆ TR: ULUSAL ☆☆
+remote-logger.js:196   stream_id: 40721
+remote-logger.js:196   current_channel_id: 40721
+remote-logger.js:196   full_screen_video: false
+remote-logger.js:196 └─────────────────────────────────────────────────────────┘
+remote-logger.js:196 channelItemClick: SAME CHANNEL - checking if should zoom
+remote-logger.js:196 channelItemClick: Not fullscreen - ZOOMING IN
+remote-logger.js:196 🔒 UI LOCKED for 800ms until: 1769791159930
+remote-logger.js:196 ========================================
+remote-logger.js:196 zoomInOut() ZOOM IN START
+remote-logger.js:196   transitioning_to_fullscreen: true
+remote-logger.js:196   full_screen_video (before): true
+remote-logger.js:196   focused_part (before): full_screen
+remote-logger.js:196 ========================================
+remote-logger.js:196 zoomInOut() ZOOM IN: Updated flags IMMEDIATELY
+remote-logger.js:196   focused_part (after): full_screen
+remote-logger.js:196   full_screen_video (after): true
+remote-logger.js:196   full_screen_state: 1
+remote-logger.js:196 🔥 ZOOM IN: Calling setDisplayArea with callback for Samsung compatibility
+remote-logger.js:196 setDisplayArea() called - full_screen_state: 1
+remote-logger.js:196 ╔════════════════════════════════════════════════════════╗
+remote-logger.js:196 ║ Showing fullscreen info bar
+remote-logger.js:196 ╠════════════════════════════════════════════════════════╣
+remote-logger.js:196   #full-screen-information will show with .visible class
+remote-logger.js:196   Channel name is in #full-screen-channel-name-compact
+remote-logger.js:196 ╚════════════════════════════════════════════════════════╝
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+channelItemClick @ channel_operation.js:316
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ channel_operation.js:1051
+HandleKey @ channel_operation.js:1283
+(anonymous) @ main.js:153
+remote-logger.js:196 setDisplayArea: rect: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 🔥 ZOOM IN: setDisplayArea completed, cleared transitioning flag
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+zoomInOut @ channel_operation.js:634
+channelItemClick @ channel_operation.js:333
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ channel_operation.js:1051
+HandleKey @ channel_operation.js:1283
+(anonymous) @ main.js:153
+remote-logger.js:196 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+remote-logger.js:196 ┃ KEY PRESS: OK/ENTER
+remote-logger.js:196 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+remote-logger.js:196   State Snapshot:
+remote-logger.js:196     focused_part: full_screen
+remote-logger.js:196     full_screen_video: true
+remote-logger.js:196     transitioning_to_fullscreen: false
+remote-logger.js:196     media_player.full_screen_state: 1
+remote-logger.js:196     current_channel_id: 40721
+remote-logger.js:196 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+remote-logger.js:196 ⏎ Calling handleMenuClick()
+remote-logger.js:196 ═══════════════════════════════════════════════════════
+remote-logger.js:196 handleMenuClick START
+remote-logger.js:196   focused_part: full_screen
+remote-logger.js:196   transitioning_to_fullscreen: false
+remote-logger.js:196   full_screen_video: true
+remote-logger.js:196 ═══════════════════════════════════════════════════════
+remote-logger.js:196 handleMenuClick: Branch → full_screen
+remote-logger.js:196 handleMenuClick: ⬅ Exiting fullscreen - calling zoomInOut()
+remote-logger.js:196 ========================================
+remote-logger.js:196 zoomInOut() ZOOM OUT START
+remote-logger.js:196 ========================================
+remote-logger.js:196 zoomInOut() ZOOM OUT - set full_screen_state to 0
+remote-logger.js:196 full_screen_video: false
+remote-logger.js:196 focused_part: channel_selection
+remote-logger.js:196 🔒 UI LOCKED for 400ms until: 1769791163429
+remote-logger.js:196 setDisplayArea() called - full_screen_state: 0
+remote-logger.js:196 ========================================
+remote-logger.js:196 zoomInOut() ZOOM OUT END
+remote-logger.js:196 ========================================
+remote-logger.js:196 setDisplayArea: rect: 804.234375 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+zoomInOut @ channel_operation.js:561
+handleMenuClick @ channel_operation.js:1063
+HandleKey @ channel_operation.js:1283
+(anonymous) @ main.js:153
+remote-logger.js:196 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+remote-logger.js:196 ┃ KEY PRESS: OK/ENTER
+remote-logger.js:196 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+remote-logger.js:196   State Snapshot:
+remote-logger.js:196     focused_part: channel_selection
+remote-logger.js:196     full_screen_video: false
+remote-logger.js:196     transitioning_to_fullscreen: false
+remote-logger.js:196     media_player.full_screen_state: 0
+remote-logger.js:196     current_channel_id: 40721
+remote-logger.js:196 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+remote-logger.js:196 ⏎ Calling handleMenuClick()
+remote-logger.js:196 ═══════════════════════════════════════════════════════
+remote-logger.js:196 handleMenuClick START
+remote-logger.js:196   focused_part: channel_selection
+remote-logger.js:196   transitioning_to_fullscreen: false
+remote-logger.js:196   full_screen_video: false
+remote-logger.js:196 ═══════════════════════════════════════════════════════
+remote-logger.js:196 handleMenuClick: Branch → channel_selection
+remote-logger.js:196   Triggering click on menu_items[0]
+remote-logger.js:196 ┌─────────────────────────────────────────────────────────┐
+remote-logger.js:196 │ channelItemClick
+remote-logger.js:196 ├─────────────────────────────────────────────────────────┤
+remote-logger.js:196   Selected Channel: ☆☆ TR: ULUSAL ☆☆
+remote-logger.js:196   stream_id: 40721
+remote-logger.js:196   current_channel_id: 40721
+remote-logger.js:196   full_screen_video: false
+remote-logger.js:196 └─────────────────────────────────────────────────────────┘
+remote-logger.js:196 channelItemClick: SAME CHANNEL - checking if should zoom
+remote-logger.js:196 channelItemClick: Not fullscreen - ZOOMING IN
+remote-logger.js:196 🔒 UI LOCKED for 800ms until: 1769791164525
+remote-logger.js:196 ========================================
+remote-logger.js:196 zoomInOut() ZOOM IN START
+remote-logger.js:196   transitioning_to_fullscreen: true
+remote-logger.js:196   full_screen_video (before): true
+remote-logger.js:196   focused_part (before): full_screen
+remote-logger.js:196 ========================================
+remote-logger.js:196 zoomInOut() ZOOM IN: Updated flags IMMEDIATELY
+remote-logger.js:196   focused_part (after): full_screen
+remote-logger.js:196   full_screen_video (after): true
+remote-logger.js:196   full_screen_state: 1
+remote-logger.js:196 🔥 ZOOM IN: Calling setDisplayArea with callback for Samsung compatibility
+remote-logger.js:196 setDisplayArea() called - full_screen_state: 1
+remote-logger.js:196 ╔════════════════════════════════════════════════════════╗
+remote-logger.js:196 ║ Showing fullscreen info bar
+remote-logger.js:196 ╠════════════════════════════════════════════════════════╣
+remote-logger.js:196   #full-screen-information will show with .visible class
+remote-logger.js:196   Channel name is in #full-screen-channel-name-compact
+remote-logger.js:196 ╚════════════════════════════════════════════════════════╝
+remote-logger.js:196 setDisplayArea: rect: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 🔥 ZOOM IN: setDisplayArea completed, cleared transitioning flag
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+HandleKey @ channel_operation.js:1258
+(anonymous) @ main.js:153
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+channelItemClick @ channel_operation.js:326
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ channel_operation.js:1051
+HandleKey @ channel_operation.js:1283
+(anonymous) @ main.js:153
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+zoomInOut @ channel_operation.js:677
+channelItemClick @ channel_operation.js:333
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ channel_operation.js:1051
+HandleKey @ channel_operation.js:1283
+(anonymous) @ main.js:153
+remote-logger.js:196 Hiding fullscreen info bar after 5 seconds
