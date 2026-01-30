@@ -294,69 +294,33 @@ function initPlayer() {
                     that.playAsync(that.url);
                 }, 4000)
             },
-            setDisplayArea:function(callbackOrForcePreview) {
+            setDisplayArea:function(callback) {
+                // RESTORED TO ORIGINAL WORKING VERSION (from 10 months ago)
+                // Samsung Tizen apps run in 1920x1080 viewport (CSS pixels)
+                // AVPlay uses the same coordinate system - NO ratio scaling needed!
                 var that = this;
-                var capabilities = this.detectTVCapabilities();
-                var avplayBaseWidth = capabilities.resolution.width;
-                var avplayBaseHeight = capabilities.resolution.height;
                 
-                // Support both callback (function) and forcePreview (boolean) parameters
-                var callback = (typeof callbackOrForcePreview === 'function') ? callbackOrForcePreview : null;
-                var forcePreview = (callbackOrForcePreview === true);
-                
-                // forcePreview=true forces preview mode regardless of full_screen_state
-                // This is used when returning from fullscreen to prevent race conditions
-                var useFullscreen = (that.full_screen_state === 1) && !forcePreview;
-                
-                console.log('setDisplayArea() called - full_screen_state:', this.full_screen_state, 'forcePreview:', forcePreview, 'useFullscreen:', useFullscreen);
+                console.log('setDisplayArea() called - full_screen_state:', this.full_screen_state);
                 
                 // Use requestAnimationFrame to wait for CSS to apply
                 requestAnimationFrame(function() {
-                    if (useFullscreen) {
-                        console.log('setDisplayArea: FULLSCREEN mode - rect:', 0, 0, avplayBaseWidth, avplayBaseHeight);
-                        try {
-                            // CRITICAL: Force fullscreen display mode
-                            webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
-                        } catch (e) {
-                        }
-                        
-                        try {
-                            // Use detected resolution (works on 1080p, 4K, 8K)
-                            webapis.avplay.setDisplayRect(0, 0, avplayBaseWidth, avplayBaseHeight);
-                        } catch (e) {
-                        }
-                    } else {
-                        // PREVIEW MODE: Different display modes for different TV resolutions
-                        // - 720p/1080p TVs: Use AUTO_ASPECT_RATIO (fixes small TV scaling issues)
-                        // - 4K/UHD TVs: Use LETTER_BOX (prevents zoom/crop on UHD panels)
-                        var top_position=$(that.videoObj).offset().top;
-                        var left_position=$(that.videoObj).offset().left;
-                        var width=parseInt($(that.videoObj).width())
-                        var height=parseInt($(that.videoObj).height());
+                    var top_position = $(that.videoObj).offset().top;
+                    var left_position = $(that.videoObj).offset().left;
+                    var width = parseInt($(that.videoObj).width());
+                    var height = parseInt($(that.videoObj).height());
                     
-                        var ratioX = avplayBaseWidth / window.document.documentElement.clientWidth;
-                        var ratioY = avplayBaseHeight / window.document.documentElement.clientHeight;
-                        
-                        var scaledLeft = Math.round(left_position * ratioX);
-                        var scaledTop = Math.round(top_position * ratioY);
-                        var scaledWidth = Math.round(width * ratioX);
-                        var scaledHeight = Math.round(height * ratioY);
-                        
-                        // Choose display mode based on TV resolution
-                        var isUHD = avplayBaseHeight > 1080;
-                        var displayMode = isUHD ? 'PLAYER_DISPLAY_MODE_LETTER_BOX' : 'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO';
-                        
-                        console.log('setDisplayArea: PREVIEW mode - resolution:', avplayBaseWidth + 'x' + avplayBaseHeight, 'isUHD:', isUHD, 'displayMode:', displayMode);
-                        console.log('setDisplayArea: rect:', scaledLeft, scaledTop, scaledWidth, scaledHeight, 'ratioX:', ratioX.toFixed(2), 'ratioY:', ratioY.toFixed(2));
-                        
-                        try {
-                            webapis.avplay.setDisplayMethod(displayMode);
-                        } catch (e) {
-                        }
-                        try {
-                            webapis.avplay.setDisplayRect(scaledLeft, scaledTop, scaledWidth, scaledHeight);
-                        } catch (e) {
-                        }
+                    console.log('setDisplayArea: rect:', left_position, top_position, width, height);
+                    
+                    try {
+                        // Use AUTO_ASPECT_RATIO for consistent aspect ratio handling (original behavior)
+                        webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO');
+                    } catch (e) {
+                    }
+                    
+                    try {
+                        // Direct CSS coordinates - NO scaling (original working behavior)
+                        webapis.avplay.setDisplayRect(left_position, top_position, width, height);
+                    } catch (e) {
                     }
                     
                     channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
