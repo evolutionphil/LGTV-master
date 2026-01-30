@@ -1,6 +1,6 @@
 {
   "version": "1.0.20",
-  "lastUpdate": "2026-01-30T19:44:38.701Z",
+  "lastUpdate": "2026-01-30T19:51:01.205Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 1,
@@ -40,9 +40,9 @@
       "priority": 2
     },
     "css/channel_page.css": {
-      "version": "1.0.3",
-      "size": 8938,
-      "hash": "caa39b4d",
+      "version": "1.0.4",
+      "size": 20428,
+      "hash": "9b156272",
       "priority": 2
     },
     "css/homepage.css": {
