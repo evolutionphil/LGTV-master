@@ -106,24 +106,14 @@ var home_page={
         });
         try{
             media_player.init("home-page-video-preview",'home-page');
-            // CRITICAL: setDisplayArea MUST complete before playAsync starts
-            // Use callback to ensure proper timing on Samsung 4K TVs
-            if(first_play_video!==''){
-                this.preview_url=first_play_video;
-                media_player.setDisplayArea(function() {
-                    setTimeout(function() {
-                        try{
-                            media_player.playAsync(first_play_video);
-                        }catch(e){
-                            console.log(e);
-                        }
-                    }, 150);
-                });
-            }
+            media_player.setDisplayArea();
         }catch (e) {
         }
-        if(first_play_video===''){ 
-            // No preview video
+        if(first_play_video!==''){
+            this.preview_url=first_play_video
+            setTimeout(function () {
+                media_player.playAsync(first_play_video);
+            },0)
         }
         else{
             // $('#home-page .video-error').show();

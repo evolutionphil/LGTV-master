@@ -536,9 +536,6 @@ var channel_page={
         }
     },
     zoomInOut:function(){
-        // RESTORED TO EXACT ORIGINAL VERSION (from 10 months ago - commit 94b1e97)
-        // NO setDisplayArea call here - only CSS changes
-        // setDisplayArea is called inside playAsync after open()
         if(!this.full_screen_video){
             $('#live_channels_home .player-container').css({
                 position:'relative',
@@ -546,7 +543,6 @@ var channel_page={
                 width:'58.3vw'
             });
             this.keys.focused_part="channel_selection";
-            // Original: setDisplayArea NOT called here
             $('#full-screen-information').hide();
             $('#full-screen-channel-name').hide();
             $('#live_channels_home').find('.channel-information-container').show();
@@ -561,7 +557,6 @@ var channel_page={
                 height:'100vh',
                 width:'100vw'
             });
-            // Original: setDisplayArea NOT called here
             $('#live_channels_home').find('.channel-information-container').hide();
             $('#live-channel-button-container').hide();
             $('#live_channels_home').find('.video-skin').hide();
@@ -573,12 +568,17 @@ var channel_page={
                 $('#full-screen-information').slideUp(400);
                 $('#full-screen-channel-name').slideUp(400);
             },5000);
+            this.keys.focused_part="full_screen";
         }
+        setTimeout(function () {
+            try{
+                media_player.setDisplayArea();
+            }catch (e) {
+            }
+        },0)
     },
     showLiveChannelMovie:function(movie_id){
-        // RESTORED TO EXACT ORIGINAL VERSION (from 10 months ago - commit 94b1e97)
-        // Simple flow: close -> init -> setDisplayArea -> playAsync
-        var url;
+        var url
         if(settings.playlist_type==="xtreme")
             url=getMovieUrl(movie_id,'live','ts');
         else if(settings.playlist_type==="type1")

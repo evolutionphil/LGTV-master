@@ -18,97 +18,6 @@ function initPlayer() {
             reconnect_max_count: 20,
             url:'',
             id:'',
-            tv_capabilities: null,
-            aspect_ratio_modes: {
-                samsung: [
-                    'PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO',
-                    'PLAYER_DISPLAY_MODE_LETTER_BOX',
-                    'PLAYER_DISPLAY_MODE_FULL_SCREEN'
-                ],
-                lg: [
-                    'contain',
-                    'cover',
-                    'fill'
-                ]
-            },
-            current_aspect_ratio_index: 0,
-            detectTVCapabilities: function() {
-                if (this.tv_capabilities) {
-                    return this.tv_capabilities;
-                }
-                
-                var capabilities = {
-                    resolution: { width: 1920, height: 1080 },
-                    hdrSupport: false,
-                    uhd4k: false,
-                    uhd8k: false,
-                    apiVersion: 'unknown'
-                };
-                
-                // Method 1: Try tizen.tvwindow.getVideoResolution
-                try {
-                    if (typeof tizen !== 'undefined' && tizen.tvwindow) {
-                        var tvResolution = tizen.tvwindow.getVideoResolution();
-                        capabilities.resolution.width = tvResolution.width;
-                        capabilities.resolution.height = tvResolution.height;
-                        console.log('detectTVCapabilities: tizen.tvwindow resolution:', tvResolution.width, 'x', tvResolution.height);
-                    }
-                } catch (e) {
-                    console.log('detectTVCapabilities: tizen.tvwindow failed, trying screen');
-                }
-                
-                // Method 2: Use screen dimensions if tvwindow failed or returned 1080p on 4K TV
-                try {
-                    var screenWidth = window.screen.width;
-                    var screenHeight = window.screen.height;
-                    
-                    // Samsung 4K TVs report screen.width as 3840 or similar
-                    if (screenWidth >= 3840 && capabilities.resolution.width < 3840) {
-                        capabilities.resolution.width = screenWidth;
-                        capabilities.resolution.height = screenHeight;
-                        console.log('detectTVCapabilities: Using screen resolution:', screenWidth, 'x', screenHeight);
-                    }
-                } catch (e) {
-                }
-                
-                // Method 3: Try webapis.productinfo for Samsung model detection
-                try {
-                    if (typeof webapis !== 'undefined' && webapis.productinfo) {
-                        var isUHD = webapis.productinfo.isUdPanelSupported();
-                        if (isUHD && capabilities.resolution.width < 3840) {
-                            capabilities.resolution.width = 3840;
-                            capabilities.resolution.height = 2160;
-                            console.log('detectTVCapabilities: UHD panel detected, using 3840x2160');
-                        }
-                    }
-                } catch (e) {
-                }
-                
-                // Set UHD flags
-                if (capabilities.resolution.width >= 3840) {
-                    capabilities.uhd4k = true;
-                }
-                if (capabilities.resolution.width >= 7680) {
-                    capabilities.uhd8k = true;
-                }
-                
-                try {
-                    if (typeof webapis !== 'undefined' && webapis.avinfo) {
-                        capabilities.apiVersion = webapis.avinfo.getVersion();
-                        
-                        try {
-                            capabilities.hdrSupport = webapis.avinfo.isHdrTvSupport();
-                        } catch (e) {
-                        }
-                    }
-                } catch (e) {
-                }
-                
-                console.log('detectTVCapabilities: Final resolution:', capabilities.resolution.width, 'x', capabilities.resolution.height, 'UHD:', capabilities.uhd4k);
-                
-                this.tv_capabilities = capabilities;
-                return capabilities;
-            },
             init:function(id, parent_id) {
                 this.id=id;
                 this.parent_id=parent_id;
@@ -121,15 +30,10 @@ function initPlayer() {
                 this.state = this.STATES.STOPPED;
                 this.parent_id=parent_id;
                 this.current_time=0;
-                this.reconnect_position=0;
                 this.videoObj = document.getElementById(id);
                 $('#'+parent_id).find('.subtitle-container').hide();
                 $('#' + parent_id).find('.video-reconnect-message').hide();
                 this.full_screen_state=0;
-                console.log('player.init() - Reset full_screen_state to 0, parent_id:', parent_id);
-                
-                this.detectTVCapabilities();
-                
                 try{
                     webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO');
                 }catch (e) {
@@ -138,6 +42,7 @@ function initPlayer() {
                 this.reconnect_count = 0;
             },
             playAsync:function(url){
+                console.log(url);
                 this.url=url;
                 $('#'+this.parent_id).find('.video-error').hide();
 
@@ -152,23 +57,25 @@ function initPlayer() {
                 try{
                     webapis.avplay.open(url);
                     this.setupEventListeners();
-                    // RESTORED: setDisplayArea called HERE after open(), before prepareAsync()
-                    // This is the ORIGINAL working order from 10 months ago
                     this.setDisplayArea();
+                    // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_BYTE", 1000); // 5 is in seconds
+                    // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_SECOND", 4); // 5 is in seconds
 
+                    console.log('here trying to open');
                     webapis.avplay.prepareAsync(
                         function(){
                             that.reconnect_count = 0;
                             $('#' + that.parent_id).find('.video-reconnect-message').hide();
+                            console.log('here video loaded');
                             $('#'+that.parent_id).find('.video-error').hide();
                             $('#'+that.parent_id).find('.video-loader').hide();
                             that.state = that.STATES.PLAYING;
                             webapis.avplay.play();
-                            
-                            // NOTE: setDisplayArea already called before playAsync, skip here
-                            
-                            if(current_route==='vod-series-player-video'){
+                            try{
                                 that.full_screen_state=1;
+                                // Keep AUTO_ASPECT_RATIO for consistent aspect ratio handling
+                                // webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                            }catch (e) {
                             }
                             $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(webapis.avplay.getDuration()/1000));
                             $('#'+that.parent_id).find('.video-error').hide();
@@ -183,22 +90,19 @@ function initPlayer() {
                             if(current_route==='vod-series-player-video')
                                 vod_series_player.showResumeBar();
                             if(current_route==='channel-page'){
-                                setTimeout(function(){
-                                    try{
-                                        var stream_info=webapis.avplay.getCurrentStreamInfo();
-                                        if(typeof stream_info[0]!='undefined'){
-                                            var extra_info=JSON.parse(stream_info[0].extra_info);
-                                            if(extra_info && extra_info.Width && extra_info.Height){
-                                                var stream_summary=extra_info.Width+' * '+extra_info.Height;
-                                                $('.video-resolution').text(stream_summary);
-                                            }
-                                        }
-                                    }catch (e) {
+                                try{
+                                    var stream_info=webapis.avplay.getCurrentStreamInfo();
+                                    if(typeof stream_info[0]!='undefined'){
+                                        var extra_info=JSON.parse(stream_info[0].extra_info);
+                                        var stream_summary=extra_info.Width+' * '+extra_info.Height;
+                                        $('.video-resolution').text(stream_summary);
                                     }
-                                }, 1000);
+                                }catch (e) {
+                                }
                             }
                         },
                         function(e){
+                            console.log('video loading failed',e);
                             $('.video-loader').hide();
                             $('#'+that.parent_id).find('.video-error').show();
                             if (that.reconnect_count < that.reconnect_max_count)
@@ -206,11 +110,13 @@ function initPlayer() {
                         }
                     );
                 }catch(e){
+                    console.log('video loading failed',e);
                     $('.video-loader').hide();
                     $('#'+that.parent_id).find('.video-error').show();
                     if (that.reconnect_count < that.reconnect_max_count)
                         that.tryReconnect();
                 }
+                // console.log((new Date).getTime()/1000);
             },
             play:function(){
                 if (this.state === this.STATES.STOPPED) {
@@ -221,6 +127,7 @@ function initPlayer() {
                 try{
                     webapis.avplay.play();
                 }catch(e){
+                    console.log(e);
                 }
             },
             pause:function() {
@@ -228,6 +135,7 @@ function initPlayer() {
                 try{
                     webapis.avplay.pause();
                 }catch(e){
+                    console.log(e);
                 }
             },
             stop:function() {
@@ -242,42 +150,21 @@ function initPlayer() {
             },
             close:function(){
                 this.state = this.STATES.STOPPED;
-                this.full_screen_state = 0;
-                console.log('player.close() - Reset full_screen_state to 0');
-                try{
-                    webapis.avplay.stop();
-                }catch (e) {
-                }
                 try{
                     webapis.avplay.close();
                 }catch (e) {
                 }
-                try{
-                    webapis.avplay.setDisplayRect(0, 0, 0, 0);
-                }catch (e) {
-                }
-                SrtOperation.deStruct();
-                this.subtitles=[];
-                try {
-                    $('#' + this.parent_id).find('.video-error').hide();
-                    $('#' + this.parent_id).find('.video-loader').hide();
-                } catch (e) {
-                }
+                $(this.parent_id).find('.video-error').hide();
                 this.reconnect_count = 0;
-                this.reconnect_position = 0;
                 clearTimeout(this.reconnect_timer);
-                try {
-                    $('#' + this.parent_id).find('.video-reconnect-message').hide();
-                } catch (e) {
-                }
+                $('#' + this.parent_id).find('.video-reconnect-message').hide();
             },
             tryReconnect: function () {
-                if (current_route !== 'channel-page' && 
-                    !(current_route=='home-page' && home_page.current_preview_type==='live') &&
-                    current_route !== 'vod-series-player-video')
+                if (current_route !== 'channel-page' && !(current_route=='home-page' && home_page.current_preview_type==='live'))
                     return;
                 clearTimeout(this.reconnect_timer);
                 var reconnect_count=this.reconnect_count + 1;
+                console.log("here reconnecting", this.reconnect_count);
                 if (reconnect_count >= this.reconnect_max_count) {
                     $('#' + this.parent_id).find('.video-reconnect-message').hide();
                     return;
@@ -294,35 +181,30 @@ function initPlayer() {
                 }, 4000)
             },
             setDisplayArea:function() {
-                // RESTORED TO EXACT ORIGINAL VERSION (from 10 months ago - commit 94b1e97)
-                // Simple and direct - no requestAnimationFrame, no callback, no ratio scaling
-                var top_position = $(this.videoObj).offset().top;
-                var left_position = $(this.videoObj).offset().left;
-                var width = parseInt($(this.videoObj).width());
-                var height = parseInt($(this.videoObj).height());
-                console.log('setDisplayArea:', left_position, top_position, width, height);
-                
-                try {
-                    webapis.avplay.setDisplayRect(left_position, top_position, width, height);
-                } catch (e) {
-                    console.log('setDisplayRect error:', e);
-                }
-                
+                var top_position=$(this.videoObj).offset().top;
+                var left_position=$(this.videoObj).offset().left;
+                var width=parseInt($(this.videoObj).width())
+                var height=parseInt($(this.videoObj).height());
+                console.log(top_position,left_position,width,height);
+                // console.log(this.videoObj);
+                webapis.avplay.setDisplayRect(left_position,top_position,width,height);
+
                 channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
             },
             toggleScreenRatio:function(){
-                try{
-                    // Cycle through Samsung display modes
-                    var modes = this.aspect_ratio_modes.samsung;
-                    this.current_aspect_ratio_index = (this.current_aspect_ratio_index + 1) % modes.length;
-                    var selectedMode = modes[this.current_aspect_ratio_index];
-                    
-                    webapis.avplay.setDisplayMethod(selectedMode);
-                    
-                    // Show user feedback
-                    var modeNames = ['Auto', 'Fit Screen', 'Fill Screen'];
-                    showToast('Aspect Ratio', modeNames[this.current_aspect_ratio_index]);
-                }catch (e) {
+                if(this.full_screen_state==1){
+                    try{
+                        webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO');
+                        this.full_screen_state=0;
+                    }catch (e) {
+                    }
+                }else{
+                    try{
+                        // Keep AUTO_ASPECT_RATIO for consistent aspect ratio handling
+                        // webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                        this.full_screen_state=1;
+                    }catch (e) {
+                    }
                 }
             },
             formatTime:function(seconds) {
@@ -345,6 +227,10 @@ function initPlayer() {
                     },
                     onbufferingcomplete: function() {
                         $('#'+that.parent_id).find('.video-loader').hide();
+                        // Reapply display area after buffering for proper sizing
+                        setTimeout(function() {
+                            that.setDisplayArea();
+                        }, 100);
                         // console.log('Buffering Complete, Can play now!');
                         // console.log("Buffereing complete time "+(new Date()).getTime()/1000)
                     },
@@ -360,13 +246,8 @@ function initPlayer() {
                     },
                     oncurrentplaytime: function(currentTime) {
                         that.current_time=currentTime;
-                        if(current_route==='vod-series-player-video') {
+                        if(current_route==='vod-series-player-video')
                             vod_series_player.current_time=currentTime/1000;
-                        }
-                        
-                        // CRITICAL: Update subtitles for ALL playback routes, not just vod-series-player
-                        SrtOperation.timeChange(currentTime/1000); // Convert ms to seconds
-                        
                         $('#'+that.parent_id).find('.video-error').hide();
                         var duration =  webapis.avplay.getDuration();
                         if (duration > 0) {
@@ -421,6 +302,7 @@ function initPlayer() {
                 var default_track_text=kind==="TEXT" ? "Subtitle " : "Audio Track ";
                 try{
                     var totalTrackInfo=webapis.avplay.getTotalTrackInfo();
+                    console.log(kind, totalTrackInfo);
                     for(var i=0; i<totalTrackInfo.length;i++)
                     {
                         try{
@@ -446,26 +328,52 @@ function initPlayer() {
                                 }
                             }
                         }catch (e) {
+                            console.log(kind, e);
                         }
                     }
+                    // console.log(kind, result);
                 }catch (e) {
 
                 }
+                console.log(result);
                 return result;
             },
             setSubtitleOrAudioTrack:function(kind, index){
+                // Enhanced Samsung subtitle control from exo app
                 try{
-                    if(index>-1){
-                        webapis.avplay.setSilentSubtitle(true);
-                        webapis.avplay.setSelectTrack(kind,index);
-                        webapis.avplay.setSilentSubtitle(false);
-                    }else{
-                        webapis.avplay.setSilentSubtitle(false);
+                    if(kind === "TEXT") {
+                        if(index === -1) {
+                            // Disable native subtitles - check if webapis is available
+                            if(typeof webapis !== 'undefined' && webapis.avplay && webapis.avplay.setSubtitle) {
+                                webapis.avplay.setSubtitle(-1);
+                            }
+                        } else {
+                            // Enable native subtitle track - check if webapis is available
+                            if(typeof webapis !== 'undefined' && webapis.avplay) {
+                                if(webapis.avplay.setSilentSubtitle) {
+                                    webapis.avplay.setSilentSubtitle(true);
+                                }
+                                if(webapis.avplay.setSelectTrack) {
+                                    webapis.avplay.setSelectTrack(kind, index);
+                                }
+                                if(webapis.avplay.setSilentSubtitle) {
+                                    webapis.avplay.setSilentSubtitle(false);
+                                }
+                            }
+                        }
+                        
+                        if(index > -1) {
+                            $('#'+this.parent_id).find('.subtitle-container').show();
+                        }
+                    } else {
+                        // Audio track handling - check if webapis is available
+                        if(typeof webapis !== 'undefined' && webapis.avplay && webapis.avplay.setSelectTrack) {
+                            webapis.avplay.setSelectTrack(kind, index);
+                        }
                     }
                 }catch (e) {
-                }
-                if(kind==='TEXT' && index>-1){
-                    $('#'+this.parent_id).find('.subtitle-container').show();
+                    console.error('Samsung subtitle/audio track error:', e.message || e);
+                    console.error('Error details:', e);
                 }
             },
             seekTo:function(step){
@@ -506,10 +414,6 @@ function initPlayer() {
             next_video_showing:false,
             subtitles:[],
             tracks:[],
-            aspect_ratio_modes: {
-                lg: ['contain', 'cover', 'fill']
-            },
-            current_aspect_ratio_index: 0,
             init:function(id, parent_id) {
                 id+='-lg';
                 this.next_video_showing=false;
@@ -527,14 +431,13 @@ function initPlayer() {
                 this.videoObj = document.getElementById(id);
                 var videoObj=this.videoObj;
                 var that=this;
-                
-                // Set default aspect ratio to Letterbox (contain)
-                $(this.videoObj).css('object-fit', 'contain');
                 this.videoObj.addEventListener("error", function(e) {
+                    console.log('error',e);
                     $('#'+that.parent_id).find('.video-loader').show();
                     $('#'+that.parent_id).find('.video-error').show();
                 });
                 this.videoObj.addEventListener("canplay", function(e) {
+                    console.log("Can play")
                     $('#'+that.parent_id).find('.video-error').hide();
                     // console.log('Video can start, but not sure it will play through.');
                 });
@@ -578,13 +481,6 @@ function initPlayer() {
                     $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(duration));
                     $('#'+that.parent_id).find('.video-progress-bar-slider').attr(attributes)
                     $('#'+that.parent_id).find('.video-progress-bar-slider').rangeslider('update', true);
-                    
-                    if(current_route==='channel-page'){
-                        if(videoObj.videoWidth && videoObj.videoHeight){
-                            var resolution = videoObj.videoWidth + ' * ' + videoObj.videoHeight;
-                            $('.video-resolution').text(resolution);
-                        }
-                    }
                 });
                 this.videoObj.addEventListener('waiting', function(event){
                     // console.log('Video is waiting for more data.',event);
@@ -594,6 +490,7 @@ function initPlayer() {
                     // $('#'+this.parent_id).find('.video-error').show();
                 });
                 this.videoObj.addEventListener('stalled', function(event){
+                    console.log('Failed to fetch data, but trying.');
                     // $('#'+this.parent_id).find('.video-error').show();
                 });
                 this.videoObj.addEventListener('ended', function(event){
@@ -609,6 +506,7 @@ function initPlayer() {
                 // });
             },
             playAsync:function(url){
+                console.log(url);
                 if(url){
                     try{
                         this.videoObj.pause();
@@ -638,6 +536,7 @@ function initPlayer() {
                 try{
                     this.videoObj.play();
                 }catch(e){
+                    console.log(e);
                 }
                 if(SrtOperation.srt.length>0)  // if has subtitles
                     SrtOperation.stopped=false;
@@ -666,20 +565,7 @@ function initPlayer() {
                 this.subtitles=[];
             },
             toggleScreenRatio:function(){
-                try{
-                    // Cycle through LG CSS object-fit modes
-                    var modes = this.aspect_ratio_modes.lg;
-                    this.current_aspect_ratio_index = (this.current_aspect_ratio_index + 1) % modes.length;
-                    var selectedMode = modes[this.current_aspect_ratio_index];
-                    
-                    // Apply CSS object-fit to video element
-                    $(this.videoObj).css('object-fit', selectedMode);
-                    
-                    // Show user feedback
-                    var modeNames = ['Letterbox', 'Zoom', 'Stretch'];
-                    showToast('Aspect Ratio', modeNames[this.current_aspect_ratio_index]);
-                }catch (e) {
-                }
+
             },
             setDisplayArea:function(){
                 channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
@@ -701,23 +587,45 @@ function initPlayer() {
                     temps=media_player.videoObj.textTracks.length > 0 ? media_player.videoObj.textTracks : {};
                 }else
                     temps=media_player.videoObj.audioTracks.length>0 ? media_player.videoObj.audioTracks : {};
+                console.log(temps);
                 if(Object.keys(temps).length>0){
                     Object.keys(temps).map(function (key,index) {
                         if(typeof temps[key]=='object' && temps[key]!=null)
                             totalTrackInfo.push(temps[key]);
                     })
                 }
+                console.log(totalTrackInfo);
                 return totalTrackInfo;
             },
             setSubtitleOrAudioTrack:function(kind, index){
-                if(kind==='TEXT'){
-                    if(this.subtitles[index])
-                        SrtOperation.init(this.subtitles[index],media_player.videoObj.currentTime);
-                }else{
-                    for (var i = 0; i < this.videoObj.audioTracks.length; i++) {
-                        this.videoObj.audioTracks[i].enabled = false;
+                // Enhanced LG subtitle control from exo app
+                try {
+                    if(kind === "TEXT" && this.videoObj.textTracks) {
+                        // Disable all text tracks first
+                        for(var i = 0; i < this.videoObj.textTracks.length; i++) {
+                            this.videoObj.textTracks[i].mode = 'hidden';
+                        }
+                        
+                        // Enable selected track
+                        if(index >= 0 && index < this.videoObj.textTracks.length) {
+                            this.videoObj.textTracks[index].mode = 'showing';
+                        }
+                        
+                        // Handle API subtitles
+                        if(this.subtitles[index]) {
+                            SrtOperation.init(this.subtitles[index], this.videoObj.currentTime);
+                        }
+                    } else if(kind === "AUDIO") {
+                        // Audio track handling
+                        for (var i = 0; i < this.videoObj.audioTracks.length; i++) {
+                            this.videoObj.audioTracks[i].enabled = false;
+                        }
+                        if(index >= 0 && index < this.videoObj.audioTracks.length) {
+                            this.videoObj.audioTracks[index].enabled = true;
+                        }
                     }
-                    this.videoObj.audioTracks[index].enabled = true;
+                } catch(e) {
+                    console.error('LG subtitle/audio track error:', e);
                 }
             }
         }
