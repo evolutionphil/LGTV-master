@@ -45,20 +45,51 @@ function initPlayer() {
                     apiVersion: 'unknown'
                 };
                 
+                // Method 1: Try tizen.tvwindow.getVideoResolution
                 try {
                     if (typeof tizen !== 'undefined' && tizen.tvwindow) {
                         var tvResolution = tizen.tvwindow.getVideoResolution();
                         capabilities.resolution.width = tvResolution.width;
                         capabilities.resolution.height = tvResolution.height;
-                        
-                        if (tvResolution.width >= 3840) {
-                            capabilities.uhd4k = true;
-                        }
-                        if (tvResolution.width >= 7680) {
-                            capabilities.uhd8k = true;
+                        console.log('detectTVCapabilities: tizen.tvwindow resolution:', tvResolution.width, 'x', tvResolution.height);
+                    }
+                } catch (e) {
+                    console.log('detectTVCapabilities: tizen.tvwindow failed, trying screen');
+                }
+                
+                // Method 2: Use screen dimensions if tvwindow failed or returned 1080p on 4K TV
+                try {
+                    var screenWidth = window.screen.width;
+                    var screenHeight = window.screen.height;
+                    
+                    // Samsung 4K TVs report screen.width as 3840 or similar
+                    if (screenWidth >= 3840 && capabilities.resolution.width < 3840) {
+                        capabilities.resolution.width = screenWidth;
+                        capabilities.resolution.height = screenHeight;
+                        console.log('detectTVCapabilities: Using screen resolution:', screenWidth, 'x', screenHeight);
+                    }
+                } catch (e) {
+                }
+                
+                // Method 3: Try webapis.productinfo for Samsung model detection
+                try {
+                    if (typeof webapis !== 'undefined' && webapis.productinfo) {
+                        var isUHD = webapis.productinfo.isUdPanelSupported();
+                        if (isUHD && capabilities.resolution.width < 3840) {
+                            capabilities.resolution.width = 3840;
+                            capabilities.resolution.height = 2160;
+                            console.log('detectTVCapabilities: UHD panel detected, using 3840x2160');
                         }
                     }
                 } catch (e) {
+                }
+                
+                // Set UHD flags
+                if (capabilities.resolution.width >= 3840) {
+                    capabilities.uhd4k = true;
+                }
+                if (capabilities.resolution.width >= 7680) {
+                    capabilities.uhd8k = true;
                 }
                 
                 try {
@@ -72,6 +103,8 @@ function initPlayer() {
                     }
                 } catch (e) {
                 }
+                
+                console.log('detectTVCapabilities: Final resolution:', capabilities.resolution.width, 'x', capabilities.resolution.height, 'UHD:', capabilities.uhd4k);
                 
                 this.tv_capabilities = capabilities;
                 return capabilities;
