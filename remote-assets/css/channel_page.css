@@ -201,8 +201,8 @@
 }
 
 .channel-logo {
-    /* Much larger and cleaner logo */
-    height: 160px;
+    /* Compact logo - matches original height */
+    height: 80px;
     width: auto;
     border-radius: 6px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
