@@ -13,3 +13,5 @@ Debug
 Release
 .gn
 Directory.Build.targets
+# TV Console Logs
+logs/
