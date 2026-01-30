@@ -1,6 +1,6 @@
 {
   "version": "1.0.20",
-  "lastUpdate": "2026-01-30T17:02:18.243Z",
+  "lastUpdate": "2026-01-30T17:08:32.158Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 1,
@@ -214,9 +214,9 @@
       "priority": 1
     },
     "js/channel_operation.js": {
-      "version": "1.0.10",
-      "size": 52820,
-      "hash": "631929d7",
+      "version": "1.0.11",
+      "size": 50817,
+      "hash": "94bcd15d",
       "priority": 2
     },
     "js/login_operation.js": {

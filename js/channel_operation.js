@@ -303,20 +303,11 @@ var channel_page={
         console.log('└─────────────────────────────────────────────────────────┘');
         
         if(this.current_channel_id==stream_id){
-            console.log('channelItemClick: SAME CHANNEL - checking if should zoom');
-            if(!this.full_screen_video){
-                console.log('channelItemClick: Not fullscreen - ZOOMING IN');
-                this.keys.focused_part = "full_screen";
-                this.full_screen_video=true;
-                this.transitioning_to_fullscreen=true;
-                this.lockUI(800);
-                this.zoomInOut();
-            } else {
-                console.log('channelItemClick: Already fullscreen - doing nothing');
-            }
+            this.full_screen_video=true;
+            this.zoomInOut();
+            this.keys.focused_part="full_screen";
         }
         else{
-            console.log('channelItemClick: DIFFERENT CHANNEL - showing new channel, full_screen_state before=', media_player.full_screen_state);
             this.showLiveChannelMovie(stream_id);
             this.changeActiveChannel();
         }
@@ -867,46 +858,19 @@ var channel_page={
         console.log('═══════════════════════════════════════════════════════');
         console.log('handleMenuClick START');
         console.log('  focused_part:', this.keys.focused_part);
-        console.log('  transitioning_to_fullscreen:', this.transitioning_to_fullscreen);
-        console.log('  full_screen_video:', this.full_screen_video);
-        console.log('═══════════════════════════════════════════════════════');
-        
-        if(this.uiLocked()){
-            console.log('handleMenuClick: 🔒 BLOCKED BY UI LOCK');
-            return;
-        }
-        
-        if(this.transitioning_to_fullscreen){
-            console.log('handleMenuClick: *** BLOCKED BY DEBOUNCE FLAG ***');
-            return;
-        }
-        
         var keys=this.keys;
         if(keys.focused_part==="search_back_selection"){
-            console.log('handleMenuClick: Branch → search_back_selection');
             $(this.search_back_buttons[keys.search_back_selection]).trigger('click');
-            return;
         }
-        if(keys.focused_part==="channel_selection"){  // if channel item clicked
-            console.log('handleMenuClick: Branch → channel_selection');
-            console.log('  Triggering click on menu_items[' + keys.channel_selection + ']');
+        else if(keys.focused_part==="channel_selection"){  // if channel item clicked
             $(this.menu_items[keys.channel_selection]).trigger('click');
-            return;
         }
-        if(keys.focused_part==="full_screen"){ // if full screen mode, if click ok button,                                                                // then show full screen information
-            console.log('handleMenuClick: Branch → full_screen');
-            if(this.transitioning_to_fullscreen){
-                console.log('handleMenuClick: ⚠️ Ignoring OK press - transition in progress');
-                return;
-            }
-            console.log('handleMenuClick: ⬅ Exiting fullscreen - calling zoomInOut()');
+        else if(keys.focused_part==="full_screen"){ // if full screen mode, if click ok button, then show full screen information
             this.keys.focused_part="channel_selection";
             this.full_screen_video=false;
             this.zoomInOut();
-            return;
         }
-        if(keys.focused_part==="search_selection"){
-            console.log('handleMenuClick: Branch → search_selection');
+        else if(keys.focused_part==="search_selection"){
             var current_search_element=$('.search-item-wrapper')[keys.search_selection];
             $(current_search_element).trigger('click');
             return;
