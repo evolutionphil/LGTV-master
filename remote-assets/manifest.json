@@ -1,6 +1,6 @@
 {
   "version": "1.0.20",
-  "lastUpdate": "2026-01-30T17:20:57.192Z",
+  "lastUpdate": "2026-01-30T18:06:13.243Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 1,
@@ -196,27 +196,27 @@
       "priority": 2
     },
     "js/player.js": {
-      "version": "1.0.9",
-      "size": 30384,
-      "hash": "df21e29",
+      "version": "1.0.10",
+      "size": 27212,
+      "hash": "58256d6b",
       "priority": 2
     },
     "js/vod_series_player.js": {
-      "version": "1.0.4",
-      "size": 90688,
-      "hash": "68072c8d",
+      "version": "1.0.5",
+      "size": 54371,
+      "hash": "67cc0f4",
       "priority": 2
     },
     "js/home_operation.js": {
-      "version": "1.0.7",
-      "size": 92282,
-      "hash": "cf074bab",
+      "version": "1.0.8",
+      "size": 89435,
+      "hash": "4632aada",
       "priority": 1
     },
     "js/channel_operation.js": {
-      "version": "1.0.11",
-      "size": 50817,
-      "hash": "94bcd15d",
+      "version": "1.0.12",
+      "size": 43373,
+      "hash": "ca43f5c9",
       "priority": 2
     },
     "js/login_operation.js": {

@@ -73,8 +73,7 @@ function initPlayer() {
                             webapis.avplay.play();
                             try{
                                 that.full_screen_state=1;
-                                // Keep AUTO_ASPECT_RATIO for consistent aspect ratio handling
-                                // webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                                webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
                             }catch (e) {
                             }
                             $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(webapis.avplay.getDuration()/1000));
@@ -119,10 +118,6 @@ function initPlayer() {
                 // console.log((new Date).getTime()/1000);
             },
             play:function(){
-                if (this.state === this.STATES.STOPPED) {
-                    return this.playAsync(this.url)
-                }
-
                 this.state=this.STATES.PLAYING;
                 try{
                     webapis.avplay.play();
@@ -188,8 +183,6 @@ function initPlayer() {
                 console.log(top_position,left_position,width,height);
                 // console.log(this.videoObj);
                 webapis.avplay.setDisplayRect(left_position,top_position,width,height);
-
-                channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
             },
             toggleScreenRatio:function(){
                 if(this.full_screen_state==1){
@@ -200,8 +193,7 @@ function initPlayer() {
                     }
                 }else{
                     try{
-                        // Keep AUTO_ASPECT_RATIO for consistent aspect ratio handling
-                        // webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                        webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
                         this.full_screen_state=1;
                     }catch (e) {
                     }
@@ -227,10 +219,6 @@ function initPlayer() {
                     },
                     onbufferingcomplete: function() {
                         $('#'+that.parent_id).find('.video-loader').hide();
-                        // Reapply display area after buffering for proper sizing
-                        setTimeout(function() {
-                            that.setDisplayArea();
-                        }, 100);
                         // console.log('Buffering Complete, Can play now!');
                         // console.log("Buffereing complete time "+(new Date()).getTime()/1000)
                     },
@@ -339,41 +327,18 @@ function initPlayer() {
                 return result;
             },
             setSubtitleOrAudioTrack:function(kind, index){
-                // Enhanced Samsung subtitle control from exo app
                 try{
-                    if(kind === "TEXT") {
-                        if(index === -1) {
-                            // Disable native subtitles - check if webapis is available
-                            if(typeof webapis !== 'undefined' && webapis.avplay && webapis.avplay.setSubtitle) {
-                                webapis.avplay.setSubtitle(-1);
-                            }
-                        } else {
-                            // Enable native subtitle track - check if webapis is available
-                            if(typeof webapis !== 'undefined' && webapis.avplay) {
-                                if(webapis.avplay.setSilentSubtitle) {
-                                    webapis.avplay.setSilentSubtitle(true);
-                                }
-                                if(webapis.avplay.setSelectTrack) {
-                                    webapis.avplay.setSelectTrack(kind, index);
-                                }
-                                if(webapis.avplay.setSilentSubtitle) {
-                                    webapis.avplay.setSilentSubtitle(false);
-                                }
-                            }
-                        }
-                        
-                        if(index > -1) {
-                            $('#'+this.parent_id).find('.subtitle-container').show();
-                        }
-                    } else {
-                        // Audio track handling - check if webapis is available
-                        if(typeof webapis !== 'undefined' && webapis.avplay && webapis.avplay.setSelectTrack) {
-                            webapis.avplay.setSelectTrack(kind, index);
-                        }
+                    if(index>-1){
+                        webapis.avplay.setSilentSubtitle(true);
+                        webapis.avplay.setSelectTrack(kind,index);
+                        webapis.avplay.setSilentSubtitle(false);
+                    }else{
+                        webapis.avplay.setSilentSubtitle(false);
                     }
                 }catch (e) {
-                    console.error('Samsung subtitle/audio track error:', e.message || e);
-                    console.error('Error details:', e);
+                }
+                if(kind==='TEXT' && index>-1){
+                    $('#'+this.parent_id).find('.subtitle-container').show();
                 }
             },
             seekTo:function(step){
@@ -419,7 +384,7 @@ function initPlayer() {
                 this.next_video_showing=false;
                 clearTimeout(this.next_video_timer);
                 this.id=id;
-                this.videoObj=null;     // tag video
+                this.videoObj=null;	// tag video
                 this.parent_id=parent_id;
                 this.current_time=0;
                 this.state = this.STATES.STOPPED;
@@ -568,7 +533,7 @@ function initPlayer() {
 
             },
             setDisplayArea:function(){
-                channel_page.toggleFavoriteAndRecentBottomOptionVisbility();
+
             },
             formatTime:function(seconds) {
                 var hh = Math.floor(seconds / 3600),
@@ -598,34 +563,14 @@ function initPlayer() {
                 return totalTrackInfo;
             },
             setSubtitleOrAudioTrack:function(kind, index){
-                // Enhanced LG subtitle control from exo app
-                try {
-                    if(kind === "TEXT" && this.videoObj.textTracks) {
-                        // Disable all text tracks first
-                        for(var i = 0; i < this.videoObj.textTracks.length; i++) {
-                            this.videoObj.textTracks[i].mode = 'hidden';
-                        }
-                        
-                        // Enable selected track
-                        if(index >= 0 && index < this.videoObj.textTracks.length) {
-                            this.videoObj.textTracks[index].mode = 'showing';
-                        }
-                        
-                        // Handle API subtitles
-                        if(this.subtitles[index]) {
-                            SrtOperation.init(this.subtitles[index], this.videoObj.currentTime);
-                        }
-                    } else if(kind === "AUDIO") {
-                        // Audio track handling
-                        for (var i = 0; i < this.videoObj.audioTracks.length; i++) {
-                            this.videoObj.audioTracks[i].enabled = false;
-                        }
-                        if(index >= 0 && index < this.videoObj.audioTracks.length) {
-                            this.videoObj.audioTracks[index].enabled = true;
-                        }
+                if(kind==='TEXT'){
+                    if(this.subtitles[index])
+                        SrtOperation.init(this.subtitles[index],media_player.videoObj.currentTime);
+                }else{
+                    for (var i = 0; i < this.videoObj.audioTracks.length; i++) {
+                        this.videoObj.audioTracks[i].enabled = false;
                     }
-                } catch(e) {
-                    console.error('LG subtitle/audio track error:', e);
+                    this.videoObj.audioTracks[index].enabled = true;
                 }
             }
         }

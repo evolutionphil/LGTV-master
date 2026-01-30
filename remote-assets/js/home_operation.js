@@ -146,53 +146,6 @@ var home_page={
         $('#select-language-body').html(html);
         home_page.language_doms=$('.language-item');
 
-        // LG Magic Remote wheel scrolling support for language modal
-        // Only add wheel listener on LG platform to avoid issues on Samsung
-        if (platform === 'lg') {
-            try {
-                $('#select-language-body').on('wheel', function(e) {
-                    try {
-                        if (e && e.preventDefault) {
-                            e.preventDefault();
-                        }
-                        var keys = home_page.keys;
-                        if (keys.focused_part === 'language_selection') {
-                            // Safe delta detection for older WebOS versions
-                            var delta = 0;
-                            if (e.originalEvent && typeof e.originalEvent.deltaY !== 'undefined') {
-                                delta = e.originalEvent.deltaY;
-                            } else if (e.originalEvent && typeof e.originalEvent.detail !== 'undefined') {
-                                delta = e.originalEvent.detail;
-                            } else if (typeof e.deltaY !== 'undefined') {
-                                delta = e.deltaY;
-                            }
-                            
-                            if (delta === 0) return;
-                            
-                            var increment = delta > 0 ? 1 : -1;
-                            var language_doms = home_page.language_doms;
-                            if (!language_doms || language_doms.length === 0) return;
-                            
-                            keys.language_selection += increment;
-                            if (keys.language_selection < 0) {
-                                keys.language_selection = language_doms.length - 1;
-                            }
-                            if (keys.language_selection >= language_doms.length) {
-                                keys.language_selection = 0;
-                            }
-                            $(language_doms).removeClass('active');
-                            $(language_doms[keys.language_selection]).addClass('active');
-                            moveScrollPosition($('#select-language-body'), language_doms[keys.language_selection], 'vertical', false);
-                        }
-                    } catch (err) {
-                        console.log('Wheel event error:', err);
-                    }
-                });
-            } catch (initErr) {
-                console.log('Failed to init wheel listener:', initErr);
-            }
-        }
-
         home_page.doms_translated = $("*").filter(function() {
             return $(this).data("word_code") !== undefined;
         });
@@ -280,10 +233,16 @@ var home_page={
         if(current_movie_type==="live-tv"){
             if(this.preview_url){
                 media_player.init("home-page-video-preview",'home-page');
-                media_player.setDisplayArea();
                 setTimeout(function () {
-                    media_player.playAsync(that.preview_url);
-                },0)
+                    try{
+                        media_player.setDisplayArea();
+                    }catch (e) {
+                    }
+                    try{
+                        media_player.playAsync(that.preview_url);
+                    }catch (e) {
+                    }
+                },1000)
             }
         }
         if(this.submenu_opened) {  // this will be the case that live tv, movies, series, youtube play menu clicked and its categories showing., in this case, we need to update favourite, recent movies count
@@ -318,22 +277,17 @@ var home_page={
             extension=movie.container_extension;
         }
         var channel_class=movie_type=='live' ? ' channel' : '';
-        
-        // Show NEW badge on first 10 featured movies (they're already sorted by "added")
-        var show_new_badge = (movie_type === 'movie' && grid_index < 10);
-        
         var htmlContent=
             '<div class="movie-item-container">\
-                <div class="movie-item-wrapper '+channel_class+' position-relative"\
+                <div class="movie-item-wrapper '+channel_class+'"\
                     data-movie_type="'+movie_type+'"\
                     data-stream_id="'+movie.stream_id+'" data-extension="'+extension+'"\
                     data-slider_index="'+slider_index+'"\
                     data-slider_item_index="'+grid_index+'"\
                     onmouseenter="home_page.changeMovieGridItem(this)"\
                     onclick="home_page.showPreviewVideo(this)"\
-                >'+
-                (show_new_badge ? '<div class="new-badge">NEW</div>' : '')+
-                    '<div class="movie-item-thumbernail">\
+                >\
+                    <div class="movie-item-thumbernail">\
                         <div class="movie-item-thumbernail-img-wrapper">\
                             <img class="movie-item-thumbernail-img" src="'+movie.stream_icon+'" onerror="this.src=\''+fall_back_image+'\'"> \
                         </div> \
@@ -358,11 +312,6 @@ var home_page={
             current_model=SeriesModel;
         }
         var current_render_count=this.current_render_count;
-        
-        // Show NEW badge on first 10 items when sorted by "added"
-        var current_sort_key = current_movie_type==='movies' ? settings.vod_sort : settings.series_sort;
-        var show_new_badge = (current_sort_key === 'added' && (current_render_count + index) < 10);
-        
         var htmlContent=
             '<div class="movie-item-container">\
                 <div class="movie-item-wrapper position-relative"\
@@ -371,7 +320,6 @@ var home_page={
                     onclick="home_page.clickMovieGridItem(this)"\
                 >'+
                 (current_model.favourite_ids.includes(movie[id_key]) ? '<div class="favourite-badge"><i class="fa fa-star"></i></div>' : '')+
-                (show_new_badge ? '<div class="new-badge">NEW</div>' : '')+
                     '<img class="movie-grid-item-image movie-grid-item-image-'+current_render_count+'" src="'+img+'" onerror="this.src=\''+fall_back_image+'\'">\
                     <div class="movie-grid-item-title-wrapper position-relative">\
                         <p class="movie-thumbernail-title position-absolute">'+movie.name+'</p>\
@@ -812,12 +760,7 @@ var home_page={
         doms_translated.map(function (index, item) {
             var word_code=$(item).data('word_code');
             if(typeof current_words[word_code]!='undefined'){
-                var content = current_words[word_code];
-                if(content.includes('<br>') || content.includes('<') && content.includes('>')){
-                    $(item).html(content);
-                } else {
-                    $(item).text(content);
-                }
+                $(item).text(current_words[word_code]);
             }
         })
     },
@@ -859,11 +802,12 @@ var home_page={
                 var that=this;
                 setTimeout(function () {
                     media_player.init("home-page-video-preview",'home-page');
-                    media_player.setDisplayArea();
-                    setTimeout(function () {
-                        media_player.playAsync(that.preview_url);
-                    },0)
-                },500);
+                    try{
+                        media_player.setDisplayArea();
+                    }catch (e) {
+                    }
+                    media_player.playAsync(that.preview_url);
+                },500)
             }
         }
     },
@@ -884,15 +828,14 @@ var home_page={
         var keys=this.keys;
         var current_sort_key=current_movie_type==='movies' ? 'vod_sort' : 'series_sort';
         $('#sort-modal-container').hide();
-        if(settings[current_sort_key]!=key){
+        var category=current_movie_categories[keys.submenu_selection];
+        if(settings[current_sort_key]!=key && category.category_id!='all'){
             settings.saveSettings(current_sort_key,key,'');
-            
-            // Sort the already loaded movies array (don't rebuild from categories)
-            this.movies=getSortedMovies(this.movies,key)
+            this.movies=getSortedMovies(current_category.movies,key)
             $('#movie-grids-container').html('');
             this.current_render_count=0;
             this.renderCategoryContent();
-            if(this.movies.length>0){
+            if(current_category.movies.length>0){
                 keys.focused_part="grid_selection";
                 keys.grid_selection=0;
                 $('#sort-button-container').removeClass('active');
@@ -900,6 +843,11 @@ var home_page={
             $('#sort-button').text($(this.sort_selection_doms[keys.sort_selection]).text());
             $('#movie-grids-container').scrollTop(0);
         }else{
+            // keys.focused_part="grid_selection";
+            // keys.grid_selection=0;
+            // $('#sort-button-container').removeClass('active');
+            // $('#movie-grids-container .movie-item-wrapper').removeClass('active');
+            // $($('#movie-grids-container .movie-item-wrapper')[0]).addClass('active');
             this.hoverMovieGridItem(this.movie_grid_doms[0]);
         }
     },
@@ -1411,9 +1359,11 @@ var home_page={
                 media_player.setDisplayArea();
             }catch (e) {
             }
-            setTimeout(function () {
+            try{
                 media_player.playAsync(url);
-            },0)
+            }catch (e) {
+
+            }
         }
     },
     showVodSummary:function(){
