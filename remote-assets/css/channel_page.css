@@ -159,7 +159,7 @@
     bottom: 1.5vh;
     left: 8vw;
     right: 8vw;
-    /* Three-section flexbox layout - force flex when visible */
+    /* jQuery slideDown/slideUp compatible - uses display:none */
     display: none;
     flex-direction: row;
     align-items: center;
@@ -172,10 +172,7 @@
     z-index: 100;
     /* Smooth transitions */
     transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-    /* Start hidden */
 }
-
-/* Use visibility and opacity for show/hide instead of display */
 
 /* Enhanced styling for browsers that support blur */
 @supports (backdrop-filter: blur(1px)) {
@@ -513,6 +510,7 @@
     left: 0;
     z-index: 10;
     /* Hide the top channel name since we now show it in compact header */
+    visibility: hidden;
 }
 
 .channel-fullscreen-padding-text{
