@@ -146,9 +146,54 @@ if (!String.prototype.padStart) {
     var CACHE_PREFIX = 'flix_remote_';
     var DEBUG = false;
     
+    // CACHE CLEAR TRIGGER - Increment this to force cache clear on all TVs
+    // This is used when CDN has broken files and we need to reset to local
+    var CACHE_CLEAR_VERSION = 2; // Bumped to clear broken player.js cache
+    
     function log(msg) {
         if (DEBUG) console.log('[Bootstrapper] ' + msg);
     }
+    
+    // Check if cache needs to be cleared
+    function checkCacheClearTrigger() {
+        try {
+            var storedVersion = localStorage.getItem('flix_cache_clear_version');
+            var currentVersion = String(CACHE_CLEAR_VERSION);
+            
+            if (storedVersion !== currentVersion) {
+                console.log('[Bootstrapper] Cache clear triggered (v' + storedVersion + ' -> v' + currentVersion + ')');
+                clearAllFlixCache();
+                localStorage.setItem('flix_cache_clear_version', currentVersion);
+                console.log('[Bootstrapper] Cache cleared, using local files');
+            }
+        } catch (e) {
+            console.log('[Bootstrapper] Cache clear check error:', e);
+        }
+    }
+    
+    // Clear all flix remote cache entries
+    function clearAllFlixCache() {
+        try {
+            var keysToRemove = [];
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                if (key && key.indexOf(CACHE_PREFIX) === 0) {
+                    keysToRemove.push(key);
+                }
+            }
+            for (var j = 0; j < keysToRemove.length; j++) {
+                localStorage.removeItem(keysToRemove[j]);
+            }
+            // Also clear manifest cache
+            localStorage.removeItem('flix_manifest_cache');
+            console.log('[Bootstrapper] Cleared ' + keysToRemove.length + ' cached files');
+        } catch (e) {
+            console.log('[Bootstrapper] Cache clear error:', e);
+        }
+    }
+    
+    // Run cache clear check immediately
+    checkCacheClearTrigger();
     
     function pathToKey(filePath) {
         return filePath.replace(/[\/\.]/g, '_');
