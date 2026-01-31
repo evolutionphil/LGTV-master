@@ -388,40 +388,25 @@ li.slick-active {
     vertical-align: middle;
     font-size: 0;
     width: 30%;
-    color: #fff;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color:#fff;
+    background: #111;
     text-align: center;
-    padding: 12px 20px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid transparent;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding:5px;
 }
 #sort-button-container.active {
-    background: linear-gradient(135deg, #01d7fb 0%, #0099cc 100%);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 6px 25px rgba(1, 215, 251, 0.4);
-    transform: translateY(-2px);
-}
-#sort-button-container:hover {
-    border-color: #01d7fb;
-    box-shadow: 0 6px 25px rgba(1, 215, 251, 0.3);
+    background: #eac407;
 }
 #sort-button {
-    font-size: 32px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-size: 35px;
+    font-weight: bold;
 }
 #sort-button-icon {
-    font-size: 50px;
-    margin-left: 15px;
+    font-size: 60px;
+    margin-left: 20px;
+    font-size: 60px;
     line-height: 1;
-    transition: transform 0.3s ease;
 }
-#sort-button-container.active #sort-button-icon {
-    transform: rotate(180deg);
-}
+
 #sort-button-container span{
     display: inline-block;
     vertical-align: middle;
@@ -435,21 +420,10 @@ li.slick-active {
     display: inline-block;
     width: 70%;
 }
-#home-page-slider-container .slick-slide > div > div.row {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    position: relative;
-}
-#home-page-slider-container .slick-slide > div > div.row > div:first-child {
-    flex: 1 1 0;
-    min-width: 0;
-}
 .home-slick-image-container{
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 10;
+    display: inline-block;
+    width: 41.7%;
+    vertical-align: top;
 }
 
 .loc_account_title{
