@@ -74,9 +74,11 @@ function initPlayer() {
                             that.state = that.STATES.PLAYING;
                             webapis.avplay.play();
                             try{
-                                // Only use FULL_SCREEN for actual fullscreen playback, not previews
-                                var isPreview = (that.parent_id === 'home-page' || that.parent_id === 'channel-list-container');
-                                if (!isPreview) {
+                                // Only use FULL_SCREEN for actual fullscreen playback routes, not previews
+                                // Preview containers: home-page (home slider), channel-page (channel list preview)
+                                // Fullscreen routes: vod-series-player-video, catch-up, channel-page (when playing fullscreen)
+                                var isFullscreenRoute = (current_route === 'vod-series-player-video' || current_route === 'catch-up');
+                                if (isFullscreenRoute) {
                                     that.full_screen_state=1;
                                     webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
                                 }
