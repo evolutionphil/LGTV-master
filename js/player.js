@@ -57,9 +57,7 @@ function initPlayer() {
                 try{
                     webapis.avplay.open(url);
                     this.setupEventListeners();
-                    this.setDisplayArea();
-                    // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_BYTE", 1000); // 5 is in seconds
-                    // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_SECOND", 4); // 5 is in seconds
+                    // setDisplayArea moved to prepareAsync callback to avoid InvalidStateError
 
                     console.log('here trying to open');
                     webapis.avplay.prepareAsync(
@@ -67,6 +65,10 @@ function initPlayer() {
                             that.reconnect_count = 0;
                             $('#' + that.parent_id).find('.video-reconnect-message').hide();
                             console.log('here video loaded');
+                            
+                            // Set display area AFTER player is prepared (fixes InvalidStateError)
+                            that.setDisplayArea();
+                            
                             $('#'+that.parent_id).find('.video-error').hide();
                             $('#'+that.parent_id).find('.video-loader').hide();
                             that.state = that.STATES.PLAYING;
