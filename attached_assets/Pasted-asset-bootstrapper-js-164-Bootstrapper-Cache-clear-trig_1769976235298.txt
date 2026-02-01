@@ -1,0 +1,103 @@
+asset-bootstrapper.js:164 [Bootstrapper] Cache clear triggered (vnull -> v2)
+asset-bootstrapper.js:189 [Bootstrapper] Cleared 0 cached files
+asset-bootstrapper.js:167 [Bootstrapper] Cache cleared, using local files
+remote-config.js:46 [RemoteUpdate] Disabled
+common.js:1051 Object
+2webOSTV.js:126 PalmServiceBridge is not found.
+value @ webOSTV.js:126
+index.html:1843 [VersionDisplay] Manifest in cache: NO
+index.html:1861 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:248 [RemoteLogger] Initialized, deviceId: tv_8l7jtf31r
+remote-logger.js:196 [VersionDisplay] Manifest in cache: NO
+remote-logger.js:196 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:196 Samsung Tizen platform detected
+remote-logger.js:196 Samsung: Using Ethernet MAC address: a4:30:7a:37:c8:98
+remote-logger.js:196 Object
+remote-logger.js:196 ✅ BLOCKED CHANNELS RECEIVED FROM API: Array(0)
+remote-logger.js:196 ✅ TERMS OF USE RECEIVED FROM API: Object
+remote-logger.js:196 📜 SHOWING TERMS OF USE (Version: 1.0)
+The resource https://flixapp.net/images/activation-qr-code.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+remote-logger.js:196 [VersionDisplay] Manifest in cache: NO
+remote-logger.js:196 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:196 [VersionDisplay] Manifest in cache: NO
+remote-logger.js:196 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:196 ✅ TERMS ACCEPTED (Version: 1.0)
+remote-logger.js:196 {mac_registered: true, epg_urls: Array(0), youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE", themes: Array(3), adverts: Array(1), …}
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 0 0 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 http://galaiptv.shop:2095/movie/dogubeyyeni2/ev7tHk0Atg/362979.mkv
+remote-logger.js:196 adding listener
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 here video loaded
+remote-logger.js:196 0 0 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 0 804.234375 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …us> (file:///js/libs/jquery.3.4.1.min.js:2:71222)"}
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40721.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 here video loaded
+remote-logger.js:196 0 804.234375 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 0 804.234375 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 0 804.234375 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …each (file:///js/libs/jquery.3.4.1.min.js:2:1419)"}
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40693.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 here video loaded
+remote-logger.js:196 0 804.234375 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 0 804.234375 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 []
+remote-logger.js:196 0 0 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 0 0 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 http://galaiptv.shop:2095/movie/dogubeyyeni2/ev7tHk0Atg/362979.mkv
+remote-logger.js:196 adding listener
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 here video loaded
+remote-logger.js:196 0 0 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 0 804.234375 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …us> (file:///js/libs/jquery.3.4.1.min.js:2:71222)"}
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40721.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 here video loaded
+remote-logger.js:196 0 804.234375 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 0 804.234375 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …each (file:///js/libs/jquery.3.4.1.min.js:2:1419)"}
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/205316.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 here video loaded
+remote-logger.js:196 0 804.234375 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 0 804.234375 1119 629
+remote-logger.js:196 Entering setDisplayRect

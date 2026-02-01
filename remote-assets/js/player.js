@@ -57,7 +57,7 @@ function initPlayer() {
                 try{
                     webapis.avplay.open(url);
                     this.setupEventListeners();
-                    // setDisplayArea moved to prepareAsync callback to avoid InvalidStateError
+                    this.setDisplayArea();
 
                     console.log('here trying to open');
                     webapis.avplay.prepareAsync(
@@ -65,28 +65,13 @@ function initPlayer() {
                             that.reconnect_count = 0;
                             $('#' + that.parent_id).find('.video-reconnect-message').hide();
                             console.log('here video loaded');
-                            
-                            // Set display area AFTER player is prepared (fixes InvalidStateError)
-                            that.setDisplayArea();
-                            
                             $('#'+that.parent_id).find('.video-error').hide();
                             $('#'+that.parent_id).find('.video-loader').hide();
                             that.state = that.STATES.PLAYING;
                             webapis.avplay.play();
                             try{
-                                // Set display mode based on route
-                                // Fullscreen routes: vod-series-player-video, catch-up
-                                // Preview routes: home-page, channel-page (list view)
-                                var isFullscreenRoute = (current_route === 'vod-series-player-video' || current_route === 'catch-up');
-                                if (isFullscreenRoute) {
-                                    that.full_screen_state=1;
-                                    webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
-                                } else {
-                                    // CRITICAL: Reset to AUTO_ASPECT_RATIO for previews
-                                    // Fixes zoom-in issue on older Samsung TVs that persist display mode
-                                    that.full_screen_state=0;
-                                    webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO');
-                                }
+                                that.full_screen_state=1;
+                                webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
                             }catch (e) {
                             }
                             $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(webapis.avplay.getDuration()/1000));
