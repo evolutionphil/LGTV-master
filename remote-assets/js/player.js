@@ -74,13 +74,18 @@ function initPlayer() {
                             that.state = that.STATES.PLAYING;
                             webapis.avplay.play();
                             try{
-                                // Only use FULL_SCREEN for actual fullscreen playback routes, not previews
-                                // Preview containers: home-page (home slider), channel-page (channel list preview)
-                                // Fullscreen routes: vod-series-player-video, catch-up, channel-page (when playing fullscreen)
+                                // Set display mode based on route
+                                // Fullscreen routes: vod-series-player-video, catch-up
+                                // Preview routes: home-page, channel-page (list view)
                                 var isFullscreenRoute = (current_route === 'vod-series-player-video' || current_route === 'catch-up');
                                 if (isFullscreenRoute) {
                                     that.full_screen_state=1;
                                     webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                                } else {
+                                    // CRITICAL: Reset to AUTO_ASPECT_RATIO for previews
+                                    // Fixes zoom-in issue on older Samsung TVs that persist display mode
+                                    that.full_screen_state=0;
+                                    webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO');
                                 }
                             }catch (e) {
                             }
