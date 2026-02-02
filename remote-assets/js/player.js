@@ -70,8 +70,16 @@ function initPlayer() {
                             that.state = that.STATES.PLAYING;
                             webapis.avplay.play();
                             try{
-                                that.full_screen_state=1;
-                                webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                                // Check if this is a preview context or fullscreen context
+                                // Preview containers: home-page, channel-page (uses init()'s AUTO_ASPECT_RATIO)
+                                // Fullscreen: vod-series-player-video, catch-up, or when entering fullscreen from channel
+                                var isPreviewContext = (that.parent_id === 'home-page' || that.parent_id === 'channel-page');
+                                if (!isPreviewContext) {
+                                    // Only set FULL_SCREEN for actual fullscreen playback
+                                    that.full_screen_state=1;
+                                    webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                                }
+                                // For previews: keep init()'s AUTO_ASPECT_RATIO (don't override)
                             }catch (e) {
                             }
                             $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(webapis.avplay.getDuration()/1000));
