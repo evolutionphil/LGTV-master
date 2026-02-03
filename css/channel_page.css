@@ -199,11 +199,11 @@
 }
 
 .channel-logo {
-    /* Compact logo - matches original height */
-    height: 80px;
+    /* Large logo - 1 month ago design */
+    height: 160px;
     width: auto;
-    border-radius: 6px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 }
 
 .channel-info {
