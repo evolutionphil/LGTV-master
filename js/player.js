@@ -149,10 +149,17 @@ function initPlayer() {
                     webapis.avplay.close();
                 }catch (e) {
                 }
-                $(this.parent_id).find('.video-error').hide();
+                try {
+                    $('#' + this.parent_id).find('.video-error').hide();
+                    $('#' + this.parent_id).find('.video-loader').hide();
+                } catch (e) {
+                }
                 this.reconnect_count = 0;
                 clearTimeout(this.reconnect_timer);
-                $('#' + this.parent_id).find('.video-reconnect-message').hide();
+                try {
+                    $('#' + this.parent_id).find('.video-reconnect-message').hide();
+                } catch (e) {
+                }
             },
             tryReconnect: function () {
                 if (current_route !== 'channel-page' && !(current_route=='home-page' && home_page.current_preview_type==='live'))
@@ -384,7 +391,7 @@ function initPlayer() {
                 this.next_video_showing=false;
                 clearTimeout(this.next_video_timer);
                 this.id=id;
-                this.videoObj=null;	// tag video
+                this.videoObj=null;     // tag video
                 this.parent_id=parent_id;
                 this.current_time=0;
                 this.state = this.STATES.STOPPED;
