@@ -93,10 +93,16 @@ function initPlayer() {
                                     var stream_info=webapis.avplay.getCurrentStreamInfo();
                                     if(typeof stream_info[0]!='undefined'){
                                         var extra_info=JSON.parse(stream_info[0].extra_info);
-                                        var stream_summary=extra_info.Width+' * '+extra_info.Height;
-                                        $('.video-resolution').text(stream_summary);
+                                        var w=extra_info.Width;
+                                        var h=extra_info.Height;
+                                        if(w && h && w!=='undefined' && h!=='undefined'){
+                                            $('.video-resolution').text(w+' * '+h);
+                                        }else{
+                                            $('.video-resolution').text('Live');
+                                        }
                                     }
                                 }catch (e) {
+                                    $('.video-resolution').text('Live');
                                 }
                             }
                         },
