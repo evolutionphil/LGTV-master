@@ -58,6 +58,8 @@ function initPlayer() {
                     webapis.avplay.open(url);
                     this.setupEventListeners();
                     this.setDisplayArea();
+                    // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_BYTE", 1000); // 5 is in seconds
+                    // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_SECOND", 4); // 5 is in seconds
 
                     console.log('here trying to open');
                     webapis.avplay.prepareAsync(
@@ -70,16 +72,8 @@ function initPlayer() {
                             that.state = that.STATES.PLAYING;
                             webapis.avplay.play();
                             try{
-                                // Check if this is a preview context or fullscreen context
-                                // Preview containers: home-page, channel-page (uses init()'s AUTO_ASPECT_RATIO)
-                                // Fullscreen: vod-series-player-video, catch-up, or when entering fullscreen from channel
-                                var isPreviewContext = (that.parent_id === 'home-page' || that.parent_id === 'channel-page');
-                                if (!isPreviewContext) {
-                                    // Only set FULL_SCREEN for actual fullscreen playback
-                                    that.full_screen_state=1;
-                                    webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
-                                }
-                                // For previews: keep init()'s AUTO_ASPECT_RATIO (don't override)
+                                that.full_screen_state=1;
+                                webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
                             }catch (e) {
                             }
                             $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(webapis.avplay.getDuration()/1000));
@@ -390,7 +384,7 @@ function initPlayer() {
                 this.next_video_showing=false;
                 clearTimeout(this.next_video_timer);
                 this.id=id;
-                this.videoObj=null;     // tag video
+                this.videoObj=null;	// tag video
                 this.parent_id=parent_id;
                 this.current_time=0;
                 this.state = this.STATES.STOPPED;
