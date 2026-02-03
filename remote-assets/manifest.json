@@ -1,6 +1,6 @@
 {
   "version": "0.0.0",
-  "lastUpdate": "2026-02-03T21:33:45.720Z",
+  "lastUpdate": "2026-02-03T21:36:34.764Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 1,
@@ -196,9 +196,9 @@
       "priority": 2
     },
     "js/player.js": {
-      "version": "1.0.4",
-      "size": 28203,
-      "hash": "a0c98866",
+      "version": "1.0.5",
+      "size": 27582,
+      "hash": "145df2b6",
       "priority": 2
     },
     "js/vod_series_player.js": {

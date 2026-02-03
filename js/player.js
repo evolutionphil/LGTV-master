@@ -71,13 +71,10 @@ function initPlayer() {
                             $('#'+that.parent_id).find('.video-loader').hide();
                             that.state = that.STATES.PLAYING;
                             webapis.avplay.play();
-                            var isFullscreenContext = (current_route==='vod-series-player-video');
-                            if(isFullscreenContext){
-                                try{
-                                    that.full_screen_state=1;
-                                    webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
-                                }catch (e) {
-                                }
+                            try{
+                                that.full_screen_state=1;
+                                webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                            }catch (e) {
                             }
                             $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(webapis.avplay.getDuration()/1000));
                             $('#'+that.parent_id).find('.video-error').hide();
@@ -185,19 +182,12 @@ function initPlayer() {
                 }, 4000)
             },
             setDisplayArea:function() {
-                var top_position, left_position, width, height;
-                if(current_route==='channel-page' && typeof channel_operation!=='undefined' && channel_operation.full_screen_video){
-                    top_position=0;
-                    left_position=0;
-                    width=1920;
-                    height=1080;
-                }else{
-                    top_position=$(this.videoObj).offset().top;
-                    left_position=$(this.videoObj).offset().left;
-                    width=parseInt($(this.videoObj).width());
-                    height=parseInt($(this.videoObj).height());
-                }
-                console.log('setDisplayArea:',left_position,top_position,width,height,'fullscreen:',channel_operation && channel_operation.full_screen_video);
+                var top_position=$(this.videoObj).offset().top;
+                var left_position=$(this.videoObj).offset().left;
+                var width=parseInt($(this.videoObj).width())
+                var height=parseInt($(this.videoObj).height());
+                console.log(top_position,left_position,width,height);
+                // console.log(this.videoObj);
                 webapis.avplay.setDisplayRect(left_position,top_position,width,height);
             },
             toggleScreenRatio:function(){
