@@ -71,7 +71,7 @@ function initPlayer() {
                             $('#'+that.parent_id).find('.video-loader').hide();
                             that.state = that.STATES.PLAYING;
                             webapis.avplay.play();
-                            var isFullscreenContext = (current_route==='vod-series-player-video' || current_route==='channel-page');
+                            var isFullscreenContext = (current_route==='vod-series-player-video');
                             if(isFullscreenContext){
                                 try{
                                     that.full_screen_state=1;
