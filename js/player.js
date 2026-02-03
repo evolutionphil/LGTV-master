@@ -391,149 +391,182 @@ function initPlayer() {
                 this.next_video_showing=false;
                 clearTimeout(this.next_video_timer);
                 this.id=id;
-                this.videoObj=null;     // tag video
+                this.videoObj=null;
                 this.parent_id=parent_id;
                 this.current_time=0;
                 this.state = this.STATES.STOPPED;
-                $('#'+this.parent_id).find('.video-loader').show();
+                try {
+                    $('#'+this.parent_id).find('.video-loader').show();
+                } catch (e) {}
                 this.subtitles=[];
                 this.tracks=[];
-                SrtOperation.deStruct();
+                try {
+                    SrtOperation.deStruct();
+                } catch (e) {}
 
                 this.videoObj = document.getElementById(id);
+                if (!this.videoObj) {
+                    console.log('LG video element not found:', id);
+                    return;
+                }
                 var videoObj=this.videoObj;
                 var that=this;
-                this.videoObj.addEventListener("error", function(e) {
-                    console.log('error',e);
-                    $('#'+that.parent_id).find('.video-loader').show();
-                    $('#'+that.parent_id).find('.video-error').show();
-                });
-                this.videoObj.addEventListener("canplay", function(e) {
-                    console.log("Can play")
-                    $('#'+that.parent_id).find('.video-error').hide();
-                    // console.log('Video can start, but not sure it will play through.');
-                });
-                this.videoObj.addEventListener('durationchange', function(event){
-                    $('#'+that.parent_id).find('.video-error').hide();
-                    // console.log('Not sure why, but the duration of the video has changed.');
-                });
-                this.videoObj.addEventListener('loadeddata', function(event){
-                    var duration=parseInt(videoObj.duration);
-                    var attributes={
-                        min: 0,
-                        max:duration,
+                try {
+                    this.videoObj.addEventListener("error", function(e) {
+                        try {
+                            console.log('error',e);
+                            $('#'+that.parent_id).find('.video-loader').show();
+                            $('#'+that.parent_id).find('.video-error').show();
+                        } catch (err) {}
+                    });
+                    this.videoObj.addEventListener("canplay", function(e) {
+                        try {
+                            console.log("Can play");
+                            $('#'+that.parent_id).find('.video-error').hide();
+                        } catch (err) {}
+                    });
+                    this.videoObj.addEventListener('durationchange', function(event){
+                        try {
+                            $('#'+that.parent_id).find('.video-error').hide();
+                        } catch (err) {}
+                    });
+                    this.videoObj.addEventListener('loadeddata', function(event){
+                        try {
+                            var duration=parseInt(videoObj.duration) || 0;
+                            var attributes={
+                                min: 0,
+                                max:duration
+                            };
+                            $('#'+that.parent_id).find('.video-loader').hide();
+                            $('#'+that.parent_id).find('.video-progress-bar-slider').attr(attributes);
+                            try {
+                                $('#'+that.parent_id).find('.video-progress-bar-slider').rangeslider('update', true);
+                            } catch (err) {}
+                            if(current_route==='vod-series-player-video'){
+                                try {
+                                    vod_series_player.showResumeBar();
+                                } catch (err) {}
+                            }
+                        } catch (err) {}
+                    });
+                    this.videoObj.ontimeupdate = function(event){
+                        try {
+                            $('#'+that.parent_id).find('.video-error').hide();
+                            var duration = videoObj.duration || 0;
+                            var currentTime = videoObj.currentTime || 0;
+                            if(current_route==='vod-series-player-video') {
+                                try {
+                                    vod_series_player.current_time=currentTime;
+                                    SrtOperation.timeChange(videoObj.currentTime);
+                                } catch (err) {}
+                            }
+                            if (duration > 0) {
+                                $('#'+that.parent_id).find('.video-progress-bar-slider').val(currentTime).change();
+                                $('#'+that.parent_id).find('.video-current-time').html(that.formatTime(currentTime));
+                                $('#'+that.parent_id).find('.progress-amount').css({width:currentTime/duration*100+'%'});
+                            }
+                        } catch (err) {}
                     };
-                    $('#'+that.parent_id).find('.video-loader').hide();
-                    $('#'+that.parent_id).find('.video-progress-bar-slider').attr(attributes)
-                    $('#'+that.parent_id).find('.video-progress-bar-slider').rangeslider('update', true);
-                    if(current_route==='vod-series-player-video'){
-                        vod_series_player.showResumeBar();
-                    }
-                });
-                this.videoObj.ontimeupdate = function(event){
-                    $('#'+that.parent_id).find('.video-error').hide();
-                    var duration =  videoObj.duration;
-                    var currentTime=videoObj.currentTime;
-                    if(current_route==='vod-series-player-video') {
-                        vod_series_player.current_time=currentTime;
-                        SrtOperation.timeChange(videoObj.currentTime);
-                    }
-                    if (duration > 0) {
-                        $('#'+that.parent_id).find('.video-progress-bar-slider').val(currentTime).change();
-                        $('#'+that.parent_id).find('.video-current-time').html(that.formatTime(currentTime));
-                        $('#'+that.parent_id).find('.progress-amount').css({width:currentTime/duration*100+'%'});
-                    }
-                };
-                this.videoObj.addEventListener('loadedmetadata', function() {
-                    var duration=parseInt(videoObj.duration);
-                    var attributes={
-                        min: 0,
-                        max:duration,
-                    };
-                    $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(duration));
-                    $('#'+that.parent_id).find('.video-progress-bar-slider').attr(attributes)
-                    $('#'+that.parent_id).find('.video-progress-bar-slider').rangeslider('update', true);
-                });
-                this.videoObj.addEventListener('waiting', function(event){
-                    // console.log('Video is waiting for more data.',event);
-                });
-                this.videoObj.addEventListener('suspend', function(event){
-                    // console.log('Data loading has been suspended.');
-                    // $('#'+this.parent_id).find('.video-error').show();
-                });
-                this.videoObj.addEventListener('stalled', function(event){
-                    console.log('Failed to fetch data, but trying.');
-                    // $('#'+this.parent_id).find('.video-error').show();
-                });
-                this.videoObj.addEventListener('ended', function(event){
-                    // console.log("\n\n\n",'video duration='+that.videoObj.duration);
-                    if(current_route==='vod-series-player-video'){
-                        if(that.videoObj.duration>0 && !isNaN(that.videoObj.duration))
-                            vod_series_player.showNextVideo(1);
-                    }
-                });
-                // this.videoObj.addEventListener('emptied', function(event){
-                //     console.log('Uh oh. The media is empty. Did you call load()?');
-                //     $('#'+this.parent_id).find('.video-error').show();
-                // });
+                    this.videoObj.addEventListener('loadedmetadata', function() {
+                        try {
+                            var duration=parseInt(videoObj.duration) || 0;
+                            var attributes={
+                                min: 0,
+                                max:duration
+                            };
+                            $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(duration));
+                            $('#'+that.parent_id).find('.video-progress-bar-slider').attr(attributes);
+                            try {
+                                $('#'+that.parent_id).find('.video-progress-bar-slider').rangeslider('update', true);
+                            } catch (err) {}
+                        } catch (err) {}
+                    });
+                    this.videoObj.addEventListener('waiting', function(event){});
+                    this.videoObj.addEventListener('suspend', function(event){});
+                    this.videoObj.addEventListener('stalled', function(event){
+                        console.log('Failed to fetch data, but trying.');
+                    });
+                    this.videoObj.addEventListener('ended', function(event){
+                        try {
+                            if(current_route==='vod-series-player-video'){
+                                if(that.videoObj && that.videoObj.duration>0 && !isNaN(that.videoObj.duration))
+                                    vod_series_player.showNextVideo(1);
+                            }
+                        } catch (err) {}
+                    });
+                } catch (e) {
+                    console.log('LG init event listeners error:', e);
+                }
             },
             playAsync:function(url){
                 console.log(url);
                 if(url){
                     try{
-                        this.videoObj.pause();
-                    }catch (e) {
-
-                    }
+                        if(this.videoObj) this.videoObj.pause();
+                    }catch (e) {}
                     var that=this;
-                    $('#'+this.parent_id).find('.video-error').hide();
-                    $('#'+this.parent_id).find('.video-loader').show();
-                    while (this.videoObj.firstChild)
-                        this.videoObj.removeChild(this.videoObj.firstChild);
-                    this.videoObj.load();
-                    var source = document.createElement("source");
-                    source.setAttribute('src',url);
-                    this.videoObj.appendChild(source);
-                    this.videoObj.play();
-                    $('#'+this.parent_id).find('.progress-amount').css({width:0})
-
-                    source.addEventListener("error", function(e) {
-                        $('#'+that.parent_id).find('.video-error').show();
-                    });
+                    try {
+                        $('#'+this.parent_id).find('.video-error').hide();
+                        $('#'+this.parent_id).find('.video-loader').show();
+                    } catch (e) {}
+                    try {
+                        if(this.videoObj){
+                            while (this.videoObj.firstChild)
+                                this.videoObj.removeChild(this.videoObj.firstChild);
+                            this.videoObj.load();
+                            var source = document.createElement("source");
+                            source.setAttribute('src',url);
+                            this.videoObj.appendChild(source);
+                            this.videoObj.play();
+                            source.addEventListener("error", function(e) {
+                                try {
+                                    $('#'+that.parent_id).find('.video-error').show();
+                                } catch (err) {}
+                            });
+                        }
+                    } catch (e) {
+                        console.log('LG playAsync error:', e);
+                    }
+                    try {
+                        $('#'+this.parent_id).find('.progress-amount').css({width:0});
+                    } catch (e) {}
                 }
                 this.state=this.STATES.PLAYING;
             },
             play:function(){
                 this.state=this.STATES.PLAYING;
                 try{
-                    this.videoObj.play();
+                    if(this.videoObj) this.videoObj.play();
                 }catch(e){
                     console.log(e);
                 }
-                if(SrtOperation.srt.length>0)  // if has subtitles
-                    SrtOperation.stopped=false;
+                try {
+                    if(SrtOperation && SrtOperation.srt && SrtOperation.srt.length>0)
+                        SrtOperation.stopped=false;
+                } catch (e) {}
             },
             pause:function() {
                 this.state = this.STATES.PAUSED;
                 try{
-                    this.videoObj.pause();
-                }catch (e) {
-                }
+                    if(this.videoObj) this.videoObj.pause();
+                }catch (e) {}
             },
             stop:function() {
                 try{
-                    this.videoObj.pause();
-                }catch (e) {
-                }
-                SrtOperation.deStruct();
+                    if(this.videoObj) this.videoObj.pause();
+                }catch (e) {}
+                try {
+                    SrtOperation.deStruct();
+                } catch (e) {}
                 this.subtitles=[];
             },
             close:function(){
                 try{
-                    this.videoObj.pause();
-                }catch (e) {
-                }
-                SrtOperation.deStruct();
+                    if(this.videoObj) this.videoObj.pause();
+                }catch (e) {}
+                try {
+                    SrtOperation.deStruct();
+                } catch (e) {}
                 this.subtitles=[];
             },
             toggleScreenRatio:function(){
@@ -554,30 +587,42 @@ function initPlayer() {
 
             },
             getSubtitleOrAudioTrack:function(kind){
-                var totalTrackInfo=[],temps;
-                if(kind=="TEXT"){
-                    temps=media_player.videoObj.textTracks.length > 0 ? media_player.videoObj.textTracks : {};
-                }else
-                    temps=media_player.videoObj.audioTracks.length>0 ? media_player.videoObj.audioTracks : {};
-                console.log(temps);
-                if(Object.keys(temps).length>0){
-                    Object.keys(temps).map(function (key,index) {
-                        if(typeof temps[key]=='object' && temps[key]!=null)
-                            totalTrackInfo.push(temps[key]);
-                    })
+                var totalTrackInfo=[],temps={};
+                try {
+                    if(kind=="TEXT"){
+                        temps=media_player.videoObj && media_player.videoObj.textTracks && media_player.videoObj.textTracks.length > 0 ? media_player.videoObj.textTracks : {};
+                    }else{
+                        temps=media_player.videoObj && media_player.videoObj.audioTracks && media_player.videoObj.audioTracks.length>0 ? media_player.videoObj.audioTracks : {};
+                    }
+                    console.log(temps);
+                    if(temps && Object.keys(temps).length>0){
+                        Object.keys(temps).map(function (key,index) {
+                            if(typeof temps[key]=='object' && temps[key]!=null)
+                                totalTrackInfo.push(temps[key]);
+                        });
+                    }
+                } catch (e) {
+                    console.log('LG getSubtitleOrAudioTrack error:', e);
                 }
                 console.log(totalTrackInfo);
                 return totalTrackInfo;
             },
             setSubtitleOrAudioTrack:function(kind, index){
-                if(kind==='TEXT'){
-                    if(this.subtitles[index])
-                        SrtOperation.init(this.subtitles[index],media_player.videoObj.currentTime);
-                }else{
-                    for (var i = 0; i < this.videoObj.audioTracks.length; i++) {
-                        this.videoObj.audioTracks[i].enabled = false;
+                try {
+                    if(kind==='TEXT'){
+                        if(this.subtitles[index])
+                            SrtOperation.init(this.subtitles[index],media_player.videoObj.currentTime);
+                    }else{
+                        if(this.videoObj && this.videoObj.audioTracks){
+                            for (var i = 0; i < this.videoObj.audioTracks.length; i++) {
+                                this.videoObj.audioTracks[i].enabled = false;
+                            }
+                            if(this.videoObj.audioTracks[index])
+                                this.videoObj.audioTracks[index].enabled = true;
+                        }
                     }
-                    this.videoObj.audioTracks[index].enabled = true;
+                } catch (e) {
+                    console.log('LG setSubtitleOrAudioTrack error:', e);
                 }
             }
         }
