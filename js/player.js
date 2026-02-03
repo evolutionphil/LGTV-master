@@ -71,11 +71,23 @@ function initPlayer() {
                             $('#'+that.parent_id).find('.video-loader').hide();
                             that.state = that.STATES.PLAYING;
                             webapis.avplay.play();
+                            // Tizen 9.0 fix: Only use FULL_SCREEN for actual fullscreen playback
+                            // For preview windows, use AUTO_ASPECT_RATIO to respect setDisplayRect
+                            var isFullscreenContext = (current_route === 'vod-series-player-video') || 
+                                (current_route === 'channel-page' && channel_page && channel_page.full_screen_video) ||
+                                (current_route === 'home-page' && home_page && home_page.full_screen_video);
                             try{
-                                that.full_screen_state=1;
-                                webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                                if(isFullscreenContext){
+                                    that.full_screen_state=1;
+                                    webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                                }else{
+                                    that.full_screen_state=0;
+                                    webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO');
+                                }
                             }catch (e) {
                             }
+                            // Re-apply display area after mode is set
+                            setTimeout(function(){ that.setDisplayArea(); }, 100);
                             $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(webapis.avplay.getDuration()/1000));
                             $('#'+that.parent_id).find('.video-error').hide();
                             $('#'+that.parent_id).find('.progress-amount').css({width:0})
