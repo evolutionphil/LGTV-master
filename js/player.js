@@ -185,12 +185,19 @@ function initPlayer() {
                 }, 4000)
             },
             setDisplayArea:function() {
-                var top_position=$(this.videoObj).offset().top;
-                var left_position=$(this.videoObj).offset().left;
-                var width=parseInt($(this.videoObj).width())
-                var height=parseInt($(this.videoObj).height());
-                console.log(top_position,left_position,width,height);
-                // console.log(this.videoObj);
+                var top_position, left_position, width, height;
+                if(current_route==='channel-page' && typeof channel_operation!=='undefined' && channel_operation.full_screen_video){
+                    top_position=0;
+                    left_position=0;
+                    width=1920;
+                    height=1080;
+                }else{
+                    top_position=$(this.videoObj).offset().top;
+                    left_position=$(this.videoObj).offset().left;
+                    width=parseInt($(this.videoObj).width());
+                    height=parseInt($(this.videoObj).height());
+                }
+                console.log('setDisplayArea:',left_position,top_position,width,height,'fullscreen:',channel_operation && channel_operation.full_screen_video);
                 webapis.avplay.setDisplayRect(left_position,top_position,width,height);
             },
             toggleScreenRatio:function(){
