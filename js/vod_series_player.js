@@ -1163,6 +1163,190 @@ var vod_series_player={
             },15000)
         }
     },
+    // Subtitle Position/Settings Modal Functions (restored from commit 64b927e)
+    showSubtitlePositionModal: function() {
+        this.hideControlBar();
+        var keys = this.keys;
+        if(keys.focused_part != "subtitle_position_overlay") {
+            keys.prev_focus = keys.focused_part;
+        }
+        keys.focused_part = "subtitle_position_overlay";
+        
+        this.originalSubtitlePosition = parseInt(localStorage.getItem('subtitle_position') || '10');
+        this.originalSubtitleLevel = this.getSubtitleLevel();
+        this.originalSubtitleSize = this.SUBTITLE_LEVELS.SIZES[this.originalSubtitleLevel];
+        this.originalSubtitleBackground = localStorage.getItem('subtitle_background') || 'black';
+        
+        this.currentSubtitlePosition = this.originalSubtitlePosition;
+        this.currentSubtitleSize = this.originalSubtitleSize;
+        this.currentSubtitleBackground = this.originalSubtitleBackground;
+        
+        this.updateAllDisplays();
+        $('#vod-series-player-operation-modal').modal('hide');
+        $('#subtitle-position-overlay').show();
+        this.positionControlIndex = 0;
+        this.hoverPositionControl(0);
+    },
+    adjustSubtitlePosition: function(direction) {
+        var step = 2;
+        if(direction === 'up') {
+            this.currentSubtitlePosition = Math.min(50, this.currentSubtitlePosition + step);
+        } else if(direction === 'down') {
+            this.currentSubtitlePosition = Math.max(-5, this.currentSubtitlePosition - step);
+        }
+        localStorage.setItem('subtitle_position', this.currentSubtitlePosition);
+        this.applyLiveSubtitleStyles();
+        this.updateAllDisplays();
+    },
+    setSubtitlePosition: function(position) {
+        this.currentSubtitlePosition = parseInt(position);
+        localStorage.setItem('subtitle_position', this.currentSubtitlePosition);
+        this.applyLiveSubtitleStyles();
+        this.updateAllDisplays();
+    },
+    SUBTITLE_LEVELS: {
+        MIN: 0,
+        MAX: 4,
+        DEFAULT: 2,
+        SIZES: [14, 18, 24, 32, 40]
+    },
+    getSubtitleLevel: function() {
+        var level = parseInt(localStorage.getItem('subtitle_level') || this.SUBTITLE_LEVELS.DEFAULT);
+        return Number.isFinite(level) ? Math.max(this.SUBTITLE_LEVELS.MIN, Math.min(this.SUBTITLE_LEVELS.MAX, level)) : this.SUBTITLE_LEVELS.DEFAULT;
+    },
+    setSubtitleLevel: function(level) {
+        level = Math.max(this.SUBTITLE_LEVELS.MIN, Math.min(this.SUBTITLE_LEVELS.MAX, level));
+        localStorage.setItem('subtitle_level', level);
+        this.currentSubtitleSize = this.SUBTITLE_LEVELS.SIZES[level];
+        localStorage.setItem('subtitle_size', this.currentSubtitleSize);
+        this.applyLiveSubtitleStyles();
+        this.updateAllDisplays();
+    },
+    adjustSubtitleSize: function(direction) {
+        var currentLevel = this.getSubtitleLevel();
+        if(direction === 'larger') {
+            this.setSubtitleLevel(currentLevel + 1);
+        } else if(direction === 'smaller') {
+            this.setSubtitleLevel(currentLevel - 1);
+        }
+    },
+    setSubtitleSize: function(size) {
+        var level = this.SUBTITLE_LEVELS.SIZES.indexOf(parseInt(size));
+        if(level === -1) {
+            var targetSize = parseInt(size);
+            level = this.SUBTITLE_LEVELS.DEFAULT;
+            var minDiff = Infinity;
+            for(var i = 0; i < this.SUBTITLE_LEVELS.SIZES.length; i++) {
+                var diff = Math.abs(this.SUBTITLE_LEVELS.SIZES[i] - targetSize);
+                if(diff < minDiff) {
+                    minDiff = diff;
+                    level = i;
+                }
+            }
+        }
+        this.setSubtitleLevel(level);
+    },
+    setSubtitleBackground: function(bgType) {
+        this.currentSubtitleBackground = bgType;
+        localStorage.setItem('subtitle_background', this.currentSubtitleBackground);
+        this.applyLiveSubtitleStyles();
+        this.updateAllDisplays();
+    },
+    applyLiveSubtitleStyles: function() {
+        var position = this.currentSubtitlePosition;
+        var size = this.currentSubtitleSize;
+        var bgType = this.currentSubtitleBackground;
+        var backgroundStyle = this.getBackgroundStyle(bgType);
+        $('#' + media_player.parent_id).find('.subtitle-container').css({
+            'bottom': position + 'vh',
+            'top': 'auto',
+            'font-size': size + 'px',
+            'background': backgroundStyle.background,
+            'color': backgroundStyle.color,
+            'text-shadow': backgroundStyle.textShadow,
+            'padding': backgroundStyle.padding,
+            'border-radius': backgroundStyle.borderRadius
+        });
+        $('.subtitle-text, .subtitle-display').css({
+            'bottom': position + 'vh',
+            'top': 'auto',
+            'font-size': size + 'px',
+            'background': backgroundStyle.background,
+            'color': backgroundStyle.color,
+            'text-shadow': backgroundStyle.textShadow,
+            'padding': backgroundStyle.padding,
+            'border-radius': backgroundStyle.borderRadius,
+            'box-shadow': backgroundStyle.boxShadow || 'none',
+            'border': backgroundStyle.border || 'none'
+        });
+    },
+    getBackgroundStyle: function(bgType) {
+        switch(bgType) {
+            case 'transparent':
+                return { background: 'transparent', color: '#fff', textShadow: 'none', padding: '0px', borderRadius: '0px', border: 'none', boxShadow: 'none' };
+            case 'black':
+                return { background: 'rgba(0,0,0,0.8)', color: '#fff', textShadow: 'none', padding: '4px 8px', borderRadius: '4px', boxShadow: 'none', border: 'none' };
+            case 'gray':
+                return { background: 'rgba(255,0,0,0.8)', color: '#fff', textShadow: 'none', padding: '4px 8px', borderRadius: '4px', boxShadow: 'none', border: 'none' };
+            case 'dark':
+                return { background: 'rgba(0,128,0,0.8)', color: '#fff', textShadow: 'none', padding: '4px 8px', borderRadius: '4px', boxShadow: 'none', border: 'none' };
+            default:
+                return this.getBackgroundStyle('black');
+        }
+    },
+    updateAllDisplays: function() {
+        $('#position-value').text(this.currentSubtitlePosition + 'vh');
+        $('#size-value').text(this.currentSubtitleSize + 'px');
+        var bgLabels = { 'transparent': 'None', 'black': 'Black', 'gray': 'Red', 'dark': 'Green' };
+        $('#background-value').text(bgLabels[this.currentSubtitleBackground] || 'Black');
+    },
+    hoverPositionControl: function(index) {
+        this.positionControlIndex = index;
+        $('.position-button, .preset-button, .position-action-btn, .size-button, .bg-color-button').removeClass('active');
+        if(index >= 0 && index < 2) {
+            $('.position-button').eq(index).addClass('active');
+        } else if(index >= 2 && index < 6) {
+            $('.preset-button').eq(index - 2).addClass('active');
+        } else if(index >= 6 && index < 8) {
+            $('.size-button').eq(index - 6).addClass('active');
+        } else if(index >= 8 && index < 12) {
+            $('.size-presets .preset-button').eq(index - 8).addClass('active');
+        } else if(index >= 12 && index < 16) {
+            $('.bg-color-button').eq(index - 12).addClass('active');
+        } else if(index >= 16) {
+            $('.position-action-btn').eq(index - 16).addClass('active');
+        }
+    },
+    saveSubtitlePosition: function() {
+        $('#subtitle-position-overlay').hide();
+        this.keys.focused_part = "control_bar";
+        showToast("Success", "Subtitle settings saved!");
+    },
+    cancelSubtitlePosition: function() {
+        this.currentSubtitlePosition = this.originalSubtitlePosition;
+        this.currentSubtitleSize = this.originalSubtitleSize;
+        this.currentSubtitleBackground = this.originalSubtitleBackground;
+        var level = this.SUBTITLE_LEVELS.SIZES.indexOf(this.originalSubtitleSize);
+        if(level !== -1) {
+            localStorage.setItem('subtitle_level', level);
+        }
+        this.applyLiveSubtitleStyles();
+        $('#subtitle-position-overlay').hide();
+        this.keys.focused_part = "control_bar";
+    },
+    applySubtitlePosition: function() {
+        var position = parseInt(localStorage.getItem('subtitle_position') || '10');
+        var level = this.getSubtitleLevel();
+        var size = this.SUBTITLE_LEVELS.SIZES[level];
+        var bgType = localStorage.getItem('subtitle_background') || 'black';
+        this.currentSubtitlePosition = position;
+        this.currentSubtitleSize = size;
+        this.currentSubtitleBackground = bgType;
+        this.applyLiveSubtitleStyles();
+        if(typeof srt_operation !== 'undefined') {
+            srt_operation.applyUserStyles();
+        }
+    },
     HandleKey:function (e) {
         switch (e.keyCode) {
             case tvKey.MediaFastForward:
