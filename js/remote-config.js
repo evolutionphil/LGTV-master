@@ -8,9 +8,8 @@
  */
 
 var REMOTE_UPDATE_CONFIG = {
-    // TEMPORARILY DISABLED - CDN has old broken player.js
-    // Re-enable after deploying fixed files to flixapp.pages.dev
-    enabled: false,
+    // Remote update enabled - v1.0.20
+    enabled: true,
     
     manifestUrl: 'https://flixapp.pages.dev/manifest.json',
     
