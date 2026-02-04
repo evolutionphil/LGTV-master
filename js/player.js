@@ -190,12 +190,28 @@ function initPlayer() {
                 }, 4000)
             },
             setDisplayArea:function() {
-                var top_position=Math.round($(this.videoObj).offset().top);
-                var left_position=Math.round($(this.videoObj).offset().left);
-                var width=Math.round($(this.videoObj).width());
-                var height=Math.round($(this.videoObj).height());
-                console.log(top_position,left_position,width,height);
-                webapis.avplay.setDisplayRect(left_position,top_position,width,height);
+                // AVPlay ALWAYS uses 1920x1080 coordinate system regardless of app resolution
+                // Must scale CSS coordinates to 1920x1080
+                var screenWidth = window.innerWidth || 1920;
+                var screenHeight = window.innerHeight || 1080;
+                var scaleX = 1920 / screenWidth;
+                var scaleY = 1080 / screenHeight;
+                
+                var css_top = $(this.videoObj).offset().top;
+                var css_left = $(this.videoObj).offset().left;
+                var css_width = $(this.videoObj).width();
+                var css_height = $(this.videoObj).height();
+                
+                // Scale to AVPlay's 1920x1080 coordinate system
+                var top_position = Math.round(css_top * scaleY);
+                var left_position = Math.round(css_left * scaleX);
+                var width = Math.round(css_width * scaleX);
+                var height = Math.round(css_height * scaleY);
+                
+                console.log('setDisplayArea: screen=' + screenWidth + 'x' + screenHeight + ', scale=' + scaleX.toFixed(2) + 'x' + scaleY.toFixed(2));
+                console.log('setDisplayArea: css=' + css_left + ',' + css_top + ',' + css_width + ',' + css_height);
+                console.log('setDisplayArea: avplay=' + left_position + ',' + top_position + ',' + width + ',' + height);
+                webapis.avplay.setDisplayRect(left_position, top_position, width, height);
             },
             toggleScreenRatio:function(){
                 if(this.full_screen_state==1){
