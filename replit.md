@@ -43,6 +43,9 @@ Remote Update Workflow: After every code change, automatically copy all changed 
 ## External Service Integrations
 -   **YouTube Integration**: Supports YouTube playlist and video playback via an HTTPS proxy for Tizen compatibility.
 -   **Subtitle Support**: SRT subtitle parsing and display with synchronization.
+    -   **Subtitle API**: `https://exoapp.tv` - External subtitle service for fetching SRT files.
+    -   **Subtitle Flow**: API returns subtitle list → User selects → `EnhancedSubtitleWorkflow.selectSubtitle()` downloads SRT file → `SrtOperation.init()` parses → `SrtOperation.timeChange()` updates display.
+    -   **Samsung Integration**: `oncurrentplaytime` callback in player.js calls `SrtOperation.timeChange(currentTime/1000)` for subtitle sync.
 -   **Multi-language Support**: Internationalization framework with translation key support.
 -   **Theme System**: Customizable UI themes.
 
