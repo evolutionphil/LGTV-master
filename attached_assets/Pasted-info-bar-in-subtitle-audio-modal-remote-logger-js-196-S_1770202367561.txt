@@ -1,0 +1,22 @@
+info_bar in subtitle audio modal
+remote-logger.js:196 [Subtitle] Fetching subtitles from API...
+remote-logger.js:196 [Subtitle] Request data: {"movie_name":"A Working Man (2025)"}
+remote-logger.js:196 [Subtitle] API Response: {"status":"success","subtitles":[{"label":"Turkish","file":"/api/subtitle-file?lang=tr&id=11066140","lang":"tr"},{"label":"English","file":"/api/subtitle-file?lang=en&id=11069790","lang":"en"},{"label":"Spanish","file":"/api/subtitle-file?lang=es&id=11010297","lang":"es"},{"label":"French","file":"/api/subtitle-file?lang=fr&id=11069784","lang":"fr"},{"label":"German","file":"/api/subtitle-file?lang=de&id=11149809","lang":"de"},{"label":"Russian","file":"/api/subtitle-file?lang=ru&id=11007525","lang":"ru"},{"label":"Arabic","file":"/api/subtitle-file?lang=ar&id=10967891","lang":"ar"},{"label":"Swedish","file":"/api/subtitle-file?lang=sv&id=11058430","lang":"sv"},{"label":"Dutch","file":"/api/subtitle-file?lang=nl&id=10953324","lang":"nl"},{"label":"Japanese","file":"/api/subtitle-file?lang=ja&id=10994269","lang":"ja"},{"label":"Italian","file":"/api/subtitle-file?lang=it&id=11184896","lang":"it"},{"label":"Polish","file":"/api/subtitle-file?lang=pl&id=11069329","lang":"pl"},{"label":"Finnish","file":"/api/subtitle-file?lang=fi&id=11069815","lang":"fi"},{"label":"Hindi","file":"/api/subtitle-file?lang=hi&id=11046541","lang":"hi"},{"label":"Norwegian","file":"/api/subtitle-file?lang=no&id=11069782","lang":"no"}]}
+remote-logger.js:196 [Subtitle] Found 15 subtitles
+vod_series_player.js:625 Uncaught TypeError: Cannot read property 'track_lang' of undefined
+    at vod_series_player.js:625
+    at Array.map (<anonymous>)
+    at Object.makeMediaTrackElement (vod_series_player.js:619)
+    at Object.renderSubtitles (vod_series_player.js:760)
+    at Object.success (vod_series_player.js:705)
+    at c (jquery.3.4.1.min.js:2)
+    at Object.fireWith [as resolveWith] (jquery.3.4.1.min.js:2)
+    at l (jquery.3.4.1.min.js:2)
+    at XMLHttpRequest.<anonymous> (jquery.3.4.1.min.js:2)
+remote-logger.js:196 here saving video time error ReferenceError: environment is not defined
+    at Object.saveVideoTime (vod_series_player.js:252)
+    at Object.Exit (vod_series_player.js:223)
+    at Object.goBack (vod_series_player.js:301)
+    at Object.HandleKey (vod_series_player.js:1529)
+    at HTMLDocument.<anonymous> (main.js:162)
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE

@@ -613,16 +613,23 @@ var vod_series_player={
     makeMediaTrackElement:function(items,kind){
         var htmlContent="";
         if(platform==='samsung'){
-            var language_key="track_lang";
-            if(kind!=="TEXT")
-                language_key="language";
-            items.map(function(item){
-                var extra_info=item.extra_info;
+            items.map(function(item, index){
+                // Support both API format (label/lang) and native format (extra_info.track_lang)
+                var label;
+                if(item.label) {
+                    label = item.label; // API format
+                } else if(item.extra_info) {
+                    var language_key = kind === "TEXT" ? "track_lang" : "language";
+                    label = item.extra_info[language_key] || ("Track " + (index + 1));
+                } else {
+                    label = "Track " + (index + 1);
+                }
+                var itemIndex = typeof item.index !== 'undefined' ? item.index : index;
                 htmlContent+=
                     '<div class="modal-operation-menu-type-2 subtitle-option">\
                         <input class="magic-radio" type="radio" name="radio" id="disable-subtitle"\
-                            value="'+item.index+'">\
-                    <label for="disable-subtitle">'+extra_info[language_key]+'</label>\
+                            value="'+itemIndex+'">\
+                    <label for="disable-subtitle">'+label+'</label>\
                 </div>';
             })
         }
