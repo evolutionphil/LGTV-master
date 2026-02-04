@@ -16,6 +16,7 @@ function initPlayer() {
             reconnect_timer: null,
             reconnect_count: 0,
             reconnect_max_count: 20,
+            reconnect_position: 0,
             url:'',
             id:'',
             init:function(id, parent_id) {
@@ -40,6 +41,7 @@ function initPlayer() {
                 }
                 $('.video-resolution').text('Live');
                 this.reconnect_count = 0;
+                this.reconnect_position = 0;
             },
             playAsync:function(url){
                 console.log(url);
@@ -158,6 +160,7 @@ function initPlayer() {
                 }catch (e) {
                 }
                 this.reconnect_count = 0;
+                this.reconnect_position = 0;
                 clearTimeout(this.reconnect_timer);
                 $('#' + this.parent_id).find('.video-reconnect-message').hide();
             },
@@ -169,11 +172,14 @@ function initPlayer() {
                 }
                 $('#' + this.parent_id).find('.video-error').hide();
                 this.reconnect_count = 0;
+                this.reconnect_position = 0;
                 clearTimeout(this.reconnect_timer);
                 $('#' + this.parent_id).find('.video-reconnect-message').hide();
             },
             tryReconnect: function () {
-                if (current_route !== 'channel-page' && !(current_route=='home-page' && home_page.current_preview_type==='live'))
+                if (current_route !== 'channel-page' && 
+                    !(current_route=='home-page' && home_page.current_preview_type==='live') &&
+                    current_route !== 'vod-series-player-video')
                     return;
                 clearTimeout(this.reconnect_timer);
                 var reconnect_count=this.reconnect_count + 1;
@@ -237,8 +243,17 @@ function initPlayer() {
                     },
                     onbufferingcomplete: function() {
                         $('#'+that.parent_id).find('.video-loader').hide();
-                        // console.log('Buffering Complete, Can play now!');
-                        // console.log("Buffereing complete time "+(new Date()).getTime()/1000)
+                        that.reconnect_count = 0;
+                        $('#' + that.parent_id).find('.video-reconnect-message').hide();
+                        if (that.reconnect_position > 0) {
+                            try {
+                                console.log('Reconnect: Seeking to position', that.reconnect_position);
+                                webapis.avplay.seekTo(that.reconnect_position);
+                                that.reconnect_position = 0;
+                            } catch (e) {
+                                console.log('Reconnect: Seek failed', e);
+                            }
+                        }
                     },
                     onstreamcompleted: function() {
                         // console.log('video has ended.');
@@ -267,6 +282,12 @@ function initPlayer() {
                     },
                     onerror : function(type, data) {
                         $('#' + that.parent_id).find('.video-error').show();
+                        if (that.current_time > 0) {
+                            that.reconnect_position = that.current_time;
+                            console.log('Reconnect: Saved position', that.reconnect_position);
+                        } else {
+                            that.reconnect_position = 0;
+                        }
                         if (that.reconnect_count < that.reconnect_max_count)
                             that.tryReconnect();
                     },
