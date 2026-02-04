@@ -20,12 +20,6 @@ function initPlayer() {
             url:'',
             id:'',
             init:function(id, parent_id) {
-                console.log('[Player.init] ========== INIT START ==========');
-                console.log('[Player.init] id:', id, 'parent_id:', parent_id);
-                console.log('[Player.init] Previous parent_id was:', this.parent_id);
-                console.log('[Player.init] Previous state was:', this.state);
-                console.log('[Player.init] current_route:', typeof current_route !== 'undefined' ? current_route : 'undefined');
-                
                 this.id=id;
                 this.parent_id=parent_id;
                 this.STATES={
@@ -38,48 +32,33 @@ function initPlayer() {
                 this.parent_id=parent_id;
                 this.current_time=0;
                 this.videoObj = document.getElementById(id);
-                console.log('[Player.init] videoObj found:', !!this.videoObj);
-                
                 $('#'+parent_id).find('.subtitle-container').hide();
                 $('#' + parent_id).find('.video-reconnect-message').hide();
                 this.full_screen_state=0;
                 try{
                     webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO');
-                    console.log('[Player.init] setDisplayMethod AUTO_ASPECT_RATIO OK');
                 }catch (e) {
-                    console.log('[Player.init] setDisplayMethod ERROR:', e.message || e);
                 }
                 $('.video-resolution').text('Live');
                 this.reconnect_count = 0;
                 this.reconnect_position = 0;
-                console.log('[Player.init] ========== INIT END ==========');
             },
             playAsync:function(url){
-                console.log('[Player.playAsync] ========== PLAY START ==========');
-                console.log('[Player.playAsync] URL:', url);
-                console.log('[Player.playAsync] parent_id:', this.parent_id);
-                console.log('[Player.playAsync] current state:', this.state, 'STOPPED=0');
-                console.log('[Player.playAsync] current_route:', typeof current_route !== 'undefined' ? current_route : 'undefined');
-                
+                console.log(url);
                 this.url=url;
                 $('#'+this.parent_id).find('.video-error').hide();
 
                 $('.video-loader').show();
                 if (this.state > this.STATES.STOPPED) {
-                    console.log('[Player.playAsync] Already playing, state:', this.state, '- RETURNING');
                     return;
                 }
                 if (!this.videoObj) {
-                    console.log('[Player.playAsync] No videoObj - RETURNING');
                     return 0;
                 }
                 var that=this;
                 try{
-                    console.log('[Player.playAsync] Calling webapis.avplay.open()...');
                     webapis.avplay.open(url);
-                    console.log('[Player.playAsync] open() SUCCESS');
                     this.setupEventListeners();
-                    console.log('[Player.playAsync] Calling setDisplayArea from playAsync...');
                     this.setDisplayArea();
                     // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_BYTE", 1000); // 5 is in seconds
                     // webapis.avplay.setBufferingParam("PLAYER_BUFFER_FOR_PLAY","PLAYER_BUFFER_SIZE_IN_SECOND", 4); // 5 is in seconds
@@ -87,49 +66,25 @@ function initPlayer() {
                     console.log('here trying to open');
                     webapis.avplay.prepareAsync(
                         function(){
-                            console.log('[Player.prepareAsync] ========== VIDEO PREPARED ==========');
-                            console.log('[Player.prepareAsync] parent_id:', that.parent_id);
-                            console.log('[Player.prepareAsync] current_route:', current_route);
+                            console.log('[Player.prepareAsync] Video prepared, parent_id:', that.parent_id);
                             
                             that.reconnect_count = 0;
                             $('#' + that.parent_id).find('.video-reconnect-message').hide();
-                            console.log('[Player.prepareAsync] Video loaded, calling play()');
                             $('#'+that.parent_id).find('.video-error').hide();
                             $('#'+that.parent_id).find('.video-loader').hide();
                             that.state = that.STATES.PLAYING;
                             webapis.avplay.play();
-                            console.log('[Player.prepareAsync] play() called');
                             
-                            // Tizen 9.0 fix: Only use FULL_SCREEN for actual fullscreen playback
-                            // For preview windows, use AUTO_ASPECT_RATIO to respect setDisplayRect
-                            var isFullscreenContext = (current_route === 'vod-series-player-video') || 
-                                (current_route === 'channel-page' && channel_page && channel_page.full_screen_video) ||
-                                (that.parent_id === 'vod-series-player-page') ||
-                                (that.parent_id === 'channel-page');
-                            
-                            console.log('[Player.prepareAsync] isFullscreenContext:', isFullscreenContext);
-                            console.log('[Player.prepareAsync] parent_id check: vod-series-player-page=', that.parent_id === 'vod-series-player-page');
-                            
+                            // ALWAYS use FULL_SCREEN mode (like old working version)
+                            // setDisplayRect handles the actual positioning
                             try{
-                                if(isFullscreenContext){
-                                    that.full_screen_state=1;
-                                    console.log('[Player.prepareAsync] Setting FULL_SCREEN mode');
-                                    webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
-                                    console.log('[Player.prepareAsync] FULL_SCREEN mode set SUCCESS');
-                                }else{
-                                    that.full_screen_state=0;
-                                    console.log('[Player.prepareAsync] Setting AUTO_ASPECT_RATIO mode (preview)');
-                                    webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO');
-                                }
+                                that.full_screen_state=1;
+                                webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
+                                console.log('[Player.prepareAsync] FULL_SCREEN mode set');
                             }catch (e) {
-                                console.log('[Player.prepareAsync] setDisplayMethod ERROR:', e.message || e);
+                                console.log('[Player.prepareAsync] setDisplayMethod error:', e.message || e);
                             }
-                            // Re-apply display area after mode is set
-                            console.log('[Player.prepareAsync] Scheduling setDisplayArea in 100ms...');
-                            setTimeout(function(){ 
-                                console.log('[Player.prepareAsync] Delayed setDisplayArea NOW');
-                                that.setDisplayArea(); 
-                            }, 100);
+                            // DO NOT call setDisplayArea again here (like old version)
                             $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(webapis.avplay.getDuration()/1000));
                             $('#'+that.parent_id).find('.video-error').hide();
                             $('#'+that.parent_id).find('.progress-amount').css({width:0})
@@ -205,32 +160,17 @@ function initPlayer() {
                 $('#' + this.parent_id).find('.video-reconnect-message').hide();
             },
             close:function(){
-                console.log('[Player.close] ========== CLOSE START ==========');
-                console.log('[Player.close] Previous state:', this.state);
-                console.log('[Player.close] Previous parent_id:', this.parent_id);
-                console.log('[Player.close] current_route:', typeof current_route !== 'undefined' ? current_route : 'undefined');
-                
+                console.log('[Player.close] parent_id:', this.parent_id);
                 this.state = this.STATES.STOPPED;
                 try{
-                    webapis.avplay.stop();
-                    console.log('[Player.close] stop() SUCCESS');
-                }catch (e) {
-                    console.log('[Player.close] stop() error (OK if not playing):', e.message || e);
-                }
-                try{
                     webapis.avplay.close();
-                    console.log('[Player.close] close() SUCCESS');
                 }catch (e) {
-                    console.log('[Player.close] close() error:', e.message || e);
                 }
                 $('#' + this.parent_id).find('.video-error').hide();
                 this.reconnect_count = 0;
                 this.reconnect_position = 0;
-                this.parent_id = '';
-                this.videoObj = null;
                 clearTimeout(this.reconnect_timer);
                 $('#' + this.parent_id).find('.video-reconnect-message').hide();
-                console.log('[Player.close] ========== CLOSE END ==========');
             },
             tryReconnect: function () {
                 if (current_route !== 'channel-page' && 
@@ -256,88 +196,28 @@ function initPlayer() {
                 }, 4000)
             },
             setDisplayArea:function() {
-                var that = this;
-                console.log('[setDisplayArea] ========== SET DISPLAY AREA START ==========');
-                console.log('[setDisplayArea] videoObj id:', this.videoObj ? this.videoObj.id : 'NO ELEMENT');
-                console.log('[setDisplayArea] parent_id:', this.parent_id);
-                console.log('[setDisplayArea] current_route:', typeof current_route !== 'undefined' ? current_route : 'undefined');
-                console.log('[setDisplayArea] full_screen_state:', this.full_screen_state);
+                // SIMPLE VERSION - like old working code
+                console.log('[setDisplayArea] START - parent_id:', this.parent_id);
                 
-                // Get the video container element
                 var $video = $(this.videoObj);
                 if (!$video.length) {
-                    console.log('[setDisplayArea] ERROR: Video element not found! parent_id=' + this.parent_id);
+                    console.log('[setDisplayArea] ERROR: No video element');
                     return;
                 }
                 
-                // Determine if this is preview mode
-                var isPreview = (this.parent_id === 'home-page');
-                console.log('[setDisplayArea] isPreview:', isPreview);
+                var top_position = Math.round($video.offset().top);
+                var left_position = Math.round($video.offset().left);
+                var width = parseInt($video.width());
+                var height = parseInt($video.height());
                 
-                // Check if we should be fullscreen based on route
-                var isFullscreenRoute = (current_route === 'vod-series-player-video') || 
-                    (current_route === 'channel-page') ||
-                    (this.parent_id === 'vod-series-player-page') ||
-                    (this.parent_id === 'channel-page');
-                console.log('[setDisplayArea] isFullscreenRoute:', isFullscreenRoute);
+                console.log('[setDisplayArea] Rect:', left_position, top_position, width, height);
                 
-                var top_position, left_position, width, height;
-                
-                if (isPreview && !isFullscreenRoute) {
-                    // Fixed preview position (top-left corner with padding)
-                    var $container = $('#home-page-video-preview');
-                    console.log('[setDisplayArea] Preview container found:', $container.length > 0);
-                    if ($container.length) {
-                        var containerOffset = $container.offset();
-                        console.log('[setDisplayArea] Container offset raw:', containerOffset);
-                        console.log('[setDisplayArea] Container size raw:', $container.width(), 'x', $container.height());
-                        left_position = Math.round(containerOffset.left) || 60;
-                        top_position = Math.round(containerOffset.top) || 80;
-                        width = Math.round($container.width()) || 640;
-                        height = Math.round($container.height()) || 360;
-                    } else {
-                        // Fallback fixed values
-                        console.log('[setDisplayArea] Using fallback preview values');
-                        left_position = 60;
-                        top_position = 80;
-                        width = 640;
-                        height = 360;
-                    }
-                } else {
-                    // Fullscreen - use full screen dimensions
-                    console.log('[setDisplayArea] FULLSCREEN MODE');
-                    console.log('[setDisplayArea] videoObj offset:', $video.offset());
-                    console.log('[setDisplayArea] videoObj size:', $video.width(), 'x', $video.height());
-                    console.log('[setDisplayArea] window size:', window.innerWidth, 'x', window.innerHeight);
-                    
-                    // For fullscreen, use 0,0 and full screen dimensions
-                    if (isFullscreenRoute) {
-                        left_position = 0;
-                        top_position = 0;
-                        width = window.innerWidth || 1920;
-                        height = window.innerHeight || 1080;
-                        console.log('[setDisplayArea] Using full screen values (0,0)');
-                    } else {
-                        top_position = Math.round($video.offset().top);
-                        left_position = Math.round($video.offset().left);
-                        width = parseInt($video.width()) || window.innerWidth;
-                        height = parseInt($video.height()) || window.innerHeight;
-                    }
+                try {
+                    webapis.avplay.setDisplayRect(left_position, top_position, width, height);
+                    console.log('[setDisplayArea] SUCCESS');
+                } catch(e) {
+                    console.log('[setDisplayArea] ERROR:', e.message || e);
                 }
-                
-                console.log('[setDisplayArea] FINAL RECT: x=' + left_position + ', y=' + top_position + ', w=' + width + ', h=' + height);
-                
-                // Samsung 4K fix: use delay before setDisplayRect
-                setTimeout(function() {
-                    try {
-                        console.log('[setDisplayArea] Calling setDisplayRect NOW with:', left_position, top_position, width, height);
-                        webapis.avplay.setDisplayRect(left_position, top_position, width, height);
-                        console.log('[setDisplayArea] setDisplayRect SUCCESS');
-                    } catch(e) {
-                        console.log('[setDisplayArea] setDisplayRect ERROR:', e.message || e);
-                    }
-                    console.log('[setDisplayArea] ========== SET DISPLAY AREA END ==========');
-                }, 250);
             },
             toggleScreenRatio:function(){
                 if(this.full_screen_state==1){

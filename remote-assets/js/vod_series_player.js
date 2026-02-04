@@ -132,39 +132,21 @@ var vod_series_player={
                 console.log(e);
             }
         }
-        console.log('[VODPlayer.init] ========== VOD PLAYER INIT ==========');
-        console.log('[VODPlayer.init] URL:', url);
-        console.log('[VODPlayer.init] movie_type:', movie_type);
-        console.log('[VODPlayer.init] current_route will be:', 'vod-series-player-video');
-        
         try{
-            console.log('[VODPlayer.init] Closing previous player...');
             media_player.close();
-            console.log('[VODPlayer.init] Previous player closed');
         }catch (e) {
-            console.log('[VODPlayer.init] close error:', e.message || e);
         }
-        
-        // Small delay to ensure Samsung releases the previous player session
-        var that = this;
-        setTimeout(function() {
-            console.log('[VODPlayer.init] Starting new player after delay...');
-            try{
-                console.log('[VODPlayer.init] Calling media_player.init("vod-series-player-video", "vod-series-player-page")');
-                media_player.init("vod-series-player-video","vod-series-player-page");
-                console.log('[VODPlayer.init] media_player.init() done');
-            }catch (e) {
-                console.log('[VODPlayer.init] init error:', e.message || e);
-            }
-            try{
-                console.log('[VODPlayer.init] Calling media_player.playAsync()');
-                media_player.playAsync(url);
-                console.log('[VODPlayer.init] playAsync() called');
-            }catch (e) {
-                console.log('[VODPlayer.init] playAsync error:', e.message || e);
-            }
-            console.log('[VODPlayer.init] ========== VOD PLAYER INIT END ==========');
-        }, 100);
+        try{
+            media_player.init("vod-series-player-video","vod-series-player-page");
+            media_player.setDisplayArea();
+        }catch (e) {
+            console.log(e);
+        }
+        try{
+            media_player.playAsync(url);
+        }catch (e) {
+            console.log(e);
+        }
         this.timeOut=setTimeout(function(){
             that.hideControlBar();
         },10000);

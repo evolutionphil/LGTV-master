@@ -1316,29 +1316,19 @@ var home_page={
         var movie_type=$(current_movie_item).data('movie_type');
         var stream_id=$(current_movie_item).data('stream_id');
         if(stream_id==this.current_preview_id && movie_type==this.current_preview_type){  // if selected again current previewing movie, then will show full screen video in home page
-            console.log('[HomePage] ========== PREVIEW TO FULLSCREEN ==========');
-            console.log('[HomePage] stream_id:', stream_id, 'movie_type:', movie_type);
-            console.log('[HomePage] Closing preview player...');
             media_player.close();
-            console.log('[HomePage] Calling Exit()...');
             this.Exit();
             if(movie_type==="movie"){
-                console.log('[HomePage] Starting VOD fullscreen player');
                 current_movie_type="movies";
                 current_movie=getCurrentMovieFromId(stream_id,VodModel.getLatestMovies(),'stream_id');
-                console.log('[HomePage] current_movie:', current_movie ? current_movie.name : 'NOT FOUND');
                 vod_series_player.makeEpisodeDoms('home-page');
-                console.log('[HomePage] About to call vod_series_player.init()');
                 vod_series_player.init(current_movie,"movies","home-page");
-                console.log('[HomePage] vod_series_player.init() DONE');
             }
             else{  // if current preview is live tv, go to live tv
-                console.log('[HomePage] Starting Live TV fullscreen');
                 current_category=LiveModel.getRecentOrFavouriteCategory('favourite');
                 channel_page.full_screen_video=true;
                 channel_page.init(stream_id, true);
             }
-            console.log('[HomePage] ========== PREVIEW TO FULLSCREEN END ==========');
         }
         else{
             this.current_preview_id=stream_id;
