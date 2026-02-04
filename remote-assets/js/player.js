@@ -372,18 +372,19 @@ function initPlayer() {
             },
             setSubtitleOrAudioTrack:function(kind, index){
                 console.log('[Subtitle] setSubtitleOrAudioTrack called: kind=' + kind + ', index=' + index);
-                console.log('[Subtitle] this.subtitles:', this.subtitles ? this.subtitles.length + ' items' : 'undefined');
-                console.log('[Subtitle] this.subtitles[' + index + ']:', this.subtitles && this.subtitles[index] ? this.subtitles[index].label : 'undefined');
                 try{
                     if(kind === 'TEXT'){
-                        // API subtitles are external SRT files - use SrtOperation
-                        if(this.subtitles && this.subtitles.length > 0 && this.subtitles[index]){
-                            console.log('[Subtitle] Using SRT file:', this.subtitles[index].label);
-                            SrtOperation.init(this.subtitles[index], this.current_time / 1000);
-                            $('#'+this.parent_id).find('.subtitle-container').show();
+                        // Use EnhancedSubtitleWorkflow for proper SRT file download
+                        if(typeof EnhancedSubtitleWorkflow !== 'undefined' && this.subtitles && this.subtitles.length > 0){
+                            console.log('[Subtitle] Using EnhancedSubtitleWorkflow.selectSubtitle');
+                            EnhancedSubtitleWorkflow.selectSubtitle(index, 
+                                function(){ console.log('[Subtitle] Loading...'); },
+                                function(){ console.log('[Subtitle] Loaded successfully'); },
+                                function(err){ console.log('[Subtitle] Error:', err); }
+                            );
                         } else if(index > -1){
-                            // Fallback to embedded AVPlay tracks (if video has them)
-                            console.log('[Subtitle] Trying embedded AVPlay track');
+                            // Fallback to embedded AVPlay tracks
+                            console.log('[Subtitle] Fallback to embedded AVPlay track');
                             webapis.avplay.setSilentSubtitle(true);
                             webapis.avplay.setSelectTrack(kind, index);
                             webapis.avplay.setSilentSubtitle(false);
