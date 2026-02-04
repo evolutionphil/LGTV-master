@@ -72,14 +72,14 @@ function initPlayer() {
                             $('#'+that.parent_id).find('.video-error').hide();
                             $('#'+that.parent_id).find('.video-loader').hide();
                             that.state = that.STATES.PLAYING;
-                            // Re-apply display rect now that player is ready (fixes new Tizen TVs)
-                            that.setDisplayArea();
                             webapis.avplay.play();
                             try{
                                 that.full_screen_state=1;
                                 webapis.avplay.setDisplayMethod('PLAYER_DISPLAY_MODE_FULL_SCREEN');
                             }catch (e) {
                             }
+                            // Re-apply display rect AFTER setDisplayMethod (fixes new Tizen TVs where FULL_SCREEN overrides rect)
+                            that.setDisplayArea();
                             $('#'+that.parent_id).find('.video-total-time').text(that.formatTime(webapis.avplay.getDuration()/1000));
                             $('#'+that.parent_id).find('.video-error').hide();
                             $('#'+that.parent_id).find('.progress-amount').css({width:0})
