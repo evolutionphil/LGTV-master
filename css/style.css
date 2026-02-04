@@ -925,29 +925,124 @@
     display: none !important;
 }
 
-/* 720p (1280x720) responsive fixes for settings modal */
+/* 720p (1280x720) responsive fixes for all modals */
 @media screen and (max-height: 720px) {
+    /* Base modal sizes */
     .modal-dialog.modal-lg {
-        min-width: 500px;
+        min-width: 450px;
+        max-width: 85vw;
+    }
+    .modal-dialog.modal-xl {
+        min-width: 550px;
         max-width: 90vw;
     }
-    #settings-modal .modal-body {
-        max-height: 450px;
+    
+    /* Common modal styles */
+    .modal .modal-header {
+        padding: 8px 15px;
+    }
+    .modal .modal-title {
+        font-size: 24px !important;
+    }
+    .modal .modal-body {
+        max-height: 480px;
         overflow-y: auto;
         padding: 10px 15px !important;
     }
-    #settings-modal .modal-header {
-        padding: 10px 15px;
+    .modal-operation-menu-type-3 {
+        padding: 6px 12px;
+        font-size: 20px;
     }
-    #settings-modal .modal-title {
+    .modal-operation-menu-type-3 i {
+        font-size: 18px;
+        width: 28px;
+    }
+    .modal-operation-menu-type-4 {
+        padding: 6px 12px;
+        font-size: 20px;
+    }
+    
+    /* Settings modal */
+    #settings-modal .modal-body {
+        max-height: 420px;
+    }
+    
+    /* Language select modal */
+    #language-select-modal .modal-body {
+        max-height: 400px;
+    }
+    #select-language-body .modal-operation-menu-type-3 {
+        padding: 5px 10px;
+        font-size: 18px;
+    }
+    
+    /* Theme modal */
+    #theme-modal .modal-body {
+        max-height: 380px;
+    }
+    
+    /* Playlist modal */
+    #playlist-modal .modal-body {
+        max-height: 400px;
+    }
+    
+    /* Hide category modal */
+    #hide-category-modal .modal-body {
+        max-height: 380px;
+    }
+    #hide-modal-categories-container {
+        max-height: 320px;
+        overflow-y: auto;
+    }
+    
+    /* Parent control modal */
+    #parent-control-modal .modal-body {
+        padding: 10px 15px !important;
+    }
+    #parent-control-modal .parent-modal-input-container {
+        font-size: 18px;
+    }
+    #parent-control-modal .modal-title {
         font-size: 28px !important;
     }
-    #settings-modal .modal-operation-menu-type-3 {
-        padding: 8px 15px;
-        font-size: 22px;
+    
+    /* User account modal */
+    #user-account-modal .modal-body {
+        max-height: 400px;
     }
-    #settings-modal .modal-operation-menu-type-3 i {
-        font-size: 20px;
-        width: 30px;
+    
+    /* Featured/EPG setting modals */
+    #featured-movies-setting-modal .modal-body,
+    #epg-setting-modal .modal-body {
+        max-height: 350px;
+    }
+    #epg-setting-items-container {
+        max-height: 280px;
+        overflow-y: auto;
+    }
+    .loc_account_desc {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    /* Live sort modal */
+    #live-sort-modal .modal-body {
+        max-height: 350px;
+    }
+    
+    /* Clear cache modal */
+    #clear-cache-modal .modal-body {
+        padding: 15px !important;
+    }
+    
+    /* Turn off modal */
+    #turn-off-modal .modal-text-1 {
+        font-size: 32px !important;
+    }
+    
+    /* Common button sizes */
+    .modal-btn-1 {
+        padding: 6px 20px;
+        font-size: 18px;
     }
 }
