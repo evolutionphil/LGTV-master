@@ -146,6 +146,51 @@ var home_page={
         $('#select-language-body').html(html);
         home_page.language_doms=$('.language-item');
 
+        // LG Magic Remote wheel scrolling support for language modal
+        if (platform === 'lg') {
+            try {
+                $('#select-language-body').on('wheel', function(e) {
+                    try {
+                        if (e && e.preventDefault) {
+                            e.preventDefault();
+                        }
+                        var keys = home_page.keys;
+                        if (keys.focused_part === 'language_selection') {
+                            var delta = 0;
+                            if (e.originalEvent && typeof e.originalEvent.deltaY !== 'undefined') {
+                                delta = e.originalEvent.deltaY;
+                            } else if (e.originalEvent && typeof e.originalEvent.detail !== 'undefined') {
+                                delta = e.originalEvent.detail;
+                            } else if (typeof e.deltaY !== 'undefined') {
+                                delta = e.deltaY;
+                            }
+                            
+                            if (delta === 0) return;
+                            
+                            var increment = delta > 0 ? 1 : -1;
+                            var language_doms = home_page.language_doms;
+                            if (!language_doms || language_doms.length === 0) return;
+                            
+                            keys.language_selection += increment;
+                            if (keys.language_selection < 0) {
+                                keys.language_selection = language_doms.length - 1;
+                            }
+                            if (keys.language_selection >= language_doms.length) {
+                                keys.language_selection = 0;
+                            }
+                            $(language_doms).removeClass('active');
+                            $(language_doms[keys.language_selection]).addClass('active');
+                            scrollIntoCenterOfParent(language_doms[keys.language_selection], '#select-language-body');
+                        }
+                    } catch (wheelErr) {
+                        console.log('Wheel event error:', wheelErr);
+                    }
+                });
+            } catch (initErr) {
+                console.log('Failed to init wheel listener:', initErr);
+            }
+        }
+
         home_page.doms_translated = $("*").filter(function() {
             return $(this).data("word_code") !== undefined;
         });
