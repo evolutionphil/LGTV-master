@@ -1,0 +1,63 @@
+2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.290Z] [Subtitle] Loaded successfully
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.288Z] 41 ms take to parse
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.247Z] Initializing SRT with current time: 2570.6
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.245Z] Subtitle content loaded successfully, length: 73194
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.008Z] [Subtitle] Loading...
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.007Z] [Subtitle] Error: {}
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.004Z] [Subtitle] Using EnhancedSubtitleWorkflow.selectSubtitle
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.004Z] [Subtitle] setSubtitleOrAudioTrack called: kind=TEXT, index=-1
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.004Z] Disabling Samsung native subtitles
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.004Z] Selecting subtitle: Turkish Source: api
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.004Z] [Subtitle] Using EnhancedSubtitleWorkflow.selectSubtitle
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.004Z] [Subtitle] setSubtitleOrAudioTrack called: kind=TEXT, index=0
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.004Z] [Subtitle] parsed index: 0
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.004Z] [Subtitle] selected index from radio: 0
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:04.003Z] [Subtitle] modal_title: Subtitle
+[2026-02-04T13:33:02.112Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:03.998Z] [Subtitle] confirmSubtitle called
+[2026-02-04T13:32:57.182Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:33:01.747Z] info_bar in subtitle audio modal
+[2026-02-04T13:32:57.182Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:59.786Z] 2564.83
+[2026-02-04T13:32:47.670Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:53.451Z] 2137.4970000000003
+[2026-02-04T13:32:42.142Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:46.541Z] 1113.862
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.914Z] [Subtitle] Loaded successfully
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.910Z] 33 ms take to parse
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.875Z] Initializing SRT with current time: 3.154
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.874Z] Subtitle content loaded successfully, length: 73194
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.686Z] [Subtitle] Loading...
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.686Z] [Subtitle] Error: {}
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.685Z] [Subtitle] Using EnhancedSubtitleWorkflow.selectSubtitle
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.685Z] [Subtitle] setSubtitleOrAudioTrack called: kind=TEXT, index=-1
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.685Z] Disabling Samsung native subtitles
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.684Z] Selecting subtitle: Turkish Source: api
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.683Z] [Subtitle] Using EnhancedSubtitleWorkflow.selectSubtitle
+[2026-02-04T13:32:37.094Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.683Z] [Subtitle] setSubtitleOrAudioTrack called: kind=TEXT, index=0
+[2026-02-04T13:32:37.093Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.682Z] [Subtitle] parsed index: 0
+[2026-02-04T13:32:37.093Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.682Z] [Subtitle] selected index from radio: 0
+[2026-02-04T13:32:37.093Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.681Z] [Subtitle] modal_title: Subtitle
+[2026-02-04T13:32:37.093Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:40.675Z] [Subtitle] confirmSubtitle called
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:38.379Z] [Subtitle] Found 15 subtitles
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:38.378Z] [Subtitle] API Response: {"status":"success","subtitles":[{"label":"Turkish","file":"/api/subtitle-file?lang=tr&id=11066140","lang":"tr"},{"label":"English","file":"/api/subtitle-file?lang=en&id=11069790","lang":"en"},{"label":"Spanish","file":"/api/subtitle-file?lang=es&id=11010297","lang":"es"},{"label":"French","file":"/api/subtitle-file?lang=fr&id=11069784","lang":"fr"},{"label":"German","file":"/api/subtitle-file?lang=de&id=11149809","lang":"de"},{"label":"Russian","file":"/api/subtitle-file?lang=ru&id=11007525","lang":"ru"},{"label":"Arabic","file":"/api/subtitle-file?lang=ar&id=10967891","lang":"ar"},{"label":"Swedish","file":"/api/subtitle-file?lang=sv&id=11058430","lang":"sv"},{"label":"Dutch","file":"/api/subtitle-file?lang=nl&id=10953324","lang":"nl"},{"label":"Japanese","file":"/api/subtitle-file?lang=ja&id=10994269","lang":"ja"},{"label":"Italian","file":"/api/subtitle-file?lang=it&id=11184896","lang":"it"},{"label":"Polish","file":"/api/subtitle-file?lang=pl&id=11069329","lang":"pl"},{"label":"Finnish","file":"/api/subtitle-file?lang=fi&id=11069815","lang":"fi"},{"label":"Hindi","file":"/api/subtitle-file?lang=hi&id=11046541","lang":"hi"},{"label":"Norwegian","file":"/api/subtitle-file?lang=no&id=11069782","lang":"no"}]}
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:37.656Z] [Subtitle] Request data: {"movie_name":"A Working Man (2025)"}
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:37.656Z] [Subtitle] Fetching subtitles from API...
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:37.592Z] info_bar in subtitle audio modal
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:36.548Z] Entering setDisplayRect
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:36.548Z] setDisplayArea: avplay=0,0,1920,1080
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:36.548Z] setDisplayArea: css=0,0,1920,1080
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:36.548Z] setDisplayArea: screen=1920x1080, scale=1.00x1.00
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:36.541Z] here video loaded
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.459Z] Entered AVPlayManager.prepareAsync()
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.458Z] here trying to open
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.458Z] Entering setDisplayRect
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.457Z] setDisplayArea: avplay=0,0,1920,1080
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.457Z] setDisplayArea: css=0,0,1920,1080
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.457Z] setDisplayArea: screen=1920x1080, scale=1.00x1.00
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.454Z] avplay_api.js adding listener for ID: 4
+[2026-02-04T13:32:32.172Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.446Z] http://galaiptv.shop:4512/movie/yenideneme1/mWT6HVdjMZ/363471.mkv
+[2026-02-04T13:32:29.088Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.445Z] {"code":11,"name":"InvalidStateError","message":"PLAYER_ERROR_INVALID_STATE"}
+[2026-02-04T13:32:29.088Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.444Z] Entering setDisplayRect
+[2026-02-04T13:32:29.088Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.444Z] setDisplayArea: avplay=0,0,1920,1080
+[2026-02-04T13:32:29.088Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.443Z] setDisplayArea: css=0,0,1920,1080
+[2026-02-04T13:32:29.088Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.443Z] setDisplayArea: screen=1920x1080, scale=1.00x1.00
+[2026-02-04T13:32:29.088Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.435Z] in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+[2026-02-04T13:32:29.088Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:35.350Z] {"num":9701,"name":"A Working Man (2025)","stream_type":"movie","stream_id":363471,"stream_icon":"https://image.tmdb.org/t/p/w600_and_h900_bestv2/se0zJXl4GXvSOgDFhUcOtsiX6Me.jpg","rating":6.687,"rating_5based":3.3,"added":"1770174511","category_id":"718","container_extension":"mkv","custom_sid":"","direct_source":"","is_favourite":false}
+[2026-02-04T13:32:29.088Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:34.242Z] Entered AVPlayManager.prepareAsync()
+[2026-02-04T13:32:29.088Z] [28:07:08:ae:24:cc] [LOG] [2026-02-04T13:32:34.242Z] here trying to open
