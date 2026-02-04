@@ -1,6 +1,6 @@
 {
   "version": "1.2.0",
-  "lastUpdate": "2026-02-04T12:59:33.203Z",
+  "lastUpdate": "2026-02-04T13:03:03.107Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 8,
@@ -292,9 +292,9 @@
       "priority": 2
     },
     "js/enhanced_subtitle_workflow.js": {
-      "version": "1.0.0",
-      "size": 13635,
-      "hash": "61bef25d",
+      "version": "1.0.1",
+      "size": 13639,
+      "hash": "fda3bdfd",
       "priority": 2
     },
     "js/asset-bootstrapper.js": {
