@@ -982,6 +982,28 @@ var vod_series_player={
                 $(this.subtitle_audio_menus[keys.subtitle_audio_selection_modal]).find('input').prop('checked',true);
             }
         }
+        else if(keys.focused_part==="subtitle_position_overlay"){
+            if(this.positionControlIndex >= 0 && this.positionControlIndex < 2) {
+                var direction = this.positionControlIndex === 0 ? 'up' : 'down';
+                this.adjustSubtitlePosition(direction);
+            } else if(this.positionControlIndex >= 2 && this.positionControlIndex < 6) {
+                var presets = [2, 20, 30, 40];
+                this.setSubtitlePosition(presets[this.positionControlIndex - 2]);
+            } else if(this.positionControlIndex >= 6 && this.positionControlIndex < 8) {
+                var direction = this.positionControlIndex === 6 ? 'smaller' : 'larger';
+                this.adjustSubtitleSize(direction);
+            } else if(this.positionControlIndex >= 8 && this.positionControlIndex < 12) {
+                var sizePresets = [14, 18, 24, 32];
+                this.setSubtitleSize(sizePresets[this.positionControlIndex - 8]);
+            } else if(this.positionControlIndex >= 12 && this.positionControlIndex < 16) {
+                var bgTypes = ['transparent', 'black', 'gray', 'dark'];
+                this.setSubtitleBackground(bgTypes[this.positionControlIndex - 12]);
+            } else if(this.positionControlIndex === 16) {
+                this.saveSubtitlePosition();
+            } else if(this.positionControlIndex === 17) {
+                this.cancelSubtitlePosition();
+            }
+        }
         else if(keys.focused_part==='resume_bar'){
             this.goBack();
             if(keys.resume_bar==0){
