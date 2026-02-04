@@ -685,27 +685,38 @@ var vod_series_player={
                         if(this.current_movie.info && this.current_movie.info.tmdb_id)
                             subtitle_request_data.tmdb_id=this.current_movie.info.tmdb_id;
                     }
+                    console.log('[Subtitle] Fetching subtitles from API...');
+                    console.log('[Subtitle] Request data:', JSON.stringify(subtitle_request_data));
                     $.ajax({
                         method:'post',
                         url:'https://exoapp.tv/api/get-subtitles',
                         data: subtitle_request_data,
                         dataType:'json',
+                        timeout: 15000,
                         success:function (result) {
+                            console.log('[Subtitle] API Response:', JSON.stringify(result));
                             that.subtitle_loading=false;
                             that.subtitle_loaded=true;
                             $('#subtitle-loader-container').hide();
                             if(result.status==='success'){
-                                if(result.subtitles.length>0){
+                                if(result.subtitles && result.subtitles.length>0){
+                                    console.log('[Subtitle] Found', result.subtitles.length, 'subtitles');
                                     media_player.subtitles= result.subtitles;
                                     that.renderSubtitles(kind, media_player.subtitles);
                                 }
                                 else{
+                                    console.log('[Subtitle] No subtitles in response');
                                     media_player.subtitles=[];
                                     that.showEmptySubtitleMessage(kind);
                                 }
+                            } else {
+                                console.log('[Subtitle] API returned non-success status');
+                                that.showEmptySubtitleMessage(kind);
                             }
                         },
-                        error:function (error){
+                        error:function (xhr, status, error){
+                            console.log('[Subtitle] API Error:', status, error);
+                            console.log('[Subtitle] XHR status:', xhr.status, xhr.statusText);
                             that.subtitle_loading=false;
                             that.subtitle_loaded=true;
                             that.showEmptySubtitleMessage(kind);

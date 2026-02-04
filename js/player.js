@@ -200,13 +200,59 @@ function initPlayer() {
                 }, 4000)
             },
             setDisplayArea:function() {
-                var top_position=$(this.videoObj).offset().top;
-                var left_position=$(this.videoObj).offset().left;
-                var width=parseInt($(this.videoObj).width())
-                var height=parseInt($(this.videoObj).height());
-                console.log(top_position,left_position,width,height);
-                // console.log(this.videoObj);
-                webapis.avplay.setDisplayRect(left_position,top_position,width,height);
+                var that = this;
+                console.log('[setDisplayArea] Starting for element:', this.videoObj ? this.videoObj.id : 'no element');
+                console.log('[setDisplayArea] Current route:', typeof current_route !== 'undefined' ? current_route : 'unknown');
+                
+                // Get the video container element
+                var $video = $(this.videoObj);
+                if (!$video.length) {
+                    console.log('[setDisplayArea] ERROR: Video element not found!');
+                    return;
+                }
+                
+                // For preview, use fixed known position
+                var isPreview = (this.parent_id === 'home-page');
+                console.log('[setDisplayArea] Is preview:', isPreview, 'parent_id:', this.parent_id);
+                
+                var top_position, left_position, width, height;
+                
+                if (isPreview) {
+                    // Fixed preview position (top-left corner with padding)
+                    var $container = $('#home-page-video-preview');
+                    if ($container.length) {
+                        var containerOffset = $container.offset();
+                        left_position = Math.round(containerOffset.left) || 60;
+                        top_position = Math.round(containerOffset.top) || 80;
+                        width = Math.round($container.width()) || 640;
+                        height = Math.round($container.height()) || 360;
+                    } else {
+                        // Fallback fixed values
+                        left_position = 60;
+                        top_position = 80;
+                        width = 640;
+                        height = 360;
+                    }
+                    console.log('[setDisplayArea] Preview container offset:', left_position, top_position, width, height);
+                } else {
+                    top_position = Math.round($video.offset().top);
+                    left_position = Math.round($video.offset().left);
+                    width = parseInt($video.width());
+                    height = parseInt($video.height());
+                }
+                
+                console.log('[setDisplayArea] Final rect:', left_position, top_position, width, height);
+                
+                // Samsung 4K fix: use delay before setDisplayRect
+                setTimeout(function() {
+                    try {
+                        console.log('[setDisplayArea] Calling setDisplayRect with:', left_position, top_position, width, height);
+                        webapis.avplay.setDisplayRect(left_position, top_position, width, height);
+                        console.log('[setDisplayArea] setDisplayRect SUCCESS');
+                    } catch(e) {
+                        console.log('[setDisplayArea] setDisplayRect ERROR:', e.message || e);
+                    }
+                }, 250);
             },
             toggleScreenRatio:function(){
                 if(this.full_screen_state==1){
