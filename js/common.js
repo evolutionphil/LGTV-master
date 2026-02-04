@@ -127,7 +127,7 @@ function isContentBlocked(name, type) {
         
         for(var i = 0; i < blockedList.length; i++) {
             var keyword = blockedList[i].toLowerCase();
-            if(lowerName.includes(keyword)) {
+            if(lowerName.indexOf(keyword) > -1) {
                 console.log('🚫 BLOCKED CONTENT:', name, '(matched keyword:', keyword + ')');
                 return true;
             }
@@ -420,7 +420,7 @@ function changeBackgroundImage(){
 
 function parseM3uUrl(){  // here, we will check if it is xtreme url or general m3u url
     var playlist_url=settings.playlist_url;
-    if(playlist_url.includes("username=") && playlist_url.includes("password="))
+    if(playlist_url.indexOf("username=") > -1 && playlist_url.indexOf("password=") > -1)
         settings.playlist_type="xtreme";
     else
         settings.playlist_type="type1";
@@ -471,21 +471,21 @@ function parseM3uResponse(type, text_response) {
         var temp_arr2=text_response.split(/#EXTINF:-{0,1}[0-9]{1,} {0,},{0,}/gm);
         temp_arr2.splice(0,1);  // remove the first row
         var temp_arr1=[];
-        if(text_response.includes('tvg-')){  // if general m3u type 1
+        if(text_response.indexOf('tvg-') > -1){  // if general m3u type 1
             var live_category_map={}, vod_category_map={}, series_category_map={};
             for(var i=0;i<temp_arr2.length;i++){
                 try{
                     temp_arr1=temp_arr2[i].split("\n");
                     num++;
                     var url=temp_arr1[1].length>1 ? temp_arr1[1] : '';
-                    if(!url.includes('http:') && !url.includes('https:'))
+                    if(url.indexOf('http:') === -1 && url.indexOf('https:') === -1)
                     {
                         continue;
                     }
                     var type="live";
-                    if(url.includes("/movie/") || url.includes('vod') || url.includes('=movie') || url.includes('==movie=='))
+                    if(url.indexOf("/movie/") > -1 || url.indexOf('vod') > -1 || url.indexOf('=movie') > -1 || url.indexOf('==movie==') > -1)
                         type="vod";
-                    if(url.includes("/series/"))
+                    if(url.indexOf("/series/") > -1)
                         type="series";
 
                     var temp_arr3=temp_arr1[0].trim().split(",");
@@ -597,9 +597,9 @@ function parseM3uResponse(type, text_response) {
                     var url=temp_arr1[1];
 
                     var type="live";
-                    if(url.includes("/movie/"))
+                    if(url.indexOf("/movie/") > -1)
                         type="movie";
-                    if(url.includes("/series/"))
+                    if(url.indexOf("/series/") > -1)
                         type="series";
                     var result_item={};
                     name=name.trim();
@@ -858,7 +858,7 @@ function checkForAdult(item,item_type,categories){
     var category_name=category.category_name.toLowerCase();
     var adult_keywords=['xxx','sex','porn','adult','18+','+18'];
     for(var i=0;i<adult_keywords.length;i++){
-        if (category_name.includes(adult_keywords[i])){
+        if (category_name.indexOf(adult_keywords[i]) > -1){
             is_adult=true;
             break;
         }
@@ -984,7 +984,7 @@ var storages=[
 function checkCorruptedRemovableDrives(storages1) {
     var storages=[];
     for (var i = 0; i < storages1.length; i++) {
-        if (storages1[i].state != 'UNMOUNTABLE' && !storages1[i].label.includes('wgt-')){
+        if (storages1[i].state != 'UNMOUNTABLE' && storages1[i].label.indexOf('wgt-') === -1){
             storages.push(storages1[i]);
         }
         // if (storages1[i].state == 'UNMOUNTABLE')
@@ -1004,7 +1004,7 @@ function onsuccess(files) {
         var file=files[i];
         if(file.isFile){
             var ext=getExt(file.name);
-            if(video_file_exts.includes(ext.toLowerCase())){
+            if(video_file_exts.indexOf(ext.toLowerCase()) > -1){
                 video_files.push(
                     {
                         index:i-skip_file_count+diff_index,
@@ -1013,7 +1013,7 @@ function onsuccess(files) {
                     }
                 )
                 video_index++;
-            }else if(image_file_exts.includes(ext.toLowerCase())){
+            }else if(image_file_exts.indexOf(ext.toLowerCase()) > -1){
                 image_files.push(
                     {
                         index:i-skip_file_count+diff_index,

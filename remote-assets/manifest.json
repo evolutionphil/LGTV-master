@@ -1,6 +1,6 @@
 {
   "version": "1.2.0",
-  "lastUpdate": "2026-02-04T16:53:23.513Z",
+  "lastUpdate": "2026-02-04T17:13:41.706Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 8,
@@ -136,9 +136,9 @@
       "priority": 1
     },
     "js/common.js": {
-      "version": "1.0.0",
-      "size": 37852,
-      "hash": "f518e49a",
+      "version": "1.0.1",
+      "size": 37923,
+      "hash": "66d965dc",
       "priority": 1
     },
     "js/common_with_encrypt.js": {
@@ -208,9 +208,9 @@
       "priority": 2
     },
     "js/home_operation.js": {
-      "version": "1.0.3",
-      "size": 91799,
-      "hash": "c328709b",
+      "version": "1.0.4",
+      "size": 91824,
+      "hash": "bb915687",
       "priority": 1
     },
     "js/channel_operation.js": {

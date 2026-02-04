@@ -364,7 +364,7 @@ var home_page={
                     onmouseenter="home_page.hoverMovieGridItem(this)"\
                     onclick="home_page.clickMovieGridItem(this)"\
                 >'+
-                (current_model.favourite_ids.includes(movie[id_key]) ? '<div class="favourite-badge"><i class="fa fa-star"></i></div>' : '')+
+                (current_model.favourite_ids.indexOf(movie[id_key]) > -1 ? '<div class="favourite-badge"><i class="fa fa-star"></i></div>' : '')+
                     '<img class="movie-grid-item-image movie-grid-item-image-'+current_render_count+'" src="'+img+'" onerror="this.src=\''+fall_back_image+'\'">\
                     <div class="movie-grid-item-title-wrapper position-relative">\
                         <p class="movie-thumbernail-title position-absolute">'+movie.name+'</p>\
@@ -740,7 +740,7 @@ var home_page={
         $('#clear-cache-modal').modal('hide');
         var local_storage_keys=[];
         Object.keys(localStorage).map(function (key){
-            if(key.includes(storage_id) && !key.includes('terms_accepted'))
+            if(key.indexOf(storage_id) > -1 && key.indexOf('terms_accepted') === -1)
                 local_storage_keys.push(key);
         })
         local_storage_keys.map(function (key){
@@ -975,7 +975,7 @@ var home_page={
         $(this.submenu_items[submenu_index]).addClass('active');
         keys.submenu_selection=submenu_index;
         var category_name=current_category.category_name.toLowerCase();
-        if(category_name.includes('xxx') ||  category_name.includes('adult') || category_name.includes('porn')  || current_category.parent_id==1){
+        if(category_name.indexOf('xxx') > -1 ||  category_name.indexOf('adult') > -1 || category_name.indexOf('porn') > -1  || current_category.parent_id==1){
             this.showParentConfirmModal();
             return;
         }
