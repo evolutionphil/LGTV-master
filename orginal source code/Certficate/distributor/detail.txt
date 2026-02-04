@@ -1,2 +1,0 @@
-tizen-distributor-signer.p12
-password: tizenpkcs12passfordsigner

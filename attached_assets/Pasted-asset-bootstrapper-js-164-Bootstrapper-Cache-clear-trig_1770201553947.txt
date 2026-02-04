@@ -1,0 +1,1930 @@
+asset-bootstrapper.js:164 [Bootstrapper] Cache clear triggered (vnull -> v2)
+asset-bootstrapper.js:189 [Bootstrapper] Cleared 0 cached files
+asset-bootstrapper.js:167 [Bootstrapper] Cache cleared, using local files
+common.js:1051 Object
+2webOSTV.js:126 PalmServiceBridge is not found.
+value @ webOSTV.js:126
+index.html:1843 [VersionDisplay] Manifest in cache: NO
+index.html:1861 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:248 [RemoteLogger] Initialized, deviceId: tv_ie9r4isgn
+remote-logger.js:196 [VersionDisplay] Manifest in cache: NO
+remote-logger.js:196 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:196 Samsung Tizen platform detected
+remote-logger.js:196 Samsung: Using Ethernet MAC address: a4:30:7a:37:c8:98
+remote-logger.js:196 [RemoteLoader] RemoteLoader v2.0 initialized on tizen
+remote-logger.js:196 [RemoteLoader] Network status: online
+remote-logger.js:196 {mac_registered: true, epg_urls: Array(0), youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE", themes: Array(3), adverts: Array(1), …}
+remote-logger.js:196 ✅ BLOCKED CHANNELS RECEIVED FROM API: []
+remote-logger.js:196 ✅ TERMS OF USE RECEIVED FROM API: {version: "1.0", content: "FLIX IPTV - TERMS OF USE↵↵Last Updated: October …ation↵↵© 2025 FLIX IPTV. All rights reserved.↵", updated_date: "2025-10-12"}
+remote-logger.js:196 📜 SHOWING TERMS OF USE (Version: 1.0)
+The resource https://flixapp.net/images/activation-qr-code.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+remote-logger.js:196 [RemoteLoader] Starting background update check...
+remote-logger.js:196 [RemoteLoader] Manifest saved to cache: v1.1.8
+remote-logger.js:196 [VersionDisplay] Manifest in cache: YES (4391 bytes)
+remote-logger.js:196 [VersionDisplay] Found version: 1.1.8
+remote-logger.js:196 [VersionDisplay] Setting text: v1.1.8 (remote), Element found: YES
+remote-logger.js:196 [RemoteLoader] Version display updated
+remote-logger.js:196 [RemoteLoader] Downloading 49 updated files in background...
+remote-logger.js:196 [RemoteLoader] Hash verified: css/style.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/style.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 1/49 - css/style.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/variables.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/variables.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 2/49 - css/variables.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/responsive.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/responsive.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 3/49 - css/responsive.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/vod_series_summary.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/vod_series_summary.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 4/49 - css/vod_series_summary.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/login.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/login.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 5/49 - css/login.css
+remote-logger.js:196 ✅ TERMS ACCEPTED (Version: 1.0)
+remote-logger.js:196 {mac_registered: true, epg_urls: Array(0), youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE", themes: Array(3), adverts: Array(1), …}
+remote-logger.js:196 [RemoteLoader] Hash verified: css/loader.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/loader.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 6/49 - css/loader.css
+remote-logger.js:196 [RemoteLoader] Hash verified: js/Models/VodModel.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/Models/VodModel.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 7/49 - js/Models/VodModel.js
+remote-logger.js:196 [RemoteLoader] Invalid content (HTML) for: js/Models/LiveModel.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 8/49 - js/Models/LiveModel.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/Models/SeriesModel.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/Models/SeriesModel.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 9/49 - js/Models/SeriesModel.js
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+onProgress @ remote-config.js:22
+(anonymous) @ remote-loader.js:274
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+processManifest @ remote-loader.js:258
+xhr.onreadystatechange @ remote-loader.js:125
+XMLHttpRequest.send (async)
+loadManifest @ remote-loader.js:148
+(anonymous) @ remote-loader.js:98
+setTimeout (async)
+startBackgroundUpdate @ remote-loader.js:96
+init @ remote-loader.js:60
+startBackgroundUpdate @ remote-config.js:52
+remote-logger.js:196 [RemoteLoader] Hash verified: js/common.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/common.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 10/49 - js/common.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/common_with_encrypt.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/common_with_encrypt.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 11/49 - js/common_with_encrypt.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/main.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/main.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 12/49 - js/main.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/keyTizen.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/keyTizen.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 13/49 - js/keyTizen.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/time_helper.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/time_helper.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 14/49 - js/time_helper.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/language_codes.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/language_codes.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 15/49 - js/language_codes.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/home_operation.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/home_operation.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 16/49 - js/home_operation.js
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+onProgress @ remote-config.js:22
+(anonymous) @ remote-loader.js:274
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:308
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+processManifest @ remote-loader.js:258
+xhr.onreadystatechange @ remote-loader.js:125
+XMLHttpRequest.send (async)
+loadManifest @ remote-loader.js:148
+(anonymous) @ remote-loader.js:98
+setTimeout (async)
+startBackgroundUpdate @ remote-loader.js:96
+init @ remote-loader.js:60
+startBackgroundUpdate @ remote-config.js:52
+remote-logger.js:196 [RemoteLoader] Hash verified: js/login_operation.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/login_operation.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 17/49 - js/login_operation.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/asset-bootstrapper.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/asset-bootstrapper.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 18/49 - js/asset-bootstrapper.js
+remote-logger.js:196 [RemoteLoader] Hash verified: css/vod_series_player_page.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/vod_series_player_page.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 19/49 - css/vod_series_player_page.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/channel_page.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/channel_page.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 20/49 - css/channel_page.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/homepage.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/homepage.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 21/49 - css/homepage.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/subtitle.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/subtitle.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 22/49 - css/subtitle.css
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+log @ remote-loader.js:500
+xhr.onreadystatechange @ remote-loader.js:326
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:308
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+processManifest @ remote-loader.js:258
+xhr.onreadystatechange @ remote-loader.js:125
+XMLHttpRequest.send (async)
+loadManifest @ remote-loader.js:148
+(anonymous) @ remote-loader.js:98
+setTimeout (async)
+startBackgroundUpdate @ remote-loader.js:96
+init @ remote-loader.js:60
+startBackgroundUpdate @ remote-config.js:52
+remote-logger.js:196 [RemoteLoader] Hash verified: css/movie_grid.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/movie_grid.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 23/49 - css/movie_grid.css
+remote-logger.js:196 [VersionDisplay] Manifest in cache: YES (4391 bytes)
+remote-logger.js:196 [VersionDisplay] Found version: 1.1.8
+remote-logger.js:196 [VersionDisplay] Setting text: v1.1.8 (remote), Element found: YES
+remote-logger.js:196 [RemoteLoader] Hash verified: css/rating.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/rating.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 24/49 - css/rating.css
+remote-logger.js:196 [RemoteLoader] Hash verified: js/seasons_variable.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/seasons_variable.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 25/49 - js/seasons_variable.js
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+remote-logger.js:196 [RemoteLoader] Hash verified: js/episode_variable.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/episode_variable.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 26/49 - js/episode_variable.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/vod_summary.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/vod_summary.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 27/49 - js/vod_summary.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/series_summary.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/series_summary.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 28/49 - js/series_summary.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/player.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/player.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 29/49 - js/player.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/vod_series_player.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/vod_series_player.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 30/49 - js/vod_series_player.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/channel_operation.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/channel_operation.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 31/49 - js/channel_operation.js
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+log @ remote-loader.js:500
+xhr.onreadystatechange @ remote-loader.js:326
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:308
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+processManifest @ remote-loader.js:258
+xhr.onreadystatechange @ remote-loader.js:125
+XMLHttpRequest.send (async)
+loadManifest @ remote-loader.js:148
+(anonymous) @ remote-loader.js:98
+setTimeout (async)
+startBackgroundUpdate @ remote-loader.js:96
+init @ remote-loader.js:60
+startBackgroundUpdate @ remote-config.js:52
+remote-logger.js:196 [RemoteLoader] Hash verified: js/trailer.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/trailer.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 32/49 - js/trailer.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/srt_operation.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/srt_operation.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 33/49 - js/srt_operation.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/srt_parser.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/srt_parser.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 34/49 - js/srt_parser.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/subtitle_fetcher.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/subtitle_fetcher.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 35/49 - js/subtitle_fetcher.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/enhanced_subtitle_workflow.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/enhanced_subtitle_workflow.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 36/49 - js/enhanced_subtitle_workflow.js
+remote-logger.js:196 [RemoteLoader] Hash verified: css/guide.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/guide.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 37/49 - css/guide.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/catchup.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/catchup.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 38/49 - css/catchup.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/search_page.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/search_page.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 39/49 - css/search_page.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/storage_page.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/storage_page.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 40/49 - css/storage_page.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/youtube_page.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/youtube_page.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 41/49 - css/youtube_page.css
+remote-logger.js:196 [RemoteLoader] Hash verified: css/gallary.css
+remote-logger.js:196 [RemoteLoader] Downloaded: css/gallary.css
+remote-logger.js:196 [RemoteUpdate] Downloading: 42/49 - css/gallary.css
+remote-logger.js:196 [RemoteLoader] Hash verified: js/guide_page.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/guide_page.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 43/49 - js/guide_page.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/catchup.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/catchup.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 44/49 - js/catchup.js
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+onProgress @ remote-config.js:22
+(anonymous) @ remote-loader.js:274
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+remote-logger.js:196 [RemoteLoader] Hash verified: js/search_page.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/search_page.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 45/49 - js/search_page.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/youtube_page.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/youtube_page.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 46/49 - js/youtube_page.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/storage_operation.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/storage_operation.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 47/49 - js/storage_operation.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/image_page.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/image_page.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 48/49 - js/image_page.js
+remote-logger.js:196 [RemoteLoader] Hash verified: js/settings.js
+remote-logger.js:196 [RemoteLoader] Downloaded: js/settings.js
+remote-logger.js:196 [RemoteUpdate] Downloading: 49/49 - js/settings.js
+remote-logger.js:196 [RemoteLoader] Background update complete. 48 files updated.
+remote-logger.js:196 [RemoteLoader] Updates will be applied on next app launch.
+remote-logger.js:196 [RemoteUpdate] Background update complete: {success: true, hasUpdates: true, downloadedFiles: Array(48), failedFiles: Array(1), manifest: {…}}
+remote-logger.js:196 [RemoteUpdate] 48 files updated. Restart app to apply.
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+log @ remote-loader.js:500
+complete @ remote-loader.js:463
+downloadFilesSequentially @ remote-loader.js:265
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+remote-logger.js:196 [VersionDisplay] Manifest in cache: YES (4391 bytes)
+remote-logger.js:196 [VersionDisplay] Found version: 1.1.8
+remote-logger.js:196 [VersionDisplay] Setting text: v1.1.8 (remote), Element found: YES
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: home-page-video-preview
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: true parent_id: home-page
+remote-logger.js:196 [setDisplayArea] Preview container offset: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Final rect: 60 80 639 359
+remote-logger.js:196 http://galaiptv.shop:2095/movie/dogubeyyeni2/ev7tHk0Atg/363471.mkv
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: home-page-video-preview
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: true parent_id: home-page
+remote-logger.js:196 [setDisplayArea] Preview container offset: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Final rect: 60 80 639 359
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 60 80 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 60 80 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+AVPlayManager.setDisplayRect @ VM70:1
+(anonymous) @ player.js:250
+setTimeout (async)
+setDisplayArea @ player.js:247
+playAsync @ player.js:62
+(anonymous) @ home_operation.js:115
+setTimeout (async)
+init @ home_operation.js:114
+goToHomePage @ login_operation.js:23
+(anonymous) @ login_operation.js:731
+e @ jquery.3.4.1.min.js:2
+t @ jquery.3.4.1.min.js:2
+setTimeout (async)
+(anonymous) @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+fire @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+l @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+load (async)
+send @ jquery.3.4.1.min.js:2
+ajax @ jquery.3.4.1.min.js:2
+success @ login_operation.js:706
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+l @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+load (async)
+send @ jquery.3.4.1.min.js:2
+ajax @ jquery.3.4.1.min.js:2
+proceed_login @ login_operation.js:654
+login @ login_operation.js:575
+startApp @ login_operation.js:126
+acceptTerms @ login_operation.js:1189
+handleMenuClick @ login_operation.js:922
+HandleKey @ login_operation.js:1050
+(anonymous) @ main.js:147
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: home-page-video-preview
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: true parent_id: home-page
+remote-logger.js:196 [setDisplayArea] Preview container offset: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Final rect: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 60 80 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40721.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40693.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 []
+remote-logger.js:196 [setDisplayArea] Starting for element: home-page-video-preview
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: true parent_id: home-page
+remote-logger.js:196 [setDisplayArea] Preview container offset: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Final rect: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 60 80 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+remote-logger.js:196 [setDisplayArea] Starting for element: home-page-video-preview
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: true parent_id: home-page
+remote-logger.js:196 [setDisplayArea] Preview container offset: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Final rect: 60 80 639 359
+remote-logger.js:196 http://galaiptv.shop:2095/movie/dogubeyyeni2/ev7tHk0Atg/363471.mkv
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: home-page-video-preview
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: true parent_id: home-page
+remote-logger.js:196 [setDisplayArea] Preview container offset: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Final rect: 60 80 639 359
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: home-page-video-preview
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: true parent_id: home-page
+remote-logger.js:196 [setDisplayArea] Preview container offset: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Final rect: 60 80 639 359
+remote-logger.js:196 http://galaiptv.shop:2095/movie/dogubeyyeni2/ev7tHk0Atg/363471.mkv
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: home-page-video-preview
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: true parent_id: home-page
+remote-logger.js:196 [setDisplayArea] Preview container offset: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Final rect: 60 80 639 359
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 60 80 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 60 80 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+setDisplayArea @ player.js:244
+showPreviewVideo @ home_operation.js:1359
+handleMenuClick @ home_operation.js:1855
+HandleKey @ home_operation.js:1949
+(anonymous) @ main.js:150
+remote-logger.js:196 {num: 8231, name: "A Working Man (2025)", stream_type: "movie", stream_id: 363471, stream_icon: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/se0zJXl4GXvSOgDFhUcOtsiX6Me.jpg", …}
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: vod-series-player-video
+remote-logger.js:196 [setDisplayArea] Current route: vod-series-player-video
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: vod-series-player-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 http://galaiptv.shop:2095/movie/dogubeyyeni2/ev7tHk0Atg/363471.mkv
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: vod-series-player-video
+remote-logger.js:196 [setDisplayArea] Current route: vod-series-player-video
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: vod-series-player-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 60 80 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 60 80 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+setDisplayArea @ player.js:216
+init @ vod_series_player.js:141
+showPreviewVideo @ home_operation.js:1325
+handleMenuClick @ home_operation.js:1855
+HandleKey @ home_operation.js:1949
+(anonymous) @ main.js:150
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: vod-series-player-video
+remote-logger.js:196 [setDisplayArea] Current route: vod-series-player-video
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: vod-series-player-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 info_bar in subtitle audio modal
+remote-logger.js:196 [Subtitle] Fetching subtitles from API...
+remote-logger.js:196 [Subtitle] Request data: {"movie_name":"A Working Man (2025)"}
+remote-logger.js:196 [Subtitle] API Response: {"status":"success","subtitles":[{"label":"Turkish","file":"/api/subtitle-file?lang=tr&id=11066140","lang":"tr"},{"label":"English","file":"/api/subtitle-file?lang=en&id=11069790","lang":"en"},{"label":"Spanish","file":"/api/subtitle-file?lang=es&id=11010297","lang":"es"},{"label":"French","file":"/api/subtitle-file?lang=fr&id=11069784","lang":"fr"},{"label":"German","file":"/api/subtitle-file?lang=de&id=11149809","lang":"de"},{"label":"Russian","file":"/api/subtitle-file?lang=ru&id=11007525","lang":"ru"},{"label":"Arabic","file":"/api/subtitle-file?lang=ar&id=10967891","lang":"ar"},{"label":"Swedish","file":"/api/subtitle-file?lang=sv&id=11058430","lang":"sv"},{"label":"Dutch","file":"/api/subtitle-file?lang=nl&id=10953324","lang":"nl"},{"label":"Japanese","file":"/api/subtitle-file?lang=ja&id=10994269","lang":"ja"},{"label":"Italian","file":"/api/subtitle-file?lang=it&id=11184896","lang":"it"},{"label":"Polish","file":"/api/subtitle-file?lang=pl&id=11069329","lang":"pl"},{"label":"Finnish","file":"/api/subtitle-file?lang=fi&id=11069815","lang":"fi"},{"label":"Hindi","file":"/api/subtitle-file?lang=hi&id=11046541","lang":"hi"},{"label":"Norwegian","file":"/api/subtitle-file?lang=no&id=11069782","lang":"no"}]}
+remote-logger.js:196 [Subtitle] Found 15 subtitles
+vod_series_player.js:625 Uncaught TypeError: Cannot read property 'track_lang' of undefined
+    at vod_series_player.js:625
+    at Array.map (<anonymous>)
+    at Object.makeMediaTrackElement (vod_series_player.js:619)
+    at Object.renderSubtitles (vod_series_player.js:760)
+    at Object.success (vod_series_player.js:705)
+    at c (jquery.3.4.1.min.js:2)
+    at Object.fireWith [as resolveWith] (jquery.3.4.1.min.js:2)
+    at l (jquery.3.4.1.min.js:2)
+    at XMLHttpRequest.<anonymous> (jquery.3.4.1.min.js:2)
+(anonymous) @ vod_series_player.js:625
+makeMediaTrackElement @ vod_series_player.js:619
+renderSubtitles @ vod_series_player.js:760
+success @ vod_series_player.js:705
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+l @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+load (async)
+send @ jquery.3.4.1.min.js:2
+ajax @ jquery.3.4.1.min.js:2
+showSubtitleAudioModal @ vod_series_player.js:690
+onclick @ index.html:1170
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ vod_series_player.js:980
+HandleKey @ vod_series_player.js:1526
+(anonymous) @ main.js:162
+remote-logger.js:196 here saving video time error ReferenceError: environment is not defined
+    at Object.saveVideoTime (vod_series_player.js:252)
+    at Object.Exit (vod_series_player.js:223)
+    at Object.goBack (vod_series_player.js:301)
+    at Object.HandleKey (vod_series_player.js:1529)
+    at HTMLDocument.<anonymous> (main.js:162)
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40721.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40696.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+(anonymous) @ player.js:251
+setTimeout (async)
+setDisplayArea @ player.js:247
+showLiveChannelMovie @ channel_operation.js:509
+channelItemClick @ channel_operation.js:229
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ channel_operation.js:784
+HandleKey @ channel_operation.js:972
+(anonymous) @ main.js:153
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 []
+remote-logger.js:196 [setDisplayArea] Starting for element: home-page-video-preview
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: true parent_id: home-page
+remote-logger.js:196 [setDisplayArea] Preview container offset: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Final rect: 60 80 639 359
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 60 80 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: home-page-video-preview
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: true parent_id: home-page
+remote-logger.js:196 [setDisplayArea] Preview container offset: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Final rect: 60 80 639 359
+remote-logger.js:196 http://galaiptv.shop:2095/movie/dogubeyyeni2/ev7tHk0Atg/363471.mkv
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: home-page-video-preview
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: true parent_id: home-page
+remote-logger.js:196 [setDisplayArea] Preview container offset: 60 80 639 359
+remote-logger.js:196 [setDisplayArea] Final rect: 60 80 639 359
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 60 80 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 60 80 639 359
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40721.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: home-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+(anonymous) @ player.js:249
+setTimeout (async)
+setDisplayArea @ player.js:247
+playAsync @ player.js:62
+showLiveChannelMovie @ channel_operation.js:514
+init @ channel_operation.js:113
+showCategoryContent @ home_operation.js:916
+submenuClick @ home_operation.js:937
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ home_operation.js:1852
+HandleKey @ home_operation.js:1949
+(anonymous) @ main.js:150
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40693.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+AVPlayManager.setDisplayRect @ VM70:1
+(anonymous) @ player.js:250
+setTimeout (async)
+setDisplayArea @ player.js:247
+playAsync @ player.js:62
+showLiveChannelMovie @ channel_operation.js:514
+channelItemClick @ channel_operation.js:229
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ channel_operation.js:784
+HandleKey @ channel_operation.js:972
+(anonymous) @ main.js:153
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/205316.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+AVPlayManager.prepareAsync @ VM70:1
+playAsync @ player.js:67
+showLiveChannelMovie @ channel_operation.js:514
+channelItemClick @ channel_operation.js:229
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ channel_operation.js:784
+HandleKey @ channel_operation.js:972
+(anonymous) @ main.js:153
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40693.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+(anonymous) @ player.js:251
+setTimeout (async)
+setDisplayArea @ player.js:247
+showLiveChannelMovie @ channel_operation.js:509
+channelItemClick @ channel_operation.js:229
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ channel_operation.js:784
+HandleKey @ channel_operation.js:972
+(anonymous) @ main.js:153
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40697.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+AVPlayManager.setDisplayRect @ VM70:1
+(anonymous) @ player.js:250
+setTimeout (async)
+setDisplayArea @ player.js:247
+(anonymous) @ player.js:92
+setTimeout (async)
+(anonymous) @ player.js:92
+NativeManager.callIfPossible @ VM17:1
+callback @ VM70:1
+(anonymous) @ VM17:1
+setTimeout (async)
+(anonymous) @ VM17:1
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40696.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+AVPlayManager.setDisplayRect @ VM70:1
+(anonymous) @ player.js:250
+setTimeout (async)
+setDisplayArea @ player.js:247
+(anonymous) @ player.js:92
+setTimeout (async)
+(anonymous) @ player.js:92
+NativeManager.callIfPossible @ VM17:1
+callback @ VM70:1
+(anonymous) @ VM17:1
+setTimeout (async)
+(anonymous) @ VM17:1
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40699.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+(anonymous) @ player.js:251
+setTimeout (async)
+setDisplayArea @ player.js:247
+playAsync @ player.js:62
+showLiveChannelMovie @ channel_operation.js:514
+channelItemClick @ channel_operation.js:229
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ channel_operation.js:784
+HandleKey @ channel_operation.js:972
+(anonymous) @ main.js:153
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40696.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40697.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40696.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+addLog @ remote-logger.js:139
+console.log @ remote-logger.js:197
+(anonymous) @ player.js:251
+setTimeout (async)
+setDisplayArea @ player.js:247
+showLiveChannelMovie @ channel_operation.js:509
+channelItemClick @ channel_operation.js:229
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ channel_operation.js:784
+HandleKey @ channel_operation.js:972
+(anonymous) @ main.js:153
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40697.ts
+remote-logger.js:196 adding listener
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:183 POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:183
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 here video loaded
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 804 0 1119 629
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 804 0 1119 629
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
+remote-logger.js:196 [setDisplayArea] Starting for element: channel-page-video
+remote-logger.js:196 [setDisplayArea] Current route: channel-page
+remote-logger.js:196 [setDisplayArea] Is preview: false parent_id: channel-page
+remote-logger.js:196 [setDisplayArea] Final rect: 0 0 1920 1080
+remote-logger.js:196 [setDisplayArea] Calling setDisplayRect with: 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 [setDisplayArea] setDisplayRect SUCCESS
