@@ -72,6 +72,8 @@ function initPlayer() {
                             $('#'+that.parent_id).find('.video-error').hide();
                             $('#'+that.parent_id).find('.video-loader').hide();
                             that.state = that.STATES.PLAYING;
+                            // Re-apply display rect now that player is ready (fixes new Tizen TVs)
+                            that.setDisplayArea();
                             webapis.avplay.play();
                             try{
                                 that.full_screen_state=1;
