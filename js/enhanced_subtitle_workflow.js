@@ -191,13 +191,13 @@ var EnhancedSubtitleWorkflow = {
         if(subtitle.file) {
             subtitleUrl = subtitle.file;
             if(subtitleUrl.startsWith('/')) {
-                subtitleUrl = 'https://flixapp.net' + subtitleUrl;
+                subtitleUrl = 'https://exoapp.tv' + subtitleUrl;
             }
         } else if(subtitle.url) {
             subtitleUrl = subtitle.url;
         } else if(subtitle.id && subtitle.language) {
             // Construct API URL for subtitle file
-            subtitleUrl = 'https://flixapp.net/api/subtitle-file?lang=' + subtitle.language + '&id=' + subtitle.id;
+            subtitleUrl = 'https://exoapp.tv/api/subtitle-file?lang=' + subtitle.language + '&id=' + subtitle.id;
         } else {
             // Log the full subtitle object to understand the structure
             console.log('Unable to determine subtitle URL. Subtitle object:', subtitle);
