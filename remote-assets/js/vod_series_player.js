@@ -1503,6 +1503,7 @@ var vod_series_player={
                 break;
             case tvKey.MediaStop:
                 this.playPauseVideo("stop");
+                this.goBack();
                 break;
             case tvKey.ENTER:
                 this.handleMenuClick();
