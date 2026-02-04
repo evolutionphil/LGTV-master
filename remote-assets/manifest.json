@@ -1,6 +1,6 @@
 {
   "version": "1.2.0",
-  "lastUpdate": "2026-02-04T16:47:18.455Z",
+  "lastUpdate": "2026-02-04T16:53:23.513Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 8,
@@ -148,9 +148,9 @@
       "priority": 1
     },
     "js/main.js": {
-      "version": "1.0.0",
-      "size": 8250,
-      "hash": "26a08232",
+      "version": "1.0.1",
+      "size": 8333,
+      "hash": "e1702698",
       "priority": 1
     },
     "js/keyTizen.js": {

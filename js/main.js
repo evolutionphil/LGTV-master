@@ -2,14 +2,14 @@
 "use strict";
 $(document).ready(function () {
     try{
-        // Enhanced platform detection from exo app
+        // Enhanced platform detection from exo app - ES5 compatible (no .includes())
         if (navigator.userAgent.indexOf('Tizen') > -1) {
             platform = 'samsung';
             console.log('Samsung Tizen platform detected');
-        } else if (navigator.userAgent.indexOf('webOS') > -1) {
+        } else if (navigator.userAgent.indexOf('webOS') > -1 || navigator.userAgent.indexOf('Web0S') > -1) {
             platform = 'lg';
             console.log('LG webOS platform detected');
-        } else if(window.navigator.userAgent.toLowerCase().includes('web0s') && 
+        } else if(window.navigator.userAgent.toLowerCase().indexOf('web0s') > -1 && 
            (window.PalmSystem || typeof window.PalmServiceBridge !== 'undefined')) {
             platform='lg';
             console.log('LG WebOS platform detected (fallback)');
