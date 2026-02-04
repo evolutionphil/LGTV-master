@@ -371,6 +371,7 @@ function initPlayer() {
                 return result;
             },
             setSubtitleOrAudioTrack:function(kind, index){
+                console.log('[Subtitle] setSubtitleOrAudioTrack called: kind=' + kind + ', index=' + index);
                 try{
                     if(index>-1){
                         webapis.avplay.setSilentSubtitle(true);
@@ -380,6 +381,7 @@ function initPlayer() {
                         webapis.avplay.setSilentSubtitle(false);
                     }
                 }catch (e) {
+                    console.log('[Subtitle] Error:', e);
                 }
                 if(kind==='TEXT' && index>-1){
                     $('#'+this.parent_id).find('.subtitle-container').show();

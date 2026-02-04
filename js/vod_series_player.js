@@ -899,27 +899,30 @@ var vod_series_player={
         this.keys.focused_part="control_bar";
     },
     confirmSubtitle:function(){
+        console.log('[Subtitle] confirmSubtitle called');
         $('#subtitle-selection-modal').modal('hide');
         this.keys.focused_part="control_bar";
         var modal_title=$("#subtitle-modal-title").text();
+        console.log('[Subtitle] modal_title:', modal_title);
         if(modal_title.toLowerCase().includes('subtitle')){
             this.current_subtitle_index=$('#subtitle-selection-modal').find('input[type=radio]:checked').val();
+            console.log('[Subtitle] selected index from radio:', this.current_subtitle_index);
+            console.log('[Subtitle] parsed index:', parseInt(this.current_subtitle_index));
             try{
                 media_player.setSubtitleOrAudioTrack("TEXT",parseInt(this.current_subtitle_index));
-                $("vod-series-player-page").find('.subtitle-container').css({visibility:'visible'});
+                $("#vod-series-player-page").find('.subtitle-container').css({visibility:'visible'});
             }catch(e){
-
+                console.log('[Subtitle] Error in confirmSubtitle:', e);
             }
-            console.log(this.current_subtitle_index);
         }
         else{
             this.current_audio_track_index=$('#subtitle-selection-modal').find('input[type=radio]:checked').val();
+            console.log('[Subtitle] selected audio index:', this.current_audio_track_index);
             try{
                 media_player.setSubtitleOrAudioTrack("AUDIO",parseInt(this.current_audio_track_index))
             }catch(e){
-
+                console.log('[Subtitle] Error in confirmSubtitle audio:', e);
             }
-            console.log(this.current_audio_track_index);
         }
     },
     removeAllActiveClass:function(hide_episode){
