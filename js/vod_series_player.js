@@ -360,6 +360,10 @@ var vod_series_player={
             action_type=$(element).data('action_type');
         if(action_type==="pause")
         {
+            if(this.seek_timer) {
+                clearTimeout(this.seek_timer);
+                this.seek_timer = null;
+            }
             try{
                 media_player.pause();
                 $(element).removeClass('fa-pause')
@@ -371,6 +375,15 @@ var vod_series_player={
         else if(action_type==='play'){
             try{
                 media_player.play();
+                $(element).removeClass('fa-play')
+                $(element).addClass('fa-pause');
+                $(element).data('action_type','pause');
+            }catch(e){
+            }
+        }
+        else if(action_type==='stop'){
+            try{
+                media_player.stop();
                 $(element).removeClass('fa-play')
                 $(element).addClass('fa-pause');
                 $(element).data('action_type','pause');
