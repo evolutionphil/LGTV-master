@@ -348,6 +348,9 @@ var vod_series_player={
                 keys.focused_part='info_bar'
             clearTimeout(this.resume_timer);
         }
+        if(keys.focused_part==="subtitle_position_overlay"){
+            this.cancelSubtitlePosition();
+        }
     },
     playPauseVideo:function(action_type){
         this.showControlBar(false);
@@ -1054,6 +1057,24 @@ var vod_series_player={
                 keys.subtitle_audio_selection_modal=this.subtitle_audio_menus.length-2;
             this.hoverSubtitleAudioModal(keys.subtitle_audio_selection_modal);
         }
+        if(keys.focused_part==="subtitle_position_overlay"){
+            var currentRow = this.getControlRow(this.positionControlIndex);
+            var rowRange = this.getRowRange(currentRow);
+            if(increment>0) {
+                if(this.positionControlIndex < rowRange.end) {
+                    this.positionControlIndex++;
+                } else {
+                    this.positionControlIndex = rowRange.start;
+                }
+            } else {
+                if(this.positionControlIndex > rowRange.start) {
+                    this.positionControlIndex--;
+                } else {
+                    this.positionControlIndex = rowRange.end;
+                }
+            }
+            this.hoverPositionControl(this.positionControlIndex);
+        }
     },
     handleMenuUpDown:function(increment){
         var buttons=$('#vod-series-player-operation-modal').find('.modal-operation-menu-type-1');
@@ -1161,6 +1182,55 @@ var vod_series_player={
                 $('#video-resume-modal').hide();
                 keys.focused_part=keys.prev_focus;
             },15000)
+        }
+        if(keys.focused_part==="subtitle_position_overlay"){
+            var currentIndex = this.positionControlIndex;
+            if(increment > 0) {
+                switch(currentIndex) {
+                    case 0: this.positionControlIndex = 2; break;
+                    case 2: this.positionControlIndex = 4; break;
+                    case 4: this.positionControlIndex = 6; break;
+                    case 6: this.positionControlIndex = 8; break;
+                    case 8: this.positionControlIndex = 10; break;
+                    case 10: this.positionControlIndex = 12; break;
+                    case 12: this.positionControlIndex = 14; break;
+                    case 14: this.positionControlIndex = 16; break;
+                    case 1: this.positionControlIndex = 3; break;
+                    case 3: this.positionControlIndex = 5; break;
+                    case 5: this.positionControlIndex = 7; break;
+                    case 7: this.positionControlIndex = 9; break;
+                    case 9: this.positionControlIndex = 11; break;
+                    case 11: this.positionControlIndex = 13; break;
+                    case 13: this.positionControlIndex = 15; break;
+                    case 15: this.positionControlIndex = 17; break;
+                    case 16: this.positionControlIndex = 0; break;
+                    case 17: this.positionControlIndex = 1; break;
+                    default: this.positionControlIndex = 0; break;
+                }
+            } else {
+                switch(currentIndex) {
+                    case 16: this.positionControlIndex = 14; break;
+                    case 14: this.positionControlIndex = 12; break;
+                    case 12: this.positionControlIndex = 10; break;
+                    case 10: this.positionControlIndex = 8; break;
+                    case 8: this.positionControlIndex = 6; break;
+                    case 6: this.positionControlIndex = 4; break;
+                    case 4: this.positionControlIndex = 2; break;
+                    case 2: this.positionControlIndex = 0; break;
+                    case 0: this.positionControlIndex = 16; break;
+                    case 17: this.positionControlIndex = 15; break;
+                    case 15: this.positionControlIndex = 13; break;
+                    case 13: this.positionControlIndex = 11; break;
+                    case 11: this.positionControlIndex = 9; break;
+                    case 9: this.positionControlIndex = 7; break;
+                    case 7: this.positionControlIndex = 5; break;
+                    case 5: this.positionControlIndex = 3; break;
+                    case 3: this.positionControlIndex = 1; break;
+                    case 1: this.positionControlIndex = 17; break;
+                    default: this.positionControlIndex = 0; break;
+                }
+            }
+            this.hoverPositionControl(this.positionControlIndex)
         }
     },
     // Subtitle Position/Settings Modal Functions (restored from commit 64b927e)
@@ -1333,6 +1403,26 @@ var vod_series_player={
         this.applyLiveSubtitleStyles();
         $('#subtitle-position-overlay').hide();
         this.keys.focused_part = "control_bar";
+    },
+    getControlRow: function(index) {
+        if(index >= 0 && index <= 1) return 'position';
+        if(index >= 2 && index <= 5) return 'position_presets';
+        if(index >= 6 && index <= 7) return 'size';
+        if(index >= 8 && index <= 11) return 'size_presets';
+        if(index >= 12 && index <= 15) return 'background';
+        if(index >= 16 && index <= 17) return 'action';
+        return 'position';
+    },
+    getRowRange: function(row) {
+        switch(row) {
+            case 'position': return { start: 0, end: 1 };
+            case 'position_presets': return { start: 2, end: 5 };
+            case 'size': return { start: 6, end: 7 };
+            case 'size_presets': return { start: 8, end: 11 };
+            case 'background': return { start: 12, end: 15 };
+            case 'action': return { start: 16, end: 17 };
+            default: return { start: 0, end: 1 };
+        }
     },
     applySubtitlePosition: function() {
         var position = parseInt(localStorage.getItem('subtitle_position') || '10');
