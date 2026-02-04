@@ -319,6 +319,9 @@
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
+    white-space: nowrap;
+    width: auto;
+    min-width: fit-content;
 }
 
 .vod-action-btn-new i {
