@@ -31,13 +31,15 @@
 
 .vod-summary-hero {
     display: flex;
-    flex: 0 0 auto;
+    flex: 1 1 auto;
     min-height: 0;
+    max-height: 68vh;
     flex-wrap: nowrap;
     align-items: stretch;
     position: relative;
     height: auto;
-    margin-bottom: 3vh;
+    margin-bottom: 2vh;
+    overflow: hidden;
 }
 
 /* Tizen 2.4 / LG WebOS gap fallback - use margin instead of gap */
@@ -225,10 +227,11 @@
     color: #fff;
     margin: 0 0 2vh 0;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     white-space: normal;
+    max-height: 6.5vh;
 }
 
 .vod-summary-details {
@@ -346,10 +349,13 @@
 }
 
 .vod-summary-similar {
-    padding-top: 20px;
+    padding-top: 15px;
     border-top: 1px solid rgba(255,255,255,0.1);
     flex-shrink: 0;
+    flex-grow: 0;
     padding-bottom: 10px;
+    min-height: 18vh;
+    position: relative;
 }
 
 .similar-movies-title {
@@ -515,19 +521,21 @@
 
 
 #series-summary-page .vod-summary-info {
-    overflow: visible;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 62vh;
+    min-height: 0;
+    max-height: 100%;
     padding-top: 0;
     margin-top: 0;
 }
 
 #vod-summary-page .vod-summary-info {
-    overflow: visible;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 62vh;
+    min-height: 0;
+    max-height: 100%;
     padding-top: 0;
     margin-top: 0;
 }
