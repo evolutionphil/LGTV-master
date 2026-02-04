@@ -372,19 +372,30 @@ function initPlayer() {
             },
             setSubtitleOrAudioTrack:function(kind, index){
                 console.log('[Subtitle] setSubtitleOrAudioTrack called: kind=' + kind + ', index=' + index);
+                console.log('[Subtitle] this.subtitles:', this.subtitles ? this.subtitles.length + ' items' : 'undefined');
+                console.log('[Subtitle] this.subtitles[' + index + ']:', this.subtitles && this.subtitles[index] ? this.subtitles[index].label : 'undefined');
                 try{
-                    if(index>-1){
-                        webapis.avplay.setSilentSubtitle(true);
-                        webapis.avplay.setSelectTrack(kind,index);
-                        webapis.avplay.setSilentSubtitle(false);
-                    }else{
-                        webapis.avplay.setSilentSubtitle(false);
+                    if(kind === 'TEXT'){
+                        // API subtitles are external SRT files - use SrtOperation
+                        if(this.subtitles && this.subtitles.length > 0 && this.subtitles[index]){
+                            console.log('[Subtitle] Using SRT file:', this.subtitles[index].label);
+                            SrtOperation.init(this.subtitles[index], this.current_time / 1000);
+                            $('#'+this.parent_id).find('.subtitle-container').show();
+                        } else if(index > -1){
+                            // Fallback to embedded AVPlay tracks (if video has them)
+                            console.log('[Subtitle] Trying embedded AVPlay track');
+                            webapis.avplay.setSilentSubtitle(true);
+                            webapis.avplay.setSelectTrack(kind, index);
+                            webapis.avplay.setSilentSubtitle(false);
+                            $('#'+this.parent_id).find('.subtitle-container').show();
+                        } else {
+                            webapis.avplay.setSilentSubtitle(false);
+                        }
+                    } else if(kind === 'AUDIO' && index > -1){
+                        webapis.avplay.setSelectTrack(kind, index);
                     }
                 }catch (e) {
                     console.log('[Subtitle] Error:', e);
-                }
-                if(kind==='TEXT' && index>-1){
-                    $('#'+this.parent_id).find('.subtitle-container').show();
                 }
             },
             seekTo:function(step){
