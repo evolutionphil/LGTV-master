@@ -1,0 +1,31 @@
+Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 
+{num: 8231, name: "A Working Man (2025)", stream_type: "movie", stream_id: 363471, stream_icon: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/se0zJXl4GXvSOgDFhUcOtsiX6Me.jpg", …}
+remote-logger.js:196 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:196 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 
+WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …LDocument.<anonymous> (file:///js/main.js:150:27)"}
+code: 11
+message: "PLAYER_ERROR_INVALID_STATE"
+name: "InvalidStateError"
+stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    at NativeManager.getErrorObject (<anonymous>:1:25240)↵    at AVPlayManager.setDisplayRect (<anonymous>:1:7766)↵    at Object.setDisplayArea (file:///js/player.js:209:32)↵    at Object.init (file:///js/vod_series_player.js:141:26)↵    at Object.showPreviewVideo (file:///js/home_operation.js:1325:35)↵    at Object.handleMenuClick (file:///js/home_operation.js:1855:22)↵    at Object.HandleKey (file:///js/home_operation.js:1949:26)↵    at HTMLDocument.<anonymous> (file:///js/main.js:150:27)"
+__proto__: Error
+remote-logger.js:196 http://galaiptv.shop:2095/movie/dogubeyyeni2/ev7tHk0Atg/363471.mkv
+remote-logger.js:196 adding listener
+remote-logger.js:196 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 here trying to open
+remote-logger.js:196 Entered AVPlayManager.prepareAsync()
+remote-logger.js:196 here video loaded
+remote-logger.js:196 0 0 1920 1080
+remote-logger.js:196 Entering setDisplayRect
+remote-logger.js:196 info_bar in subtitle audio modal
+remote-logger.js:196 TEXT 
+(2) [{…}, {…}]
+0: {extra_info: "{"fourCC":"h264","Width":"1728","Height":"720","Bit_rate":"0"}", index: 0, type: "VIDEO"}
+1: {extra_info: "{"language":"und","channels":"2","sample_rate":"44100","bit_rate":"0","fourCC":"mpeg"}", index: 1, type: "AUDIO"}
+length: 2
+__proto__: Array(0)
+remote-logger.js:196 
+[]

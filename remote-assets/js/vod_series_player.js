@@ -654,7 +654,7 @@ var vod_series_player={
         try{
             $('#subtitle-loader-container').hide();
             var subtitles;
-            if(platform!=='samsung' && kind==='TEXT'){  // we will use our own made subtitles
+            if(kind==='TEXT'){  // fetch subtitles from API for all platforms
                 if(!this.subtitle_loaded) {
                     $("#subtitle-selection-container").html('');
                     if(!(this.current_movie_type==='movies' || (this.current_movie_type==='series' && settings.playlist_type==='xtreme')))
@@ -687,7 +687,7 @@ var vod_series_player={
                     }
                     $.ajax({
                         method:'post',
-                        url:'https://flixiptv.xyz/api/get-subtitles',
+                        url:'https://exoapp.tv/api/get-subtitles',
                         data: subtitle_request_data,
                         dataType:'json',
                         success:function (result) {
@@ -1503,7 +1503,13 @@ var vod_series_player={
                 break;
             case tvKey.MediaStop:
                 this.playPauseVideo("stop");
-                this.goBack();
+                this.Exit();
+                if(this.back_url==="home-page"){
+                    home_page.reEnter();
+                }
+                if(this.back_url==="episode-page"){
+                    $('#episode-page').show();
+                }
                 break;
             case tvKey.ENTER:
                 this.handleMenuClick();
