@@ -9,7 +9,7 @@
 
 var REMOTE_UPDATE_CONFIG = {
     // Remote update enabled - v1.0.20
-    enabled: true,
+    enabled: false,
     
     manifestUrl: 'https://flixapp.pages.dev/manifest.json',
     
