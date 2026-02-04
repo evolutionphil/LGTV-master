@@ -924,3 +924,30 @@
 #app.lg .not-lg {
     display: none !important;
 }
+
+/* 720p (1280x720) responsive fixes for settings modal */
+@media screen and (max-height: 720px) {
+    .modal-dialog.modal-lg {
+        min-width: 500px;
+        max-width: 90vw;
+    }
+    #settings-modal .modal-body {
+        max-height: 450px;
+        overflow-y: auto;
+        padding: 10px 15px !important;
+    }
+    #settings-modal .modal-header {
+        padding: 10px 15px;
+    }
+    #settings-modal .modal-title {
+        font-size: 28px !important;
+    }
+    #settings-modal .modal-operation-menu-type-3 {
+        padding: 8px 15px;
+        font-size: 22px;
+    }
+    #settings-modal .modal-operation-menu-type-3 i {
+        font-size: 20px;
+        width: 30px;
+    }
+}

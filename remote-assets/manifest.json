@@ -1,6 +1,6 @@
 {
   "version": "1.2.0",
-  "lastUpdate": "2026-02-04T17:34:35.110Z",
+  "lastUpdate": "2026-02-04T20:25:49.879Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 8,
@@ -10,9 +10,9 @@
   "timeout": 5000,
   "files": {
     "css/style.css": {
-      "version": "1.0.0",
-      "size": 18256,
-      "hash": "16f6769",
+      "version": "1.0.1",
+      "size": 18936,
+      "hash": "47eae810",
       "priority": 1
     },
     "css/variables.css": {
