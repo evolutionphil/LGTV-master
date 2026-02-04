@@ -346,7 +346,7 @@ function initPlayer() {
                                 if(kind==='TEXT' || kind==='AUDIO'){
                                     var language=extra_info[key].trim();
                                     var lower_language=language.toLowerCase();
-                                    if(!all_track_str.includes(language) && language!=='' && lower_language!='und' && lower_language!='undefined' && lower_language!='undetermined'){
+                                    if(all_track_str.indexOf(language) === -1 && language!=='' && lower_language!='und' && lower_language!='undefined' && lower_language!='undetermined'){
                                         all_track_str+=(", "+language);
                                         extra_info[key]=typeof language_codes[language]!="undefined" ? language_codes[language] : language;
                                         totalTrackInfo[i].extra_info=extra_info;

@@ -86,7 +86,7 @@ var catchup_page={
             var exist=false;
             var exist_index=0;
             for(var i=0;i<that.dates.length;i++){
-                if(program.start.includes(that.dates[i])){
+                if(program.start.indexOf(that.dates[i]) > -1){
                     exist=true;
                     exist_index=i;
                     break;

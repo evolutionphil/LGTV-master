@@ -31,7 +31,7 @@ var LiveModel={
         hidden_categories=hidden_categories==null ? [] : JSON.parse(hidden_categories);
         categories.map(function(category){
             category.is_hide=false;
-            if(hidden_categories.includes(category.category_id))
+            if(hidden_categories.indexOf(category.category_id) > -1)
                 category.is_hide=true;
         })
         this.categories=categories;
@@ -40,7 +40,7 @@ var LiveModel={
         var categories=this.categories;
         categories.map(function(category){
             category.is_hide=false;
-            if(category_ids.includes(category.category_id)) {
+            if(category_ids.indexOf(category.category_id) > -1) {
                 category.is_hide = true;
             }
         })
@@ -136,7 +136,7 @@ var LiveModel={
                 movies_map[movie.category_id]=[];
             movies_map[movie.category_id].push(movie);
 
-            if(recent_movie_ids.includes(movie[movie_id_key]))// if movie id is in recently viewed movie ids
+            if(recent_movie_ids.indexOf(movie[movie_id_key]) > -1)// if movie id is in recently viewed movie ids
             {
                 if(that.recent_insert_position==="before")
                     recent_movies.unshift(movie);
@@ -144,7 +144,7 @@ var LiveModel={
                     recent_movies.push(movie);
                 movie.is_recent=true;
             }
-            if(favourite_movie_ids.includes(movie[movie_id_key]))// if movie id is in recently viewed movie ids
+            if(favourite_movie_ids.indexOf(movie[movie_id_key]) > -1)// if movie id is in recently viewed movie ids
             {
                 if(that.favourite_insert_position==="before")
                     favourite_movies.unshift(movie);
@@ -350,7 +350,7 @@ var LiveModel={
             if (movie.category_id == categories[i].category_id) {
                 var category = categories[i];
                 var category_name=category.category_name.toLowerCase();
-                if(category_name.includes('xxx') ||  category_name.includes('adult') || category_name.includes('porn') || category.parent_id==1)
+                if(category_name.indexOf('xxx') > -1 ||  category_name.indexOf('adult') > -1 || category_name.indexOf('porn') > -1 || category.parent_id==1)
                     is_adult=true;
                 break;
             }

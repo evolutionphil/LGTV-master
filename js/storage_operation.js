@@ -158,7 +158,7 @@ var storage_page={
             var src_image="images/folder.png";
             if(file_type==='file') {
                 var ext=getExt(item.name);
-                if(image_file_exts.includes(ext)) {
+                if(image_file_exts.indexOf(ext) > -1) {
                     src_image=item.toURI();
                 }else
                     src_image="images/video_icon.png";
@@ -267,7 +267,7 @@ var storage_page={
         var diff_index=current_level==0 ? 0 : 1;
         var file=this.storages[keys.menu_selection-diff_index];
         var ext=getExt(file.name);
-        if(video_file_exts.includes(ext)) {
+        if(video_file_exts.indexOf(ext) > -1) {
             var video_index=0;
             for(var i=0;i<this.video_files.length;i++){
                 var item=this.video_files[i];
@@ -280,7 +280,7 @@ var storage_page={
             vod_series_player.makeEpisodeDoms('home-page');
             vod_series_player.init(file,"storage",'storage-page','');
         }
-        else if(image_file_exts.includes(ext)) {
+        else if(image_file_exts.indexOf(ext) > -1) {
             var image_index=0;
             for(var i=0;i<this.image_files.length;i++){
                 var item=this.image_files[i];

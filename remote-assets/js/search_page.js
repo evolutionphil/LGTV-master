@@ -94,7 +94,7 @@ var search_page={
         categories.map(function (item) {
             if(!checkForAdult(item,'category',[])){
                 var movies=item.movies.filter(function (movie) {
-                    return movie.name.toLowerCase().includes(keyword)
+                    return movie.name.toLowerCase().indexOf(keyword) > -1
                 })
                 result=result.concat(movies);
             }

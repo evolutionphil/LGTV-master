@@ -28,7 +28,7 @@ var VodModel ={
         var adult_category_ids=[];
         categories.map(function(category){
             category.is_hide=false;
-            if(hidden_categories.includes(category.category_id))
+            if(hidden_categories.indexOf(category.category_id) > -1)
                 category.is_hide=true;
             if(checkForAdult(category,'category',[])){
                 adult_category_ids.push(category.category_id);
@@ -61,7 +61,7 @@ var VodModel ={
         var categories=this.categories;
         categories.map(function(category){
             category.is_hide=false;
-            if(category_ids.includes(category.category_id)) {
+            if(category_ids.indexOf(category.category_id) > -1) {
                 category.is_hide = true;
             }
         })
@@ -144,7 +144,7 @@ var VodModel ={
                 movies_map[movie.category_id]=[];
             movies_map[movie.category_id].push(movie);
 
-            if(favourite_movie_ids.includes(movie[movie_id_key]))// if movie id is in recently viewed movie ids
+            if(favourite_movie_ids.indexOf(movie[movie_id_key]) > -1)// if movie id is in recently viewed movie ids
             {
                 if(that.favourite_insert_position==="before")
                     favourite_movies.unshift(movie);
@@ -289,7 +289,7 @@ var VodModel ={
             if(movie.category_id==categories[i].category_id){
                 var category=categories[i];
                 var category_name=category.category_name.toLowerCase();
-                if(category_name.includes('xxx') ||  category_name.includes('adult') || category_name.includes('porn') || category.parent_id==1)
+                if(category_name.indexOf('xxx') > -1 ||  category_name.indexOf('adult') > -1 || category_name.indexOf('porn') > -1 || category.parent_id==1)
                     is_adult=true;
                 break;
             }
@@ -311,12 +311,12 @@ var VodModel ={
         var featured_movies=[];
         for(var i=0;i<movies.length;i++){
             if(featured_movies.length<10){
-                if(!this.blocked_featured_ids.includes(movies[i].stream_id) && !this.adult_category_ids.includes(movies[i].category_id)){
+                if(this.blocked_featured_ids.indexOf(movies[i].stream_id) === -1 && this.adult_category_ids.indexOf(movies[i].category_id) === -1){
                     var movie_name=movies[i].name;
                     var adult_keywords=['xxx','sex','porn','adult','18+','+18'];
                     var is_adult=false;
                     for(var j=0;j<adult_keywords.length;j++){
-                        if (movie_name.includes(adult_keywords[j])){
+                        if (movie_name.indexOf(adult_keywords[j]) > -1){
                             is_adult=true;
                             break;
                         }

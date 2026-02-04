@@ -904,7 +904,7 @@ var vod_series_player={
         this.keys.focused_part="control_bar";
         var modal_title=$("#subtitle-modal-title").text();
         console.log('[Subtitle] modal_title:', modal_title);
-        if(modal_title.toLowerCase().includes('subtitle')){
+        if(modal_title.toLowerCase().indexOf('subtitle') > -1){
             this.current_subtitle_index=$('#subtitle-selection-modal').find('input[type=radio]:checked').val();
             console.log('[Subtitle] selected index from radio:', this.current_subtitle_index);
             console.log('[Subtitle] parsed index:', parseInt(this.current_subtitle_index));

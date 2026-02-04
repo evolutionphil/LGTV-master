@@ -1,6 +1,6 @@
 {
   "version": "1.2.0",
-  "lastUpdate": "2026-02-04T17:13:41.706Z",
+  "lastUpdate": "2026-02-04T17:34:35.110Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 8,
@@ -118,21 +118,21 @@
       "priority": 3
     },
     "js/Models/VodModel.js": {
-      "version": "1.0.0",
-      "size": 15805,
-      "hash": "b6c4624e",
+      "version": "1.0.1",
+      "size": 15843,
+      "hash": "ef6d3188",
       "priority": 1
     },
     "js/Models/LiveModel.js": {
-      "version": "1.0.0",
-      "size": 17515,
-      "hash": "45b7230",
+      "version": "1.0.1",
+      "size": 17543,
+      "hash": "e59ecbae",
       "priority": 1
     },
     "js/Models/SeriesModel.js": {
-      "version": "1.0.0",
-      "size": 13039,
-      "hash": "4589745c",
+      "version": "1.0.1",
+      "size": 13063,
+      "hash": "65fd7332",
       "priority": 1
     },
     "js/common.js": {
@@ -196,15 +196,15 @@
       "priority": 2
     },
     "js/player.js": {
-      "version": "1.0.12",
-      "size": 31219,
-      "hash": "2dbe8209",
+      "version": "1.0.13",
+      "size": 31224,
+      "hash": "8efad609",
       "priority": 2
     },
     "js/vod_series_player.js": {
-      "version": "1.0.4",
-      "size": 71852,
-      "hash": "ca6ef7d8",
+      "version": "1.0.5",
+      "size": 71856,
+      "hash": "9865fc38",
       "priority": 2
     },
     "js/home_operation.js": {
@@ -214,9 +214,9 @@
       "priority": 1
     },
     "js/channel_operation.js": {
-      "version": "1.0.0",
-      "size": 43373,
-      "hash": "ca43f5c9",
+      "version": "1.0.1",
+      "size": 43395,
+      "hash": "fb7c2097",
       "priority": 2
     },
     "js/login_operation.js": {
@@ -232,15 +232,15 @@
       "priority": 3
     },
     "js/catchup.js": {
-      "version": "1.0.0",
-      "size": 17972,
-      "hash": "23a8682b",
+      "version": "1.0.1",
+      "size": 17976,
+      "hash": "bbdecc91",
       "priority": 3
     },
     "js/search_page.js": {
-      "version": "1.0.0",
-      "size": 12597,
-      "hash": "182d1b0e",
+      "version": "1.0.1",
+      "size": 12601,
+      "hash": "be2193d8",
       "priority": 3
     },
     "js/youtube_page.js": {
@@ -250,9 +250,9 @@
       "priority": 3
     },
     "js/storage_operation.js": {
-      "version": "1.0.0",
-      "size": 13648,
-      "hash": "a0eec64b",
+      "version": "1.0.1",
+      "size": 13660,
+      "hash": "27ee4edd",
       "priority": 3
     },
     "js/image_page.js": {
@@ -292,9 +292,9 @@
       "priority": 2
     },
     "js/enhanced_subtitle_workflow.js": {
-      "version": "1.0.2",
-      "size": 13635,
-      "hash": "61bef25d",
+      "version": "1.0.3",
+      "size": 13638,
+      "hash": "c3edc53c",
       "priority": 2
     },
     "js/asset-bootstrapper.js": {

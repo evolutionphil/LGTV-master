@@ -190,7 +190,7 @@ var EnhancedSubtitleWorkflow = {
         // Since apiData = subtitle (from subtitle_fetcher.js), check subtitle properties directly
         if(subtitle.file) {
             subtitleUrl = subtitle.file;
-            if(subtitleUrl.startsWith('/')) {
+            if(subtitleUrl.indexOf('/') === 0) {
                 subtitleUrl = 'https://exoapp.tv' + subtitleUrl;
             }
         } else if(subtitle.url) {

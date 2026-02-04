@@ -74,7 +74,7 @@ var channel_page={
                     <span class="channel-number">'+movie.num+'</span>\
                     <img class="channel-icon" src="'+movie.stream_icon+'" onerror="this.src=default_movie_icon;">\
                     <span class="channel-name">'+movie.name+'</span>'+
-                    (LiveModel.favourite_ids.includes(movie.stream_id) ? '<i class="fa fa-star favourite-icon"></i>' : '')+
+                    (LiveModel.favourite_ids.indexOf(movie.stream_id) > -1 ? '<i class="fa fa-star favourite-icon"></i>' : '')+
                     '<i class="fa fa-sort sort-icon"></i>\
                 </div>'
         })
@@ -280,7 +280,7 @@ var channel_page={
         var current_movie=getItemFromId(this.hover_channel_id,"stream_id",this.movies);
         var action='add';
         var favourite_ids=LiveModel.favourite_ids;
-        if(favourite_ids.includes(current_movie.stream_id))
+        if(favourite_ids.indexOf(current_movie.stream_id) > -1)
             action='remove';
         var elements=[$('#channel-operation-menu-remove-fav'),$('#live-channel-favourite-button')];
         if(action==='add'){
@@ -333,7 +333,7 @@ var channel_page={
         var movie=getCurrentMovieFromId(movie_id,this.movies,'stream_id');
         var action_buttons=[$('.channel-action-btn')[1],$('#channel-operation-modal').find('.modal-operation-menu-type-1')[0]];
         if(movie!=null){
-            if(!LiveModel.favourite_ids.includes(movie.stream_id)){
+            if(LiveModel.favourite_ids.indexOf(movie.stream_id) === -1){
                 $(action_buttons).text("Add Fav");
                 $(action_buttons).data('action','add');
             }else{
@@ -622,7 +622,7 @@ var channel_page={
             orders=channel_orders['favourite'];
         if(this.removed_favourite_ids.length>0) {
             for(var i=orders.length-1;i>=0;i--) {
-                if(!this.removed_favourite_ids.includes(orders[i].id))
+                if(this.removed_favourite_ids.indexOf(orders[i].id) === -1)
                     continue;
                 for(j=0;j<this.removed_favourite_ids.length;j++) {
                     if(orders[i].id===this.removed_favourite_ids[j]){
@@ -734,7 +734,7 @@ var channel_page={
             filtered_movies=current_movies;
         else {
             filtered_movies = current_movies.filter(function(movie){
-                return movie.name.toLowerCase().includes(search_value.toLowerCase());
+                return movie.name.toLowerCase().indexOf(search_value.toLowerCase()) > -1;
             })
         }
         var htmlContent='';
