@@ -323,6 +323,10 @@ var vod_series_player={
                     $('#storage-page').show();
                     storage_page.hoverMenuItem(storage_page.keys.menu_selection);
                 }
+                if(this.back_url==='series-summary-page'){
+                    $('#series-summary-page').show();
+                    series_summary_page.reEnterFromPlayer();
+                }
             }
         }
         if(this.keys.focused_part==="operation_modal"){
@@ -1530,6 +1534,10 @@ var vod_series_player={
                 }
                 if(this.back_url==="episode-page"){
                     $('#episode-page').show();
+                }
+                if(this.back_url==='series-summary-page'){
+                    $('#series-summary-page').show();
+                    series_summary_page.reEnterFromPlayer();
                 }
                 break;
             case tvKey.ENTER:

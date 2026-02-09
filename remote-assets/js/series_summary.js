@@ -491,6 +491,16 @@ var series_summary_page={
             }
         }
     },
+    reEnterFromPlayer:function(){
+        var keys = this.keys;
+        if(keys.focused_part === 'episode_rail'){
+            var episodeItems = $('.series-episode-item');
+            if(episodeItems.length > 0 && keys.episode_index >= 0){
+                $(episodeItems).removeClass('active');
+                $(episodeItems[keys.episode_index]).addClass('active');
+            }
+        }
+    },
     playEpisode:function(index){
         var episodes = current_season.episodes || [];
         if(index < 0 || index >= episodes.length) return;
