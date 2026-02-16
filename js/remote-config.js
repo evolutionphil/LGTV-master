@@ -31,7 +31,7 @@ var REMOTE_UPDATE_CONFIG = {
 };
 
 var APP_CONFIG_LOADER = {
-    configUrl: 'https://flixapp.net/api/app-config',
+    configUrl: 'https://flixapp.net/api/app-config/config',
     loaded: false,
     config: null,
 
