@@ -12,15 +12,6 @@ run = ["sh", "-c", "node index.js"]
 runButton = "Project"
 
 [[workflows.workflow]]
-name = "Start Server"
-author = 43937449
-mode = "sequential"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node server.js"
-
-[[workflows.workflow]]
 name = "Project"
 mode = "parallel"
 author = "agent"

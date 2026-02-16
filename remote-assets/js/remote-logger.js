@@ -1,63 +1,44 @@
 /**
- * FLIX IPTV - Remote Console Logger
- * Samsung TV loglarını backend'e gönderir
+ * FLIX IPTV - Remote Console Logger v2.1
+ * Samsung/LG TV loglarini backend'e gonderir
+ * MAC bazli kontrol - backend'den enable/disable
  * ES5 uyumlu
  */
 (function() {
     'use strict';
     
-    // Konfigürasyon
     var CONFIG = {
-        enabled: true,
-        // Backend URL - otomatik tespit veya window.FLIX_LOG_ENDPOINT ile override
-        // Development: current origin, Production: flixapp.net
+        enabled: false,
         endpoint: (function() {
-            // Manuel override varsa kullan
             if (typeof window !== 'undefined' && window.FLIX_LOG_ENDPOINT) {
                 return window.FLIX_LOG_ENDPOINT;
             }
-            // Tizen/WebOS'ta origin yoksa veya file:// ise production endpoint kullan
             if (typeof window !== 'undefined' && window.location) {
                 var origin = window.location.origin;
-                // file:// veya boş origin durumunda production
                 if (!origin || origin === 'null' || origin.indexOf('file:') === 0) {
                     return 'https://flixapp.net/api/logs';
                 }
-                // Development server (replit, localhost vs)
                 return origin + '/api/logs';
             }
             return 'https://flixapp.net/api/logs';
         })(),
-        // Logları toplu gönder
         batchSize: 20,
-        // Gönderim aralığı (ms)
         flushInterval: 5000,
-        // Maksimum bekleyen log sayısı
         maxPending: 200,
-        // Debug mode - ekstra log
         debug: false
     };
     
-    // Device ID - MAC veya benzersiz ID
     var deviceId = 'unknown';
-    
-    // Bekleyen loglar
     var pendingLogs = [];
-    
-    // Flush timer
     var flushTimer = null;
+    var initialized = false;
     
-    // Orijinal console metodları
     var originalLog = console.log;
     var originalError = console.error;
     var originalWarn = console.warn;
     var originalInfo = console.info;
     
-    /**
-     * Device ID al
-     */
     function getDeviceId() {
-        // Önce localStorage'dan dene
         try {
             var stored = localStorage.getItem('flix_device_id');
             if (stored) {
@@ -65,7 +46,6 @@
             }
         } catch (e) {}
         
-        // Tizen MAC adresi
         if (typeof webapis !== 'undefined' && webapis.network) {
             try {
                 var mac = webapis.network.getMac();
@@ -76,7 +56,6 @@
             } catch (e) {}
         }
         
-        // WebOS device ID
         if (typeof webOS !== 'undefined' && webOS.deviceInfo) {
             try {
                 webOS.deviceInfo(function(info) {
@@ -88,15 +67,32 @@
             } catch (e) {}
         }
         
-        // Fallback - random ID
         var randomId = 'tv_' + Math.random().toString(36).substr(2, 9);
         try { localStorage.setItem('flix_device_id', randomId); } catch (e) {}
         return randomId;
     }
     
-    /**
-     * Log entry oluştur
-     */
+    function getDeviceMac() {
+        if (typeof mac_address !== 'undefined' && mac_address) {
+            return mac_address.toUpperCase().replace(/[^A-F0-9]/g, '');
+        }
+        try {
+            var stored = localStorage.getItem('mac_address');
+            if (stored) return stored.toUpperCase().replace(/[^A-F0-9]/g, '');
+        } catch (e) {}
+        try {
+            var devId = localStorage.getItem('flix_device_id');
+            if (devId) return devId.toUpperCase().replace(/[^A-F0-9]/g, '');
+        } catch (e) {}
+        if (typeof webapis !== 'undefined' && webapis.network) {
+            try {
+                var mac = webapis.network.getMac();
+                if (mac) return mac.toUpperCase().replace(/[^A-F0-9]/g, '');
+            } catch (e) {}
+        }
+        return '';
+    }
+    
     function createLogEntry(level, args) {
         var message = '';
         for (var i = 0; i < args.length; i++) {
@@ -120,31 +116,27 @@
         };
     }
     
-    /**
-     * Log ekle
-     */
     function addLog(level, args) {
         if (!CONFIG.enabled) return;
         
         var entry = createLogEntry(level, args);
         pendingLogs.push(entry);
         
-        // Maksimum limit
         if (pendingLogs.length > CONFIG.maxPending) {
             pendingLogs = pendingLogs.slice(-CONFIG.maxPending);
         }
         
-        // Batch doluysa hemen gönder
         if (pendingLogs.length >= CONFIG.batchSize) {
             flushLogs();
         }
     }
     
-    /**
-     * Logları backend'e gönder
-     */
     function flushLogs() {
         if (pendingLogs.length === 0) return;
+        if (!CONFIG.enabled) {
+            pendingLogs = [];
+            return;
+        }
         
         var logsToSend = pendingLogs.slice();
         pendingLogs = [];
@@ -154,7 +146,6 @@
             logs: logsToSend
         });
         
-        // XMLHttpRequest kullan (ES5 uyumlu)
         var xhr = new XMLHttpRequest();
         xhr.open('POST', CONFIG.endpoint, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -172,7 +163,6 @@
             if (CONFIG.debug) {
                 originalLog.call(console, '[RemoteLogger] Network error');
             }
-            // Hata durumunda logları geri ekle
             pendingLogs = logsToSend.concat(pendingLogs);
             if (pendingLogs.length > CONFIG.maxPending) {
                 pendingLogs = pendingLogs.slice(-CONFIG.maxPending);
@@ -188,9 +178,6 @@
         }
     }
     
-    /**
-     * Console metodlarını override et
-     */
     function overrideConsole() {
         console.log = function() {
             originalLog.apply(console, arguments);
@@ -213,9 +200,6 @@
         };
     }
     
-    /**
-     * Periyodik flush başlat
-     */
     function startFlushTimer() {
         if (flushTimer) {
             clearInterval(flushTimer);
@@ -223,50 +207,84 @@
         flushTimer = setInterval(flushLogs, CONFIG.flushInterval);
     }
     
-    /**
-     * Logger'ı başlat
-     */
+    function stopFlushTimer() {
+        if (flushTimer) {
+            clearInterval(flushTimer);
+            flushTimer = null;
+        }
+    }
+    
     function init() {
+        if (initialized) return;
+        initialized = true;
         deviceId = getDeviceId();
         overrideConsole();
-        startFlushTimer();
         
-        // Sayfa kapanırken son logları gönder
         if (typeof window !== 'undefined') {
             window.addEventListener('beforeunload', function() {
-                flushLogs();
+                if (CONFIG.enabled) flushLogs();
             });
             
-            // Visibility change - arka plana gidince flush
             document.addEventListener('visibilitychange', function() {
-                if (document.visibilityState === 'hidden') {
+                if (document.visibilityState === 'hidden' && CONFIG.enabled) {
                     flushLogs();
                 }
             });
         }
         
-        originalLog.call(console, '[RemoteLogger] Initialized, deviceId:', deviceId);
+        originalLog.call(console, '[RemoteLogger] Initialized (disabled by default), deviceId:', deviceId);
     }
     
-    // Global API
+    function checkMacList(macList) {
+        if (!macList || macList.length === 0) return false;
+        
+        var myMac = getDeviceMac();
+        if (!myMac) return false;
+        
+        for (var i = 0; i < macList.length; i++) {
+            var listMac = String(macList[i]).toUpperCase().replace(/[^A-F0-9]/g, '');
+            if (listMac && myMac === listMac) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     window.FlixRemoteLogger = {
         init: init,
         flush: flushLogs,
+        getDeviceMac: getDeviceMac,
         setEndpoint: function(url) {
             CONFIG.endpoint = url;
         },
         enable: function() {
             CONFIG.enabled = true;
+            startFlushTimer();
+            originalLog.call(console, '[RemoteLogger] ENABLED - logs will be sent to backend');
         },
         disable: function() {
             CONFIG.enabled = false;
+            flushLogs();
+            stopFlushTimer();
+            originalLog.call(console, '[RemoteLogger] DISABLED - logs will NOT be sent');
+        },
+        isEnabled: function() {
+            return CONFIG.enabled;
+        },
+        checkMacList: function(macList) {
+            var match = checkMacList(macList);
+            if (match) {
+                this.enable();
+            } else {
+                this.disable();
+            }
+            return match;
         },
         setDebug: function(val) {
             CONFIG.debug = !!val;
         }
     };
     
-    // Otomatik başlat
     if (typeof document !== 'undefined') {
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', init);
