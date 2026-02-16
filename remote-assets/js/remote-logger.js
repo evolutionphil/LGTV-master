@@ -22,8 +22,8 @@
             }
             return 'https://flixapp.net/api/logs';
         })(),
-        batchSize: 20,
-        flushInterval: 5000,
+        batchSize: 50,
+        flushInterval: 15000,
         maxPending: 200,
         debug: false
     };

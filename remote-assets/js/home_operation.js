@@ -97,13 +97,17 @@ var home_page={
         }
         current_route='home-page';
 
-        $('#home-page-slider-container').slick({
-            autoplay: true,
-            arrows:false,
-            dots:true,
-            variableWidth:false,
-            autoplaySpeed:5000
-        });
+        try {
+            $('#home-page-slider-container').slick({
+                autoplay: true,
+                arrows:false,
+                dots:true,
+                variableWidth:false,
+                autoplaySpeed:5000
+            });
+        } catch(slickErr) {
+            console.log('Slick init error:', slickErr);
+        }
         try{
             media_player.init("home-page-video-preview",'home-page');
             media_player.setDisplayArea();
@@ -131,7 +135,8 @@ var home_page={
 
         this.live_sort_selection_doms=$('.live-sort-item');
         var html='';
-        languages.map(function (item,index) {
+        var langList = (typeof languages !== 'undefined' && languages) ? languages : [];
+        langList.map(function (item,index) {
             html+=
                 '<div class="modal-operation-menu-type-3 language-item modal-operation-menu-type-4" ' +
                 '   data-sort_key="default" ' +
@@ -1261,16 +1266,17 @@ var home_page={
         $('.search-back-button').removeClass('active');
         keys.focused_part="slider_selection";
         keys.slider_item_index=0;  // the first movie item of movie slider,
-        if(this.slider_items[0].length>0)  // from featured, and favorite movies, at least one item would have movies
+        if(this.slider_items && this.slider_items[0] && this.slider_items[0].length>0)  // from featured, and favorite movies, at least one item would have movies
             keys.slider_selection=0;
         else
             keys.slider_selection=1;
-        $(this.slider_items[keys.slider_selection][keys.slider_item_index]).addClass('active');
+        if(this.slider_items && this.slider_items[keys.slider_selection] && this.slider_items[keys.slider_selection][keys.slider_item_index])
+            $(this.slider_items[keys.slider_selection][keys.slider_item_index]).addClass('active');
     },
     MoveKeyOnMovies:function(increment){  // move movie inside slider by left, right key
         var keys=this.keys;
-        $(this.slider_items[0]).removeClass('active');
-        $(this.slider_items[1]).removeClass('active');
+        if(this.slider_items && this.slider_items[0]) $(this.slider_items[0]).removeClass('active');
+        if(this.slider_items && this.slider_items[1]) $(this.slider_items[1]).removeClass('active');
         $(this.menu_items).removeClass('active');
         $(this.submenu_items).removeClass('active');
 

@@ -1,0 +1,1157 @@
+asset-bootstrapper.js:164 [Bootstrapper] Cache clear triggered (vnull -> v2)
+asset-bootstrapper.js:189 [Bootstrapper] Cleared 0 cached files
+asset-bootstrapper.js:167 [Bootstrapper] Cache cleared, using local files
+common.js:1051 Object
+2webOSTV.js:126 PalmServiceBridge is not found.
+value @ webOSTV.js:126
+index.html:1843 [VersionDisplay] Manifest in cache: NO
+index.html:1861 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:235 [RemoteLogger] Initialized (disabled by default), deviceId: 6c:70:cb:32:40:28
+remote-logger.js:183 [VersionDisplay] Manifest in cache: NO
+remote-logger.js:183 [VersionDisplay] Setting text: vlocal (local), Element found: YES
+remote-logger.js:183 Samsung Tizen platform detected
+remote-logger.js:183 Samsung: Using Ethernet MAC address: e8:aa:cb:71:ad:59
+remote-logger.js:183 Object
+remote-logger.js:183 ✅ BLOCKED CHANNELS RECEIVED FROM API: Array(0)
+remote-logger.js:183 ✅ TERMS OF USE RECEIVED FROM API: Object
+remote-logger.js:183 📜 SHOWING TERMS OF USE (Version: 1.0)
+remote-logger.js:183 [AppConfig] Loaded from backend: {"remote_update_enabled":true,"manifest_url":"https://flixapp.pages.dev/manifest.json","kill_switch":false,"logging_mac_list":["E8:AA:CB:71:AD:59"]}
+remote-logger.js:263 [RemoteLogger] ENABLED - logs will be sent to backend
+remote-logger.js:183 [AppConfig] Logging ENABLED - MAC address found in list
+remote-logger.js:183 [AppConfig] Remote update ENABLED, manifest: https://flixapp.pages.dev/manifest.json
+remote-logger.js:183 [RemoteLoader] RemoteLoader v2.0 initialized on tizen
+remote-logger.js:183 [RemoteLoader] Network status: online
+remote-logger.js:183 [RemoteLoader] Starting background update check...
+remote-logger.js:183 [RemoteLoader] Manifest saved to cache: v1.1.9
+remote-logger.js:183 [VersionDisplay] Manifest in cache: YES (4391 bytes)
+remote-logger.js:183 [VersionDisplay] Found version: 1.1.9
+remote-logger.js:183 [VersionDisplay] Setting text: v1.1.9 (remote), Element found: YES
+remote-logger.js:183 [RemoteLoader] Version display updated
+remote-logger.js:183 [RemoteLoader] Downloading 49 updated files in background...
+remote-logger.js:183 [RemoteLoader] Hash verified: css/style.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/style.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 1/49 - css/style.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/variables.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/variables.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 2/49 - css/variables.css
+remote-logger.js:183 [VersionDisplay] Manifest in cache: YES (4391 bytes)
+remote-logger.js:183 [VersionDisplay] Found version: 1.1.9
+remote-logger.js:183 [VersionDisplay] Setting text: v1.1.9 (remote), Element found: YES
+remote-logger.js:183 [RemoteLoader] Hash verified: css/responsive.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/responsive.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 3/49 - css/responsive.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/vod_series_summary.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/vod_series_summary.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 4/49 - css/vod_series_summary.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/login.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/login.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 5/49 - css/login.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/loader.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/loader.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 6/49 - css/loader.css
+remote-logger.js:183 [RemoteLoader] Hash verified: js/Models/VodModel.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/Models/VodModel.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 7/49 - js/Models/VodModel.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/Models/LiveModel.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/Models/LiveModel.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 8/49 - js/Models/LiveModel.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/Models/SeriesModel.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/Models/SeriesModel.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 9/49 - js/Models/SeriesModel.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/common.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/common.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 10/49 - js/common.js
+remote-logger.js:173          POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:173
+addLog @ remote-logger.js:130
+console.log @ remote-logger.js:184
+log @ remote-loader.js:500
+xhr.onreadystatechange @ remote-loader.js:326
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+processManifest @ remote-loader.js:258
+xhr.onreadystatechange @ remote-loader.js:125
+XMLHttpRequest.send (async)
+loadManifest @ remote-loader.js:148
+(anonymous) @ remote-loader.js:98
+remote-logger.js:183 [RemoteLoader] Hash verified: js/common_with_encrypt.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/common_with_encrypt.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 11/49 - js/common_with_encrypt.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/main.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/main.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 12/49 - js/main.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/keyTizen.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/keyTizen.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 13/49 - js/keyTizen.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/time_helper.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/time_helper.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 14/49 - js/time_helper.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/language_codes.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/language_codes.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 15/49 - js/language_codes.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/home_operation.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/home_operation.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 16/49 - js/home_operation.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/login_operation.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/login_operation.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 17/49 - js/login_operation.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/asset-bootstrapper.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/asset-bootstrapper.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 18/49 - js/asset-bootstrapper.js
+remote-logger.js:173          POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:173
+addLog @ remote-logger.js:130
+console.log @ remote-logger.js:184
+log @ remote-loader.js:500
+xhr.onreadystatechange @ remote-loader.js:321
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+processManifest @ remote-loader.js:258
+xhr.onreadystatechange @ remote-loader.js:125
+XMLHttpRequest.send (async)
+loadManifest @ remote-loader.js:148
+(anonymous) @ remote-loader.js:98
+remote-logger.js:183 [RemoteLoader] Hash verified: css/vod_series_player_page.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/vod_series_player_page.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 19/49 - css/vod_series_player_page.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/channel_page.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/channel_page.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 20/49 - css/channel_page.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/homepage.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/homepage.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 21/49 - css/homepage.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/subtitle.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/subtitle.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 22/49 - css/subtitle.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/movie_grid.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/movie_grid.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 23/49 - css/movie_grid.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/rating.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/rating.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 24/49 - css/rating.css
+remote-logger.js:183 [RemoteLoader] Hash verified: js/seasons_variable.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/seasons_variable.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 25/49 - js/seasons_variable.js
+remote-logger.js:173          POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:173
+addLog @ remote-logger.js:130
+console.log @ remote-logger.js:184
+onProgress @ remote-config.js:15
+(anonymous) @ remote-loader.js:274
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+processManifest @ remote-loader.js:258
+xhr.onreadystatechange @ remote-loader.js:125
+XMLHttpRequest.send (async)
+loadManifest @ remote-loader.js:148
+(anonymous) @ remote-loader.js:98
+remote-logger.js:183 [RemoteLoader] Hash verified: js/episode_variable.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/episode_variable.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 26/49 - js/episode_variable.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/vod_summary.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/vod_summary.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 27/49 - js/vod_summary.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/series_summary.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/series_summary.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 28/49 - js/series_summary.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/player.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/player.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 29/49 - js/player.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/vod_series_player.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/vod_series_player.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 30/49 - js/vod_series_player.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/channel_operation.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/channel_operation.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 31/49 - js/channel_operation.js
+remote-logger.js:173          POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:173
+addLog @ remote-logger.js:130
+console.log @ remote-logger.js:184
+log @ remote-loader.js:500
+xhr.onreadystatechange @ remote-loader.js:326
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+processManifest @ remote-loader.js:258
+xhr.onreadystatechange @ remote-loader.js:125
+XMLHttpRequest.send (async)
+loadManifest @ remote-loader.js:148
+(anonymous) @ remote-loader.js:98
+remote-logger.js:183 [RemoteLoader] Hash verified: js/trailer.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/trailer.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 32/49 - js/trailer.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/srt_operation.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/srt_operation.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 33/49 - js/srt_operation.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/srt_parser.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/srt_parser.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 34/49 - js/srt_parser.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/subtitle_fetcher.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/subtitle_fetcher.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 35/49 - js/subtitle_fetcher.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/enhanced_subtitle_workflow.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/enhanced_subtitle_workflow.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 36/49 - js/enhanced_subtitle_workflow.js
+remote-logger.js:183 [RemoteLoader] Hash verified: css/guide.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/guide.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 37/49 - css/guide.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/catchup.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/catchup.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 38/49 - css/catchup.css
+remote-logger.js:173          POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:173
+addLog @ remote-logger.js:130
+console.log @ remote-logger.js:184
+log @ remote-loader.js:500
+xhr.onreadystatechange @ remote-loader.js:321
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+remote-logger.js:183 [RemoteLoader] Hash verified: css/search_page.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/search_page.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 39/49 - css/search_page.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/storage_page.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/storage_page.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 40/49 - css/storage_page.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/youtube_page.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/youtube_page.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 41/49 - css/youtube_page.css
+remote-logger.js:183 [RemoteLoader] Hash verified: css/gallary.css
+remote-logger.js:183 [RemoteLoader] Downloaded: css/gallary.css
+remote-logger.js:183 [RemoteUpdate] Downloading: 42/49 - css/gallary.css
+remote-logger.js:183 [RemoteLoader] Hash verified: js/guide_page.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/guide_page.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 43/49 - js/guide_page.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/catchup.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/catchup.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 44/49 - js/catchup.js
+remote-logger.js:173          POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:173
+addLog @ remote-logger.js:130
+console.log @ remote-logger.js:184
+onProgress @ remote-config.js:15
+(anonymous) @ remote-loader.js:274
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+XMLHttpRequest.send (async)
+downloadFile @ remote-loader.js:343
+downloadFilesSequentially @ remote-loader.js:270
+(anonymous) @ remote-loader.js:277
+xhr.onreadystatechange @ remote-loader.js:327
+remote-logger.js:183 [RemoteLoader] Hash verified: js/search_page.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/search_page.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 45/49 - js/search_page.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/youtube_page.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/youtube_page.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 46/49 - js/youtube_page.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/storage_operation.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/storage_operation.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 47/49 - js/storage_operation.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/image_page.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/image_page.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 48/49 - js/image_page.js
+remote-logger.js:183 [RemoteLoader] Hash verified: js/settings.js
+remote-logger.js:183 [RemoteLoader] Downloaded: js/settings.js
+remote-logger.js:183 [RemoteUpdate] Downloading: 49/49 - js/settings.js
+remote-logger.js:183 [RemoteLoader] Background update complete. 49 files updated.
+remote-logger.js:183 [RemoteLoader] Updates will be applied on next app launch.
+remote-logger.js:183 [RemoteUpdate] Background update complete: {success: true, hasUpdates: true, downloadedFiles: Array(49), failedFiles: Array(0), manifest: {…}}
+remote-logger.js:183 [RemoteUpdate] 49 files updated. Restart app to apply.
+remote-logger.js:173          POST https://flixapp.net/api/logs 503
+flushLogs @ remote-logger.js:173
+DevTools failed to load source map: Could not load content for file:///js/libs/popper.min.js.map: Unknown error
+DevTools failed to load source map: Could not load content for file:///js/libs/bootstrap.min.js.map: Unknown error
+DevTools failed to load source map: Could not load content for file:///css/libs/bootstrap.min.css.map: Unknown error
+DevTools failed to load source map: Could not load content for file:///css/libs/rangeslider.min.css.map: Unknown error
+6The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+remote-logger.js:183 [VersionDisplay] Manifest in cache: YES (4391 bytes)
+remote-logger.js:183 [VersionDisplay] Found version: 1.1.9
+remote-logger.js:183 [VersionDisplay] Setting text: v1.1.9 (remote), Element found: YES
+remote-logger.js:183 ✅ TERMS ACCEPTED (Version: 1.0)
+remote-logger.js:183 {mac_registered: true, epg_urls: Array(0), youtube_api_key: '', themes: Array(4), adverts: Array(1), …}
+remote-logger.js:183 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
+remote-logger.js:183 setDisplayArea: screen=1920x1080, scale=1.00x1.00
+remote-logger.js:183 setDisplayArea: css=0,0,639,359
+remote-logger.js:183 setDisplayArea: avplay=0,0,639,359
+remote-logger.js:183 Entering setDisplayRect
+remote-logger.js:193 jQuery.Deferred exception: Cannot read properties of undefined (reading 'map') TypeError: Cannot read properties of undefined (reading 'map')
+    at Object.init (file:///js/home_operation.js:134:19)
+    at Object.goToHomePage (file:///js/login_operation.js:23:19)
+    at Array.<anonymous> (file:///js/login_operation.js:731:38)
+    at e (file:///js/libs/jquery.3.4.1.min.js:2:29453)
+    at t (file:///js/libs/jquery.3.4.1.min.js:2:29755) undefined
+console.warn @ remote-logger.js:193
+k.Deferred.exceptionHook @ jquery.3.4.1.min.js:2
+t @ jquery.3.4.1.min.js:2
+setTimeout (async)
+(anonymous) @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+fire @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+l @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+load (async)
+send @ jquery.3.4.1.min.js:2
+ajax @ jquery.3.4.1.min.js:2
+success @ login_operation.js:706
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+l @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+load (async)
+send @ jquery.3.4.1.min.js:2
+ajax @ jquery.3.4.1.min.js:2
+proceed_login @ login_operation.js:654
+login @ login_operation.js:575
+startApp @ login_operation.js:126
+acceptTerms @ login_operation.js:1189
+handleMenuClick @ login_operation.js:922
+HandleKey @ login_operation.js:1050
+(anonymous) @ main.js:147
+remote-logger.js:183 TypeError: Cannot read properties of undefined (reading 'map')
+    at Object.init (home_operation.js:134:19)
+    at Object.goToHomePage (login_operation.js:23:19)
+    at Array.<anonymous> (login_operation.js:731:38)
+    at e (jquery.3.4.1.min.js:2:29453)
+    at t (jquery.3.4.1.min.js:2:29755) 'convert to normal m3u'
+remote-logger.js:183 http://galaiptv.shop:4512/movie/yenideneme1/mWT6HVdjMZ/364841.mkv
+remote-logger.js:183 avplay_api.js adding listener for ID: [1]
+remote-logger.js:183 setDisplayArea: screen=1920x1080, scale=1.00x1.00
+remote-logger.js:183 setDisplayArea: css=0,0,639,359
+remote-logger.js:183 setDisplayArea: avplay=0,0,639,359
+remote-logger.js:183 Entering setDisplayRect
+remote-logger.js:183 here trying to open
+remote-logger.js:183 Entered AVPlayManager.prepareAsync()
+remote-logger.js:183 here video loaded
+remote-logger.js:183 setDisplayArea: screen=1920x1080, scale=1.00x1.00
+remote-logger.js:183 setDisplayArea: css=0,0,639,359
+remote-logger.js:183 setDisplayArea: avplay=0,0,639,359
+remote-logger.js:183 Entering setDisplayRect
+2channel_operation.js:502 Uncaught TypeError: Cannot read properties of null (reading 'url')
+    at Object.showLiveChannelMovie (channel_operation.js:502:51)
+    at Object.init (channel_operation.js:113:14)
+    at Object.showCategoryContent (home_operation.js:961:30)
+    at Object.submenuClick (home_operation.js:982:14)
+    at HTMLDivElement.onclick (index.html:1:11)
+    at Object.trigger (jquery.3.4.1.min.js:2:70678)
+    at HTMLDivElement.<anonymous> (jquery.3.4.1.min.js:2:71222)
+    at Function.each (jquery.3.4.1.min.js:2:2777)
+    at k.fn.init.each (jquery.3.4.1.min.js:2:1419)
+    at k.fn.init.trigger (jquery.3.4.1.min.js:2:71198)
+showLiveChannelMovie @ channel_operation.js:502
+init @ channel_operation.js:113
+showCategoryContent @ home_operation.js:961
+submenuClick @ home_operation.js:982
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ home_operation.js:1897
+HandleKey @ home_operation.js:1994
+(anonymous) @ main.js:150
+remote-logger.js:193 jQuery.Deferred exception: Cannot read properties of null (reading 'add') TypeError: Cannot read properties of null (reading 'add')
+    at Slick.initADA (file:///js/libs/slick.js:1333:19)
+    at Slick.init (file:///js/libs/slick.js:1314:15)
+    at new Slick (file:///js/libs/slick.js:183:15)
+    at $.fn.slick (file:///js/libs/slick.js:3029:30)
+    at Object.init (file:///js/home_operation.js:100:42)
+    at Object.goToHomePage (file:///js/login_operation.js:23:19)
+    at Object.<anonymous> (file:///js/login_operation.js:767:22)
+    at e (file:///js/libs/jquery.3.4.1.min.js:2:29453)
+    at t (file:///js/libs/jquery.3.4.1.min.js:2:29755) undefined
+console.warn @ remote-logger.js:193
+k.Deferred.exceptionHook @ jquery.3.4.1.min.js:2
+t @ jquery.3.4.1.min.js:2
+setTimeout (async)
+(anonymous) @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+fire @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+e @ jquery.3.4.1.min.js:2
+t @ jquery.3.4.1.min.js:2
+setTimeout (async)
+(anonymous) @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+fire @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+s.<computed> @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+l @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+load (async)
+send @ jquery.3.4.1.min.js:2
+ajax @ jquery.3.4.1.min.js:2
+proceed_login @ login_operation.js:755
+(anonymous) @ login_operation.js:736
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+t @ jquery.3.4.1.min.js:2
+setTimeout (async)
+(anonymous) @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+fire @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+l @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+load (async)
+send @ jquery.3.4.1.min.js:2
+ajax @ jquery.3.4.1.min.js:2
+success @ login_operation.js:706
+c @ jquery.3.4.1.min.js:2
+fireWith @ jquery.3.4.1.min.js:2
+l @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+load (async)
+send @ jquery.3.4.1.min.js:2
+ajax @ jquery.3.4.1.min.js:2
+proceed_login @ login_operation.js:654
+login @ login_operation.js:575
+startApp @ login_operation.js:126
+acceptTerms @ login_operation.js:1189
+handleMenuClick @ login_operation.js:922
+HandleKey @ login_operation.js:1050
+(anonymous) @ main.js:147
+remote-logger.js:183 Playlist count: 1 playlist_urls: ['http://galaiptv.shop:4512/get.php?username=yenideneme1&password=mWT6HVdjMZ&type=m3u&output=mpegts']
+remote-logger.js:183 Hiding Choose Playlist button - only one or no playlist available
+channel_operation.js:502 Uncaught TypeError: Cannot read properties of null (reading 'url')
+    at Object.showLiveChannelMovie (channel_operation.js:502:51)
+    at Object.init (channel_operation.js:113:14)
+    at Object.showCategoryContent (home_operation.js:961:30)
+    at Object.submenuClick (home_operation.js:982:14)
+    at HTMLDivElement.onclick (index.html:1:11)
+    at Object.trigger (jquery.3.4.1.min.js:2:70678)
+    at HTMLDivElement.<anonymous> (jquery.3.4.1.min.js:2:71222)
+    at Function.each (jquery.3.4.1.min.js:2:2777)
+    at k.fn.init.each (jquery.3.4.1.min.js:2:1419)
+    at k.fn.init.trigger (jquery.3.4.1.min.js:2:71198)
+showLiveChannelMovie @ channel_operation.js:502
+init @ channel_operation.js:113
+showCategoryContent @ home_operation.js:961
+submenuClick @ home_operation.js:982
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ home_operation.js:1897
+HandleKey @ home_operation.js:1994
+(anonymous) @ main.js:150
+45.129.183.111/turk84/liderhaber.p:1          GET http://45.129.183.111/turk84/liderhaber.p 404 (Not Found)
+Image (async)
+(anonymous) @ jquery.3.4.1.min.js:2
+_ @ jquery.3.4.1.min.js:2
+html @ jquery.3.4.1.min.js:2
+init @ channel_operation.js:81
+showCategoryContent @ home_operation.js:961
+submenuClick @ home_operation.js:982
+onclick @ index.html:1
+trigger @ jquery.3.4.1.min.js:2
+(anonymous) @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+each @ jquery.3.4.1.min.js:2
+trigger @ jquery.3.4.1.min.js:2
+handleMenuClick @ home_operation.js:1897
+HandleKey @ home_operation.js:1994
+(anonymous) @ main.js:150
+home_operation.js:1264 Uncaught TypeError: Cannot read properties of undefined (reading 'length')
+    at Object.KeyToMovies (home_operation.js:1264:33)
+    at Object.handleMenuLeftRight (home_operation.js:1784:30)
+    at Object.HandleKey (home_operation.js:1982:26)
+    at HTMLDocument.<anonymous> (main.js:150:27)
+KeyToMovies @ home_operation.js:1264
+handleMenuLeftRight @ home_operation.js:1784
+HandleKey @ home_operation.js:1982
+(anonymous) @ main.js:150

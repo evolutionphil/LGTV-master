@@ -498,8 +498,10 @@ var channel_page={
         var url
         if(settings.playlist_type==="xtreme")
             url=getMovieUrl(movie_id,'live','ts');
-        else if(settings.playlist_type==="type1")
-            url=LiveModel.getMovieFromId(movie_id)['url'];
+        else if(settings.playlist_type==="type1") {
+            var liveMovie = LiveModel.getMovieFromId(movie_id);
+            url = liveMovie ? liveMovie['url'] : null;
+        }
         try{
             media_player.close();
         }catch (e) {
@@ -511,7 +513,11 @@ var channel_page={
             console.log(e);
         }
         try{
-            media_player.playAsync(url);
+            if(url) {
+                media_player.playAsync(url);
+            } else {
+                console.log('showLiveChannelMovie: no URL for movie_id', movie_id);
+            }
         }catch (e) {
             console.log(e);
         }

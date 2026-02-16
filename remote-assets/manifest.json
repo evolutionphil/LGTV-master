@@ -1,6 +1,6 @@
 {
   "version": "1.2.0",
-  "lastUpdate": "2026-02-16T11:41:15.670Z",
+  "lastUpdate": "2026-02-16T12:49:24.455Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 8,
@@ -208,15 +208,15 @@
       "priority": 2
     },
     "js/home_operation.js": {
-      "version": "1.0.4",
-      "size": 91824,
-      "hash": "bb915687",
+      "version": "1.0.5",
+      "size": 92331,
+      "hash": "13e2f6a5",
       "priority": 1
     },
     "js/channel_operation.js": {
-      "version": "1.0.1",
-      "size": 43395,
-      "hash": "fb7c2097",
+      "version": "1.0.3",
+      "size": 43612,
+      "hash": "3346d3a4",
       "priority": 2
     },
     "js/login_operation.js": {
