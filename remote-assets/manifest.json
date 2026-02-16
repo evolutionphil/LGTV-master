@@ -1,16 +1,16 @@
 {
-  "version": "1.2.0",
-  "lastUpdate": "2026-02-16T12:49:24.455Z",
+  "version": "0.0.0",
+  "lastUpdate": "2026-02-16T12:51:02.712Z",
   "killSwitch": false,
   "forceRefresh": false,
-  "cacheGeneration": 8,
+  "cacheGeneration": 1,
   "maxAgeHours": 24,
   "baseUrl": "https://flixapp.pages.dev/",
   "cachePrefix": "flix_remote_",
   "timeout": 5000,
   "files": {
     "css/style.css": {
-      "version": "1.0.2",
+      "version": "1.0.0",
       "size": 20995,
       "hash": "74ceb423",
       "priority": 1
@@ -28,7 +28,7 @@
       "priority": 1
     },
     "css/vod_series_summary.css": {
-      "version": "1.0.2",
+      "version": "1.0.0",
       "size": 33111,
       "hash": "3f721e2d",
       "priority": 1
@@ -118,25 +118,25 @@
       "priority": 3
     },
     "js/Models/VodModel.js": {
-      "version": "1.0.1",
+      "version": "1.0.0",
       "size": 15843,
       "hash": "ef6d3188",
       "priority": 1
     },
     "js/Models/LiveModel.js": {
-      "version": "1.0.1",
+      "version": "1.0.0",
       "size": 17543,
       "hash": "e59ecbae",
       "priority": 1
     },
     "js/Models/SeriesModel.js": {
-      "version": "1.0.1",
+      "version": "1.0.0",
       "size": 13063,
       "hash": "65fd7332",
       "priority": 1
     },
     "js/common.js": {
-      "version": "1.0.1",
+      "version": "1.0.0",
       "size": 37923,
       "hash": "66d965dc",
       "priority": 1
@@ -148,7 +148,7 @@
       "priority": 1
     },
     "js/main.js": {
-      "version": "1.0.1",
+      "version": "1.0.0",
       "size": 8333,
       "hash": "e1702698",
       "priority": 1
@@ -190,31 +190,31 @@
       "priority": 2
     },
     "js/series_summary.js": {
-      "version": "1.0.1",
+      "version": "1.0.0",
       "size": 35269,
       "hash": "135976eb",
       "priority": 2
     },
     "js/player.js": {
-      "version": "1.0.13",
+      "version": "1.0.0",
       "size": 31224,
       "hash": "8efad609",
       "priority": 2
     },
     "js/vod_series_player.js": {
-      "version": "1.0.6",
+      "version": "1.0.0",
       "size": 72240,
       "hash": "aa73358",
       "priority": 2
     },
     "js/home_operation.js": {
-      "version": "1.0.5",
+      "version": "1.0.0",
       "size": 92331,
       "hash": "13e2f6a5",
       "priority": 1
     },
     "js/channel_operation.js": {
-      "version": "1.0.3",
+      "version": "1.0.0",
       "size": 43612,
       "hash": "3346d3a4",
       "priority": 2
@@ -232,13 +232,13 @@
       "priority": 3
     },
     "js/catchup.js": {
-      "version": "1.0.1",
+      "version": "1.0.0",
       "size": 17976,
       "hash": "bbdecc91",
       "priority": 3
     },
     "js/search_page.js": {
-      "version": "1.0.1",
+      "version": "1.0.0",
       "size": 12601,
       "hash": "be2193d8",
       "priority": 3
@@ -250,7 +250,7 @@
       "priority": 3
     },
     "js/storage_operation.js": {
-      "version": "1.0.1",
+      "version": "1.0.0",
       "size": 13660,
       "hash": "27ee4edd",
       "priority": 3
@@ -292,7 +292,7 @@
       "priority": 2
     },
     "js/enhanced_subtitle_workflow.js": {
-      "version": "1.0.3",
+      "version": "1.0.0",
       "size": 13638,
       "hash": "c3edc53c",
       "priority": 2
