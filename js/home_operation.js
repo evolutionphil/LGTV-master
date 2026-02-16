@@ -816,9 +816,10 @@ var home_page={
     },
     getSelectedLanguageWords:function(code){
         var words=[];
-        for(var i=0;i<languages.length;i++){
-            if(languages[i].code===code){
-                words=languages[i].words;
+        var langList = (typeof languages !== 'undefined' && languages) ? languages : [];
+        for(var i=0;i<langList.length;i++){
+            if(langList[i].code===code){
+                words=langList[i].words;
                 break;
             }
         }

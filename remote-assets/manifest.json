@@ -1,6 +1,6 @@
 {
   "version": "0.0.0",
-  "lastUpdate": "2026-02-16T12:51:02.712Z",
+  "lastUpdate": "2026-02-16T13:20:23.056Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 1,
@@ -208,9 +208,9 @@
       "priority": 2
     },
     "js/home_operation.js": {
-      "version": "1.0.0",
-      "size": 92331,
-      "hash": "13e2f6a5",
+      "version": "1.0.1",
+      "size": 92417,
+      "hash": "9978fd70",
       "priority": 1
     },
     "js/channel_operation.js": {
