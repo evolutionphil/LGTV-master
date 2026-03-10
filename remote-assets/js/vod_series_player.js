@@ -310,9 +310,9 @@ var vod_series_player={
                     }
                 }
                 if(this.back_url==="episode-page"){
-                    $('#episode-page').show();
-                    var season_buttons=$('.episode-grid-item-wrapper');
-                    moveScrollPosition($('#episode-grid-container'),season_buttons[episode_variable.keys.index],'vertical',false)
+                    $('#episode-page').hide();
+                    $('#series-summary-page').show();
+                    series_summary_page.reEnterFromPlayer();
                 }
                 if(this.back_url==='search-page'){
                     $('#search-page').show();
@@ -504,7 +504,7 @@ var vod_series_player={
             }catch(e){
             }
             current_episode=episode;
-            this.init(current_episode,'series',"episode-page")
+            this.init(current_episode,'series', this.back_url)
         }
     },
     showNextVideo:function(increment){
@@ -1540,10 +1540,8 @@ var vod_series_player={
                 if(this.back_url==="home-page"){
                     home_page.reEnter();
                 }
-                if(this.back_url==="episode-page"){
-                    $('#episode-page').show();
-                }
-                if(this.back_url==='series-summary-page'){
+                if(this.back_url==="episode-page" || this.back_url==='series-summary-page'){
+                    $('#episode-page').hide();
                     $('#series-summary-page').show();
                     series_summary_page.reEnterFromPlayer();
                 }
