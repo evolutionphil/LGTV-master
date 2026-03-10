@@ -156,14 +156,14 @@ var vod_series_player={
     },
     makeEpisodeDoms:function(back_url){
         this.keys.episode_selection=0;
-        if(back_url==='episode-page'){
-            var episodes=current_season.episodes;
+        if(back_url==='episode-page' || back_url==='series-summary-page'){
+            var episodes=current_season.episodes || [];
             this.episodes=episodes;
             this.has_episodes=true;
             var html='';
             episodes.map(function (item, index) {
                 var image='images/series.png';
-                if(typeof item.info!='undefined'){
+                if(typeof item.info!='undefined' && item.info && item.info.movie_image){
                     image=item.info.movie_image;
                 }
                 html+=
@@ -183,7 +183,7 @@ var vod_series_player={
         }else{
             this.has_episodes=false;
             $('#player-seasons-container').html('');
-            this.episode_doms=$('.player-season-item')
+            this.episode_doms=$('.player-season-item');
             this.episode_doms=[];
             $('#player-seasons-container').hide();
         }
@@ -585,6 +585,14 @@ var vod_series_player={
                 var video_file_wrapper=storage_page.video_files[storage_page.video_index];
                 storage_page.keys.menu_selection=video_file_wrapper.index;
                 this.init(video_file_wrapper.file,'storage','storage-page');
+                break;
+            case 'series-summary-page':
+                var newEpIndex = series_summary_page.keys.episode_index + increment;
+                var totalEps = (current_season.episodes || []).length;
+                if(newEpIndex < 0 || newEpIndex >= totalEps) return;
+                series_summary_page.keys.episode_index = newEpIndex;
+                this.keys.episode_selection = newEpIndex;
+                series_summary_page.playEpisode(newEpIndex);
                 break;
         }
     },
