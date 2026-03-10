@@ -293,68 +293,65 @@ var vod_series_player={
         }
     },
     goBack:function(){
-        $('.modal').modal('hide');
         var keys=this.keys;
-        if(this.show_control){
-            this.hideControlBar();
-        }else{
-            if(keys.focused_part==="control_bar" || keys.focused_part==='info_bar' || keys.focused_part==='slider' || keys.focused_part==='episode_selection'){
-                this.Exit();
-                if(this.back_url==="home-page"){
-                    home_page.reEnter();
-                    if (home_page.keys.focused_part === 'grid_selection' && current_category.category_id === 'resume') {
-                        if (home_page.keys.grid_selection < 0)
-                            home_page.hoverToSubMenu(home_page.keys.submenu_selection);
-                        else {
-                            home_page.hoverMovieGridItem(home_page.movie_grid_doms[home_page.keys.grid_selection])
-                        }
-                    }
-                }
-                if(this.back_url==="episode-page"){
-                    $('#episode-page').hide();
-                    $('#series-summary-page').show();
-                    series_summary_page.reEnterFromPlayer();
-                }
-                if(this.back_url==='search-page'){
-                    $('#search-page').show();
-                    search_page.hoverMovie(search_page.keys.hor_keys[1],1);
-                }
-                if(this.back_url==='storage-page') {
-                    console.log('here');
-                    $('#storage-page').show();
-                    storage_page.hoverMenuItem(storage_page.keys.menu_selection);
-                }
-                if(this.back_url==='series-summary-page'){
-                    $('#series-summary-page').show();
-                    series_summary_page.reEnterFromPlayer();
-                }
-            }
-        }
-        if(this.keys.focused_part==="operation_modal"){
+        if(keys.focused_part==="operation_modal"){
             $('#vod-series-player-operation-modal').modal('hide');
             keys.focused_part="control_bar";
+            return;
         }
         if(keys.focused_part==="subtitle_audio_selection_modal"){
             $('#subtitle-loader-container').hide();
             keys.focused_part=keys.prev_focus;
             $('#subtitle-selection-modal').modal('hide');
+            return;
         }
         if(keys.focused_part==='vod_info'){
             $('#vod-video-info-container').hide();
             clearTimeout(this.vod_info_timer);
             keys.focused_part=keys.prev_focus;
+            return;
         }
         if(keys.focused_part==='resume_bar'){
             $('#video-resume-modal').hide();
             if(keys.prev_focus!='resume_bar')
                 keys.focused_part=keys.prev_focus;
-            else // this means, in subtitle modal, the prev focus is settled to resume bar, so in this case,
-                // have to go back to info_bar
-                keys.focused_part='info_bar'
+            else
+                keys.focused_part='info_bar';
             clearTimeout(this.resume_timer);
+            return;
         }
         if(keys.focused_part==="subtitle_position_overlay"){
             this.cancelSubtitlePosition();
+            return;
+        }
+        $('.modal').modal('hide');
+        this.Exit();
+        if(this.back_url==="home-page"){
+            home_page.reEnter();
+            if (home_page.keys.focused_part === 'grid_selection' && current_category.category_id === 'resume') {
+                if (home_page.keys.grid_selection < 0)
+                    home_page.hoverToSubMenu(home_page.keys.submenu_selection);
+                else {
+                    home_page.hoverMovieGridItem(home_page.movie_grid_doms[home_page.keys.grid_selection]);
+                }
+            }
+        }
+        if(this.back_url==="episode-page"){
+            $('#episode-page').hide();
+            $('#series-summary-page').show();
+            series_summary_page.reEnterFromPlayer();
+        }
+        if(this.back_url==='search-page'){
+            $('#search-page').show();
+            search_page.hoverMovie(search_page.keys.hor_keys[1],1);
+        }
+        if(this.back_url==='storage-page'){
+            $('#storage-page').show();
+            storage_page.hoverMenuItem(storage_page.keys.menu_selection);
+        }
+        if(this.back_url==='series-summary-page'){
+            $('#series-summary-page').show();
+            series_summary_page.reEnterFromPlayer();
         }
     },
     playPauseVideo:function(action_type){
