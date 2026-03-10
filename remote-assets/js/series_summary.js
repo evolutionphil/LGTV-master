@@ -507,8 +507,11 @@ var series_summary_page={
         this.keys.episode_index = index;
         $('#series-summary-page').hide();
         vod_series_player.makeEpisodeDoms('series-summary-page');
-        vod_series_player.init(current_episode,'series','series-summary-page');
         vod_series_player.keys.episode_selection = index;
+        $(vod_series_player.episode_doms).removeClass('active');
+        $(vod_series_player.episode_doms[index]).addClass('active');
+        moveScrollPosition($('#player-seasons-container'), vod_series_player.episode_doms[index], 'horizontal', false);
+        vod_series_player.init(current_episode,'series','series-summary-page');
     },
     addFavorite:function(targetElement){
         var action=$(targetElement).data('action');

@@ -178,7 +178,8 @@ var vod_series_player={
             $('#player-seasons-container').html(html);
             this.keys.episode_selection=0;
             this.episode_doms=$('.player-season-item');
-            $('#player-seasons-container').removeClass('expanded');
+            $(this.episode_doms[0]).addClass('active');
+            $('#player-seasons-container').addClass('expanded');
             $('#player-seasons-container').show();
         }else{
             this.has_episodes=false;
