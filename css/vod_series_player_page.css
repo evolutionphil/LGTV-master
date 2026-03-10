@@ -205,18 +205,13 @@
 }
 
 #player-seasons-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    padding: 10px 20px 20px 20px;
+    padding: 10px 20px 10px 20px;
     text-align: left;
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
     display: none;
-    z-index: 5;
 }
 #player-seasons-container.expanded{
     display: block;

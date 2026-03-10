@@ -148,7 +148,7 @@ if (!String.prototype.padStart) {
     
     // CACHE CLEAR TRIGGER - Increment this to force cache clear on all TVs
     // This is used when CDN has broken files and we need to reset to local
-    var CACHE_CLEAR_VERSION = 2; // Bumped to clear broken player.js cache
+    var CACHE_CLEAR_VERSION = 3; // Bumped to force fresh local files
     
     function log(msg) {
         if (DEBUG) console.log('[Bootstrapper] ' + msg);
