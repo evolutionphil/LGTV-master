@@ -595,8 +595,7 @@ var vod_series_player={
         }
     },
     showControlBar:function(move_focus){
-        $('#vod-series-video-controls-container').show();
-        $('#vod-controls-inner').slideDown();
+        $('#vod-series-video-controls-container').slideDown();
         $('#vod-series-video-title').slideDown();
         this.show_control=true;
         var that=this;
@@ -609,9 +608,7 @@ var vod_series_player={
             $(this.video_info_doms).removeClass('active');
             $(this.video_control_doms[2]).addClass('active');
             $(this.episode_doms).removeClass('active');
-            if(!this.has_episodes){
-                $('#player-seasons-container').removeClass('expanded');
-            }
+            $('#player-seasons-container').removeClass('expanded');
         }
         clearTimeout(this.timeOut);
         this.timeOut=setTimeout(function(){
@@ -619,7 +616,7 @@ var vod_series_player={
         },5000);
     },
     hideControlBar:function(){
-        $('#vod-controls-inner').slideUp();
+        $('#vod-series-video-controls-container').slideUp();
         $('#vod-series-video-title').slideUp();
         this.show_control=false;
     },
