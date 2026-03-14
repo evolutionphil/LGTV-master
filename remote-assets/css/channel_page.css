@@ -677,7 +677,8 @@
 }
 .channel-action-btn{
     font-size: 30px;
-    width: 200px;
+    min-width: 200px;
+    white-space: nowrap;
     background: #520178;
     color: #ccc;
     border-radius: 35px;

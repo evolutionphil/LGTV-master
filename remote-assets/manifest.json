@@ -1,6 +1,6 @@
 {
-  "version": "0.0.3",
-  "lastUpdate": "2026-03-14T23:32:09.049Z",
+  "version": "0.0.4",
+  "lastUpdate": "2026-03-14T23:33:46.470Z",
   "killSwitch": false,
   "forceRefresh": false,
   "cacheGeneration": 1,
@@ -22,9 +22,9 @@
       "priority": 1
     },
     "css/responsive.css": {
-      "version": "1.0.0",
-      "size": 9260,
-      "hash": "5023d14d",
+      "version": "1.0.1",
+      "size": 9264,
+      "hash": "43e7cfa8",
       "priority": 1
     },
     "css/vod_series_summary.css": {
@@ -40,9 +40,9 @@
       "priority": 2
     },
     "css/channel_page.css": {
-      "version": "1.0.0",
-      "size": 20419,
-      "hash": "79e14ffe",
+      "version": "1.0.1",
+      "size": 20448,
+      "hash": "c681e61d",
       "priority": 2
     },
     "css/homepage.css": {

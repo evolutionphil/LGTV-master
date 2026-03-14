@@ -119,7 +119,7 @@
     }
     .channel-action-btn {
         font-size: 25px;
-        width: 160px;
+        min-width: 160px;
     }
 
     #full-screen-program-name,
