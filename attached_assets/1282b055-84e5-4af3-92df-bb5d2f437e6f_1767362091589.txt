@@ -1,329 +1,0 @@
-console.js:36 Sentry initialized with platform: tizen
-console.js:36 {errorCode: -1, errorText: "PalmServiceBridge is not found.", returnValue: false}
-console.js:36 PalmServiceBridge is not found.
-(anonymous) @ console.js:36
-value @ webOSTV.js:126
-request @ webOSTV.js:158
-(anonymous) @ VM494:1001
-writeJS @ asset-bootstrapper.js:138
-(anonymous) @ index.html:1856
-console.js:36 PalmServiceBridge is not found.
-(anonymous) @ console.js:36
-value @ webOSTV.js:126
-request @ webOSTV.js:158
-(anonymous) @ VM494:1018
-writeJS @ asset-bootstrapper.js:138
-(anonymous) @ index.html:1856
-console.js:36 [VersionDisplay] Manifest in cache: YES (4396 bytes)
-console.js:36 [VersionDisplay] Found version: 1.2.0
-console.js:36 [VersionDisplay] Setting text: v1.2.0 (remote), Element found: YES
-console.js:36 [VersionDisplay] Manifest in cache: YES (4396 bytes)
-console.js:36 [VersionDisplay] Found version: 1.2.0
-console.js:36 [VersionDisplay] Setting text: v1.2.0 (remote), Element found: YES
-console.js:36 Samsung Tizen platform detected
-console.js:36 Samsung: Using Ethernet MAC address: a4:30:7a:37:c8:98
-console.js:36 {mac_registered: true, epg_urls: Array(0), youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE", themes: Array(3), adverts: Array(1), …}
-console.js:36 ✅ BLOCKED CHANNELS RECEIVED FROM API: []
-console.js:36 ✅ TERMS OF USE RECEIVED FROM API: {version: "1.0", content: "FLIX IPTV - TERMS OF USE↵↵Last Updated: October …ation↵↵© 2025 FLIX IPTV. All rights reserved.↵", updated_date: "2025-10-12"}content: "FLIX IPTV - TERMS OF USE↵↵Last Updated: October 12, 2025 | Version 1.0↵↵IMPORTANT LEGAL NOTICE↵↵By clicking "Accept", you acknowledge and agree to these Terms of Use.↵↵1. SERVICE DESCRIPTION↵FLIX IPTV is a media player application that uses platform-specific native players (Samsung AVPlay, LG WebOS Player, HTML5, ExoPlayer, Apple Player). The App DOES NOT provide, host, distribute, or offer any IPTV channels, streams, or content. It is a neutral playback tool for user-provided sources.↵↵2. USER RESPONSIBILITY↵YOU ARE SOLELY RESPONSIBLE FOR:↵• Ensuring all content complies with copyright laws in your jurisdiction↵• Obtaining proper licenses for any IPTV services you use↵• Verifying that playlist URLs are legally authorized↵• All legal consequences from accessing unlicensed content↵↵YOU MUST NOT:↵• Stream copyrighted content without authorization↵• Use the App to facilitate copyright infringement↵• Access geo-restricted content illegally↵• Violate intellectual property or telecommunications laws↵↵3. LEGAL COMPLIANCE↵Unauthorized streaming is ILLEGAL and may result in:↵• Civil lawsuits and damages from copyright holders↵• Criminal prosecution (up to 10 years imprisonment in some jurisdictions)↵• ISP warnings, throttling, or service termination↵• Fines and legal fees↵↵By using this App, you confirm you will ONLY stream legally authorized content.↵↵4. NO WARRANTIES↵The App is provided "AS IS" without warranties. We do not verify, endorse, or validate third-party content. External IPTV services are not controlled by us.↵↵5. LIMITATION OF LIABILITY↵WE ARE NOT LIABLE FOR:↵• Your violation of copyright or intellectual property laws↵• Legal actions, fines, or prosecution against you↵• Third-party IPTV services or content legality↵• Any direct, indirect, or consequential damages↵• ISP actions or network restrictions↵↵You agree to indemnify and hold us harmless from any claims arising from your use of the App.↵↵6. JURISDICTIONAL COMPLIANCE↵IPTV laws vary by region. You are responsible for understanding local laws. This App may not be legal in all jurisdictions. Users in high-enforcement regions (UK, US, EU, Australia, Canada) should consult legal counsel.↵↵7. AGE RESTRICTION↵This App is for users 18+ only. You confirm you have legal capacity to accept these terms.↵↵8. INTELLECTUAL PROPERTY↵We respect IP rights. Illegal streaming violates copyright laws globally. Users found violating IP laws may face account termination and legal action from rights holders.↵↵9. TERMINATION↵We may terminate access for Terms violations, suspected illegal activity, or any harmful conduct without notice.↵↵10. GOVERNING LAW↵These Terms are governed by applicable laws in your jurisdiction. Disputes shall be resolved through binding arbitration where permitted.↵↵11. ACCEPTANCE↵BY CLICKING "ACCEPT":↵✓ You accept sole responsibility for your content choices↵✓ You will only use legally licensed IPTV services↵✓ You understand illegal streaming may result in prosecution↵✓ You waive all claims against us for your actions↵✓ You comply with all applicable laws↵↵IF YOU DECLINE: You must immediately cease using this App.↵↵For full Terms of Use, visit: https://flixapp.net/terms&conditions↵Contact: https://flixapp.net/activation↵↵© 2025 FLIX IPTV. All rights reserved.↵"updated_date: "2025-10-12"version: "1.0"__proto__: Object
-console.js:36 ✅ TERMS ALREADY ACCEPTED (Version: 1.0)
-console.js:36 {mac_registered: true, epg_urls: Array(0), youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE", themes: Array(3), adverts: Array(1), …}
-console.js:36 [RemoteLoader] RemoteLoader v2.0 initialized on tizen
-console.js:36 [RemoteLoader] Network status: online
-The resource https://flixapp.net/images/activation-qr-code.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
-console.js:36 [RemoteLoader] Starting background update check...
-console.js:36 [RemoteLoader] Manifest saved to cache: v1.2.0
-console.js:36 [VersionDisplay] Manifest in cache: YES (4396 bytes)
-console.js:36 [VersionDisplay] Found version: 1.2.0
-console.js:36 [VersionDisplay] Setting text: v1.2.0 (remote), Element found: YES
-console.js:36 [RemoteLoader] Version display updated
-console.js:36 [RemoteLoader] Force refresh flag active - will clear cache
-console.js:36 [RemoteLoader] Clearing all cache...
-console.js:36 [RemoteLoader] Cleared all cache
-console.js:36 [RemoteLoader] Manifest saved to cache: v1.2.0
-console.js:36 [VersionDisplay] Manifest in cache: YES (4396 bytes)
-console.js:36 [VersionDisplay] Found version: 1.2.0
-console.js:36 [VersionDisplay] Setting text: v1.2.0 (remote), Element found: YES
-console.js:36 [RemoteLoader] Version display updated
-console.js:36 [RemoteLoader] Manifest re-saved after cache clear
-console.js:36 [RemoteLoader] Downloading 49 updated files in background...
-console.js:36 [RemoteLoader] Downloaded: css/style.css
-console.js:36 [RemoteUpdate] Downloading: 1/49 - css/style.css
-console.js:36 [RemoteLoader] Downloaded: css/variables.css
-console.js:36 [RemoteUpdate] Downloading: 2/49 - css/variables.css
-console.js:36 [RemoteLoader] Downloaded: css/responsive.css
-console.js:36 [RemoteUpdate] Downloading: 3/49 - css/responsive.css
-console.js:36 [RemoteLoader] Downloaded: css/vod_series_summary.css
-console.js:36 [RemoteUpdate] Downloading: 4/49 - css/vod_series_summary.css
-console.js:36 [RemoteLoader] Downloaded: css/login.css
-console.js:36 [RemoteUpdate] Downloading: 5/49 - css/login.css
-console.js:36 [RemoteLoader] Downloaded: css/loader.css
-console.js:36 [RemoteUpdate] Downloading: 6/49 - css/loader.css
-console.js:36 [RemoteLoader] Downloaded: js/Models/VodModel.js
-console.js:36 [RemoteUpdate] Downloading: 7/49 - js/Models/VodModel.js
-console.js:36 [RemoteLoader] Downloaded: js/Models/LiveModel.js
-console.js:36 [RemoteUpdate] Downloading: 8/49 - js/Models/LiveModel.js
-console.js:36 [RemoteLoader] Downloaded: js/Models/SeriesModel.js
-console.js:36 [RemoteUpdate] Downloading: 9/49 - js/Models/SeriesModel.js
-console.js:36 [RemoteLoader] Downloaded: js/common.js
-console.js:36 [RemoteUpdate] Downloading: 10/49 - js/common.js
-console.js:36 [RemoteLoader] Downloaded: js/common_with_encrypt.js
-console.js:36 [RemoteUpdate] Downloading: 11/49 - js/common_with_encrypt.js
-console.js:36 [RemoteLoader] Downloaded: js/main.js
-console.js:36 [RemoteUpdate] Downloading: 12/49 - js/main.js
-console.js:36 [VersionDisplay] Manifest in cache: YES (4396 bytes)
-console.js:36 [VersionDisplay] Found version: 1.2.0
-console.js:36 [VersionDisplay] Setting text: v1.2.0 (remote), Element found: YES
-console.js:36 [RemoteLoader] Downloaded: js/keyTizen.js
-console.js:36 [RemoteUpdate] Downloading: 13/49 - js/keyTizen.js
-console.js:36 [RemoteLoader] Downloaded: js/time_helper.js
-console.js:36 [RemoteUpdate] Downloading: 14/49 - js/time_helper.js
-console.js:36 [RemoteLoader] Downloaded: js/language_codes.js
-console.js:36 [RemoteUpdate] Downloading: 15/49 - js/language_codes.js
-console.js:36 [RemoteLoader] Downloaded: js/home_operation.js
-console.js:36 [RemoteUpdate] Downloading: 16/49 - js/home_operation.js
-console.js:36 [RemoteLoader] Downloaded: js/login_operation.js
-console.js:36 [RemoteUpdate] Downloading: 17/49 - js/login_operation.js
-console.js:36 [RemoteLoader] Downloaded: js/asset-bootstrapper.js
-console.js:36 [RemoteUpdate] Downloading: 18/49 - js/asset-bootstrapper.js
-console.js:36 [RemoteLoader] Downloaded: css/vod_series_player_page.css
-console.js:36 [RemoteUpdate] Downloading: 19/49 - css/vod_series_player_page.css
-console.js:36 [RemoteLoader] Downloaded: css/channel_page.css
-console.js:36 [RemoteUpdate] Downloading: 20/49 - css/channel_page.css
-console.js:36 [RemoteLoader] Downloaded: css/homepage.css
-console.js:36 [RemoteUpdate] Downloading: 21/49 - css/homepage.css
-console.js:36 [RemoteLoader] Downloaded: css/subtitle.css
-console.js:36 [RemoteUpdate] Downloading: 22/49 - css/subtitle.css
-console.js:36 [RemoteLoader] Downloaded: css/movie_grid.css
-console.js:36 [RemoteUpdate] Downloading: 23/49 - css/movie_grid.css
-console.js:36 [RemoteLoader] Downloaded: css/rating.css
-console.js:36 [RemoteUpdate] Downloading: 24/49 - css/rating.css
-console.js:36 [RemoteLoader] Downloaded: js/seasons_variable.js
-console.js:36 [RemoteUpdate] Downloading: 25/49 - js/seasons_variable.js
-console.js:36 [RemoteLoader] Downloaded: js/episode_variable.js
-console.js:36 [RemoteUpdate] Downloading: 26/49 - js/episode_variable.js
-console.js:36 [RemoteLoader] Downloaded: js/vod_summary.js
-console.js:36 [RemoteUpdate] Downloading: 27/49 - js/vod_summary.js
-console.js:36 [RemoteLoader] Downloaded: js/series_summary.js
-console.js:36 [RemoteUpdate] Downloading: 28/49 - js/series_summary.js
-console.js:36 [RemoteLoader] Downloaded: js/player.js
-console.js:36 [RemoteUpdate] Downloading: 29/49 - js/player.js
-console.js:36 [RemoteLoader] Downloaded: js/vod_series_player.js
-console.js:36 [RemoteUpdate] Downloading: 30/49 - js/vod_series_player.js
-console.js:36 [RemoteLoader] Downloaded: js/channel_operation.js
-console.js:36 [RemoteUpdate] Downloading: 31/49 - js/channel_operation.js
-console.js:36 [RemoteLoader] Downloaded: js/trailer.js
-console.js:36 [RemoteUpdate] Downloading: 32/49 - js/trailer.js
-console.js:36 [RemoteLoader] Downloaded: js/srt_operation.js
-console.js:36 [RemoteUpdate] Downloading: 33/49 - js/srt_operation.js
-console.js:36 [RemoteLoader] Downloaded: js/srt_parser.js
-console.js:36 [RemoteUpdate] Downloading: 34/49 - js/srt_parser.js
-console.js:36 []
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 [RemoteLoader] Downloaded: js/subtitle_fetcher.js
-console.js:36 [RemoteUpdate] Downloading: 35/49 - js/subtitle_fetcher.js
-console.js:36 http://galaiptv.shop:2095/movie/dogubeyyeni2/ev7tHk0Atg/360791.mkv
-console.js:36 adding listener
-console.js:36 0 0 639 359
-console.js:36 Entering setDisplayRect
-console.js:36 Entered AVPlayManager.prepareAsync()
-console.js:36 [RemoteLoader] Downloaded: js/enhanced_subtitle_workflow.js
-console.js:36 [RemoteUpdate] Downloading: 36/49 - js/enhanced_subtitle_workflow.js
-console.js:36 0 0 639 359
-console.js:36 Entering setDisplayRect
-console.js:36 [RemoteLoader] Downloaded: css/guide.css
-console.js:36 [RemoteUpdate] Downloading: 37/49 - css/guide.css
-console.js:36 [RemoteLoader] Downloaded: css/catchup.css
-console.js:36 [RemoteUpdate] Downloading: 38/49 - css/catchup.css
-console.js:36 [RemoteLoader] Downloaded: css/search_page.css
-console.js:36 [RemoteUpdate] Downloading: 39/49 - css/search_page.css
-console.js:36 [RemoteLoader] Downloaded: css/storage_page.css
-console.js:36 [RemoteUpdate] Downloading: 40/49 - css/storage_page.css
-console.js:36 [RemoteLoader] Downloaded: css/youtube_page.css
-console.js:36 [RemoteUpdate] Downloading: 41/49 - css/youtube_page.css
-console.js:36 [RemoteLoader] Downloaded: css/gallary.css
-console.js:36 [RemoteUpdate] Downloading: 42/49 - css/gallary.css
-console.js:36 [RemoteLoader] Downloaded: js/guide_page.js
-console.js:36 [RemoteUpdate] Downloading: 43/49 - js/guide_page.js
-console.js:36 [RemoteLoader] Downloaded: js/catchup.js
-console.js:36 [RemoteUpdate] Downloading: 44/49 - js/catchup.js
-console.js:36 [RemoteLoader] Downloaded: js/search_page.js
-console.js:36 [RemoteUpdate] Downloading: 45/49 - js/search_page.js
-console.js:36 [RemoteLoader] Downloaded: js/youtube_page.js
-console.js:36 [RemoteUpdate] Downloading: 46/49 - js/youtube_page.js
-console.js:36 [RemoteLoader] Downloaded: js/storage_operation.js
-console.js:36 [RemoteUpdate] Downloading: 47/49 - js/storage_operation.js
-console.js:36 [RemoteLoader] Downloaded: js/image_page.js
-console.js:36 [RemoteUpdate] Downloading: 48/49 - js/image_page.js
-console.js:36 [RemoteLoader] Downloaded: js/settings.js
-console.js:36 [RemoteUpdate] Downloading: 49/49 - js/settings.js
-console.js:36 [RemoteLoader] Background update complete. 49 files updated.
-console.js:36 [RemoteLoader] Updates will be applied on next app launch.
-console.js:36 [RemoteUpdate] Background update complete: {success: true, hasUpdates: true, downloadedFiles: Array(49), failedFiles: Array(0), manifest: {…}}
-console.js:36 [RemoteUpdate] 49 files updated. Restart app to apply.
-console.js:36 0 0 639 359
-console.js:36 Entering setDisplayRect
-console.js:36 [VersionDisplay] Manifest in cache: YES (4396 bytes)
-console.js:36 [VersionDisplay] Found version: 1.2.0
-console.js:36 [VersionDisplay] Setting text: v1.2.0 (remote), Element found: YES
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …ry-cdn.com/7.119.0/bundle.tracing.min.js:2:84241)"}
-console.js:36 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40721.ts
-console.js:36 adding listener
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 Entered AVPlayManager.prepareAsync()
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …ry-cdn.com/7.119.0/bundle.tracing.min.js:2:84241)"}
-console.js:36 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/205316.ts
-console.js:36 adding listener
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 Entered AVPlayManager.prepareAsync()
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …ry-cdn.com/7.119.0/bundle.tracing.min.js:2:84241)"}
-console.js:36 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40699.ts
-console.js:36 adding listener
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 Entered AVPlayManager.prepareAsync()
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …ry-cdn.com/7.119.0/bundle.tracing.min.js:2:84241)"}
-console.js:36 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40703.ts
-console.js:36 adding listener
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 Entered AVPlayManager.prepareAsync()
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …ry-cdn.com/7.119.0/bundle.tracing.min.js:2:84241)"}
-console.js:36 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40697.ts
-console.js:36 adding listener
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 Entered AVPlayManager.prepareAsync()
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …ry-cdn.com/7.119.0/bundle.tracing.min.js:2:84241)"}
-console.js:36 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/51387.ts
-console.js:36 adding listener
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 Entered AVPlayManager.prepareAsync()
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …ry-cdn.com/7.119.0/bundle.tracing.min.js:2:84241)"}
-console.js:36 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40715.ts
-console.js:36 adding listener
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 Entered AVPlayManager.prepareAsync()
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 []
-console.js:36 0 0 639 359
-console.js:36 Entering setDisplayRect
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …ry-cdn.com/7.119.0/bundle.tracing.min.js:2:84241)"}
-console.js:36 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40436.ts
-console.js:36 adding listener
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 Entered AVPlayManager.prepareAsync()
-liderhaber.p:1 GET http://45.129.183.111/turk84/liderhaber.p 404 (Not Found)
-Image (async)
-(anonymous) @ jquery.3.4.1.min.js:2
-_ @ jquery.3.4.1.min.js:2
-html @ jquery.3.4.1.min.js:2
-init @ VM499:81
-showCategoryContent @ VM495:1023
-submenuClick @ VM495:1044
-onclick @ index.html:1
-trigger @ jquery.3.4.1.min.js:2
-(anonymous) @ jquery.3.4.1.min.js:2
-each @ jquery.3.4.1.min.js:2
-each @ jquery.3.4.1.min.js:2
-trigger @ jquery.3.4.1.min.js:2
-handleMenuClick @ VM495:1993
-HandleKey @ VM495:2090
-(anonymous) @ VM497:150
-sentryWrapped @ helpers.ts:100
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 WebAPIException {code: 11, name: "InvalidStateError", message: "PLAYER_ERROR_INVALID_STATE", stack: "InvalidStateError: PLAYER_ERROR_INVALID_STATE↵    …ry-cdn.com/7.119.0/bundle.tracing.min.js:2:84241)"}
-console.js:36 http://galaiptv.shop:2095/live/dogubeyyeni2/ev7tHk0Atg/40437.ts
-console.js:36 adding listener
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 Entered AVPlayManager.prepareAsync()
-console.js:36 0 804.234375 1119 629
-console.js:36 Entering setDisplayRect
-console.js:36 0 0 1920 1080
-console.js:36 Entering setDisplayRect

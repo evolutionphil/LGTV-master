@@ -1,423 +1,0 @@
-console.js:36 Sentry initialized with platform: tizen
-console.js:36 {errorCode: -1, errorText: "PalmServiceBridge is not found.", returnValue: false}errorCode: -1errorText: "PalmServiceBridge is not found."returnValue: false__proto__: Object
-console.js:36 PalmServiceBridge is not found.
-(anonymous) @ console.js:36
-value @ webOSTV.js:126
-request @ webOSTV.js:158
-(anonymous) @ VM174:1001
-writeJS @ asset-bootstrapper.js:138
-(anonymous) @ index.html:1856
-console.js:36 PalmServiceBridge is not found.
-(anonymous) @ console.js:36
-value @ webOSTV.js:126
-request @ webOSTV.js:158
-(anonymous) @ VM174:1018
-writeJS @ asset-bootstrapper.js:138
-(anonymous) @ index.html:1856
-console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
-console.js:36 [VersionDisplay] Found version: 1.1.38
-console.js:36 [VersionDisplay] Setting text: v1.1.38 (remote), Element found: YES
-console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
-console.js:36 [VersionDisplay] Found version: 1.1.38
-console.js:36 [VersionDisplay] Setting text: v1.1.38 (remote), Element found: YES
-console.js:36 Samsung Tizen platform detected
-console.js:36 Samsung: Using Ethernet MAC address: a4:30:7a:37:c8:98
-console.js:36 {mac_registered: true, epg_urls: Array(0), youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE", themes: Array(3), adverts: Array(1), …}abc: "https://flixapp.net/api/device_info"adverts: [{…}]blocked_channels: []length: 0__proto__: Array(0)blocked_movies: []length: 0__proto__: Array(0)blocked_series: []epg_urls: Array(0)length: 0__proto__: Array(0)expire_date: "2442-03-14"is_trial: 2languages: (20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]lock: 0mac_address: "a4:30:7a:37:c8:98"mac_registered: trueterms: {version: "1.0", content: "FLIX IPTV - TERMS OF USE↵↵Last Updated: October …ation↵↵© 2025 FLIX IPTV. All rights reserved.↵", updated_date: "2025-10-12"}themes: (3) [{…}, {…}, {…}]trial_days: 7urls: ["http://galaiptv.shop:2095/get.php?username=dogubeyyeni2&password=ev7tHk0Atg&type=m3u&output=mpegts"]youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE"youtube_playlists: Array(0)length: 0__proto__: Array(0)__proto__: Object
-console.js:36 ✅ BLOCKED CHANNELS RECEIVED FROM API: []length: 0__proto__: Array(0)
-console.js:36 ✅ TERMS OF USE RECEIVED FROM API: {version: "1.0", content: "FLIX IPTV - TERMS OF USE↵↵Last Updated: October …ation↵↵© 2025 FLIX IPTV. All rights reserved.↵", updated_date: "2025-10-12"}content: "FLIX IPTV - TERMS OF USE↵↵Last Updated: October 12, 2025 | Version 1.0↵↵IMPORTANT LEGAL NOTICE↵↵By clicking "Accept", you acknowledge and agree to these Terms of Use.↵↵1. SERVICE DESCRIPTION↵FLIX IPTV is a media player application that uses platform-specific native players (Samsung AVPlay, LG WebOS Player, HTML5, ExoPlayer, Apple Player). The App DOES NOT provide, host, distribute, or offer any IPTV channels, streams, or content. It is a neutral playback tool for user-provided sources.↵↵2. USER RESPONSIBILITY↵YOU ARE SOLELY RESPONSIBLE FOR:↵• Ensuring all content complies with copyright laws in your jurisdiction↵• Obtaining proper licenses for any IPTV services you use↵• Verifying that playlist URLs are legally authorized↵• All legal consequences from accessing unlicensed content↵↵YOU MUST NOT:↵• Stream copyrighted content without authorization↵• Use the App to facilitate copyright infringement↵• Access geo-restricted content illegally↵• Violate intellectual property or telecommunications laws↵↵3. LEGAL COMPLIANCE↵Unauthorized streaming is ILLEGAL and may result in:↵• Civil lawsuits and damages from copyright holders↵• Criminal prosecution (up to 10 years imprisonment in some jurisdictions)↵• ISP warnings, throttling, or service termination↵• Fines and legal fees↵↵By using this App, you confirm you will ONLY stream legally authorized content.↵↵4. NO WARRANTIES↵The App is provided "AS IS" without warranties. We do not verify, endorse, or validate third-party content. External IPTV services are not controlled by us.↵↵5. LIMITATION OF LIABILITY↵WE ARE NOT LIABLE FOR:↵• Your violation of copyright or intellectual property laws↵• Legal actions, fines, or prosecution against you↵• Third-party IPTV services or content legality↵• Any direct, indirect, or consequential damages↵• ISP actions or network restrictions↵↵You agree to indemnify and hold us harmless from any claims arising from your use of the App.↵↵6. JURISDICTIONAL COMPLIANCE↵IPTV laws vary by region. You are responsible for understanding local laws. This App may not be legal in all jurisdictions. Users in high-enforcement regions (UK, US, EU, Australia, Canada) should consult legal counsel.↵↵7. AGE RESTRICTION↵This App is for users 18+ only. You confirm you have legal capacity to accept these terms.↵↵8. INTELLECTUAL PROPERTY↵We respect IP rights. Illegal streaming violates copyright laws globally. Users found violating IP laws may face account termination and legal action from rights holders.↵↵9. TERMINATION↵We may terminate access for Terms violations, suspected illegal activity, or any harmful conduct without notice.↵↵10. GOVERNING LAW↵These Terms are governed by applicable laws in your jurisdiction. Disputes shall be resolved through binding arbitration where permitted.↵↵11. ACCEPTANCE↵BY CLICKING "ACCEPT":↵✓ You accept sole responsibility for your content choices↵✓ You will only use legally licensed IPTV services↵✓ You understand illegal streaming may result in prosecution↵✓ You waive all claims against us for your actions↵✓ You comply with all applicable laws↵↵IF YOU DECLINE: You must immediately cease using this App.↵↵For full Terms of Use, visit: https://flixapp.net/terms&conditions↵Contact: https://flixapp.net/activation↵↵© 2025 FLIX IPTV. All rights reserved.↵"updated_date: "2025-10-12"version: "1.0"__proto__: Object
-console.js:36 📜 SHOWING TERMS OF USE (Version: 1.0)
-console.js:36 [RemoteLoader] RemoteLoader v2.0 initialized on tizen
-console.js:36 [RemoteLoader] Network status: online
-The resource https://flixapp.net/images/activation-qr-code.svg was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
-console.js:36 [RemoteLoader] Starting background update check...
-console.js:36 [RemoteLoader] Manifest saved to cache: v1.1.38
-console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
-console.js:36 [VersionDisplay] Found version: 1.1.38
-console.js:36 [VersionDisplay] Setting text: v1.1.38 (remote), Element found: YES
-console.js:36 [RemoteLoader] Version display updated
-console.js:36 [RemoteLoader] Force refresh flag active - will clear cache
-console.js:36 [RemoteLoader] Clearing all cache...
-console.js:36 [RemoteLoader] Cleared all cache
-console.js:36 [RemoteLoader] Manifest saved to cache: v1.1.38
-console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
-console.js:36 [VersionDisplay] Found version: 1.1.38
-console.js:36 [VersionDisplay] Setting text: v1.1.38 (remote), Element found: YES
-console.js:36 [RemoteLoader] Version display updated
-console.js:36 [RemoteLoader] Manifest re-saved after cache clear
-console.js:36 [RemoteLoader] Downloading 49 updated files in background...
-console.js:36 [RemoteLoader] Downloaded: css/style.css
-console.js:36 [RemoteUpdate] Downloading: 1/49 - css/style.css
-console.js:36 [RemoteLoader] Downloaded: css/variables.css
-console.js:36 [RemoteUpdate] Downloading: 2/49 - css/variables.css
-console.js:36 [RemoteLoader] Downloaded: css/responsive.css
-console.js:36 [RemoteUpdate] Downloading: 3/49 - css/responsive.css
-console.js:36 [RemoteLoader] Downloaded: css/vod_series_summary.css
-console.js:36 [RemoteUpdate] Downloading: 4/49 - css/vod_series_summary.css
-console.js:36 [RemoteLoader] Downloaded: css/login.css
-console.js:36 [RemoteUpdate] Downloading: 5/49 - css/login.css
-console.js:36 [RemoteLoader] Downloaded: css/loader.css
-console.js:36 [RemoteUpdate] Downloading: 6/49 - css/loader.css
-console.js:36 [RemoteLoader] Downloaded: js/Models/VodModel.js
-console.js:36 [RemoteUpdate] Downloading: 7/49 - js/Models/VodModel.js
-console.js:36 [RemoteLoader] Downloaded: js/Models/LiveModel.js
-console.js:36 [RemoteUpdate] Downloading: 8/49 - js/Models/LiveModel.js
-console.js:36 [RemoteLoader] Downloaded: js/Models/SeriesModel.js
-console.js:36 [RemoteUpdate] Downloading: 9/49 - js/Models/SeriesModel.js
-console.js:36 [RemoteLoader] Downloaded: js/common.js
-console.js:36 [RemoteUpdate] Downloading: 10/49 - js/common.js
-console.js:36 [RemoteLoader] Downloaded: js/common_with_encrypt.js
-console.js:36 [RemoteUpdate] Downloading: 11/49 - js/common_with_encrypt.js
-console.js:36 [RemoteLoader] Downloaded: js/main.js
-console.js:36 [RemoteUpdate] Downloading: 12/49 - js/main.js
-console.js:36 [RemoteLoader] Downloaded: js/keyTizen.js
-console.js:36 [RemoteUpdate] Downloading: 13/49 - js/keyTizen.js
-console.js:36 [RemoteLoader] Downloaded: js/time_helper.js
-console.js:36 [RemoteUpdate] Downloading: 14/49 - js/time_helper.js
-console.js:36 [RemoteLoader] Downloaded: js/language_codes.js
-console.js:36 [RemoteUpdate] Downloading: 15/49 - js/language_codes.js
-console.js:36 [RemoteLoader] Downloaded: js/home_operation.js
-console.js:36 [RemoteUpdate] Downloading: 16/49 - js/home_operation.js
-console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
-console.js:36 [VersionDisplay] Found version: 1.1.38
-console.js:36 [VersionDisplay] Setting text: v1.1.38 (remote), Element found: YES
-console.js:36 [RemoteLoader] Downloaded: js/login_operation.js
-console.js:36 [RemoteUpdate] Downloading: 17/49 - js/login_operation.js
-console.js:36 [RemoteLoader] Downloaded: js/asset-bootstrapper.js
-console.js:36 [RemoteUpdate] Downloading: 18/49 - js/asset-bootstrapper.js
-console.js:36 [RemoteLoader] Downloaded: css/vod_series_player_page.css
-console.js:36 [RemoteUpdate] Downloading: 19/49 - css/vod_series_player_page.css
-console.js:36 [RemoteLoader] Downloaded: css/channel_page.css
-console.js:36 [RemoteUpdate] Downloading: 20/49 - css/channel_page.css
-console.js:36 [RemoteLoader] Downloaded: css/homepage.css
-console.js:36 [RemoteUpdate] Downloading: 21/49 - css/homepage.css
-console.js:36 [RemoteLoader] Downloaded: css/subtitle.css
-console.js:36 [RemoteUpdate] Downloading: 22/49 - css/subtitle.css
-console.js:36 [RemoteLoader] Downloaded: css/movie_grid.css
-console.js:36 [RemoteUpdate] Downloading: 23/49 - css/movie_grid.css
-console.js:36 [RemoteLoader] Downloaded: css/rating.css
-console.js:36 [RemoteUpdate] Downloading: 24/49 - css/rating.css
-console.js:36 [RemoteLoader] Downloaded: js/seasons_variable.js
-console.js:36 [RemoteUpdate] Downloading: 25/49 - js/seasons_variable.js
-console.js:36 [RemoteLoader] Downloaded: js/episode_variable.js
-console.js:36 [RemoteUpdate] Downloading: 26/49 - js/episode_variable.js
-console.js:36 [RemoteLoader] Downloaded: js/vod_summary.js
-console.js:36 [RemoteUpdate] Downloading: 27/49 - js/vod_summary.js
-console.js:36 [RemoteLoader] Downloaded: js/series_summary.js
-console.js:36 [RemoteUpdate] Downloading: 28/49 - js/series_summary.js
-console.js:36 [RemoteLoader] Downloaded: js/player.js
-console.js:36 [RemoteUpdate] Downloading: 29/49 - js/player.js
-console.js:36 [RemoteLoader] Downloaded: js/vod_series_player.js
-console.js:36 [RemoteUpdate] Downloading: 30/49 - js/vod_series_player.js
-console.js:36 [RemoteLoader] Downloaded: js/channel_operation.js
-console.js:36 [RemoteUpdate] Downloading: 31/49 - js/channel_operation.js
-console.js:36 [RemoteLoader] Downloaded: js/trailer.js
-console.js:36 [RemoteUpdate] Downloading: 32/49 - js/trailer.js
-console.js:36 [RemoteLoader] Downloaded: js/srt_operation.js
-console.js:36 [RemoteUpdate] Downloading: 33/49 - js/srt_operation.js
-console.js:36 [RemoteLoader] Downloaded: js/srt_parser.js
-console.js:36 [RemoteUpdate] Downloading: 34/49 - js/srt_parser.js
-console.js:36 [RemoteLoader] Downloaded: js/subtitle_fetcher.js
-console.js:36 [RemoteUpdate] Downloading: 35/49 - js/subtitle_fetcher.js
-console.js:36 [RemoteLoader] Downloaded: js/enhanced_subtitle_workflow.js
-console.js:36 [RemoteUpdate] Downloading: 36/49 - js/enhanced_subtitle_workflow.js
-console.js:36 [RemoteLoader] Downloaded: css/guide.css
-console.js:36 [RemoteUpdate] Downloading: 37/49 - css/guide.css
-console.js:36 [RemoteLoader] Downloaded: css/catchup.css
-console.js:36 [RemoteUpdate] Downloading: 38/49 - css/catchup.css
-console.js:36 [RemoteLoader] Downloaded: css/search_page.css
-console.js:36 [RemoteUpdate] Downloading: 39/49 - css/search_page.css
-console.js:36 [RemoteLoader] Downloaded: css/storage_page.css
-console.js:36 [RemoteUpdate] Downloading: 40/49 - css/storage_page.css
-console.js:36 [RemoteLoader] Downloaded: css/youtube_page.css
-console.js:36 [RemoteUpdate] Downloading: 41/49 - css/youtube_page.css
-console.js:36 [RemoteLoader] Downloaded: css/gallary.css
-console.js:36 [RemoteUpdate] Downloading: 42/49 - css/gallary.css
-console.js:36 [RemoteLoader] Downloaded: js/guide_page.js
-console.js:36 [RemoteUpdate] Downloading: 43/49 - js/guide_page.js
-console.js:36 [RemoteLoader] Downloaded: js/catchup.js
-console.js:36 [RemoteUpdate] Downloading: 44/49 - js/catchup.js
-console.js:36 [RemoteLoader] Downloaded: js/search_page.js
-console.js:36 [RemoteUpdate] Downloading: 45/49 - js/search_page.js
-console.js:36 [RemoteLoader] Downloaded: js/youtube_page.js
-console.js:36 [RemoteUpdate] Downloading: 46/49 - js/youtube_page.js
-console.js:36 [RemoteLoader] Downloaded: js/storage_operation.js
-console.js:36 [RemoteUpdate] Downloading: 47/49 - js/storage_operation.js
-console.js:36 [RemoteLoader] Downloaded: js/image_page.js
-console.js:36 [RemoteUpdate] Downloading: 48/49 - js/image_page.js
-console.js:36 [RemoteLoader] Downloaded: js/settings.js
-console.js:36 [RemoteUpdate] Downloading: 49/49 - js/settings.js
-console.js:36 [RemoteLoader] Background update complete. 49 files updated.
-console.js:36 [RemoteLoader] Updates will be applied on next app launch.
-console.js:36 [RemoteUpdate] Background update complete: {success: true, hasUpdates: true, downloadedFiles: Array(49), failedFiles: Array(0), manifest: {…}}downloadedFiles: Array(49)0: "css/style.css"1: "css/variables.css"2: "css/responsive.css"3: "css/vod_series_summary.css"4: "css/login.css"5: "css/loader.css"6: "js/Models/VodModel.js"7: "js/Models/LiveModel.js"8: "js/Models/SeriesModel.js"9: "js/common.js"10: "js/common_with_encrypt.js"11: "js/main.js"12: "js/keyTizen.js"13: "js/time_helper.js"14: "js/language_codes.js"15: "js/home_operation.js"16: "js/login_operation.js"17: "js/asset-bootstrapper.js"18: "css/vod_series_player_page.css"19: "css/channel_page.css"20: "css/homepage.css"21: "css/subtitle.css"22: "css/movie_grid.css"23: "css/rating.css"24: "js/seasons_variable.js"25: "js/episode_variable.js"26: "js/vod_summary.js"27: "js/series_summary.js"28: "js/player.js"29: "js/vod_series_player.js"30: "js/channel_operation.js"31: "js/trailer.js"32: "js/srt_operation.js"33: "js/srt_parser.js"34: "js/subtitle_fetcher.js"35: "js/enhanced_subtitle_workflow.js"36: "css/guide.css"37: "css/catchup.css"38: "css/search_page.css"39: "css/storage_page.css"40: "css/youtube_page.css"41: "css/gallary.css"42: "js/guide_page.js"43: "js/catchup.js"44: "js/search_page.js"45: "js/youtube_page.js"46: "js/storage_operation.js"47: "js/image_page.js"48: "js/settings.js"length: 49__proto__: Array(0)failedFiles: []hasUpdates: truemanifest: {version: "1.1.38", lastUpdate: "2026-01-02T08:41:44.366Z", killSwitch: false, forceRefresh: true, cacheGeneration: 19, …}success: true__proto__: Object
-console.js:36 [RemoteUpdate] 49 files updated. Restart app to apply.
-console.js:36 [VersionDisplay] Manifest in cache: YES (4398 bytes)
-console.js:36 [VersionDisplay] Found version: 1.1.38
-console.js:36 [VersionDisplay] Setting text: v1.1.38 (remote), Element found: YES
-console.js:36 ✅ TERMS ACCEPTED (Version: 1.0)
-console.js:36 {mac_registered: true, epg_urls: Array(0), youtube_api_key: "AIzaSyDah7Y_f30m5qLRa_oTWUnferVy4PzcufE", themes: Array(3), adverts: Array(1), …}
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 adding listener
-console.js:36 ┌─────────────────────────────────────────────┐
-console.js:36 │ setDisplayArea() CALLED
-console.js:36 ├─────────────────────────────────────────────┤
-console.js:36   full_screen_state: 0
-console.js:36   forcePreview: undefined
-console.js:36   useFullscreen: false
-console.js:36   avplayBase: 1920x1080
-console.js:36 Entered AVPlayManager.prepareAsync()
-console.js:36   MODE: PREVIEW
-console.js:36   videoObj offset: 0,0
-console.js:36   videoObj size: 639x359
-console.js:36   ratio: 1.00x1.00
-console.js:36   scaled rect: 0,0 639x359
-console.js:36   isUHD: false displayMode: PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO
-console.js:36 └─────────────────────────────────────────────┘
-console.js:36   ✓ setDisplayMethod OK
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect OK (initial)
-console.js:36 ┌─────────────────────────────────────────────┐
-console.js:36 │ setDisplayArea() CALLED
-console.js:36 ├─────────────────────────────────────────────┤
-console.js:36   full_screen_state: 0
-console.js:36   forcePreview: undefined
-console.js:36   useFullscreen: false
-console.js:36   avplayBase: 1920x1080
-console.js:36   MODE: PREVIEW
-console.js:36   videoObj offset: 0,0
-console.js:36   videoObj size: 639x359
-console.js:36   ratio: 1.00x1.00
-console.js:36   scaled rect: 0,0 639x359
-console.js:36   isUHD: false displayMode: PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO
-console.js:36 └─────────────────────────────────────────────┘
-console.js:36   ✓ setDisplayMethod OK
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect OK (initial)
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect RETRY OK
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect RETRY OK
-console.js:36 ┌─────────────────────────────────────────────┐
-console.js:36 │ setDisplayArea() CALLED
-console.js:36 ├─────────────────────────────────────────────┤
-console.js:36   full_screen_state: 0
-console.js:36   forcePreview: undefined
-console.js:36   useFullscreen: false
-console.js:36   avplayBase: 1920x1080
-console.js:36   MODE: PREVIEW
-console.js:36   videoObj offset: 0,0
-console.js:36   videoObj size: 639x359
-console.js:36   ratio: 1.00x1.00
-console.js:36   scaled rect: 0,0 639x359
-console.js:36   isUHD: false displayMode: PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO
-console.js:36 └─────────────────────────────────────────────┘
-console.js:36   ✓ setDisplayMethod OK
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect OK (initial)
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect RETRY OK
-console.js:36 Entering setDisplayRect
-console.js:36 ╔══════════════════════════════════════════════════════════════════╗
-console.js:36 ║ CHANNEL_OPERATION.INIT() - ENTERING CATEGORY
-console.js:36 ╠══════════════════════════════════════════════════════════════════╣
-console.js:36   channel_id: 0
-console.js:36   full_screen param: false
-console.js:36   CURRENT STATE:
-console.js:36     - full_screen_video: false
-console.js:36     - transitioning_to_fullscreen: false
-console.js:36     - media_player.full_screen_state: 0
-console.js:36     - keys.focused_part: channel_selection
-console.js:36     - current_channel_id: 0
-console.js:36   RESETTING STATE for new category...
-console.js:36 ╚══════════════════════════════════════════════════════════════════╝
-console.js:36 ╔════════════════════════════════════════════════════════════╗
-console.js:36 ║ showLiveChannelMovie: START
-console.js:36 ╠════════════════════════════════════════════════════════════╣
-console.js:36   Channel ID: 170686
-console.js:36   Channel Name: TR: TRT 1 QHD
-console.js:36   Channel Num: 660
-console.js:36   full_screen_video: false
-console.js:36   media_player.full_screen_state: 0
-console.js:36 ╚════════════════════════════════════════════════════════════╝
-console.js:36 showLiveChannelMovie: Before init() - full_screen_state= 0
-console.js:36 showLiveChannelMovie: transitioning_to_fullscreen= false
-console.js:36 in getErrorObjectLocal code:11,name:InvalidStateError NaNmessage:PLAYER_ERROR_INVALID_STATE
-console.js:36 showLiveChannelMovie: After init() - full_screen_state= 0
-console.js:36 showLiveChannelMovie: full_screen_state !== 1, scheduling setDisplayArea() for preview mode
-console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
-console.js:36 adding listener
-console.js:36 ┌─────────────────────────────────────────────┐
-console.js:36 │ setDisplayArea() CALLED
-console.js:36 ├─────────────────────────────────────────────┤
-console.js:36   full_screen_state: 0
-console.js:36   forcePreview: undefined
-console.js:36   useFullscreen: false
-console.js:36   avplayBase: 1920x1080
-console.js:36 Entered AVPlayManager.prepareAsync()
-console.js:36 ╔═══════════════════════════════════════════════════════════════╗
-console.js:36 ║ Setting Channel Info Bar
-console.js:36 ╠═══════════════════════════════════════════════════════════════╣
-console.js:36   Channel Name: TR: TRT 1 QHD
-console.js:36   Channel Num: 660
-console.js:36   Set in #full-screen-channel-name-compact
-console.js:36   Set channel number in #full-screen-channel-number
-console.js:36 ╚═══════════════════════════════════════════════════════════════╝
-console.js:36   MODE: PREVIEW
-console.js:36   videoObj offset: 804.234375,0
-console.js:36   videoObj size: 1119x629
-console.js:36   ratio: 1.00x1.00
-console.js:36   scaled rect: 804,0 1119x629
-console.js:36   isUHD: false displayMode: PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO
-console.js:36 └─────────────────────────────────────────────┘
-console.js:36   ✓ setDisplayMethod OK
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect OK (initial)
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect RETRY OK
-console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
-console.js:36 ┌─────────────────────────────────────────────┐
-console.js:36 │ setDisplayArea() CALLED
-console.js:36 ├─────────────────────────────────────────────┤
-console.js:36   full_screen_state: 0
-console.js:36   forcePreview: undefined
-console.js:36   useFullscreen: false
-console.js:36   avplayBase: 1920x1080
-console.js:36   MODE: PREVIEW
-console.js:36   videoObj offset: 804.234375,0
-console.js:36   videoObj size: 1119x629
-console.js:36   ratio: 1.00x1.00
-console.js:36   scaled rect: 804,0 1119x629
-console.js:36   isUHD: false displayMode: PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO
-console.js:36 └─────────────────────────────────────────────┘
-console.js:36   ✓ setDisplayMethod OK
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect OK (initial)
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect RETRY OK
-console.js:36 ┌─────────────────────────────────────────────┐
-console.js:36 │ setDisplayArea() CALLED
-console.js:36 ├─────────────────────────────────────────────┤
-console.js:36   full_screen_state: 0
-console.js:36   forcePreview: undefined
-console.js:36   useFullscreen: false
-console.js:36   avplayBase: 1920x1080
-console.js:36   MODE: PREVIEW
-console.js:36   videoObj offset: 804.234375,0
-console.js:36   videoObj size: 1119x629
-console.js:36   ratio: 1.00x1.00
-console.js:36   scaled rect: 804,0 1119x629
-console.js:36   isUHD: false displayMode: PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO
-console.js:36 └─────────────────────────────────────────────┘
-console.js:36   ✓ setDisplayMethod OK
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect OK (initial)
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect RETRY OK
-console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-console.js:36 ┃ KEY PRESS: OK/ENTER
-console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
-console.js:36   State Snapshot:
-console.js:36     focused_part: channel_selection
-console.js:36     full_screen_video: false
-console.js:36     transitioning_to_fullscreen: false
-console.js:36     media_player.full_screen_state: 0
-console.js:36     current_channel_id: 170686
-console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-console.js:36 ⏎ Calling handleMenuClick()
-console.js:36 ═══════════════════════════════════════════════════════
-console.js:36 handleMenuClick START
-console.js:36   focused_part: channel_selection
-console.js:36   transitioning_to_fullscreen: false
-console.js:36   full_screen_video: false
-console.js:36 ═══════════════════════════════════════════════════════
-console.js:36 handleMenuClick: Branch → channel_selection
-console.js:36   Triggering click on menu_items[0]
-console.js:36 ┌─────────────────────────────────────────────────────────┐
-console.js:36 │ channelItemClick
-console.js:36 ├─────────────────────────────────────────────────────────┤
-console.js:36   Selected Channel: TR: TRT 1 QHD
-console.js:36   stream_id: 170686
-console.js:36   current_channel_id: 170686
-console.js:36   full_screen_video: false
-console.js:36 └─────────────────────────────────────────────────────────┘
-console.js:36 channelItemClick: SAME CHANNEL - checking if should zoom
-console.js:36 channelItemClick: Not fullscreen - ZOOMING IN
-console.js:36 🔒 UI LOCKED for 800ms until: 1767358164533
-console.js:36 ========================================
-console.js:36 zoomInOut() ZOOM IN START
-console.js:36   transitioning_to_fullscreen: true
-console.js:36   full_screen_video (before): true
-console.js:36   focused_part (before): full_screen
-console.js:36 ========================================
-console.js:36 zoomInOut() ZOOM IN: Updated flags IMMEDIATELY
-console.js:36   focused_part (after): full_screen
-console.js:36   full_screen_video (after): true
-console.js:36   full_screen_state: 1
-console.js:36 zoomInOut() ZOOM IN: Calling setDisplayArea SYNCHRONOUSLY with full_screen_state: 1
-console.js:36 ┌─────────────────────────────────────────────┐
-console.js:36 │ setDisplayArea() CALLED
-console.js:36 ├─────────────────────────────────────────────┤
-console.js:36   full_screen_state: 1
-console.js:36   forcePreview: undefined
-console.js:36   useFullscreen: true
-console.js:36   avplayBase: 1920x1080
-console.js:36 ╔════════════════════════════════════════════════════════╗
-console.js:36 ║ Showing fullscreen info bar
-console.js:36 ╠════════════════════════════════════════════════════════╣
-console.js:36   #full-screen-information will show with .visible class
-console.js:36   Channel name is in #full-screen-channel-name-compact
-console.js:36 ╚════════════════════════════════════════════════════════╝
-console.js:36   MODE: FULLSCREEN
-console.js:36   rect: 0,0 1920x1080
-console.js:36 └─────────────────────────────────────────────┘
-console.js:36   ✓ setDisplayMethod OK
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect OK
-console.js:36 zoomInOut() ZOOM IN: Cleared transitioning flag
-console.js:36 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-console.js:36 ┃ KEY PRESS: OK/ENTER
-console.js:36 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
-console.js:36   State Snapshot:
-console.js:36     focused_part: full_screen
-console.js:36     full_screen_video: true
-console.js:36     transitioning_to_fullscreen: false
-console.js:36     media_player.full_screen_state: 1
-console.js:36     current_channel_id: 170686
-console.js:36 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-console.js:36 ⏎ Calling handleMenuClick()
-console.js:36 ═══════════════════════════════════════════════════════
-console.js:36 handleMenuClick START
-console.js:36   focused_part: full_screen
-console.js:36   transitioning_to_fullscreen: false
-console.js:36   full_screen_video: true
-console.js:36 ═══════════════════════════════════════════════════════
-console.js:36 handleMenuClick: Branch → full_screen
-console.js:36 handleMenuClick: ⬅ Exiting fullscreen - calling zoomInOut()
-console.js:36 ========================================
-console.js:36 zoomInOut() ZOOM OUT - set full_screen_state to 0
-console.js:36 full_screen_video: false
-console.js:36 focused_part: channel_selection
-console.js:36 transitioning_to_fullscreen: CLEARED
-console.js:36 ========================================
-console.js:36 🔒 UI LOCKED for 400ms until: 1767358165331
-console.js:36 📅 scheduleSetDisplayArea: delay=250ms, clearing previous timeout
-console.js:36 ⏰ scheduleSetDisplayArea: timeout fired, executing callback
-console.js:36 ┌─────────────────────────────────────────────┐
-console.js:36 │ setDisplayArea() CALLED
-console.js:36 ├─────────────────────────────────────────────┤
-console.js:36   full_screen_state: 0
-console.js:36   forcePreview: undefined
-console.js:36   useFullscreen: false
-console.js:36   avplayBase: 1920x1080
-console.js:36   MODE: PREVIEW
-console.js:36   videoObj offset: 804.234375,0
-console.js:36   videoObj size: 1119x629
-console.js:36   ratio: 1.00x1.00
-console.js:36   scaled rect: 804,0 1119x629
-console.js:36   isUHD: false displayMode: PLAYER_DISPLAY_MODE_AUTO_ASPECT_RATIO
-console.js:36 └─────────────────────────────────────────────┘
-console.js:36   ✓ setDisplayMethod OK
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect OK (initial)
-console.js:36 Entering setDisplayRect
-console.js:36   ✓ setDisplayRect RETRY OK
-console.js:36 Hiding fullscreen info bar after 5 seconds
