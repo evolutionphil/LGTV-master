@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/SmartTvProject" version="1.1.8" viewmodes="maximized">
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://flixapp.tv/FLIXIPTV" version="1.1.8" viewmodes="maximized">
     <access origin="*" subdomains="true"></access>
     <tizen:application id="qDXvQBVmtf.FLIXIPTV" package="qDXvQBVmtf" required_version="2.4"/>
     <content src="index.html"/>
-    <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
     <feature name="http://tizen.org/feature/network.wifi"/>
     <feature name="http://tizen.org/feature/network.ethernet"/>
     <icon src="images/app_launcher.png"/>
